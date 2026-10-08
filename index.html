@@ -2,184 +2,165 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0b0b0d">
-  <meta name="description" content="Happy Eck Kiosk in Hamm – Getränke, Snacks, Eis, Süßigkeiten und mehr. Entdecke unser Sortiment und bestelle über Lieferando.">
-  <title>Happy Eck Kiosk | Dein Kiosk in Hamm</title>
-  <link rel="icon" href="assets/logo.jpeg">
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Happy Eck Kiosk | Hamm</title>
+<meta name="description" content="Happy Eck Kiosk in Hamm – Getränke, Snacks, Süßigkeiten, Eis und vieles mehr.">
+<link rel="icon" href="assets/logo.jpg">
+<style>
+:root{--gold:#f6c45b;--dark:#0b0c10;--card:#1b1c22}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--dark);color:white;font-family:Arial,sans-serif;line-height:1.6}
+a{text-decoration:none;color:inherit}
+.wrap{width:min(1150px,92%);margin:auto}
+header{position:sticky;top:0;z-index:10;background:#101116f5;border-bottom:1px solid #ffffff20}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:12px 0;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;font-size:23px;font-weight:900}
+.brand img{width:55px;height:55px;object-fit:contain;border-radius:12px}
+.gold{color:var(--gold)}
+nav{display:flex;flex-wrap:wrap;gap:16px;font-size:14px;font-weight:bold}
+nav a:hover{color:var(--gold)}
+section{padding:80px 0;scroll-margin-top:90px}
+.hero{padding:110px 0;background:radial-gradient(circle at 85% 30%,#73531e80,transparent 50%),linear-gradient(120deg,#171820,#08090c)}
+.eyebrow{color:var(--gold);font-size:13px;letter-spacing:2px;font-weight:900;text-transform:uppercase}
+h1{font-size:clamp(43px,7vw,85px);line-height:1.06;letter-spacing:-2px;margin:18px 0}
+h2{font-size:clamp(30px,4vw,45px);line-height:1.2;margin:12px 0}
+h3{margin:12px 0;font-size:22px}
+p{color:#bcbec9}
+.hero p{font-size:19px;max-width:630px}
+.btns{display:flex;gap:13px;flex-wrap:wrap;margin-top:25px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 23px;border-radius:12px;font-weight:800;transition:.2s}
+.btn:hover{transform:translateY(-3px)}
+.primary{background:var(--gold);color:#18140b}
+.secondary{background:#292b33;border:1px solid #ffffff25}
+.orange{background:#ff8000;color:#17110a}
+.heading{text-align:center;max-width:760px;margin:0 auto 40px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:var(--card);padding:28px;border-radius:20px;border:1px solid #ffffff20;transition:.2s}
+.card:hover{transform:translateY(-4px);border-color:var(--gold)}
+.emoji{font-size:44px}
+.alt{background:#14151b}
+.center{text-align:center}
+.center .btns{justify-content:center}
+.panel{background:var(--card);padding:35px;border-radius:22px;border:1px solid #ffffff20}
+.big-logo{width:105px;height:105px;object-fit:contain;border-radius:20px}
+footer{background:#090a0d;padding:35px 0;border-top:1px solid #ffffff20}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.grid{grid-template-columns:1fr}.nav{justify-content:center}nav{justify-content:center}.hero{padding:70px 0}section{padding:60px 0}}
+</style>
 </head>
-
 <body>
-  <header>
-    <div class="container navbar">
-      <a class="logo" href="index.html">
-        <img src="assets/logo.jpeg" alt="Happy Eck Logo">
-        HAPPY <span>ECK</span>
-      </a>
-      <nav aria-label="Hauptnavigation">
-        <a href="#start">Start</a>
-        <a href="#sortiment">Sortiment</a>
-        <a href="#galerie">Galerie</a>
-        <a href="#bestellen">Bestellen</a>
-        <a href="#jobs">Jobs</a>
-        <a href="#kontakt">Kontakt</a>
-      </nav>
-    </div>
-  </header>
 
-  <main>
-    <section class="hero" id="start">
-      <div class="container">
-        <p class="gold"><strong>WILLKOMMEN BEI HAPPY ECK</strong></p>
-        <h1>DEIN KIOSK.<br><span class="gold">DEIN MOMENT.</span></h1>
-        <p>Erfrischende Getränke, leckere Snacks, Eis, Süßigkeiten und vieles mehr. Entdecke Happy Eck Kiosk in Hamm!</p>
-        <div class="buttons">
-          <a class="btn btn-gold" href="#sortiment">Sortiment entdecken →</a>
-          <a class="btn btn-dark" href="#bestellen">Jetzt bestellen</a>
-        </div>
-      </div>
-    </section>
+<header>
+<div class="wrap nav">
+<a href="#start" class="brand">
+<img src="assets/logo.jpg" alt="Happy Eck Logo">
+<div>HAPPY <span class="gold">ECK</span></div>
+</a>
+<nav>
+<a href="#start">Start</a>
+<a href="#sortiment">Sortiment</a>
+<a href="#galerie">Galerie</a>
+<a href="#bestellen">Bestellen</a>
+<a href="#jobs">Jobs</a>
+<a href="#kontakt">Kontakt</a>
+</nav>
+</div>
+</header>
 
-    <section id="sortiment">
-      <div class="container">
-        <div class="section-title">
-          <p class="gold">UNSERE AUSWAHL</p>
-          <h2>Für jeden Geschmack etwas dabei</h2>
-          <p>Entdecke unsere Produktkategorien.</p>
-        </div>
+<main>
+<section class="hero" id="start">
+<div class="wrap">
+<img class="big-logo" src="assets/logo.jpg" alt="Happy Eck Kiosk">
+<div class="eyebrow">Willkommen bei Happy Eck</div>
+<h1>DEIN KIOSK.<br><span class="gold">DEIN MOMENT.</span></h1>
+<p>Getränke, Energy-Drinks, Snacks, Süßigkeiten, Eis und vieles mehr. Entdecke Happy Eck Kiosk in Hamm!</p>
+<div class="btns">
+<a href="#sortiment" class="btn primary">Sortiment entdecken →</a>
+<a href="#bestellen" class="btn secondary">Jetzt bestellen</a>
+</div>
+</div>
+</section>
 
-        <div class="grid">
-          <article class="card">
-            <img src="assets/kiosk-1.jpeg" alt="Getränke im Happy Eck Kiosk" loading="lazy">
-            <div class="card-content">
-              <h3>Getränke & Energy</h3>
-              <p>Softdrinks, Wasser, Eistee und Energy-Drinks.</p>
-            </div>
-          </article>
+<section id="sortiment">
+<div class="wrap">
+<div class="heading">
+<div class="eyebrow">Unser Sortiment</div>
+<h2>Alles, was du brauchst.</h2>
+<p>Entdecke unsere große Auswahl.</p>
+</div>
+<div class="grid">
+<div class="card"><div class="emoji">🥤</div><h3>Getränke & Energy</h3><p>Red Bull, Monster, Rockstar, Cola, Wasser, Eistee und mehr.</p></div>
+<div class="card"><div class="emoji">🍫</div><h3>Süßigkeiten & Snacks</h3><p>Schokolade, Chips, Fruchtgummi und leckere Snacks.</p></div>
+<div class="card"><div class="emoji">🍦</div><h3>Eis</h3><p>Leckere Eissorten und erfrischende Spezialitäten.</p></div>
+<div class="card"><div class="emoji">🧸</div><h3>Spielwaren</h3><p>Kleine Überraschungen und Geschenkideen.</p></div>
+<div class="card"><div class="emoji">📦</div><h3>GLS Paketshop</h3><p>Informationen zu unserem Paketservice erhältst du direkt im Geschäft.</p></div>
+<div class="card"><div class="emoji">🏪</div><h3>Weitere Produkte</h3><p>Entdecke noch mehr Auswahl bei uns vor Ort.</p></div>
+</div>
+</div>
+</section>
 
-          <article class="card">
-            <img src="assets/kiosk-2.jpeg" alt="Snacks und Süßigkeiten" loading="lazy">
-            <div class="card-content">
-              <h3>Snacks & Süßigkeiten</h3>
-              <p>Chips, Schokolade, Fruchtgummi und mehr.</p>
-            </div>
-          </article>
+<section class="alt" id="galerie">
+<div class="wrap">
+<div class="heading">
+<div class="eyebrow">Galerie</div>
+<h2>Happy Eck entdecken</h2>
+<p>Dein Kiosk in Hamm.</p>
+</div>
+<div class="panel center">
+<img class="big-logo" src="assets/logo.jpg" alt="Happy Eck">
+<h3>Willkommen bei Happy Eck!</h3>
+<p>Weitere Bilder aus unserem Kiosk folgen bald.</p>
+</div>
+</div>
+</section>
 
-          <article class="card">
-            <img src="assets/kiosk-3.jpeg" alt="Eis und weitere Produkte" loading="lazy">
-            <div class="card-content">
-              <h3>Eis</h3>
-              <p>Leckere Eissorten für eine süße Pause.</p>
-            </div>
-          </article>
+<section id="bestellen">
+<div class="wrap center">
+<div class="eyebrow">Online bestellen</div>
+<h2>Jetzt bequem bestellen</h2>
+<p>Du findest Happy Eck Kiosk auf Lieferando.</p>
+<div class="btns">
+<a href="https://www.lieferando.de/" target="_blank" rel="noopener noreferrer" class="btn orange">Lieferando öffnen ↗</a>
+</div>
+<p>Suche auf Lieferando nach „Happy Eck Kiosk“.</p>
+</div>
+</section>
 
-          <article class="card">
-            <img src="assets/kiosk-4.jpeg" alt="Weitere Getränke" loading="lazy">
-            <div class="card-content">
-              <h3>Weitere Getränke</h3>
-              <p>Eine große Auswahl für verschiedene Anlässe.</p>
-            </div>
-          </article>
+<section class="alt" id="jobs">
+<div class="wrap center">
+<div class="eyebrow">Karriere</div>
+<h2>Arbeiten bei Happy Eck</h2>
+<p>Du interessierst dich für Minijob, Teilzeit oder Vollzeit? Schicke uns deine Bewerbung. Wir prüfen, ob eine passende Stelle verfügbar ist.</p>
+<div class="btns">
+<a href="mailto:happyeck10@gmail.com?subject=Bewerbung%20Happy%20Eck%20Kiosk" class="btn primary">Jetzt bewerben →</a>
+</div>
+</div>
+</section>
 
-          <article class="card">
-            <img src="assets/kiosk-5.jpeg" alt="Produktauswahl im Kiosk" loading="lazy">
-            <div class="card-content">
-              <h3>Spielwaren & mehr</h3>
-              <p>Entdecke weitere Artikel aus unserem Sortiment.</p>
-            </div>
-          </article>
+<section id="kontakt">
+<div class="wrap center">
+<div class="eyebrow">Kontakt & Social Media</div>
+<h2>Bleib mit uns verbunden</h2>
+<p>Folge uns auf Instagram und TikTok oder finde uns auf Google Maps.</p>
+<div class="btns">
+<a class="btn primary" href="https://www.instagram.com/happy.eck.kiosk/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+<a class="btn secondary" href="https://www.tiktok.com/@happy.eck" target="_blank" rel="noopener noreferrer">TikTok ↗</a>
+<a class="btn secondary" href="https://www.google.com/maps/search/?api=1&query=Happy+Eck+Kiosk+Hamm" target="_blank" rel="noopener noreferrer">Google Maps ↗</a>
+</div>
+<p><a href="mailto:happyeck10@gmail.com">happyeck10@gmail.com</a></p>
+</div>
+</section>
+</main>
 
-          <article class="card">
-            <div class="card-content">
-              <h3>Tabakwaren & Zubehör</h3>
-              <p>Weitere Produkte für Erwachsene ab 18 Jahren.</p>
-              <p>Nur vor Ort und unter Beachtung der gesetzlichen Altersgrenzen.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
+<footer>
+<div class="wrap">
+<h3>HAPPY <span class="gold">ECK</span> KIOSK</h3>
+<p>Dein Kiosk in Hamm.</p>
+<p>© 2026 Happy Eck Kiosk</p>
+</div>
+</footer>
 
-    <section id="galerie" style="background:#111115">
-      <div class="container">
-        <div class="section-title">
-          <p class="gold">EINBLICKE</p>
-          <h2>Unser Happy Eck Kiosk</h2>
-          <p>Ein Blick in unseren Laden.</p>
-        </div>
-        <div class="gallery">
-          <img src="assets/kiosk-1.jpeg" alt="Happy Eck Foto 1" loading="lazy">
-          <img src="assets/kiosk-2.jpeg" alt="Happy Eck Foto 2" loading="lazy">
-          <img src="assets/kiosk-3.jpeg" alt="Happy Eck Foto 3" loading="lazy">
-          <img src="assets/kiosk-4.jpeg" alt="Happy Eck Foto 4" loading="lazy">
-          <img src="assets/kiosk-5.jpeg" alt="Happy Eck Foto 5" loading="lazy">
-        </div>
-      </div>
-    </section>
-
-    <section id="bestellen">
-      <div class="container">
-        <div class="section-title">
-          <p class="gold">EINFACH & BEQUEM</p>
-          <h2>Jetzt bei Happy Eck bestellen</h2>
-          <p>Entdecke unser Angebot auf Lieferando oder kontaktiere uns direkt.</p>
-        </div>
-        <div class="buttons" style="justify-content:center">
-          <a class="btn btn-orange" href="https://www.lieferando.de/" target="_blank" rel="noopener noreferrer">Über Lieferando bestellen ↗</a>
-          <a class="btn btn-green" href="https://wa.me/?text=Hallo%20Happy%20Eck%20Kiosk" target="_blank" rel="noopener noreferrer">WhatsApp öffnen ↗</a>
-        </div>
-        <p style="text-align:center;color:var(--muted);margin-top:18px">
-          Auf Lieferando nach „Happy Eck Kiosk“ suchen. Der WhatsApp-Button wird später mit unserer Geschäftsnummer verbunden.
-        </p>
-      </div>
-    </section>
-
-    <section id="jobs" style="background:#111115">
-      <div class="container">
-        <div class="section-title">
-          <p class="gold">KARRIERE</p>
-          <h2>Werde Teil von Happy Eck</h2>
-          <p>Du interessierst dich für einen Minijob, eine Teilzeit- oder Vollzeitstelle? Wir freuen uns über deine Anfrage.</p>
-          <div class="buttons" style="justify-content:center">
-            <a class="btn btn-gold" href="mailto:happyeck10@gmail.com?subject=Bewerbung%20Happy%20Eck%20Kiosk">Jetzt bewerben →</a>
-          </div>
-          <p style="margin-top:16px">Eine Anfrage ist jederzeit möglich. Ob eine Stelle frei ist, klären wir persönlich.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="kontakt">
-      <div class="container">
-        <div class="section-title">
-          <p class="gold">KONTAKT & SOCIAL MEDIA</p>
-          <h2>Bleib mit uns verbunden</h2>
-          <p>Folge Happy Eck auf Instagram und TikTok oder besuche uns in Hamm.</p>
-        </div>
-        <div class="buttons" style="justify-content:center">
-          <a class="btn btn-gold" href="https://www.instagram.com/happy.eck.kiosk/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
-          <a class="btn btn-dark" href="https://www.tiktok.com/@happy.eck" target="_blank" rel="noopener noreferrer">TikTok ↗</a>
-          <a class="btn btn-dark" href="https://www.google.com/maps/search/?api=1&query=Happy+Eck+Kiosk+Hamm" target="_blank" rel="noopener noreferrer">Google Maps ↗</a>
-        </div>
-        <p style="text-align:center;margin-top:25px">
-          <a href="mailto:happyeck10@gmail.com">happyeck10@gmail.com</a>
-        </p>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <h3>HAPPY <span class="gold">ECK</span> KIOSK</h3>
-      <p>Dein Kiosk in Hamm.</p>
-      <p>
-        <a href="impressum.html">Impressum</a> ·
-        <a href="datenschutz.html">Datenschutz</a>
-      </p>
-      <p style="color:var(--muted)">© <span id="year">2026</span> Happy Eck Kiosk</p>
-    </div>
-  </footer>
 </body>
 </html>
