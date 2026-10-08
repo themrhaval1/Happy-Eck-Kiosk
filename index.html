@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Happy Eck Kiosk | Hamm</title>
-<meta name="description" content="Happy Eck Kiosk in Hamm – Getränke, Snacks, Süßigkeiten, Eis und vieles mehr.">
+<meta name="description" content="Happy Eck Kiosk in Hamm – Getränke, Snacks, Eis, Süßigkeiten und mehr.">
 <link rel="icon" href="assets/logo.jpg">
 <style>
 :root{--gold:#f6c45b;--dark:#0b0c10;--card:#1b1c22}
@@ -43,11 +43,12 @@ p{color:#bcbec9}
 .alt{background:#14151b}
 .center{text-align:center}
 .center .btns{justify-content:center}
-.panel{background:var(--card);padding:35px;border-radius:22px;border:1px solid #ffffff20}
-.big-logo{width:105px;height:105px;object-fit:contain;border-radius:20px}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.gallery img{width:100%;height:230px;object-fit:cover;border-radius:17px;border:1px solid #ffffff25;transition:.2s;background:#222}
+.gallery img:hover{transform:scale(1.03);border-color:var(--gold)}
 footer{background:#090a0d;padding:35px 0;border-top:1px solid #ffffff20}
-@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.grid{grid-template-columns:1fr}.nav{justify-content:center}nav{justify-content:center}.hero{padding:70px 0}section{padding:60px 0}}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}.gallery{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.grid{grid-template-columns:1fr}.nav{justify-content:center}nav{justify-content:center}.hero{padding:70px 0}section{padding:60px 0}.gallery img{height:165px}}
 </style>
 </head>
 <body>
@@ -72,7 +73,6 @@ footer{background:#090a0d;padding:35px 0;border-top:1px solid #ffffff20}
 <main>
 <section class="hero" id="start">
 <div class="wrap">
-<img class="big-logo" src="assets/logo.jpg" alt="Happy Eck Kiosk">
 <div class="eyebrow">Willkommen bei Happy Eck</div>
 <h1>DEIN KIOSK.<br><span class="gold">DEIN MOMENT.</span></h1>
 <p>Getränke, Energy-Drinks, Snacks, Süßigkeiten, Eis und vieles mehr. Entdecke Happy Eck Kiosk in Hamm!</p>
@@ -104,14 +104,19 @@ footer{background:#090a0d;padding:35px 0;border-top:1px solid #ffffff20}
 <section class="alt" id="galerie">
 <div class="wrap">
 <div class="heading">
-<div class="eyebrow">Galerie</div>
-<h2>Happy Eck entdecken</h2>
-<p>Dein Kiosk in Hamm.</p>
+<div class="eyebrow">Unsere Bilder</div>
+<h2>Entdecke Happy Eck</h2>
+<p>Einblicke und Highlights aus unserer Auswahl.</p>
 </div>
-<div class="panel center">
-<img class="big-logo" src="assets/logo.jpg" alt="Happy Eck">
-<h3>Willkommen bei Happy Eck!</h3>
-<p>Weitere Bilder aus unserem Kiosk folgen bald.</p>
+<div class="gallery">
+<img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_27.jpg" alt="Happy Eck Bild 1" loading="lazy">
+<img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_40.jpg" alt="Happy Eck Bild 2" loading="lazy">
+<img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_52.jpg" alt="Happy Eck Bild 3" loading="lazy">
+<img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_56.jpg" alt="Happy Eck Bild 4" loading="lazy">
+<img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_31_01.jpg" alt="Happy Eck Bild 5" loading="lazy">
+<img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_31_05.jpg" alt="Happy Eck Bild 6" loading="lazy">
+<img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_31_13.jpg" alt="Happy Eck Bild 7" loading="lazy">
+<img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_31_19.jpg" alt="Happy Eck Bild 8" loading="lazy">
 </div>
 </div>
 </section>
