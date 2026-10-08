@@ -3,67 +3,74 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Happy Eck Kiosk | Hamm</title>
-<meta name="description" content="Happy Eck Kiosk in Hamm – Getränke, Snacks, Eis, Süßigkeiten und mehr.">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0c0d12">
+<meta name="description" content="Happy Eck Kiosk Hamm – Getränke, Snacks, Eis, Süßigkeiten, Paketshop und schnelle Lieferung.">
+<title>Happy Eck Kiosk | Dein Kiosk in Hamm</title>
 <link rel="icon" href="assets/logo.jpg">
 <style>
-:root{--gold:#f6c45b;--dark:#0b0c10;--card:#1b1c22}
+:root{--gold:#ffc85b;--bg:#0b0c10;--panel:#191b23;--muted:#b8bac5}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--dark);color:white;font-family:Arial,sans-serif;line-height:1.6}
+body{margin:0;background:var(--bg);color:#fff;font-family:Arial,Helvetica,sans-serif;line-height:1.6}
 a{text-decoration:none;color:inherit}
-.wrap{width:min(1150px,92%);margin:auto}
-header{position:sticky;top:0;z-index:10;background:#101116f5;border-bottom:1px solid #ffffff20}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:12px 0;flex-wrap:wrap}
+.wrap{width:min(1180px,92%);margin:auto}
+header{position:sticky;top:0;z-index:20;background:#101116f5;border-bottom:1px solid #ffffff18}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:13px 0}
 .brand{display:flex;align-items:center;gap:12px;font-size:23px;font-weight:900}
 .brand img{width:55px;height:55px;object-fit:contain;border-radius:12px}
 .gold{color:var(--gold)}
-nav{display:flex;flex-wrap:wrap;gap:16px;font-size:14px;font-weight:bold}
+nav{display:flex;flex-wrap:wrap;gap:17px;font-size:14px;font-weight:700}
 nav a:hover{color:var(--gold)}
-section{padding:80px 0;scroll-margin-top:90px}
-.hero{padding:110px 0;background:radial-gradient(circle at 85% 30%,#73531e80,transparent 50%),linear-gradient(120deg,#171820,#08090c)}
-.eyebrow{color:var(--gold);font-size:13px;letter-spacing:2px;font-weight:900;text-transform:uppercase}
-h1{font-size:clamp(43px,7vw,85px);line-height:1.06;letter-spacing:-2px;margin:18px 0}
-h2{font-size:clamp(30px,4vw,45px);line-height:1.2;margin:12px 0}
-h3{margin:12px 0;font-size:22px}
-p{color:#bcbec9}
-.hero p{font-size:19px;max-width:630px}
-.btns{display:flex;gap:13px;flex-wrap:wrap;margin-top:25px}
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 23px;border-radius:12px;font-weight:800;transition:.2s}
+section{padding:85px 0;scroll-margin-top:90px}
+.hero{background:radial-gradient(circle at 80% 20%,#96661c55,transparent 50%),linear-gradient(120deg,#1b1b25,#08090c);padding:115px 0}
+.eyebrow{color:var(--gold);font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:900}
+h1{font-size:clamp(44px,7vw,85px);line-height:1.05;letter-spacing:-2px;margin:18px 0}
+h2{font-size:clamp(30px,4vw,46px);line-height:1.2;margin:14px 0}
+h3{font-size:22px;margin:12px 0}
+p{color:var(--muted)}
+.hero p{max-width:670px;font-size:19px}
+.btns{display:flex;flex-wrap:wrap;gap:13px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 22px;border-radius:13px;font-weight:800;transition:.2s;border:1px solid transparent;cursor:pointer;font-size:15px}
 .btn:hover{transform:translateY(-3px)}
-.primary{background:var(--gold);color:#18140b}
-.secondary{background:#292b33;border:1px solid #ffffff25}
-.orange{background:#ff8000;color:#17110a}
+.primary{background:var(--gold);color:#18140a}
+.secondary{background:#292b35;border-color:#ffffff25}
+.whatsapp{background:#25d366;color:#08220e}
+.lieferando{background:#ff8000;color:#17100a}
 .heading{text-align:center;max-width:760px;margin:0 auto 40px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.card{background:var(--card);padding:28px;border-radius:20px;border:1px solid #ffffff20;transition:.2s}
-.card:hover{transform:translateY(-4px);border-color:var(--gold)}
-.emoji{font-size:44px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.card{background:var(--panel);padding:28px;border:1px solid #ffffff18;border-radius:21px;transition:.2s}
+.card:hover{transform:translateY(-4px);border-color:#ffc85b90}
+.emoji{font-size:45px}
 .alt{background:#14151b}
 .center{text-align:center}
 .center .btns{justify-content:center}
-.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
-.gallery img{width:100%;height:230px;object-fit:cover;border-radius:17px;border:1px solid #ffffff25;transition:.2s;background:#222}
-.gallery img:hover{transform:scale(1.03);border-color:var(--gold)}
-footer{background:#090a0d;padding:35px 0;border-top:1px solid #ffffff20}
+.gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}
+.gallery img{width:100%;height:220px;object-fit:cover;border-radius:16px;border:1px solid #ffffff25;background:#222;transition:.2s}
+.gallery img:hover{transform:scale(1.025);border-color:var(--gold)}
+.panel{background:var(--panel);padding:35px;border-radius:22px;border:1px solid #ffffff20}
+.route-choice{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:15px}
+.route-choice[hidden]{display:none}
+footer{padding:40px 0;background:#090a0d;border-top:1px solid #ffffff18}
+.footer-links{display:flex;flex-wrap:wrap;gap:18px;margin-top:20px}
 @media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}.gallery{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.grid{grid-template-columns:1fr}.nav{justify-content:center}nav{justify-content:center}.hero{padding:70px 0}section{padding:60px 0}.gallery img{height:165px}}
+@media(max-width:600px){.grid{grid-template-columns:1fr}.nav,nav{justify-content:center}.hero{padding:75px 0}section{padding:65px 0}.gallery img{height:165px}}
 </style>
 </head>
 <body>
 
 <header>
 <div class="wrap nav">
-<a href="#start" class="brand">
+<a class="brand" href="#start">
 <img src="assets/logo.jpg" alt="Happy Eck Logo">
 <div>HAPPY <span class="gold">ECK</span></div>
 </a>
-<nav>
+<nav aria-label="Navigation">
 <a href="#start">Start</a>
 <a href="#sortiment">Sortiment</a>
 <a href="#galerie">Galerie</a>
 <a href="#bestellen">Bestellen</a>
+<a href="#anfahrt">Anfahrt</a>
 <a href="#jobs">Jobs</a>
 <a href="#kontakt">Kontakt</a>
 </nav>
@@ -78,7 +85,7 @@ footer{background:#090a0d;padding:35px 0;border-top:1px solid #ffffff20}
 <p>Getränke, Energy-Drinks, Snacks, Süßigkeiten, Eis und vieles mehr. Entdecke Happy Eck Kiosk in Hamm!</p>
 <div class="btns">
 <a href="#sortiment" class="btn primary">Sortiment entdecken →</a>
-<a href="#bestellen" class="btn secondary">Jetzt bestellen</a>
+<a href="#bestellen" class="btn whatsapp">Schnelle Lieferung per WhatsApp</a>
 </div>
 </div>
 </section>
@@ -91,12 +98,12 @@ footer{background:#090a0d;padding:35px 0;border-top:1px solid #ffffff20}
 <p>Entdecke unsere große Auswahl.</p>
 </div>
 <div class="grid">
-<div class="card"><div class="emoji">🥤</div><h3>Getränke & Energy</h3><p>Red Bull, Monster, Rockstar, Cola, Wasser, Eistee und mehr.</p></div>
-<div class="card"><div class="emoji">🍫</div><h3>Süßigkeiten & Snacks</h3><p>Schokolade, Chips, Fruchtgummi und leckere Snacks.</p></div>
-<div class="card"><div class="emoji">🍦</div><h3>Eis</h3><p>Leckere Eissorten und erfrischende Spezialitäten.</p></div>
-<div class="card"><div class="emoji">🧸</div><h3>Spielwaren</h3><p>Kleine Überraschungen und Geschenkideen.</p></div>
-<div class="card"><div class="emoji">📦</div><h3>GLS Paketshop</h3><p>Informationen zu unserem Paketservice erhältst du direkt im Geschäft.</p></div>
-<div class="card"><div class="emoji">🏪</div><h3>Weitere Produkte</h3><p>Entdecke noch mehr Auswahl bei uns vor Ort.</p></div>
+<article class="card"><div class="emoji">🥤</div><h3>Getränke & Energy</h3><p>Red Bull, Monster, Rockstar, Cola, Wasser, Eistee und mehr.</p></article>
+<article class="card"><div class="emoji">🍫</div><h3>Süßigkeiten & Snacks</h3><p>Schokolade, Chips, Fruchtgummi und leckere Snacks.</p></article>
+<article class="card"><div class="emoji">🍦</div><h3>Eis</h3><p>Leckere Eissorten und erfrischende Spezialitäten.</p></article>
+<article class="card"><div class="emoji">🧸</div><h3>Spielwaren</h3><p>Kleine Überraschungen und Geschenkideen.</p></article>
+<article class="card"><div class="emoji">📦</div><h3>GLS Paketshop</h3><p>Informationen zu unserem Paketservice erhältst du direkt im Geschäft.</p></article>
+<article class="card"><div class="emoji">🏪</div><h3>Weitere Produkte</h3><p>Entdecke noch mehr Auswahl bei uns vor Ort.</p></article>
 </div>
 </div>
 </section>
@@ -104,9 +111,9 @@ footer{background:#090a0d;padding:35px 0;border-top:1px solid #ffffff20}
 <section class="alt" id="galerie">
 <div class="wrap">
 <div class="heading">
-<div class="eyebrow">Unsere Bilder</div>
+<div class="eyebrow">Unsere Galerie</div>
 <h2>Entdecke Happy Eck</h2>
-<p>Einblicke und Highlights aus unserer Auswahl.</p>
+<p>Einblicke und Highlights aus unserem Sortiment.</p>
 </div>
 <div class="gallery">
 <img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_27.jpg" alt="Happy Eck Bild 1" loading="lazy">
@@ -123,36 +130,54 @@ footer{background:#090a0d;padding:35px 0;border-top:1px solid #ffffff20}
 
 <section id="bestellen">
 <div class="wrap center">
-<div class="eyebrow">Online bestellen</div>
-<h2>Jetzt bequem bestellen</h2>
-<p>Du findest Happy Eck Kiosk auf Lieferando.</p>
+<div class="eyebrow">Schnelle Lieferung</div>
+<h2>Bestelle ganz einfach</h2>
+<p>Bestelle bequem per WhatsApp oder finde Happy Eck Kiosk auf Lieferando. Liefermöglichkeiten und Kosten werden bei der Bestellung bestätigt.</p>
 <div class="btns">
-<a href="https://www.lieferando.de/" target="_blank" rel="noopener noreferrer" class="btn orange">Lieferando öffnen ↗</a>
+<a class="btn whatsapp" href="https://wa.me/4917661020308?text=Hallo%20Happy%20Eck%2C%20ich%20m%C3%B6chte%20etwas%20bestellen." target="_blank" rel="noopener noreferrer">WhatsApp-Bestellung ↗</a>
+<a class="btn lieferando" href="https://www.lieferando.de/" target="_blank" rel="noopener noreferrer">Lieferando öffnen ↗</a>
 </div>
-<p>Suche auf Lieferando nach „Happy Eck Kiosk“.</p>
+<p><small>Bei Lieferando nach „Happy Eck Kiosk“ suchen.</small></p>
 </div>
 </section>
 
-<section class="alt" id="jobs">
+<section class="alt" id="anfahrt">
+<div class="wrap center">
+<div class="eyebrow">Besuche uns</div>
+<h2>Dein Weg zu Happy Eck</h2>
+<p>Finde unseren Kiosk in Hamm und starte deine Route.</p>
+<div class="panel">
+<h3>Happy Eck Kiosk · Hamm</h3>
+<button type="button" class="btn primary" id="routeButton" aria-expanded="false" aria-controls="routeOptions">📍 Route planen</button>
+<div class="route-choice" id="routeOptions" hidden>
+<a class="btn secondary" href="https://www.google.com/maps/dir/?api=1&destination=Happy+Eck+Kiosk+Hamm" target="_blank" rel="noopener noreferrer">Google Maps ↗</a>
+<a class="btn secondary" href="https://maps.apple.com/?daddr=Happy+Eck+Kiosk+Hamm" target="_blank" rel="noopener noreferrer">Apple Karten ↗</a>
+</div>
+<p><small>Die Karten-App sucht nach „Happy Eck Kiosk Hamm“. Bitte das Ziel vor Fahrtbeginn prüfen.</small></p>
+</div>
+</div>
+</section>
+
+<section id="jobs">
 <div class="wrap center">
 <div class="eyebrow">Karriere</div>
-<h2>Arbeiten bei Happy Eck</h2>
-<p>Du interessierst dich für Minijob, Teilzeit oder Vollzeit? Schicke uns deine Bewerbung. Wir prüfen, ob eine passende Stelle verfügbar ist.</p>
+<h2>Werde Teil unseres Teams</h2>
+<p>Du suchst einen Minijob, Teilzeit oder Vollzeit? Besuche unsere eigene Bewerbungsseite.</p>
 <div class="btns">
-<a href="mailto:happyeck10@gmail.com?subject=Bewerbung%20Happy%20Eck%20Kiosk" class="btn primary">Jetzt bewerben →</a>
+<a class="btn primary" href="bewerbung.html">Jetzt online bewerben →</a>
 </div>
 </div>
 </section>
 
-<section id="kontakt">
+<section class="alt" id="kontakt">
 <div class="wrap center">
 <div class="eyebrow">Kontakt & Social Media</div>
 <h2>Bleib mit uns verbunden</h2>
-<p>Folge uns auf Instagram und TikTok oder finde uns auf Google Maps.</p>
+<p>Folge uns auf Instagram und TikTok oder schreibe uns direkt.</p>
 <div class="btns">
 <a class="btn primary" href="https://www.instagram.com/happy.eck.kiosk/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
 <a class="btn secondary" href="https://www.tiktok.com/@happy.eck" target="_blank" rel="noopener noreferrer">TikTok ↗</a>
-<a class="btn secondary" href="https://www.google.com/maps/search/?api=1&query=Happy+Eck+Kiosk+Hamm" target="_blank" rel="noopener noreferrer">Google Maps ↗</a>
+<a class="btn whatsapp" href="https://wa.me/4917661020308" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>
 </div>
 <p><a href="mailto:happyeck10@gmail.com">happyeck10@gmail.com</a></p>
 </div>
@@ -163,9 +188,23 @@ footer{background:#090a0d;padding:35px 0;border-top:1px solid #ffffff20}
 <div class="wrap">
 <h3>HAPPY <span class="gold">ECK</span> KIOSK</h3>
 <p>Dein Kiosk in Hamm.</p>
+<div class="footer-links">
+<a href="#start">Startseite</a>
+<a href="bewerbung.html">Karriere</a>
+<a href="#anfahrt">Anfahrt</a>
+<a href="#kontakt">Kontakt</a>
+</div>
 <p>© 2026 Happy Eck Kiosk</p>
 </div>
 </footer>
 
+<script>
+const routeButton=document.getElementById("routeButton");
+const routeOptions=document.getElementById("routeOptions");
+routeButton.addEventListener("click",()=>{
+  routeOptions.hidden=!routeOptions.hidden;
+  routeButton.setAttribute("aria-expanded",String(!routeOptions.hidden));
+});
+</script>
 </body>
 </html>
