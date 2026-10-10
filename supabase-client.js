@@ -10,8 +10,10 @@ const sessionKey = 'happy-eck-admin-session';
 let session;
 try { session = JSON.parse(sessionStorage.getItem(sessionKey) || 'null'); } catch { session = null; }
 let refreshPromise;
+let sessionGeneration = 0;
 
 function keepSession(value) {
+  sessionGeneration += 1;
   session = value ? { access_token: value.access_token, refresh_token: value.refresh_token,
     expires_at: Date.now() + value.expires_in * 1000 } : null;
   if (session) sessionStorage.setItem(sessionKey, JSON.stringify(session));
@@ -35,9 +37,18 @@ async function request(path, options = {}, token) {
 async function token() {
   if (!session) throw new Error('Bitte zuerst anmelden.');
   if (session.expires_at < Date.now() + 60000) {
-    if (!refreshPromise) refreshPromise = request('/auth/v1/token?grant_type=refresh_token', {
-      method: 'POST', body: JSON.stringify({ refresh_token: session.refresh_token })
-    }).then(keepSession).catch(error => { keepSession(null); throw error; }).finally(() => { refreshPromise = null; });
+    if (!refreshPromise) {
+      const generation = sessionGeneration;
+      refreshPromise = request('/auth/v1/token?grant_type=refresh_token', {
+        method: 'POST', body: JSON.stringify({ refresh_token: session.refresh_token })
+      }).then(value => {
+        if (generation !== sessionGeneration) throw new Error('Sitzung wurde beendet. Bitte erneut anmelden.');
+        keepSession(value);
+      }).catch(error => {
+        if (generation === sessionGeneration) keepSession(null);
+        throw error;
+      }).finally(() => { refreshPromise = null; });
+    }
     await refreshPromise;
   }
   return session.access_token;
@@ -45,9 +56,11 @@ async function token() {
 
 export async function signIn(email, password) {
   keepSession(null);
+  const generation = sessionGeneration;
   const result = await request('/auth/v1/token?grant_type=password', {
     method: 'POST', body: JSON.stringify({ email, password })
   });
+  if (generation !== sessionGeneration) throw new Error('Anmeldung wurde abgebrochen.');
   keepSession(result);
 }
 export async function signOut() {

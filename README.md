@@ -44,3 +44,14 @@ node --experimental-vm-modules --test tests/client.test.cjs
 ```
 
 Die Tests prüfen Client-Verhalten mit simulierten API-Antworten. Live-Auth und Datenbankrichtlinien müssen zusätzlich am verbundenen Supabase-Projekt geprüft werden.
+
+## Freigabestatus (10.10.2026)
+
+- PR #1 bleibt offen; keine Veröffentlichung oder Zusammenführung freigegeben.
+- Neun lokale Clienttests bestehen, einschließlich paralleler Token-Erneuerung und Abmelden während einer laufenden Erneuerung. Eine beendete Sitzung wird durch verspätete Antworten nicht wiederhergestellt.
+- Alle Originaltexte, Bildverweise, Bewerbungsseite und Domain geprüft und erhalten. JavaScript-Syntax geprüft. Dynamische Inhalte verwenden Textdarstellung, kein `innerHTML`; im Browser liegt ausschließlich ein öffentlicher Schlüssel.
+- Alle vier öffentlichen Tabellen haben RLS. Mitgliedschaften sind nur für den jeweiligen angemeldeten Benutzer lesbar; Browsernutzer können keine Admin-Mitgliedschaft vergeben. Änderungen der Textwerte benötigen eine bestehende Admin-Mitgliedschaft.
+- GitHub Actions hat den Prüflauf nicht gestartet: „The job was not started because your account is locked due to a billing issue.“ Dies ist keine Testfehlermeldung. Der verbundene GitHub-Zugang kann keine persönlichen Abrechnungsdaten lesen oder ändern. Nach Aufhebung der Sperre muss der aktuelle PR-Prüflauf erfolgreich abgeschlossen werden.
+- Supabase meldet weiterhin deaktivierten Schutz gegen bekannte geleakte Passwörter. Diese Funktion benötigt Pro oder höher. Kein kostenpflichtiges Upgrade wurde vorgenommen. Ein einzigartiges starkes Adminpasswort verwenden; keine Zugangsdaten im Chat oder Repository speichern.
+- Die tatsächliche Browser-Anmeldung mit dem bestehenden Adminpasswort wurde noch nicht geprüft. Vor einer Veröffentlichung muss sie einschließlich Speichern/Abmelden in einer zugriffsbeschränkten Testumgebung geprüft werden.
+- Der Adminbereich bearbeitet fünf Beschreibungstexte. Produkt-, Kategorie-, Bild- und Bewerbungsverwaltung sind nicht Bestandteil dieses PRs.

@@ -4,8 +4,9 @@ const vm = require('node:vm');
 const fs = require('node:fs');
 const path = require('node:path');
 
-async function client(fetch, config = { url: 'https://test-project.supabase.co', publishableKey: 'sb_publishable_test' }) {
+async function client(fetch, config = { url: 'https://test-project.supabase.co', publishableKey: 'sb_publishable_test' }, initialSession) {
   const data = new Map();
+  if (initialSession) data.set('happy-eck-admin-session', JSON.stringify(initialSession));
   const context = vm.createContext({ fetch, AbortSignal, Date, JSON, Error, encodeURIComponent, atob,
     sessionStorage: { getItem: k => data.get(k), setItem: (k,v) => data.set(k,v), removeItem: k => data.delete(k) } });
   const settings = new vm.SourceTextModule(`export const config = ${JSON.stringify(config)}`, { context });
@@ -63,4 +64,26 @@ test('logout clears local credentials even if remote logout fails', async () => 
   const {api,data} = await client(async url => reply(url.includes('/token?') ? auth : {},url.endsWith('/logout') ? 503 : 200));
   await api.signIn('owner@example.com','password'); await assert.rejects(api.signOut());
   assert.equal(api.hasSession(),false); assert.equal(data.size,0);
+});
+test('a pending refresh cannot restore a session after logout', async () => {
+  let finishRefresh;
+  const expired = { access_token: 'old', refresh_token: 'old-refresh', expires_at: 0 };
+  const {api,data} = await client(async url => {
+    if (url.includes('grant_type=refresh_token')) return new Promise(resolve => { finishRefresh = () => resolve(reply(auth)); });
+    if (url.endsWith('/logout')) return reply(null);
+    throw Error('Unexpected authenticated request after logout');
+  }, undefined, expired);
+  const pending = api.readContent(true);
+  await api.signOut(); finishRefresh();
+  await assert.rejects(pending, /Sitzung wurde beendet/);
+  assert.equal(api.hasSession(),false); assert.equal(data.size,0);
+});
+test('expired sessions refresh before authenticated requests', async () => {
+  let refreshes = 0;
+  const {api} = await client(async (url,options) => {
+    if (url.includes('grant_type=refresh_token')) { refreshes++; return reply(auth); }
+    assert.equal(options.headers.Authorization,'Bearer user-token'); return reply([]);
+  }, undefined, { access_token:'old',refresh_token:'refresh',expires_at:0 });
+  await Promise.all([api.readContent(true),api.readContent(true)]);
+  assert.equal(refreshes,1);
 });
