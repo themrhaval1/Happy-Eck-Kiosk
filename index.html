@@ -1,213 +1,34 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#0c0d12">
-<meta name="description" content="Happy Eck Kiosk Hamm – Getränke, Snacks, Eis, Süßigkeiten, Paketshop und schnelle Lieferung.">
-<title>Happy Eck Kiosk | Dein Kiosk in Hamm</title>
-<link rel="icon" href="assets/logo.jpg">
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0a0b0d"><meta name="description" content="Happy Eck Kiosk in Hamm – Getränke, Energy, Snacks, Süßigkeiten, Eis und GLS Paketshop. Jetzt Sortiment entdecken oder bestellen.">
+<meta property="og:title" content="Happy Eck Kiosk – Dein Eck. Dein Moment."><meta property="og:description" content="Dein Kiosk in Hamm: Snacks, Drinks, Eis, Paketshop und Lieferung."><meta property="og:image" content="https://happyeck.de/assets/logo.jpg">
+<title>Happy Eck Kiosk Hamm | Dein Eck. Dein Moment.</title><link rel="icon" href="assets/logo.jpg">
 <style>
-:root{--gold:#ffc85b;--bg:#0b0c10;--panel:#191b23;--muted:#b8bac5}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:#fff;font-family:Arial,Helvetica,sans-serif;line-height:1.6}
-a{text-decoration:none;color:inherit}
-.wrap{width:min(1180px,92%);margin:auto}
-header{position:sticky;top:0;z-index:20;background:#101116f5;border-bottom:1px solid #ffffff18}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:13px 0}
-.brand{display:flex;align-items:center;gap:12px;font-size:23px;font-weight:900}
-.brand img{width:55px;height:55px;object-fit:contain;border-radius:12px}
-.gold{color:var(--gold)}
-nav{display:flex;flex-wrap:wrap;gap:17px;font-size:14px;font-weight:700}
-nav a:hover{color:var(--gold)}
-section{padding:85px 0;scroll-margin-top:90px}
-.hero{background:radial-gradient(circle at 80% 20%,#96661c55,transparent 50%),linear-gradient(120deg,#1b1b25,#08090c);padding:115px 0}
-.eyebrow{color:var(--gold);font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:900}
-h1{font-size:clamp(44px,7vw,85px);line-height:1.05;letter-spacing:-2px;margin:18px 0}
-h2{font-size:clamp(30px,4vw,46px);line-height:1.2;margin:14px 0}
-h3{font-size:22px;margin:12px 0}
-p{color:var(--muted)}
-.hero p{max-width:670px;font-size:19px}
-.btns{display:flex;flex-wrap:wrap;gap:13px;margin-top:26px}
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 22px;border-radius:13px;font-weight:800;transition:.2s;border:1px solid transparent;cursor:pointer;font-size:15px}
-.btn:hover{transform:translateY(-3px)}
-.primary{background:var(--gold);color:#18140a}
-.secondary{background:#292b35;border-color:#ffffff25}
-.whatsapp{background:#25d366;color:#08220e}
-.lieferando{background:#ff8000;color:#17100a}
-.heading{text-align:center;max-width:760px;margin:0 auto 40px}
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-.card{background:var(--panel);padding:28px;border:1px solid #ffffff18;border-radius:21px;transition:.2s}
-.card:hover{transform:translateY(-4px);border-color:#ffc85b90}
-.emoji{font-size:45px}
-.alt{background:#14151b}
-.center{text-align:center}
-.center .btns{justify-content:center}
-.gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}
-.gallery img{width:100%;height:220px;object-fit:cover;border-radius:16px;border:1px solid #ffffff25;background:#222;transition:.2s}
-.gallery img:hover{transform:scale(1.025);border-color:var(--gold)}
-.panel{background:var(--panel);padding:35px;border-radius:22px;border:1px solid #ffffff20}
-.route-choice{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:15px}
-.route-choice[hidden]{display:none}
-footer{padding:40px 0;background:#090a0d;border-top:1px solid #ffffff18}
-.footer-links{display:flex;flex-wrap:wrap;gap:18px;margin-top:20px}
-@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}.gallery{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.grid{grid-template-columns:1fr}.nav,nav{justify-content:center}.hero{padding:75px 0}section{padding:65px 0}.gallery img{height:165px}}
-</style>
-</head>
-<body>
-
-<header>
-<div class="wrap nav">
-<a class="brand" href="#start">
-<img src="assets/logo.jpg" alt="Happy Eck Logo">
-<div>HAPPY <span class="gold">ECK</span></div>
-</a>
-<nav aria-label="Navigation">
-<a href="#start">Start</a>
-<a href="sortiment.html">Sortiment</a>
-<a href="#galerie">Galerie</a>
-<a href="angebote.html">Angebote</a>
-<a href="paketshop.html">Paketshop</a>
-<a href="ueber-uns.html">Über uns</a>
-<a href="#bestellen">Bestellen</a>
-<a href="kontakt.html">Anfahrt</a>
-<a href="#jobs">Jobs</a>
-<a href="kontakt.html">Kontakt</a>
-</nav>
-</div>
-</header>
-
-<main>
-<section class="hero" id="start">
-<div class="wrap">
-<div class="eyebrow">Willkommen bei Happy Eck</div>
-<h1>DEIN KIOSK.<br><span class="gold">DEIN MOMENT.</span></h1>
-<p>Getränke, Energy-Drinks, Snacks, Süßigkeiten, Eis und vieles mehr. Entdecke Happy Eck Kiosk in Hamm!</p>
-<div class="btns">
-<a href="sortiment.html" class="btn primary">Sortiment entdecken →</a>
-<a href="#bestellen" class="btn whatsapp">Schnelle Lieferung per WhatsApp</a>
-</div>
-</div>
-</section>
-
-<section id="sortiment">
-<div class="wrap">
-<div class="heading">
-<div class="eyebrow">Unser Sortiment</div>
-<h2>Alles, was du brauchst.</h2>
-<p>Entdecke unsere große Auswahl.</p>
-</div>
-<div class="grid">
-<article class="card"><div class="emoji">🥤</div><h3>Getränke & Energy</h3><p>Red Bull, Monster, Rockstar, Cola, Wasser, Eistee und mehr.</p></article>
-<article class="card"><div class="emoji">🍫</div><h3>Süßigkeiten & Snacks</h3><p>Schokolade, Chips, Fruchtgummi und leckere Snacks.</p></article>
-<article class="card"><div class="emoji">🍦</div><h3>Eis</h3><p>Leckere Eissorten und erfrischende Spezialitäten.</p></article>
-<article class="card"><div class="emoji">🧸</div><h3>Spielwaren</h3><p>Kleine Überraschungen und Geschenkideen.</p></article>
-<article class="card"><div class="emoji">📦</div><h3>GLS Paketshop</h3><p>Informationen zu unserem Paketservice erhältst du direkt im Geschäft.</p></article>
-<article class="card"><div class="emoji">🏪</div><h3>Weitere Produkte</h3><p>Entdecke noch mehr Auswahl bei uns vor Ort.</p></article>
-</div>
-<div class="center" style="margin-top:28px"><a href="sortiment.html" class="btn primary">Alle Kategorien ansehen →</a></div>
-</div>
-</section>
-
-<section class="alt" id="galerie">
-<div class="wrap">
-<div class="heading">
-<div class="eyebrow">Unsere Galerie</div>
-<h2>Entdecke Happy Eck</h2>
-<p>Einblicke und Highlights aus unserem Sortiment.</p>
-</div>
-<div class="gallery">
-<img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_27.jpg" alt="Happy Eck Bild 1" loading="lazy">
-<img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_40.jpg" alt="Happy Eck Bild 2" loading="lazy">
-<img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_52.jpg" alt="Happy Eck Bild 3" loading="lazy">
-<img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_56.jpg" alt="Happy Eck Bild 4" loading="lazy">
-<img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_31_01.jpg" alt="Happy Eck Bild 5" loading="lazy">
-<img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_31_05.jpg" alt="Happy Eck Bild 6" loading="lazy">
-<img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_31_13.jpg" alt="Happy Eck Bild 7" loading="lazy">
-<img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_31_19.jpg" alt="Happy Eck Bild 8" loading="lazy">
-</div>
-</div>
-</section>
-
-<section id="bestellen">
-<div class="wrap center">
-<div class="eyebrow">Schnelle Lieferung</div>
-<h2>Bestelle ganz einfach</h2>
-<p>Bestelle bequem per WhatsApp oder finde Happy Eck Kiosk auf Lieferando. Liefermöglichkeiten und Kosten werden bei der Bestellung bestätigt.</p>
-<div class="btns">
-<a class="btn whatsapp" href="https://wa.me/4917661020308?text=Hallo%20Happy%20Eck%2C%20ich%20m%C3%B6chte%20etwas%20bestellen." target="_blank" rel="noopener noreferrer">WhatsApp-Bestellung ↗</a>
-<a class="btn lieferando" href="https://www.lieferando.de/speisekarte/happy-eck-kiosk-59063-hamm" target="_blank" rel="noopener noreferrer">Lieferando öffnen ↗</a>
-</div>
-<p><small>Bei Lieferando nach „Happy Eck Kiosk“ suchen.</small></p>
-</div>
-</section>
-
-<section class="alt" id="anfahrt">
-<div class="wrap center">
-<div class="eyebrow">Besuche uns</div>
-<h2>Dein Weg zu Happy Eck</h2>
-<p>Finde unseren Kiosk in Hamm und starte deine Route.</p>
-<div class="panel">
-<h3>Happy Eck Kiosk · Hamm</h3>
-<button type="button" class="btn primary" id="routeButton" aria-expanded="false" aria-controls="routeOptions">📍 Route planen</button>
-<div class="route-choice" id="routeOptions" hidden>
-<a class="btn secondary" href="https://www.google.com/maps/dir/?api=1&destination=Happy+Eck+Kiosk+Hamm" target="_blank" rel="noopener noreferrer">Google Maps ↗</a>
-<a class="btn secondary" href="https://maps.apple.com/?daddr=Happy+Eck+Kiosk+Hamm" target="_blank" rel="noopener noreferrer">Apple Karten ↗</a>
-</div>
-<p><small>Die Karten-App sucht nach „Happy Eck Kiosk Hamm“. Bitte das Ziel vor Fahrtbeginn prüfen.</small></p>
-</div>
-</div>
-</section>
-
-<section id="jobs">
-<div class="wrap center">
-<div class="eyebrow">Karriere</div>
-<h2>Werde Teil unseres Teams</h2>
-<p>Du suchst einen Minijob, Teilzeit oder Vollzeit? Besuche unsere eigene Bewerbungsseite.</p>
-<div class="btns">
-<a class="btn primary" href="bewerbung.html">Jetzt online bewerben →</a>
-</div>
-</div>
-</section>
-
-<section class="alt" id="kontakt">
-<div class="wrap center">
-<div class="eyebrow">Kontakt & Social Media</div>
-<h2>Bleib mit uns verbunden</h2>
-<p>Folge uns auf Instagram und TikTok oder schreibe uns direkt.</p>
-<div class="btns">
-<a class="btn primary" href="https://www.instagram.com/happy.eck.kiosk/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
-<a class="btn secondary" href="https://www.tiktok.com/@happy.eck" target="_blank" rel="noopener noreferrer">TikTok ↗</a>
-<a class="btn whatsapp" href="https://wa.me/4917661020308" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>
-</div>
-<p><a href="mailto:happyeck10@gmail.com">happyeck10@gmail.com</a></p>
-</div>
-</section>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap');
+:root{--bg:#0b0c0f;--panel:#17191d;--text:#f8f7f3;--muted:#b3b2b0;--gold:#f8ca74;--line:#ffffff19}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 'DM Sans',system-ui,sans-serif}a{color:inherit;text-decoration:none}button{font:inherit}img{max-width:100%}.wrap{width:min(1220px,91%);margin:auto}.gold{color:var(--gold)}.eyebrow{color:var(--gold);text-transform:uppercase;letter-spacing:.19em;font-size:12px;font-weight:800}h1,h2,h3,.brand{font-family:Outfit,system-ui,sans-serif}h1{font-size:clamp(53px,7.8vw,112px);letter-spacing:-.065em;line-height:.96;margin:23px 0}h2{font-size:clamp(34px,4.5vw,62px);letter-spacing:-.045em;line-height:1.08;margin:14px 0 20px}h3{font-size:24px;letter-spacing:-.02em;margin:0 0 9px}p{color:var(--muted)}header{position:sticky;top:0;z-index:30;background:#0b0c0feF;backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}.nav{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:86px}.brand{display:flex;align-items:center;gap:11px;font-weight:900;font-size:24px;letter-spacing:-.04em;white-space:nowrap}.brand img{width:50px;height:50px;object-fit:cover;border-radius:13px}.navlinks{display:flex;align-items:center;gap:25px;font-size:13px;font-weight:800}.navlinks a:hover,.footerlinks a:hover{color:var(--gold)}.nav-cta{padding:11px 17px;background:var(--gold);border-radius:100px;color:#17110a;font-weight:900}.menu-button{display:none;background:none;border:1px solid var(--line);color:#fff;border-radius:12px;padding:10px 14px;cursor:pointer}.hero{position:relative;overflow:hidden;min-height:680px;display:flex;align-items:center;background:linear-gradient(90deg,#090a0dfc 0%,#090a0df0 37%,#090a0d72 75%),url('assets/ChatGPT-Bild 8. Okt. 2026, 22_30_27.jpg') center/cover}.hero:after{content:"";position:absolute;inset:auto 0 0;height:130px;background:linear-gradient(transparent,var(--bg));pointer-events:none}.hero-inner{position:relative;z-index:1;padding:110px 0 130px}.hero p{max-width:580px;font-size:19px}.pill{display:inline-flex;align-items:center;gap:9px;border:1px solid #f8ca7455;background:#f8ca7415;color:#fbe0ac;border-radius:100px;padding:8px 16px;font-size:12px;font-weight:800;letter-spacing:.06em}.pill:before{content:"";width:8px;height:8px;border-radius:50%;background:#f8ca74}.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid #ffffff36;border-radius:100px;padding:15px 24px;font-weight:900;font-size:14px;transition:transform .2s,background .2s;cursor:pointer}.btn:hover{transform:translateY(-3px)}.primary{background:var(--gold);color:#19140b;border-color:var(--gold)}.outline{background:#ffffff13;color:#fff}.whatsapp{background:#25d366;color:#071e0f;border-color:#25d366}.lieferando{background:#ff8000;color:#201006;border-color:#ff8000}.trust{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}.trust span{background:#ffffff12;border:1px solid #ffffff1e;border-radius:100px;padding:7px 13px;color:#e1ddd4;font-size:12px;font-weight:700}.section{padding:105px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:25px;margin-bottom:38px}.section-head p{max-width:500px}.section-dark{background:#111318}.categories{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.category{position:relative;min-height:335px;border-radius:24px;overflow:hidden;border:1px solid #ffffff24;background:#242424;display:flex;align-items:end;isolation:isolate}.category img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .5s}.category:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#060709f2,#06070900 80%);z-index:-1}.category:hover img{transform:scale(1.07)}.category-content{padding:27px}.category small{color:#e6d6b9;font-weight:800;text-transform:uppercase;letter-spacing:.1em}.category h3{font-size:29px;margin:4px 0}.category span{font-size:14px;font-weight:800;color:var(--gold)}.banner{background:linear-gradient(120deg,#3a2a13,#1d1a16 60%,#17191d);border:1px solid #f8ca743d;border-radius:30px;padding:52px;display:grid;grid-template-columns:1.5fr 1fr;align-items:center;gap:25px}.banner p{max-width:540px}.banner .btns{justify-content:flex-end}.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.feature{background:var(--panel);border:1px solid var(--line);border-radius:24px;padding:30px}.feature-icon{font-size:34px;margin-bottom:22px}.feature p{margin-bottom:0}.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.gallery img{width:100%;height:255px;object-fit:cover;border-radius:17px;border:1px solid var(--line);transition:transform .25s}.gallery img:hover{transform:scale(1.025)}.order{background:radial-gradient(ellipse at 90% 10%,#b7832929,transparent 55%),#14161b;text-align:center}.order p{max-width:600px;margin:0 auto}.order .btns{justify-content:center}.split{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}.split-img{height:460px;width:100%;object-fit:cover;border-radius:26px}.info-list{display:grid;gap:13px;margin:27px 0}.info-list div{padding:14px 0;border-bottom:1px solid var(--line)}.social{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}footer{border-top:1px solid var(--line);padding:55px 0 25px;background:#090a0c}.footer-top{display:flex;justify-content:space-between;gap:35px;flex-wrap:wrap}.footerlinks{display:flex;gap:17px;flex-wrap:wrap;font-size:14px;font-weight:700}.copyright{border-top:1px solid var(--line);padding-top:20px;margin-top:40px;color:#93928f;font-size:13px}.floating-wa{position:fixed;bottom:23px;right:23px;z-index:25;background:#25d366;color:#09210f;padding:13px 18px;border-radius:100px;box-shadow:0 10px 35px #0008;font-weight:900;font-size:14px}.skip{position:absolute;top:-100px;left:10px;background:#fff;color:#000;padding:10px;z-index:99}.skip:focus{top:10px}:focus-visible{outline:3px solid #fff;outline-offset:4px}
+@media(max-width:1050px){.navlinks{gap:13px}.navlinks a{font-size:12px}.hero{min-height:610px}.category{min-height:290px}}@media(max-width:760px){.nav{min-height:72px}.brand{font-size:20px}.brand img{width:42px;height:42px}.menu-button{display:block}.navlinks{display:none;position:absolute;left:0;right:0;top:72px;background:#111318;padding:24px 5%;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:16px}.navlinks.open{display:flex}.navlinks a{font-size:15px}.hero{min-height:600px;background-position:60% center;background-image:linear-gradient(90deg,#090a0df5,#090a0db5),url('assets/ChatGPT-Bild 8. Okt. 2026, 22_30_27.jpg')}.hero-inner{padding:85px 0 100px}.section{padding:75px 0}.section-head{display:block}.categories{grid-template-columns:repeat(2,1fr)}.category{min-height:255px}.feature-grid{grid-template-columns:1fr}.gallery{grid-template-columns:repeat(2,1fr)}.gallery img{height:210px}.banner,.split{grid-template-columns:1fr}.banner{padding:30px}.banner .btns{justify-content:flex-start}.split-img{height:320px}}@media(max-width:460px){h1{font-size:54px}.hero p{font-size:16px}.categories{grid-template-columns:1fr}.category{min-height:285px}.gallery img{height:155px}.btn{padding:13px 18px}.floating-wa{bottom:14px;right:14px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+</style></head><body>
+<a class="skip" href="#main">Zum Inhalt springen</a>
+<header><div class="wrap nav"><a class="brand" href="index.html"><img src="assets/logo.jpg" alt="Happy Eck Logo">HAPPY <span class="gold">ECK</span></a><button class="menu-button" id="menuButton" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mainNav">☰ Menü</button><nav class="navlinks" id="mainNav" aria-label="Hauptnavigation"><a href="index.html">Start</a><a href="sortiment.html">Sortiment</a><a href="angebote.html">Angebote</a><a href="paketshop.html">Paketshop</a><a href="ueber-uns.html">Über uns</a><a href="bewerbung.html">Jobs</a><a href="kontakt.html">Kontakt</a><a class="nav-cta" href="#bestellen">Jetzt bestellen ↗</a></nav></div></header>
+<main id="main">
+<section class="hero" id="start"><div class="wrap hero-inner"><span class="pill">Dein Kiosk in Hamm</span><h1>DEIN ECK.<br><span class="gold">DEIN MOMENT.</span></h1><p>Ob eiskalter Energy-Drink, dein Lieblingssnack oder etwas Süßes für zwischendurch – bei Happy Eck findest du, worauf du Lust hast.</p><div class="btns"><a class="btn primary" href="sortiment.html">Sortiment entdecken ↗</a><a class="btn outline" href="#bestellen">Jetzt bestellen →</a></div><div class="trust"><span>✦ Große Auswahl</span><span>✦ GLS Paketshop</span><span>✦ In Hamm</span></div></div></section>
+<section class="section" id="sortiment"><div class="wrap"><div class="section-head"><div><div class="eyebrow">Für jeden Geschmack</div><h2>Alles, was dein Herz begehrt.</h2><p>Von erfrischenden Drinks bis zu süßen Highlights: Entdecke unsere Auswahl.</p></div><a class="btn outline" href="sortiment.html">Ganzes Sortiment ↗</a></div><div class="categories">
+<a class="category" href="sortiment.html"><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_27.jpg" alt="Getränke und Energy Drinks" loading="lazy"><div class="category-content"><small>Frisch & kalt</small><h3>Getränke & Energy</h3><span>Entdecken ↗</span></div></a>
+<a class="category" href="sortiment.html"><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_40.jpg" alt="Süßigkeiten und Snacks" loading="lazy"><div class="category-content"><small>Zum Genießen</small><h3>Süßes & Snacks</h3><span>Entdecken ↗</span></div></a>
+<a class="category" href="sortiment.html"><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_52.jpg" alt="Eis und Desserts" loading="lazy"><div class="category-content"><small>Eiskalte Freude</small><h3>Eis & Desserts</h3><span>Entdecken ↗</span></div></a>
+<a class="category" href="sortiment.html"><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_56.jpg" alt="Weitere Getränke" loading="lazy"><div class="category-content"><small>Immer eine Auswahl</small><h3>Softdrinks</h3><span>Entdecken ↗</span></div></a>
+<a class="category" href="sortiment.html"><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_31_01.jpg" alt="Spielwaren und kleine Überraschungen" loading="lazy"><div class="category-content"><small>Für zwischendurch</small><h3>Spielwaren</h3><span>Entdecken ↗</span></div></a>
+<a class="category" href="sortiment.html"><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_31_05.jpg" alt="Kiosk Sortiment" loading="lazy"><div class="category-content"><small>Noch mehr entdecken</small><h3>Unser Sortiment</h3><span>Entdecken ↗</span></div></a>
+</div></div></section>
+<section class="section section-dark"><div class="wrap"><div class="banner"><div><div class="eyebrow">Immer etwas Neues</div><h2>Entdecke unsere Aktionen.</h2><p>Unsere Angebote wechseln. Was gerade aktuell ist, erfährst du bei uns im Kiosk.</p></div><div class="btns"><a class="btn primary" href="angebote.html">Zu den Angeboten ↗</a></div></div></div></section>
+<section class="section"><div class="wrap"><div class="section-head"><div><div class="eyebrow">Mehr als nur ein Kiosk</div><h2>Dein Eck. Deine Vorteile.</h2></div></div><div class="feature-grid"><a class="feature" href="paketshop.html"><div class="feature-icon">📦</div><h3>GLS Paketshop</h3><p>Infos rund um unseren Paketservice – direkt im Laden.</p></a><a class="feature" href="#bestellen"><div class="feature-icon">🛵</div><h3>Einfach bestellen</h3><p>Per Lieferando oder WhatsApp anfragen. Verfügbarkeit und Lieferbedingungen bei Bestellung.</p></a><a class="feature" href="bewerbung.html"><div class="feature-icon">🤝</div><h3>Teil des Teams werden</h3><p>Interesse an Minijob, Teilzeit oder Vollzeit? Bewirb dich online.</p></a></div></div></section>
+<section class="section section-dark" id="galerie"><div class="wrap"><div class="section-head"><div><div class="eyebrow">Happy Eck entdecken</div><h2>Einblicke in unsere Welt.</h2><p>Ein Vorgeschmack auf unsere Auswahl.</p></div></div><div class="gallery"><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_27.jpg" alt="Happy Eck Sortiment – Bild 1" loading="lazy"><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_40.jpg" alt="Happy Eck Sortiment – Bild 2" loading="lazy"><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_52.jpg" alt="Happy Eck Sortiment – Bild 3" loading="lazy"><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_56.jpg" alt="Happy Eck Sortiment – Bild 4" loading="lazy"><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_31_01.jpg" alt="Happy Eck Sortiment – Bild 5" loading="lazy"><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_31_05.jpg" alt="Happy Eck Sortiment – Bild 6" loading="lazy"><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_31_13.jpg" alt="Happy Eck Sortiment – Bild 7" loading="lazy"><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_31_19.jpg" alt="Happy Eck Sortiment – Bild 8" loading="lazy"></div></div></section>
+<section class="section order" id="bestellen"><div class="wrap"><div class="eyebrow">Dein Lieblingssnack wartet</div><h2>Hunger? Durst?<br><span class="gold">Wir sind für dich da.</span></h2><p>Entdecke uns auf Lieferando oder schreib uns auf WhatsApp. Bestellmöglichkeiten und Preise werden dort bestätigt.</p><div class="btns"><a class="btn lieferando" href="https://www.lieferando.de/speisekarte/happy-eck-kiosk-59063-hamm" target="_blank" rel="noopener noreferrer">🛵 Über Lieferando bestellen ↗</a><a class="btn whatsapp" href="https://wa.me/4917661020308?text=Hallo%20Happy%20Eck%2C%20ich%20m%C3%B6chte%20bestellen." target="_blank" rel="noopener noreferrer">WhatsApp öffnen ↗</a></div></div></section>
+<section class="section"><div class="wrap split"><img class="split-img" src="assets/ChatGPT-Bild 8. Okt. 2026, 22_31_13.jpg" alt="Happy Eck Kiosk – Sortiment" loading="lazy"><div><div class="eyebrow">Besuch uns</div><h2>Mitten in Hamm.<br><span class="gold">Immer für dich da.</span></h2><p>Du möchtest vorbeikommen? Plane deine Route zu Happy Eck Kiosk in Hamm.</p><div class="info-list"><div>📍 Happy Eck Kiosk · Hamm</div><div>📦 GLS Paketshop</div><div>💬 Fragen? Schreib uns direkt</div></div><div class="btns"><a class="btn primary" href="https://www.google.com/maps/dir/?api=1&destination=Happy+Eck+Kiosk+Hamm" target="_blank" rel="noopener noreferrer">Google Maps ↗</a><a class="btn outline" href="https://maps.apple.com/?daddr=Happy+Eck+Kiosk+Hamm" target="_blank" rel="noopener noreferrer">Apple Karten ↗</a></div></div></div></section>
+<section class="section section-dark"><div class="wrap split"><div><div class="eyebrow">Bleib auf dem Laufenden</div><h2>Folge dem <span class="gold">Happy Eck Vibe.</span></h2><p>Neue Produkte, Einblicke und Aktionen – entdecke uns auch auf Instagram und TikTok.</p><div class="social"><a class="btn primary" href="https://www.instagram.com/happy.eck.kiosk/" target="_blank" rel="noopener noreferrer">◎ Instagram ↗</a><a class="btn outline" href="https://www.tiktok.com/@happy.eck" target="_blank" rel="noopener noreferrer">♪ TikTok ↗</a></div></div><img class="split-img" src="assets/ChatGPT-Bild 8. Okt. 2026, 22_31_19.jpg" alt="Happy Eck Kiosk Sortiment" loading="lazy"></div></section>
 </main>
-
-<footer>
-<div class="wrap">
-<h3>HAPPY <span class="gold">ECK</span> KIOSK</h3>
-<p>Dein Kiosk in Hamm.</p>
-<div class="footer-links">
-<a href="#start">Startseite</a>
-<a href="bewerbung.html">Karriere</a>
-<a href="#anfahrt">Anfahrt</a>
-<a href="kontakt.html">Kontakt</a>
-</div>
-<p>© 2026 Happy Eck Kiosk</p>
-</div>
-</footer>
-
-<script>
-const routeButton=document.getElementById("routeButton");
-const routeOptions=document.getElementById("routeOptions");
-routeButton.addEventListener("click",()=>{
-  routeOptions.hidden=!routeOptions.hidden;
-  routeButton.setAttribute("aria-expanded",String(!routeOptions.hidden));
-});
-</script>
-</body>
-</html>
+<footer><div class="wrap"><div class="footer-top"><div><a class="brand" href="index.html"><img src="assets/logo.jpg" alt="">HAPPY <span class="gold">ECK</span></a><p>Dein Kiosk in Hamm. Dein Eck. Dein Moment.</p><a href="mailto:happyeck10@gmail.com">happyeck10@gmail.com</a></div><div class="footerlinks"><a href="sortiment.html">Sortiment</a><a href="angebote.html">Angebote</a><a href="paketshop.html">Paketshop</a><a href="bewerbung.html">Jobs</a><a href="kontakt.html">Kontakt</a></div></div><div class="copyright">© 2026 Happy Eck Kiosk · Hamm</div></div></footer>
+<a class="floating-wa" href="https://wa.me/4917661020308" target="_blank" rel="noopener noreferrer" aria-label="Happy Eck auf WhatsApp kontaktieren">💬 WhatsApp</a>
+<script>const b=document.getElementById('menuButton'),n=document.getElementById('mainNav');b.addEventListener('click',()=>{const open=n.classList.toggle('open');b.setAttribute('aria-expanded',String(open));b.textContent=open?'✕ Schließen':'☰ Menü'});n.addEventListener('click',e=>{if(e.target.closest('a')){n.classList.remove('open');b.setAttribute('aria-expanded','false');b.textContent='☰ Menü'}});</script>
+</body></html>
