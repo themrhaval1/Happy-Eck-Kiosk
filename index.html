@@ -81,7 +81,7 @@ footer{padding:40px 0;background:#090a0d;border-top:1px solid #ffffff18}
 <div class="wrap">
 <div class="eyebrow">Willkommen bei Happy Eck</div>
 <h1>DEIN KIOSK.<br><span class="gold">DEIN MOMENT.</span></h1>
-<p>Getränke, Energy-Drinks, Snacks, Süßigkeiten, Eis und vieles mehr. Entdecke Happy Eck Kiosk in Hamm!</p>
+<p data-content="hero_description">Getränke, Energy-Drinks, Snacks, Süßigkeiten, Eis und vieles mehr. Entdecke Happy Eck Kiosk in Hamm!</p>
 <div class="btns">
 <a href="#sortiment" class="btn primary">Sortiment entdecken →</a>
 <a href="#bestellen" class="btn whatsapp">Schnelle Lieferung per WhatsApp</a>
@@ -94,7 +94,7 @@ footer{padding:40px 0;background:#090a0d;border-top:1px solid #ffffff18}
 <div class="heading">
 <div class="eyebrow">Unser Sortiment</div>
 <h2>Alles, was du brauchst.</h2>
-<p>Entdecke unsere große Auswahl.</p>
+<p data-content="assortment_description">Entdecke unsere große Auswahl.</p>
 </div>
 <div class="grid">
 <article class="card"><div class="emoji">🥤</div><h3>Getränke & Energy</h3><p>Red Bull, Monster, Rockstar, Cola, Wasser, Eistee und mehr.</p></article>
@@ -131,7 +131,7 @@ footer{padding:40px 0;background:#090a0d;border-top:1px solid #ffffff18}
 <div class="wrap center">
 <div class="eyebrow">Schnelle Lieferung</div>
 <h2>Bestelle ganz einfach</h2>
-<p>Bestelle bequem per WhatsApp oder finde Happy Eck Kiosk auf Lieferando. Liefermöglichkeiten und Kosten werden bei der Bestellung bestätigt.</p>
+<p data-content="delivery_description">Bestelle bequem per WhatsApp oder finde Happy Eck Kiosk auf Lieferando. Liefermöglichkeiten und Kosten werden bei der Bestellung bestätigt.</p>
 <div class="btns">
 <a class="btn whatsapp" href="https://wa.me/4917661020308?text=Hallo%20Happy%20Eck%2C%20ich%20m%C3%B6chte%20etwas%20bestellen." target="_blank" rel="noopener noreferrer">WhatsApp-Bestellung ↗</a>
 <a class="btn lieferando" href="https://www.lieferando.de/" target="_blank" rel="noopener noreferrer">Lieferando öffnen ↗</a>
@@ -161,7 +161,7 @@ footer{padding:40px 0;background:#090a0d;border-top:1px solid #ffffff18}
 <div class="wrap center">
 <div class="eyebrow">Karriere</div>
 <h2>Werde Teil unseres Teams</h2>
-<p>Du suchst einen Minijob, Teilzeit oder Vollzeit? Besuche unsere eigene Bewerbungsseite.</p>
+<p data-content="jobs_description">Du suchst einen Minijob, Teilzeit oder Vollzeit? Besuche unsere eigene Bewerbungsseite.</p>
 <div class="btns">
 <a class="btn primary" href="bewerbung.html">Jetzt online bewerben →</a>
 </div>
@@ -172,7 +172,7 @@ footer{padding:40px 0;background:#090a0d;border-top:1px solid #ffffff18}
 <div class="wrap center">
 <div class="eyebrow">Kontakt & Social Media</div>
 <h2>Bleib mit uns verbunden</h2>
-<p>Folge uns auf Instagram und TikTok oder schreibe uns direkt.</p>
+<p data-content="contact_description">Folge uns auf Instagram und TikTok oder schreibe uns direkt.</p>
 <div class="btns">
 <a class="btn primary" href="https://www.instagram.com/happy.eck.kiosk/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
 <a class="btn secondary" href="https://www.tiktok.com/@happy.eck" target="_blank" rel="noopener noreferrer">TikTok ↗</a>
@@ -192,6 +192,7 @@ footer{padding:40px 0;background:#090a0d;border-top:1px solid #ffffff18}
 <a href="bewerbung.html">Karriere</a>
 <a href="#anfahrt">Anfahrt</a>
 <a href="#kontakt">Kontakt</a>
+<a href="admin.html">Admin</a>
 </div>
 <p>© 2026 Happy Eck Kiosk</p>
 </div>
@@ -205,5 +206,6 @@ routeButton.addEventListener("click",()=>{
   routeButton.setAttribute("aria-expanded",String(!routeOptions.hidden));
 });
 </script>
+<script type="module" src="content.js"></script>
 </body>
 </html>

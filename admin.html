@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow"><meta name="referrer" content="same-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self' https://*.supabase.co; object-src 'none'; base-uri 'none'; form-action 'self'">
+  <title>Admin | Happy Eck Kiosk</title><link rel="icon" href="assets/logo.jpg"><link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <header><a class="brand" href="index.html"><img src="assets/logo.jpg" alt="">HAPPY <span>ECK</span></a><a href="index.html">Zur Webseite ↗</a></header>
+  <main>
+    <p class="eyebrow">Verwaltung</p><h1>Dein Happy Eck.</h1><p>Bearbeite die Texte deiner Webseite. Änderungen erscheinen nach dem Speichern auf der Startseite.</p>
+    <p id="status" role="status" aria-live="polite"></p>
+    <section id="loginPanel" class="panel">
+      <h2>Admin-Anmeldung</h2><p>Zugang nur für freigeschaltete Konten.</p>
+      <form id="loginForm">
+        <label for="email">E-Mail</label><input id="email" type="email" autocomplete="username" required maxlength="254">
+        <label for="password">Passwort</label><input id="password" type="password" autocomplete="current-password" required>
+        <button id="loginButton" type="submit">Anmelden →</button>
+      </form>
+    </section>
+    <section id="editorPanel" hidden>
+      <div class="toolbar"><p id="account"></p><button id="logoutButton" type="button" class="secondary">Abmelden</button></div>
+      <div id="fields"></div>
+    </section>
+  </main><script type="module" src="admin.js"></script>
+</body></html>
