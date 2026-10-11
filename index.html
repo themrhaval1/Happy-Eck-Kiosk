@@ -495,6 +495,15 @@
     @keyframes happy-sticker{0%,100%{translate:0 0}50%{translate:0 -6px}}
     @media(max-width:650px){.flavor-card{min-width:160px;padding:9px 11px}.flavor-marquee-title{font-size:9px}.flavor-motion-label{display:none}}
     @media(prefers-reduced-motion:reduce){.flavor-track,.promo-can-group,.promo-glow,.promo-orbit-one,.promo-sticker{animation:none!important}.flavor-viewport{overflow-x:auto;mask-image:none}.flavor-track{width:max-content}}
+    /* Real product photo replaces drawn cans. */
+    .promo-product-photo{position:relative;z-index:2;display:grid;place-items:center;width:min(92%,440px);height:250px;margin:20px 0 15px;border-radius:13px;overflow:hidden;background:#fff;box-shadow:0 18px 45px #050d0a55;transform:rotate(-3deg);animation:happy-photo-float 5s ease-in-out infinite}
+    .promo-product-photo img{width:100%;height:100%;display:block;object-fit:cover;object-position:center 26%;filter:contrast(1.05) saturate(1.07)}
+    .promo-sticker{z-index:4}
+    .promo-visual-caption{z-index:4}
+    @keyframes happy-photo-float{0%,100%{translate:0 0}50%{translate:0 -8px}}
+    @media(max-width:810px){.promo-product-photo{height:215px;width:min(88%,410px)}}
+    @media(max-width:530px){.promo-product-photo{height:190px;width:min(91%,360px)}.promo-sticker{right:9px;top:10px}}
+    @media(prefers-reduced-motion:reduce){.promo-product-photo{animation:none}}
   </style>
 <script type="application/ld+json">
 {
@@ -594,12 +603,9 @@
           <span class="promo-glow"></span>
           <span class="promo-orbit promo-orbit-one"></span>
           <span class="promo-orbit promo-orbit-two"></span>
-          <div class="promo-can-group">
-            <div class="promo-can promo-can-one"><span>RED<br>BULL</span><small>ENERGY DRINK</small></div>
-            <div class="promo-can promo-can-two"><span>RED<br>BULL</span><small>ENERGY DRINK</small></div>
-            <div class="promo-can promo-can-three"><span>RED<br>BULL</span><small>ENERGY DRINK</small></div>
-            <div class="promo-can promo-can-four"><span>RED<br>BULL</span><small>ENERGY DRINK</small></div>
-          </div>
+          <figure class="promo-product-photo">
+            <img src="https://m.media-amazon.com/images/I/61q-BE3OlZL._SL1101_.jpg" alt="Echte Red-Bull-Dosen verschiedener Sorten: Original, Sugarfree, Apricot, Sea Blue, Tropical und Watermelon" width="1101" height="1101" loading="eager" referrerpolicy="no-referrer" decoding="async">
+          </figure>
           <div class="promo-sticker"><small>DEAL</small><strong>4 = 8 €</strong><span>zzgl. Pfand</span></div>
           <span class="promo-visual-caption">4 DOSEN · 1 STARKER PREIS</span>
         </div>
