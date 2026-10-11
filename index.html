@@ -418,6 +418,45 @@
     @media(max-width:700px){.premium-menu{top:70px;right:9px;left:9px;width:auto;max-height:calc(100dvh - 87px);padding:14px}.premium-menu-header strong{font-size:23px}.premium-menu-grid{gap:7px}.premium-menu-grid a{padding:12px 9px;gap:7px}.premium-menu-grid a>span:last-child{font-size:12px}.premium-menu-symbol{width:30px;height:30px;font-size:19px}.premium-menu-bottom{grid-template-columns:1fr 1fr}.premium-menu-bottom a{font-size:11px}.menu-panel a{padding:12px 9px}}
     @media(max-width:400px){.premium-menu-grid{grid-template-columns:1fr 1fr}.premium-menu-grid a small{font-size:9px}}
     @media(prefers-reduced-motion:reduce){.premium-menu-grid a,.menu-toggle span{transition:none}}
+    /* Premium contact center */
+    .contact-form-section{padding-top:32px;border-top:0}
+    .contact-trigger{border-radius:17px;padding:27px 31px;background:linear-gradient(125deg,#e7ede1,#f1ece0);border:1px solid #d3d8cc;box-shadow:0 12px 30px #1935210a;transition:background .2s}
+    .contact-trigger:hover{background:#e6ede0}
+    .contact-trigger-copy{display:grid;gap:8px;min-width:0}
+    .contact-trigger small{font-size:10px;color:#66815b;letter-spacing:.18em}
+    .contact-trigger strong{font-size:clamp(25px,3.3vw,39px);line-height:1.13;text-wrap:balance;color:#1a3222}
+    .contact-trigger em{color:#5c695e;font-size:13px}
+    .contact-trigger-action{display:flex;align-items:center;gap:15px;font-size:12px;font-weight:850;color:#23412c;white-space:nowrap}
+    .contact-trigger-action .contact-chevron{font-size:23px}
+    .contact-form-section[open] .contact-trigger{background:#e8eee4;border-radius:16px 16px 0 0}
+    .contact-inner{padding:33px 33px 37px;border-color:#d3d8cc;background:#f8f8f4;display:block}
+    .contact-lead small{font-size:10px;letter-spacing:.17em;font-weight:850;color:#69805a}
+    .contact-lead h2{font-size:clamp(27px,3.4vw,41px);margin:9px 0!important;line-height:1.16;color:#213527}
+    .contact-lead p{font-size:14px;color:#677366;line-height:1.7;margin:0 0 24px;max-width:660px}
+    .contact-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}
+    .contact-option{display:flex;align-items:center;gap:11px;border:1px solid #dfe3d8;border-radius:12px;padding:16px 13px;min-width:0;background:white;transition:transform .2s,box-shadow .2s,border-color .2s}
+    .contact-option:hover{transform:translateY(-2px);border-color:#b5ccb4;box-shadow:0 10px 18px #18271b0d}
+    .contact-option-icon{height:39px;width:39px;flex:none;border-radius:10px;display:grid;place-items:center;background:#e2eee1;color:#236b3c;font-size:23px}
+    .contact-option-wa .contact-option-icon{background:#d7f5e1;color:#168741}
+    .contact-option-mail .contact-option-icon{background:#f2e7d2;color:#875921}
+    .contact-option>span:nth-child(2){display:grid;gap:5px;min-width:0}
+    .contact-option strong{font-size:13px;color:#243a29;line-height:1.3}
+    .contact-option small{font-size:11px;white-space:normal;overflow-wrap:anywhere;color:#73796d}
+    .contact-option-arrow{font-size:16px;font-weight:900;color:#6d826e;margin-left:auto}
+    .contact-inner .contact-form-divider{max-width:none;margin:28px 0 22px}
+    .contact-form-heading{display:grid;gap:5px;margin:0 0 14px}
+    .contact-form-heading strong{font-size:21px;font-weight:850;color:#273c2d}
+    .contact-form-heading small{font-size:12px;color:#6a7568}
+    .contact-inner form{max-width:none;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;padding:25px}
+    .contact-inner form label:nth-of-type(4){grid-column:1/-1}
+    .contact-inner form .site-form-help{grid-column:1/-1}
+    .contact-inner form button{grid-column:1/-1;width:max-content;min-width:190px}
+    .contact-inner form label{font-size:12px}
+    .contact-inner form input,.contact-inner form textarea{background:#fdfdfb;border-radius:9px}
+    .contact-inner form input:focus,.contact-inner form textarea:focus{border-color:#799e7a}
+    @media(max-width:930px){.contact-options{grid-template-columns:1fr}.contact-option{padding:14px 16px}}
+    @media(max-width:650px){.contact-trigger{padding:22px 18px}.contact-trigger-action>span:first-child{display:none}.contact-inner{padding:24px 17px}.contact-options{gap:9px}.contact-inner form{grid-template-columns:1fr;padding:16px}.contact-inner form label:nth-of-type(4){grid-column:1}.contact-inner form button{width:100%}}
+    @media(prefers-reduced-motion:reduce){.contact-trigger,.contact-option{transition:none}}
   </style>
 <script type="application/ld+json">
 {
@@ -604,12 +643,28 @@
       </div>
     </section>
 <details class="wrap contact-form-section" id="kontakt">
-<summary class="contact-trigger"><span><small>DU HAST EINE FRAGE?</small><strong>Kontakt</strong><em>Öffnen und Nachricht schreiben</em></span><span class="contact-chevron" aria-hidden="true">⌄</span></summary>
+<summary class="contact-trigger"><span class="contact-trigger-copy"><small>WIR SIND FÜR DICH DA</small><strong>Wie können wir dir helfen?</strong><em>Kontakt aufnehmen · Anrufen · WhatsApp · Nachricht schreiben</em></span><span class="contact-trigger-action" aria-hidden="true"><span>Kontakt öffnen</span><span class="contact-chevron">⌄</span></span></summary>
 <div class="contact-inner">
-<h2 id="kontakt-title">Schreib uns direkt.</h2>
-<p>Du kannst uns eine Nachricht schreiben oder direkt anrufen.</p>
-<a class="contact-call" href="tel:+4917661020308" aria-label="Happy Eck unter 0176 61020308 anrufen"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.19 18a19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.09 3.18 2 2 0 0 1 4.08 1h3a2 2 0 0 1 2 1.72c.12.96.35 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.04 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.56 2.81.68A2 2 0 0 1 22 16.92z"/></svg><span><strong>Jetzt anrufen</strong><small>0176 61020308</small></span><span class="contact-call-arrow" aria-hidden="true">↗</span></a>
-<div class="contact-form-divider"><span>Oder Nachricht schreiben</span></div>
+<div class="contact-lead">
+  <div>
+    <small>DEIN DIREKTER DRAHT ZU HAPPY ECK</small>
+    <h2 id="kontakt-title">Sag uns, was du brauchst.</h2>
+    <p>Eine Frage, eine Bestellung oder ein Anliegen? Wir sind gerne für dich da.</p>
+  </div>
+</div>
+<div class="contact-options">
+  <a class="contact-option contact-option-call" href="tel:+4917661020308" aria-label="Happy Eck unter 0176 61020308 anrufen">
+    <span class="contact-option-icon" aria-hidden="true">☎</span><span><strong>Jetzt anrufen</strong><small>0176 61020308</small></span><span class="contact-option-arrow" aria-hidden="true">↗</span>
+  </a>
+  <a class="contact-option contact-option-wa" href="https://wa.me/4917661020308?text=Hallo%20Happy%20Eck%2C%20ich%20habe%20eine%20Frage." target="_blank" rel="noopener noreferrer">
+    <span class="contact-option-icon" aria-hidden="true">✆</span><span><strong>WhatsApp</strong><small>Schnell Nachricht schreiben</small></span><span class="contact-option-arrow" aria-hidden="true">↗</span>
+  </a>
+  <a class="contact-option contact-option-mail" href="mailto:happyeck10@gmail.com?subject=Kontakt%20-%20Happy%20Eck">
+    <span class="contact-option-icon" aria-hidden="true">✉</span><span><strong>E-Mail</strong><small>happyeck10@gmail.com</small></span><span class="contact-option-arrow" aria-hidden="true">↗</span>
+  </a>
+</div>
+<div class="contact-form-divider"><span>Oder nutze unser Kontaktformular</span></div>
+<div class="contact-form-heading"><strong>Nachricht senden</strong><small>Wir erhalten deine Angaben per E-Mail.</small></div>
 <form action="https://formsubmit.co/happyeck10@gmail.com" method="POST">
 <input type="hidden" name="_subject" value="Kontakt – Happy Eck">
 <input type="hidden" name="_template" value="table">
