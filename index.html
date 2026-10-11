@@ -54,6 +54,16 @@
     .footlinks{display:flex;flex-wrap:wrap;gap:12px 22px;font-size:13px;font-weight:700}
     .legal{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:30px;padding-top:20px;color:#74766f;font-size:12px}
     .legal a:hover{text-decoration:underline}
+    .legal-details{border-top:1px solid var(--line);margin-top:15px;display:flex;flex-wrap:wrap;gap:25px;align-items:flex-start}
+    .legal-details details{min-width:110px;font-size:13px}
+    .legal-details summary{cursor:pointer;padding:15px 0;font-weight:750;color:#53584f}
+    .legal-details summary:hover{color:#242a24}
+    .legal-copy{max-width:740px;line-height:1.65;padding:6px 0 25px}
+    .legal-copy h2{font-size:20px;margin:10px 0}
+    .legal-copy h3{font-size:15px;margin:20px 0 8px}
+    .legal-copy p{color:#444c43}
+    .legal-copy a{text-decoration:underline}
+    .legal-details details[open]{width:100%}
     @media(max-width:700px){
       .wrap{width:calc(100% - 38px)}
       .topbar{min-height:76px}.brand{font-size:18px}.brand img{width:42px;height:42px}
@@ -111,7 +121,22 @@
           <a href="mailto:happyeck10@gmail.com?subject=Bewerbung">Jobs</a>
         </nav>
       </div>
-      <div class="legal"><span>© 2026 Happy Eck Kiosk</span><span><span>Impressum und Datenschutz vor Veröffentlichung ergänzen</span></span></div>
+      <div class="legal"><span>© 2026 Happy Eck Kiosk</span><span>Caldenhofer Weg 207 · 59063 Hamm</span></div>
+      <div class="legal-details">
+        <details><summary>Impressum</summary><div class="legal-copy">
+          <h2>Impressum</h2><p>Angaben gemäß § 5 DDG</p>
+          <p><strong>Happy Eck Kiosk</strong><br>Inhaber: Haval Mahmud Haji Al Fares<br>Caldenhofer Weg 207<br>59063 Hamm<br>Deutschland</p>
+          <p>E-Mail: <a href="mailto:happyeck10@gmail.com">happyeck10@gmail.com</a><br>Telefon: <a href="tel:+4917661020308">0176 61020308</a></p>
+        </div></details>
+        <details><summary>Datenschutz</summary><div class="legal-copy">
+          <h2>Datenschutzhinweise</h2><p>Stand: Oktober 2026</p>
+          <p><strong>Verantwortlicher:</strong> Haval Mahmud Haji Al Fares, Happy Eck Kiosk, Caldenhofer Weg 207, 59063 Hamm. Kontakt: <a href="mailto:happyeck10@gmail.com">happyeck10@gmail.com</a>.</p>
+          <h3>Bereitstellung der Website</h3><p>Die Website wird über GitHub Pages gehostet. Beim Aufrufen können technisch erforderliche Informationen wie IP-Adresse, Zeitpunkt und angeforderte Seiten zur Auslieferung und Sicherheit verarbeitet werden. Einzelheiten sind in der <a href="https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">Datenschutzerklärung von GitHub</a> beschrieben. Diese Website verwendet selbst weder Tracking-Cookies noch eigene Webanalyse.</p>
+          <h3>Kontaktaufnahme</h3><p>Wenn du uns per E-Mail oder WhatsApp kontaktierst, verarbeiten wir die übermittelten Daten, um deine Anfrage zu beantworten oder eine Bewerbung zu bearbeiten. Rechtsgrundlage ist abhängig vom Anliegen Art. 6 Abs. 1 lit. b oder f DSGVO beziehungsweise bei Bewerbungen § 26 BDSG, soweit anwendbar. Wir speichern Angaben nur, solange es für den jeweiligen Zweck oder gesetzliche Aufbewahrungsfristen erforderlich ist. Auf der Website selbst werden keine Formulardaten gespeichert.</p>
+          <h3>Externe Links</h3><p>Mit dem Öffnen von Lieferando, WhatsApp, Instagram, Google Maps oder der GLS-Website besuchst du externe Dienste. Deren Datenschutzhinweise gelten dort.</p>
+          <h3>Deine Rechte</h3><p>Du hast unter den gesetzlichen Voraussetzungen Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung, Widerspruch sowie Beschwerde bei einer Datenschutzaufsichtsbehörde. Kontaktiere uns hierfür per E-Mail.</p>
+        </div></details>
+      </div>
     </div>
   </footer>
 </body>
