@@ -295,6 +295,10 @@
     @media(max-width:800px){.footer-social{padding:30px 25px}.footer-social-grid{grid-template-columns:1fr;gap:9px}.footer-social-link{padding:12px 15px}}
     @media(max-width:540px){#footer{padding-top:25px}.footer-social{border-radius:13px;padding:27px 18px}.footer-social h2{font-size:31px}.footer-info-row{align-items:flex-start;flex-direction:column;padding:24px 0 6px}.footer-social-icon{width:40px;height:40px}}
     @media(prefers-reduced-motion:reduce){.footer-social-link{transition:none}}
+    .spam-trap{position:absolute!important;left:-9999px!important;top:auto!important;height:1px!important;width:1px!important;overflow:hidden!important;opacity:0!important;pointer-events:none!important}
+    .apply-panel input[type="file"]{cursor:pointer}
+    .contact-form-section form label,.apply-panel form label{line-height:1.45}
+    .google-reviews-primary:focus-visible,.google-reviews-secondary:focus-visible,.route-options a:focus-visible,.footer-jobs:focus-visible{outline:3px solid #e3b86c;outline-offset:3px}
   </style>
 <script type="application/ld+json">
 {
@@ -426,11 +430,12 @@
             <form action="https://formsubmit.co/happyeck10@gmail.com" method="POST" enctype="multipart/form-data">
               <input type="hidden" name="_subject" value="Job – Happy Eck">
               <input type="hidden" name="_template" value="table">
-              <label>Vor- und Nachname<input type="text" name="Name" autocomplete="name" required></label>
-              <label>Geburtsdatum<input type="date" name="Geburtsdatum" autocomplete="bday" required></label>
-              <label>Telefonnummer<input type="tel" name="Telefon" autocomplete="tel" required></label>
-              <label>Lebenslauf als JPG oder PDF<input id="job-cv" type="file" name="attachment" accept=".jpg,.jpeg,.pdf,image/jpeg,application/pdf" required></label>
-<p class="apply-form-note">Wir benötigen nur diese vier Angaben. Der Versand erfolgt über einen externen Formularservice.</p><small>Maximal 10 MB. Nach dem Absenden kann eine Sicherheitsabfrage erscheinen.</small>
+              <input class="spam-trap" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-label="Dieses Feld bitte leer lassen">
+              <label>Vor- und Nachname<input type="text" name="Name" autocomplete="name" minlength="2" maxlength="100" required></label>
+              <label>Geburtsdatum<input type="date" name="Geburtsdatum" autocomplete="bday" min="1900-01-01" required></label>
+              <label>Telefonnummer<input type="tel" name="Telefon" autocomplete="tel" inputmode="tel" maxlength="30" required></label>
+              <label>Lebenslauf als JPG oder PDF<input id="job-cv" type="file" name="attachment" accept=".jpg,.jpeg,.pdf,image/jpeg,application/pdf" aria-describedby="cv-file-hint" required></label>
+<p class="apply-form-note">Wir benötigen nur diese vier Angaben. Der Versand erfolgt über einen externen Formularservice.</p><small id="cv-file-hint">Maximal 10 MB, nur JPG/JPEG oder PDF. Nach dem Absenden kann eine Sicherheitsabfrage erscheinen.</small>
               <button type="submit">Bewerbung senden</button>
             </form>
           </details>
@@ -447,10 +452,11 @@
 <form action="https://formsubmit.co/happyeck10@gmail.com" method="POST">
 <input type="hidden" name="_subject" value="Kontakt – Happy Eck">
 <input type="hidden" name="_template" value="table">
-<label>Name<input type="text" name="name" autocomplete="name" required></label>
+              <input class="spam-trap" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-label="Dieses Feld bitte leer lassen">
+<label>Name<input type="text" name="name" autocomplete="name" minlength="2" maxlength="100" required></label>
 <label>Telefon<input type="tel" name="Telefon" autocomplete="tel" required></label>
-<label>E-Mail<input type="email" name="email" autocomplete="email" required></label>
-<label>Anliegen<textarea name="Anliegen" rows="4" required></textarea></label>
+<label>E-Mail<input type="email" name="email" autocomplete="email" maxlength="160" required></label>
+<label>Anliegen<textarea name="Anliegen" rows="4" minlength="5" maxlength="3000" required></textarea></label>
 <p class="site-form-help">Deine Nachricht wird über einen externen Formularservice an uns per E-Mail geschickt.</p>
 <button type="submit">Nachricht senden ↗</button>
 </form>
@@ -523,5 +529,22 @@
   menu.addEventListener('click',event=>{if(event.target.closest('a'))setOpen(false)});
   document.addEventListener('pointerdown',event=>{if(!menu.hidden&&!menu.contains(event.target)&&!toggle.contains(event.target))setOpen(false)});
   document.addEventListener('keydown',event=>{if(event.key==='Escape'&&!menu.hidden){setOpen(false);toggle.focus()}});
-})();</script><script>document.getElementById("job-cv").addEventListener("change",function(){const f=this.files[0];this.setCustomValidity(f&&f.size>10485760?"Maximal 10 MB erlaubt.":"");if(!this.checkValidity())this.reportValidity();});</script><script>(function(){const contact=document.getElementById('kontakt');if(!contact)return;function reveal(){if(location.hash==='#kontakt'){contact.open=true;}}document.querySelectorAll('a[href="#kontakt"]').forEach(link=>link.addEventListener('click',()=>{contact.open=true;}));window.addEventListener('hashchange',reveal);reveal();})();</script></body>
+})();</script><script>(function(){
+const input=document.getElementById("job-cv");
+const birthday=document.querySelector('input[name="Geburtsdatum"]');
+if(birthday)birthday.max=new Date().toISOString().slice(0,10);
+if(!input)return;
+function validate(){
+  const file=input.files&&input.files[0];
+  let message="";
+  if(file){
+    if(!/\.(jpg|jpeg|pdf)$/i.test(file.name))message="Nur JPG oder PDF ist erlaubt.";
+    else if(file.size>10485760)message="Die Datei darf höchstens 10 MB groß sein.";
+  }
+  input.setCustomValidity(message);
+  return !message;
+}
+input.addEventListener("change",()=>{if(!validate())input.reportValidity()});
+input.form.addEventListener("submit",event=>{if(!validate()){event.preventDefault();input.reportValidity()}});
+})();</script><script>(function(){const contact=document.getElementById('kontakt');if(!contact)return;function reveal(){if(location.hash==='#kontakt'){contact.open=true;}}document.querySelectorAll('a[href="#kontakt"]').forEach(link=>link.addEventListener('click',()=>{contact.open=true;}));window.addEventListener('hashchange',reveal);reveal();})();</script></body>
 </html>
