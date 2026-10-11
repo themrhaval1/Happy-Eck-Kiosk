@@ -712,6 +712,17 @@
     .contact-form-section{box-shadow:0 18px 40px #14271b18}
     @media(max-width:750px){.hero{min-height:600px}.hero-content{padding-block:75px}.hero h1{font-size:clamp(58px,12vw,87px)}.hero-fresh-badge{top:15px;right:15px;font-size:9px;padding:9px 12px}.he-campaign{padding-top:25px}.he-tile{min-height:205px;padding:15px;border-radius:15px}.he-tile h3{font-size:clamp(20px,5vw,29px)}}
     @media(max-width:400px){.hero h1{font-size:54px}.he-tile{min-height:185px}.he-campaign-heading h2{font-size:31px}}
+    /* Robust product photo fallback, consistent forms and accessible feedback */
+    .promo-product-photo{position:relative}
+    .promo-product-photo .promo-image-fallback{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px;background:linear-gradient(135deg,#173c34,#0a251e);color:white;text-align:center;border-radius:inherit}
+    .promo-image-fallback strong{font-size:clamp(62px,7vw,105px);font-weight:950;line-height:1;color:#f7c978}
+    .promo-image-fallback span{font-size:clamp(20px,2.6vw,32px);font-weight:950;letter-spacing:.07em}
+    .promo-image-fallback small{font-size:11px;font-weight:700;opacity:.8}
+    .promo-product-photo .promo-product-image{position:relative;z-index:1;width:100%;height:100%;object-fit:contain}
+    .promo-product-photo .promo-product-image[hidden]{display:none!important}
+    .promo-product-photo.image-unavailable{border:1px solid #ffffff45}
+    form button[aria-busy="true"]{opacity:.7;cursor:progress}
+    form :is(input,textarea,button):focus-visible{outline:3px solid #d8a65c;outline-offset:3px}
   </style>
 <script type="application/ld+json">
 {
@@ -734,7 +745,7 @@
       <a class="brand" href="index.html" aria-label="Happy Eck Kiosk, Startseite"><img src="assets/logo.jpg" alt="" width="48" height="48" decoding="async"><span>HAPPY ECK</span></a>
       <div class="toplinks" aria-label="Schnellzugriff">
         <a href="#kontakt">Kontakt</a>
-        <a class="top-order" href="https://www.lieferando.de/speisekarte/happy-eck-kiosk-59063-hamm" target="_blank" rel="noopener noreferrer"><img class="lieferando-mark" src="https://logowik.com/content/uploads/images/lieferando6751.logowik.com.webp" alt="" decoding="async" referrerpolicy="no-referrer"><span>Bestellen ↗</span></a>
+        <a class="top-order" href="https://www.lieferando.de/speisekarte/happy-eck-kiosk-59063-hamm" target="_blank" rel="noopener noreferrer"><img class="lieferando-mark" src="https://logowik.com/content/uploads/images/lieferando6751.logowik.com.webp" onerror="this.hidden=true" alt="" decoding="async" referrerpolicy="no-referrer"><span>Bestellen ↗</span></a>
       <button type="button" id="menu-toggle" class="menu-toggle" aria-controls="site-menu" aria-expanded="false" aria-label="Menü öffnen"><span></span><span></span><span></span></button></div>
       <nav id="site-menu" class="menu-panel premium-menu" aria-label="Hauptmenü" hidden>
         <div class="premium-menu-header">
@@ -819,8 +830,8 @@
           <span class="promo-glow"></span>
           <span class="promo-orbit promo-orbit-one"></span>
           <span class="promo-orbit promo-orbit-two"></span>
-          <figure class="promo-product-photo">
-            <img src="https://m.media-amazon.com/images/I/61q-BE3OlZL._SL1101_.jpg" alt="Red Bull Produktabbildung zum Wochenangebot" width="1101" height="1101" loading="lazy" referrerpolicy="no-referrer" decoding="async">
+          <figure class="promo-product-photo"><span class="promo-image-fallback" aria-hidden="true"><strong>4×</strong><span>RED BULL</span><small>8 € · zzgl. Pfand</small></span>
+            <img class="promo-product-image" src="https://m.media-amazon.com/images/I/61q-BE3OlZL._SL1101_.jpg" alt="Produktfoto zum Red-Bull-Angebot" width="1101" height="1101" loading="lazy" referrerpolicy="no-referrer" decoding="async">
           </figure>
           <div class="promo-sticker"><small>DEAL</small><strong>4 = 8 €</strong><span>zzgl. Pfand</span></div>
           <span class="promo-visual-caption">4 DOSEN · 1 STARKER PREIS</span>
@@ -1050,7 +1061,7 @@
 })();</script><script>(function(){
 const input=document.getElementById("job-cv");
 const birthday=document.querySelector('input[name="Geburtsdatum"]');
-if(birthday)birthday.max=new Date().toISOString().slice(0,10);
+if(birthday){const today=new Intl.DateTimeFormat('sv-SE',{timeZone:'Europe/Berlin',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());birthday.max=today;}
 if(!input)return;
 function validate(){
   const file=input.files&&input.files[0];
@@ -1109,5 +1120,21 @@ input.form.addEventListener("submit",event=>{if(!validate()){event.preventDefaul
   window.setInterval(refresh,30000);
   document.addEventListener('visibilitychange',()=>{if(!document.hidden)refresh()});
 })();
-</script></body>
+</script><script>(function(){
+  // Image failures should never leave a broken visual or misleading empty card.
+  const product=document.querySelector('.promo-product-image');
+  if(product){
+    function fallback(){product.hidden=true;product.closest('.promo-product-photo')?.classList.add('image-unavailable')}
+    product.addEventListener('error',fallback);
+    if(product.complete&&product.naturalWidth===0)fallback();
+  }
+  // Prevent repeated form submissions from double-clicks.
+  document.querySelectorAll('form[action^="https://formsubmit.co/"]').forEach(form=>{
+    form.addEventListener('submit',event=>{
+      if(!form.checkValidity()||event.defaultPrevented)return;
+      const button=form.querySelector('button[type="submit"]');
+      if(button){button.disabled=true;button.setAttribute('aria-busy','true');button.textContent='Wird gesendet …';}
+    });
+  });
+})();</script></body>
 </html>
