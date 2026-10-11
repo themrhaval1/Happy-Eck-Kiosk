@@ -9,9 +9,9 @@
   <meta property="og:locale" content="de_DE">
   <meta property="og:url" content="https://happyeck.de/">
   <link rel="canonical" href="https://happyeck.de/">
-  <meta name="description" content="Happy Eck Kiosk in Hamm. Bestelle über Lieferando oder frage deine Bestellung direkt per WhatsApp an. Getränke, Snacks und mehr.">
+  <meta name="description" content="Happy Eck – für alles, was noch fehlt. Dein Kiosk in Hamm für Drinks, Snacks, GLS-Pakete und mehr. Einfach vorbeikommen oder bestellen.">
   <meta property="og:title" content="Happy Eck Kiosk – Hamm">
-  <meta property="og:description" content="Dein Kiosk in Hamm. Einfach vorbeikommen oder bestellen.">
+  <meta property="og:description" content="Happy Eck. Für alles, was noch fehlt. Dein Kiosk in Hamm: Drinks, Snacks, Pakete & mehr.">
   <meta property="og:image" content="https://happyeck.de/assets/logo.jpg">
   <title>Happy Eck Kiosk – Hamm</title>
   <link rel="icon" href="assets/logo.jpg">
@@ -457,6 +457,21 @@
     @media(max-width:930px){.contact-options{grid-template-columns:1fr}.contact-option{padding:14px 16px}}
     @media(max-width:650px){.contact-trigger{padding:22px 18px}.contact-trigger-action>span:first-child{display:none}.contact-inner{padding:24px 17px}.contact-options{gap:9px}.contact-inner form{grid-template-columns:1fr;padding:16px}.contact-inner form label:nth-of-type(4){grid-column:1}.contact-inner form button{width:100%}}
     @media(prefers-reduced-motion:reduce){.contact-trigger,.contact-option{transition:none}}
+    /* Signature brand ribbon and sharper headline */
+    .brand-ribbon{background:#193625;color:#eaf3e7;border-bottom:1px solid #31543b}
+    .brand-ribbon-inner{display:flex;align-items:center;justify-content:space-between;gap:13px;min-height:39px;padding:7px 0}
+    .brand-ribbon-inner strong{font-size:10px;font-weight:900;letter-spacing:.13em;line-height:1.4}
+    .brand-ribbon-dot{color:#e8b968;font-size:15px}
+    .brand-ribbon-inner a{margin-left:auto;font-size:10px;font-weight:900;letter-spacing:.025em;color:#f0ce9c;white-space:nowrap}
+    .brand-ribbon-inner a:hover{text-decoration:underline}
+    .brand-ribbon-inner a:focus-visible{outline:2px solid #f4e2bb;outline-offset:3px}
+    .hero h1{max-width:15ch;font-size:clamp(53px,8.3vw,115px);text-wrap:balance}
+    .hero .intro{max-width:570px;line-height:1.65}
+    .contact-trigger-state{display:inline-block}
+    .contact-form-section[open] .contact-trigger-state{font-size:0}
+    .contact-form-section[open] .contact-trigger-state:after{content:"Kontakt schließen";font-size:12px}
+    @media(max-width:710px){.brand-ribbon-inner{flex-wrap:wrap;justify-content:center;gap:6px 10px;padding:8px 0;text-align:center}.brand-ribbon-inner a{margin-left:0}.brand-ribbon-inner strong{font-size:9px}.hero h1{font-size:clamp(47px,9.1vw,73px)}}
+    @media(max-width:410px){.brand-ribbon-inner{gap:4px 8px}.brand-ribbon-inner a{width:100%;font-size:9px}.hero h1{font-size:clamp(45px,9vw,65px)}}
   </style>
 <script type="application/ld+json">
 {
@@ -483,11 +498,11 @@
       <button type="button" id="menu-toggle" class="menu-toggle" aria-controls="site-menu" aria-expanded="false" aria-label="Menü öffnen"><span></span><span></span><span></span></button></div>
       <nav id="site-menu" class="menu-panel premium-menu" aria-label="Hauptmenü" hidden>
         <div class="premium-menu-header">
-          <div><small>ENTDECKE HAPPY ECK</small><strong>Alles auf einen Blick.</strong></div>
+          <div><small>HAPPY ECK · DEIN KIOSK IN HAMM</small><strong>Alles an einem Ort.</strong></div>
           <button type="button" class="premium-menu-close" id="menu-close" aria-label="Menü schließen">×</button>
         </div>
         <div class="premium-menu-grid">
-          <a href="#main"><span class="premium-menu-symbol" aria-hidden="true">⌂</span><span>Startseite<small>Willkommen bei uns</small></span></a>
+          <a href="#main"><span class="premium-menu-symbol" aria-hidden="true">⌂</span><span>Startseite<small>Für alles, was noch fehlt</small></span></a>
           <a href="#angebot"><span class="premium-menu-symbol" aria-hidden="true">✦</span><span>Wochenangebot<small>4 Red Bull für 8 €</small></span></a>
           <a href="#oeffnungszeiten"><span class="premium-menu-symbol" aria-hidden="true">◷</span><span>Öffnungszeiten<small>Kiosk und GLS</small></span></a>
           <a href="#anfahrt"><span class="premium-menu-symbol" aria-hidden="true">⌖</span><span>Anfahrt<small>Apple &amp; Google Maps</small></span></a>
@@ -503,13 +518,20 @@
       </nav>
     </div>
   </header>
+  <div class="brand-ribbon" aria-label="Happy Eck – Für alles, was noch fehlt.">
+    <div class="wrap brand-ribbon-inner">
+      <span class="brand-ribbon-dot" aria-hidden="true">✦</span>
+      <strong>HAPPY ECK. FÜR ALLES, WAS NOCH FEHLT.</strong>
+      <a href="#angebot">Diese Woche im Angebot <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
   <main id="main">
     <section class="hero" aria-labelledby="title">
       <img class="hero-bg" src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_27.jpg" alt="" fetchpriority="high">
       <div class="wrap hero-content">
         <div class="eyebrow">Happy Eck Kiosk · Hamm</div>
-        <h1 id="title">Dein Kiosk.<br><span>Dein Eck.</span></h1>
-        <p class="intro">Deine Lieblingssnacks und Getränke. Direkt bei uns oder bequem zu dir.</p>
+        <h1 id="title">Für alles,<br><span>was noch fehlt.</span></h1>
+        <p class="intro">Dein Happy Eck in Hamm: Lieblingsdrinks, Snacks, GLS-Paketshop und mehr. Direkt bei uns oder bequem bestellen.</p>
         <div class="actions">
           <a class="button button-primary" href="https://www.lieferando.de/speisekarte/happy-eck-kiosk-59063-hamm" target="_blank" rel="noopener noreferrer"><img class="lieferando-mark" src="https://logowik.com/content/uploads/images/lieferando6751.logowik.com.webp" alt="" decoding="async" referrerpolicy="no-referrer"><span>Über Lieferando bestellen ↗</span></a>
           <a class="button button-whatsapp" href="https://wa.me/4917661020308?text=Hallo%20Happy%20Eck%2C%20ich%20m%C3%B6chte%20gerne%20etwas%20bestellen." target="_blank" rel="noopener noreferrer"><svg class="brand-icon whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" fill="currentColor"/></svg><span>Über WhatsApp bestellen ↗</span></a>
@@ -643,13 +665,13 @@
       </div>
     </section>
 <details class="wrap contact-form-section" id="kontakt">
-<summary class="contact-trigger"><span class="contact-trigger-copy"><small>WIR SIND FÜR DICH DA</small><strong>Wie können wir dir helfen?</strong><em>Kontakt aufnehmen · Anrufen · WhatsApp · Nachricht schreiben</em></span><span class="contact-trigger-action" aria-hidden="true"><span>Kontakt öffnen</span><span class="contact-chevron">⌄</span></span></summary>
+<summary class="contact-trigger"><span class="contact-trigger-copy"><small>DU FRAGST. WIR SIND DA.</small><strong>Ein Klick. Viele Wege.</strong><em>Ruf an, schreib auf WhatsApp oder sende uns deine Nachricht.</em></span><span class="contact-trigger-action" aria-hidden="true"><span class="contact-trigger-state">Kontakt öffnen</span><span class="contact-chevron">⌄</span></span></summary>
 <div class="contact-inner">
 <div class="contact-lead">
   <div>
     <small>DEIN DIREKTER DRAHT ZU HAPPY ECK</small>
-    <h2 id="kontakt-title">Sag uns, was du brauchst.</h2>
-    <p>Eine Frage, eine Bestellung oder ein Anliegen? Wir sind gerne für dich da.</p>
+    <h2 id="kontakt-title">Wir sind nur einen Klick entfernt.</h2>
+    <p>Fragen, Wünsche oder eine Bestellung? Wähle einfach den Kontaktweg, der für dich passt.</p>
   </div>
 </div>
 <div class="contact-options">
@@ -686,7 +708,7 @@
           <div>
             <p class="footer-social-kicker">HAPPY ECK ONLINE</p>
             <h2 id="social-heading">Folge uns auf <em>Social Media.</em></h2>
-            <p>Entdecke Einblicke, Neuigkeiten und Angebote aus deinem Happy Eck.</p>
+            <p>Neue Drinks, frische Angebote und alles aus deinem Happy Eck. Bleib nah dran.</p>
           </div>
         </div>
         <nav class="footer-social-grid" aria-label="Unsere Social-Media-Kanäle">
@@ -710,7 +732,7 @@
       <div class="footer-info-row">
         <div class="footer-about">
           <strong>HAPPY ECK KIOSK</strong>
-          <span>Dein Kiosk in Hamm.</span>
+          <span>Für alles, was noch fehlt.</span>
         </div>
         <a class="footer-jobs" href="#jobs"><span>Du möchtest bei uns arbeiten?</span><strong>Zu den Jobs <span aria-hidden="true">↗</span></strong></a>
       </div>
