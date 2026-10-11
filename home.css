@@ -1,0 +1,59 @@
+/* Happy Eck — minimal signature homepage */
+body.minimal-home{background:#101410;color:#f4f2ea}
+.minimal-home .wrap{width:min(1180px,90%)}
+.minimal-home header{background:#111713ed;border-color:#ffffff20}
+.minimal-home .brand{letter-spacing:-.055em;font-size:22px;gap:10px}
+.minimal-home .brand .gold{color:#e9c788}
+.minimal-home nav{gap:25px}
+.minimal-home nav a{font-size:13px}
+.minimal-home .nav-cta{background:#e9c788;color:#171914}
+.minimal-home .nav-cta:hover{color:#111}
+.signature-hero{position:relative;isolation:isolate;min-height:720px;display:flex;align-items:center;overflow:hidden;background:#172018}
+.signature-photo{position:absolute;inset:0;z-index:-2;background:url('assets/ChatGPT-Bild 8. Okt. 2026, 22_30_27.jpg') center 47%/cover no-repeat}
+.signature-hero:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#0b100deF 0%,#0c110ecb 43%,#0c110e2e 100%),linear-gradient(0deg,#0b100d90,transparent 50%)}
+.hero-content{padding:110px 0 120px;position:relative;z-index:1}
+.signature-kicker,.hero-address,.service-step{font-size:11px!important;letter-spacing:.19em!important;text-transform:uppercase;font-weight:800;color:#e6d6b9!important}
+.signature-kicker{display:flex;align-items:center;gap:12px}
+.kicker-dot{width:6px;height:6px;background:#e9c788;border-radius:50%;display:inline-block}
+.minimal-home h1,.minimal-home h2{letter-spacing:-.065em;line-height:1.02;font-weight:760}
+.minimal-home h1{font-size:clamp(62px,9.3vw,132px);max-width:900px;margin:28px 0}
+.minimal-home h2{font-size:clamp(39px,5.2vw,70px);margin:11px 0 22px}
+.minimal-home em{font-style:normal;color:#e9c788}
+.hero-lead{font-size:19px;color:#e1e0d9;max-width:475px;line-height:1.6}
+.hero-actions,.visit-actions{display:flex;align-items:center;flex-wrap:wrap;gap:14px;margin:35px 0}
+.button-light,.button-transparent{display:inline-flex;align-items:center;justify-content:center;gap:18px;border-radius:4px;padding:16px 24px;font-size:14px;font-weight:800;min-height:54px;transition:transform .2s,background .2s}
+.button-light{background:#e9c788;color:#101713}.button-light:hover{background:#ffe0a3;transform:translateY(-2px)}
+.button-transparent{color:#fff;border:1px solid #ffffff7a;background:#ffffff0d}.button-transparent:hover{background:#ffffff25;transform:translateY(-2px)}
+.hero-address{display:block;margin:40px 0 0;color:#e1d6c6!important}
+.hero-monogram{position:absolute;bottom:-100px;right:2vw;font-size:min(41vw,580px);line-height:1;font-weight:900;color:#ffffff08;pointer-events:none}
+.signature-section{padding:113px 0}.highlights{background:#f0efe8;color:#171d17}.highlights p{color:#5e625b}
+.signature-heading{display:flex;align-items:end;justify-content:space-between;gap:45px;margin-bottom:42px}
+.signature-heading>p{max-width:290px;font-size:16px}
+.signature-heading em{color:#82734f}.signature-heading .eyebrow{color:#82734f}
+.signature-gallery{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:13px}
+.signature-gallery figure{margin:0;position:relative;overflow:hidden;min-width:0;background:#ced2c8;aspect-ratio:3/4}
+.signature-gallery .gallery-large{aspect-ratio:1.15}
+.signature-gallery img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.signature-gallery figure:hover img{transform:scale(1.035)}
+.signature-gallery figcaption{position:absolute;bottom:0;left:0;right:0;padding:32px 21px 17px;background:linear-gradient(transparent,#09120caa);color:white;font-size:12px;letter-spacing:.12em;font-weight:850;display:flex;justify-content:space-between;gap:10px}
+.signature-services{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.services{background:#101611}
+.services .eyebrow,.visit .eyebrow{color:#d8bb87}
+.signature-service{display:block;border:1px solid #ffffff2b;padding:40px 38px 38px;background:#ffffff04;transition:border .2s,transform .2s}
+.signature-service:hover{border-color:#e9c788;transform:translateY(-3px)}
+.signature-service h3{font-size:clamp(23px,2.8vw,35px);letter-spacing:-.04em;margin:28px 0 8px}
+.signature-service p{margin:0 0 26px}.service-link,.visit-whatsapp{color:#e9c788;font-size:14px;font-weight:800}
+.visit{background:#1c251e}
+.visit-grid{display:grid;grid-template-columns:1fr .94fr;gap:72px;align-items:center}
+.visit-copy>p:not(.eyebrow){color:#dbdfd6;font-size:17px}
+.visit-grid>img{width:100%;height:430px;object-fit:cover;display:block}
+.visit-whatsapp{padding:15px}
+.signature-footer{background:#101411;border-top:1px solid #ffffff20;padding:70px 0 25px}
+.signature-footer-top{display:flex;justify-content:space-between;gap:45px;flex-wrap:wrap}
+.signature-footer-links{display:flex;flex-direction:column;gap:13px;font-size:14px;font-weight:700}
+.signature-footer-links a:hover,.signature-footer-bottom a:hover{color:#e9c788}
+.signature-footer-bottom{border-top:1px solid #ffffff28;margin-top:60px;padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:#b0b7ac;font-size:12px}
+@media(max-width:880px){.signature-hero{min-height:640px}.signature-gallery{grid-template-columns:1fr 1fr}.signature-gallery .gallery-large{grid-column:1/-1;aspect-ratio:1.8}.visit-grid{gap:30px}}
+@media(max-width:780px){.minimal-home nav{gap:18px}.signature-hero{min-height:640px}.signature-photo{background-position:57% center}.signature-hero:before{background:linear-gradient(90deg,#0b100df3,#0b100dc8 65%,#0b100d70)}.hero-content{padding:95px 0}.signature-heading{display:block}.signature-services,.visit-grid{grid-template-columns:1fr}.signature-section{padding:72px 0}.visit-grid>img{height:310px}.signature-gallery .gallery-large{aspect-ratio:1.4}}
+@media(max-width:520px){.minimal-home h1{font-size:clamp(52px,15vw,75px)}.minimal-home h2{font-size:clamp(36px,10vw,49px)}.signature-hero{min-height:600px}.hero-lead{font-size:16px}.signature-gallery{gap:10px}.signature-gallery figure{aspect-ratio:3/4}.signature-gallery figcaption{font-size:10px;padding:23px 10px 11px}.signature-gallery .gallery-large{aspect-ratio:1.05}.signature-service{padding:27px}.signature-footer-top{gap:28px}.signature-footer-links{min-width:90px}}
+@media(prefers-reduced-motion:reduce){.signature-gallery img,.signature-service,.button-light,.button-transparent{transition:none}}
