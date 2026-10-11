@@ -1079,11 +1079,16 @@ input.form.addEventListener("submit",event=>{if(!validate()){event.preventDefaul
       const day=weekdays[part('weekday')];
       const minutes=Number(part('hour'))*60+Number(part('minute'));
       if(day===undefined||!Number.isFinite(minutes))return;
-      const daytime=minutes>=8*60+30;
-      // Fri -> Sat and Sat -> Sun stay open until 01:30 local time.
-      const lateNight=(day===6||day===0)&&minutes<90;
-      setStatus(kiosk,daytime||lateNight);
-      setStatus(gls,daytime);
+      const early=minutes<90;
+      const afterOpen=minutes>=510;
+      // Fri/Sat: open until 01:30 next morning. All other days until midnight.
+      const kioskOpen=afterOpen||((day===6||day===0)&&early);
+      const glsOpen=afterOpen;
+      setStatus(kiosk,kioskOpen);
+      setStatus(gls,glsOpen);
+      if(!kioskOpen&&kiosk.dataset.status==='closed'){
+        kiosk.querySelector('.hours-live-label').textContent='Jetzt geschlossen · ab 08:30 Uhr';
+      }
     }catch(error){
       for(const el of [kiosk,gls]){
         el.dataset.status='loading';
