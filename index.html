@@ -222,8 +222,18 @@
           <p>Minijob · Teilzeit · Vollzeit</p>
         </div>
         <div class="job-action">
-          <a class="job-button" href="mailto:happyeck10@gmail.com?subject=Initiativbewerbung%20Happy%20Eck%20Kiosk&amp;body=Hallo%20Happy%20Eck%2C%0A%0Aich%20m%C3%B6chte%20mich%20bei%20euch%20bewerben.%0A%0AName%3A%20%0ABesch%C3%A4ftigungsart%3A%20%0A%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen" aria-label="Bewerbung für Happy Eck per E-Mail vorbereiten"><span aria-hidden="true">✉</span> Jetzt bewerben ↗</a>
-          <p class="job-note">E-Mail öffnen, Lebenslauf anhängen und selbst absenden.</p>
+          <details class="apply-panel">
+            <summary class="job-button">Jetzt bewerben ↗</summary>
+            <form action="https://formsubmit.co/happyeck10@gmail.com" method="POST" enctype="multipart/form-data">
+              <input type="hidden" name="_subject" value="Job – Happy Eck">
+              <input type="hidden" name="_template" value="table">
+              <label>Vor- und Nachname<input type="text" name="Name" autocomplete="name" required></label>
+              <label>Geburtsdatum<input type="date" name="Geburtsdatum" autocomplete="bday" required></label>
+              <label>Telefonnummer<input type="tel" name="Telefon" autocomplete="tel" required></label>
+              <label>Lebenslauf als JPG oder PDF<input type="file" name="attachment" accept=".jpg,.jpeg,.pdf" required></label>
+              <button type="submit">Bewerbung senden</button>
+            </form>
+          </details>
         </div>
       </div>
     </section>
