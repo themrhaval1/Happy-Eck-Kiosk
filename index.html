@@ -224,6 +224,15 @@
     .google-reviews-secondary:hover{background:#e9e6db;transform:translateY(-2px)}
     @media(max-width:850px){.google-reviews-card{grid-template-columns:1fr;gap:26px}}
     @media(max-width:540px){.google-reviews-card{padding:23px}.google-reviews-intro h2{font-size:29px}.google-reviews-section{padding-top:17px}}
+    .contact-call{display:flex;align-items:center;gap:14px;max-width:650px;padding:17px 19px;margin:22px 0;background:#e4efe4;border:1px solid #bed7c0;color:#153922;border-radius:11px;transition:background .2s,transform .2s}
+    .contact-call:hover{background:#d5e8d7;transform:translateY(-2px)}
+    .contact-call>svg{flex:none}
+    .contact-call>span:nth-of-type(1){display:grid;gap:3px;flex:1}
+    .contact-call strong{font-size:15px}
+    .contact-call small{font-size:13px;color:#43634a}
+    .contact-call-arrow{font-size:20px;font-weight:750}
+    .contact-form-divider{display:flex;align-items:center;gap:14px;max-width:650px;margin:22px 0;color:#77786e;font-size:12px;font-weight:750}
+    .contact-form-divider::before,.contact-form-divider::after{content:"";height:1px;background:#d8d6ce;flex:1}
   </style>
 </head>
 <body>
@@ -357,7 +366,9 @@
 <summary class="contact-trigger"><span><small>DU HAST EINE FRAGE?</small><strong>Kontakt</strong><em>Öffnen und Nachricht schreiben</em></span><span class="contact-chevron" aria-hidden="true">⌄</span></summary>
 <div class="contact-inner">
 <h2 id="kontakt-title">Schreib uns direkt.</h2>
-<p>Fülle die Felder aus – deine Nachricht geht an Happy Eck.</p>
+<p>Du kannst uns eine Nachricht schreiben oder direkt anrufen.</p>
+<a class="contact-call" href="tel:+4917661020308" aria-label="Happy Eck unter 0176 61020308 anrufen"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.19 18a19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.09 3.18 2 2 0 0 1 4.08 1h3a2 2 0 0 1 2 1.72c.12.96.35 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.04 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.56 2.81.68A2 2 0 0 1 22 16.92z"/></svg><span><strong>Jetzt anrufen</strong><small>0176 61020308</small></span><span class="contact-call-arrow" aria-hidden="true">↗</span></a>
+<div class="contact-form-divider"><span>Oder Nachricht schreiben</span></div>
 <form action="https://formsubmit.co/happyeck10@gmail.com" method="POST">
 <input type="hidden" name="_subject" value="Kontakt – Happy Eck">
 <input type="hidden" name="_template" value="table">
