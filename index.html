@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#111311">
-  <meta name="description" content="Happy Eck Kiosk in Hamm. Getränke, Snacks, GLS Paketshop und mehr. Besuche uns oder bestelle über Lieferando.">
+  <meta name="description" content="Happy Eck Kiosk in Hamm. Bestelle über Lieferando oder frage deine Bestellung direkt per WhatsApp an. Getränke, Snacks und mehr.">
   <meta property="og:title" content="Happy Eck Kiosk – Hamm">
   <meta property="og:description" content="Dein Kiosk in Hamm. Einfach vorbeikommen oder bestellen.">
   <meta property="og:image" content="https://happyeck.de/assets/logo.jpg">
   <title>Happy Eck Kiosk – Hamm</title>
   <link rel="icon" href="assets/logo.jpg">
   <style>
-    :root{--ink:#161816;--cream:#f6f5f1;--warm:#ecd8b5;--line:#dcdcd4}
+    :root{--ink:#161816;--cream:#f6f5f1;--warm:#f2dfbf;--line:#dcdcd4}
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{margin:0;background:var(--cream);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
@@ -28,9 +28,10 @@
     .toplinks a:first-child:hover,.footlinks a:hover{color:#8f5d22}
     .top-order{background:var(--ink);color:#fff;border-radius:6px;padding:13px 19px;transition:background .2s}
     .top-order:hover{background:#394239}
+    .brand:hover{opacity:.84}
     .hero{position:relative;min-height:min(760px,calc(100svh - 94px));display:flex;align-items:center;overflow:hidden;background:#1c211a;isolation:isolate}
     .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
-    .hero:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(10,13,10,.90),rgba(10,13,10,.67) 54%,rgba(10,13,10,.18)),linear-gradient(0deg,rgba(10,13,10,.36),transparent 50%)}
+    .hero:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(10,13,10,.92),rgba(10,13,10,.69) 54%,rgba(10,13,10,.18)),linear-gradient(0deg,rgba(10,13,10,.36),transparent 50%)}
     .hero-content{padding:105px 0;color:#fff}
     .eyebrow{display:inline-flex;align-items:center;gap:12px;color:var(--warm);font-size:12px;font-weight:800;letter-spacing:.19em;text-transform:uppercase}
     .eyebrow:before{content:"";width:26px;height:2px;background:var(--warm)}
@@ -42,6 +43,9 @@
     .button:hover{transform:translateY(-2px)}
     .button-primary{background:var(--warm);color:#1d1b17}
     .button-primary:hover{background:#ffebc6}
+    .button-whatsapp{background:#25d366;color:#102319}
+    .button-whatsapp:hover{background:#4ce381}
+    .location-links{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
     .button-outline{background:#ffffff08;border:1px solid #ffffffa0;color:#fff}
     .button-outline:hover{background:#ffffff26}
     .location{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:27px 0;border-bottom:1px solid var(--line);font-size:13px;color:#474b43}
@@ -99,16 +103,16 @@
       <div class="wrap hero-content">
         <div class="eyebrow">Happy Eck Kiosk · Hamm</div>
         <h1 id="title">Dein Kiosk.<br><span>Dein Eck.</span></h1>
-        <p class="intro">Getränke, Snacks und mehr – direkt bei uns in Hamm.</p>
+        <p class="intro">Deine Lieblingssnacks und Getränke. Direkt bei uns oder bequem zu dir.</p>
         <div class="actions">
-          <a class="button button-primary" href="https://www.lieferando.de/speisekarte/happy-eck-kiosk-59063-hamm" target="_blank" rel="noopener noreferrer">Jetzt bestellen ↗</a>
-          <a class="button button-outline" href="https://www.google.com/maps/dir/?api=1&amp;destination=Caldenhofer+Weg+207%2C+59063+Hamm" target="_blank" rel="noopener noreferrer">Anfahrt ↗</a>
+          <a class="button button-primary" href="https://www.lieferando.de/speisekarte/happy-eck-kiosk-59063-hamm" target="_blank" rel="noopener noreferrer">Über Lieferando bestellen ↗</a>
+          <a class="button button-whatsapp" href="https://wa.me/4917661020308?text=Hallo%20Happy%20Eck%2C%20ich%20m%C3%B6chte%20gerne%20etwas%20bestellen." target="_blank" rel="noopener noreferrer">Über WhatsApp bestellen ↗</a>
         </div>
       </div>
     </section>
     <div class="wrap location">
       <div><strong>HAPPY ECK KIOSK</strong> · Caldenhofer Weg 207, 59063 Hamm</div>
-      <a href="https://www.gls-pakete.de/" target="_blank" rel="noopener noreferrer">GLS Paketshop ↗</a>
+      <div class="location-links"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Caldenhofer+Weg+207%2C+59063+Hamm" target="_blank" rel="noopener noreferrer">Anfahrt ↗</a><a href="https://www.gls-pakete.de/" target="_blank" rel="noopener noreferrer">GLS Paketshop ↗</a></div>
     </div>
   </main>
   <footer id="kontakt">
