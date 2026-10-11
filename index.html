@@ -664,6 +664,18 @@
     @media(max-width:850px){.toplinks{gap:8px}.top-order{padding:10px 12px}.promo-banner{border-radius:16px}.parcel-card,.hours-card,.apply-panel,.contact-form-section{border-radius:16px}}
     @media(max-width:650px){body{padding-bottom:env(safe-area-inset-bottom)}.topbar{gap:10px}.toplinks{gap:7px}.toplinks>a:not(.top-order){display:none}.top-order{font-size:11px;padding:10px 11px}.brand-ribbon-inner{font-size:9px;gap:8px}.hero h1{letter-spacing:-.06em}.promo-banner{border-radius:15px}.promo-product-photo{transform:none;width:min(95%,340px);height:185px}.happy-showcase-head h2{line-height:1.08}.parcel-card,.hours-card{box-shadow:0 8px 22px #1b2c1c12}.contact-trigger-action{flex-shrink:0}.footer-social{padding-bottom:18px}}
     @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+    /* Accessible quick access across every major site section */
+    .happy-quicklinks{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;padding-top:19px;padding-bottom:9px}
+    .happy-quicklinks a{display:grid;grid-template-columns:32px 1fr;grid-template-rows:auto auto;column-gap:10px;align-items:center;min-width:0;padding:15px 12px;border:1px solid #dfe5da;background:#fff;border-radius:13px;box-shadow:0 4px 18px #142e1910;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+    .happy-quicklinks a:hover{transform:translateY(-3px);box-shadow:0 10px 25px #142e1920;border-color:#b9cfbc}
+    .happy-quicklinks a:focus-visible{outline:3px solid #d8a65c;outline-offset:3px}
+    .happy-quicklinks a>span{grid-row:span 2;display:grid;place-items:center;background:#eaf2e9;color:#275f43;border-radius:10px;width:32px;height:32px;font-size:18px}
+    .happy-quicklinks strong{font-size:12px;line-height:1.2;white-space:nowrap}
+    .happy-quicklinks small{font-size:10px;color:#747d73;margin-top:3px}
+    .happy-spot-energy .happy-spot-can{opacity:.28}
+    @media(max-width:900px){.happy-quicklinks{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    @media(max-width:650px){.happy-quicklinks{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding-top:13px}.happy-quicklinks a{padding:11px 9px;column-gap:8px;grid-template-columns:29px 1fr}.happy-quicklinks a>span{width:29px;height:29px;font-size:15px}.happy-quicklinks strong{font-size:11px}.happy-quicklinks small{font-size:9px}.happy-quicklinks a:last-child{grid-column:span 2}.happy-spot-energy .happy-spot-can{opacity:.15}}
+    @media(prefers-reduced-motion:reduce){.happy-quicklinks a{transition:none}.happy-quicklinks a:hover{transform:none}}
   </style>
 <script type="application/ld+json">
 {
@@ -747,6 +759,13 @@
         <a href="#paketshop" class="parcel-anchor">GLS Paketshop ↗</a>
       </div>
     </div>
+        <nav class="happy-quicklinks wrap" aria-label="Schnell zu Happy Eck">
+      <a href="#angebot"><span aria-hidden="true">✦</span><strong>Angebot</strong><small>Diese Woche</small></a>
+      <a href="#oeffnungszeiten"><span aria-hidden="true">◷</span><strong>Öffnungszeiten</strong><small>Wann wir da sind</small></a>
+      <a href="#anfahrt"><span aria-hidden="true">⌖</span><strong>Anfahrt</strong><small>Direkt zu uns</small></a>
+      <a href="#paketshop"><span aria-hidden="true">▣</span><strong>GLS Paketshop</strong><small>Pakete &amp; Service</small></a>
+      <a href="#kontakt"><span aria-hidden="true">✉</span><strong>Kontakt</strong><small>Wir helfen dir</small></a>
+    </nav>
     <section class="wrap weekly-offer-section" id="angebot" aria-labelledby="weekly-offer-title">
       <div class="promo-banner">
         <div class="promo-copy">
@@ -764,7 +783,7 @@
           <span class="promo-orbit promo-orbit-one"></span>
           <span class="promo-orbit promo-orbit-two"></span>
           <figure class="promo-product-photo">
-            <img src="https://m.media-amazon.com/images/I/61q-BE3OlZL._SL1101_.jpg" alt="Echte Red-Bull-Dosen verschiedener Sorten: Original, Sugarfree, Apricot, Sea Blue, Tropical und Watermelon" width="1101" height="1101" loading="eager" referrerpolicy="no-referrer" decoding="async">
+            <img src="https://m.media-amazon.com/images/I/61q-BE3OlZL._SL1101_.jpg" alt="Red Bull Produktabbildung zum Wochenangebot" width="1101" height="1101" loading="lazy" referrerpolicy="no-referrer" decoding="async">
           </figure>
           <div class="promo-sticker"><small>DEAL</small><strong>4 = 8 €</strong><span>zzgl. Pfand</span></div>
           <span class="promo-visual-caption">4 DOSEN · 1 STARKER PREIS</span>
