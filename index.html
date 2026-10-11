@@ -525,48 +525,6 @@
     @media(max-width:820px){.happy-feature-grid{grid-template-columns:1fr 1fr}.happy-feature-service{grid-column:span 2}.happy-feature{min-height:235px}}
     @media(max-width:540px){.happy-feature-grid{grid-template-columns:1fr;gap:11px}.happy-feature-service{grid-column:auto}.happy-feature{min-height:210px;padding:22px}.happy-feature h3{font-size:30px}.happy-feature-content{max-width:75%}}
     @media(prefers-reduced-motion:reduce){.happy-feature{transition:none}.happy-feature:hover{transform:none}}
-    /* Happy Eck editorial campaign – four responsive premium banners */
-    .happy-showcase{padding:48px 0 14px}
-    .happy-showcase-head{display:flex;align-items:end;justify-content:space-between;gap:25px;margin:0 0 25px}
-    .happy-showcase-kicker{font-size:11px;font-weight:900;letter-spacing:.17em;color:#507056;display:flex;align-items:center;gap:10px}
-    .happy-showcase-kicker i{width:9px;height:9px;border-radius:50%;background:#d29d48;box-shadow:0 0 0 5px #d29d4820}
-    .happy-showcase-head h2{font-size:clamp(34px,5vw,66px);line-height:1.02;letter-spacing:-.065em;margin:15px 0 0;font-weight:950}
-    .happy-showcase-head h2 em{font-style:normal;color:#57745a}
-    .happy-showcase-head>p{color:#73796f;font-size:14px;line-height:1.7;margin:0 0 6px;text-align:right}
-    .happy-showcase-grid{display:grid;grid-template-columns:1.16fr 1fr 1fr;grid-template-rows:repeat(2,minmax(230px,auto));gap:15px}
-    .happy-spot{position:relative;isolation:isolate;overflow:hidden;border-radius:22px;padding:25px 27px;display:flex;flex-direction:column;justify-content:space-between;min-width:0;box-shadow:0 15px 40px #1b2b1a12;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s ease}
-    .happy-spot:hover{transform:translateY(-5px);box-shadow:0 24px 48px #1b2b1a26}
-    .happy-spot:before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(circle at 92% 86%,#fff3,transparent 45%);pointer-events:none}
-    .happy-spot-energy{grid-row:span 2;background:linear-gradient(145deg,#113e37 0%,#0c6a57 100%);color:#fff;min-height:485px}
-    .happy-spot-snacks{background:linear-gradient(125deg,#ffdbac,#eead61);color:#3c2516}
-    .happy-spot-gls{background:linear-gradient(145deg,#284773,#496eac);color:#fff}
-    .happy-spot-order{grid-column:span 2;background:linear-gradient(120deg,#252b24,#465344);color:#fff}
-    .happy-spot-top{display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;z-index:3;font-size:10px;font-weight:900;letter-spacing:.12em;opacity:.85}
-    .happy-spot-star{font-size:23px;line-height:1}
-    .happy-spot-content{position:relative;z-index:3;max-width:85%;margin-top:22px}
-    .happy-spot-tag{display:inline-block;font-size:9px;font-weight:900;letter-spacing:.12em;padding:8px 10px;border:1px solid currentColor;border-radius:99px;opacity:.88}
-    .happy-spot h3{font-size:clamp(27px,3.1vw,44px);line-height:1.05;letter-spacing:-.06em;font-weight:950;margin:17px 0 12px}
-    .happy-spot h3 em{font-style:normal;opacity:.72}
-    .happy-spot p{max-width:285px;font-size:12px;line-height:1.6;opacity:.84;margin:0 0 21px}
-    .happy-spot a{display:inline-flex;align-items:center;gap:20px;background:#fff;color:#183e31;padding:12px 15px;border-radius:9px;font-size:11px;font-weight:900;transition:gap .2s,transform .2s}
-    .happy-spot a:hover{gap:28px;transform:translateX(3px)}
-    .happy-spot-snacks a{background:#38251a;color:#fff}
-    .happy-spot-gls a{color:#294774}
-    .happy-spot-order a{color:#263528}
-    .happy-spot a:focus-visible{outline:3px solid #f2d388;outline-offset:4px}
-    .happy-spot-outline{position:absolute;bottom:-20px;right:-15px;z-index:0;font-size:clamp(60px,8vw,120px);line-height:1;font-weight:1000;letter-spacing:-.1em;opacity:.07;white-space:nowrap;pointer-events:none}
-    .happy-spot-can{position:absolute;right:6%;bottom:20px;transform:rotate(13deg);width:100px;height:220px;filter:drop-shadow(13px 14px 13px #001e1866);animation:happy-campaign-float 5s ease-in-out infinite;pointer-events:none}
-    .happy-can-lid{position:absolute;top:0;left:3px;width:94px;height:18px;border-radius:50%;background:linear-gradient(#f4f6f5,#aabbb6);z-index:2}
-    .happy-can-body{position:absolute;inset:9px 0 0;border-radius:12px 12px 15px 15px;background:linear-gradient(90deg,#c4d8d4,#f5ffff 12%,#1f947d 25%,#0c574b 70%,#a9d4c8 95%);display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;color:#fff;border-bottom:9px solid #c4d4d0}
-    .happy-can-body b{font-size:23px;line-height:1;letter-spacing:-.07em;text-shadow:0 2px 5px #002a1d80}
-    .happy-can-body small{font-size:8px;letter-spacing:.1em;margin-top:10px}
-    .happy-snack-graphic{position:absolute;right:16px;bottom:5px;font-size:160px;line-height:1;color:#fff7;transform:rotate(12deg);pointer-events:none}
-    .happy-parcel-graphic{position:absolute;right:-25px;bottom:-15px;opacity:.18;transform:rotate(-12deg);pointer-events:none}
-    .happy-order-graphic{position:absolute;right:45px;bottom:-70px;font-size:240px;line-height:1;opacity:.12;pointer-events:none}
-    @keyframes happy-campaign-float{0%,100%{translate:0 0}50%{translate:0 -13px}}
-    @media(max-width:1000px){.happy-showcase-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}.happy-spot-energy{grid-row:span 2}.happy-spot-order{grid-column:span 2}.happy-spot{min-height:250px}.happy-spot-energy{min-height:515px}.happy-spot h3{font-size:clamp(28px,4vw,39px)}}
-    @media(max-width:650px){.happy-showcase{padding:35px 0 10px}.happy-showcase-head{display:block;margin-bottom:20px}.happy-showcase-head>p{text-align:left;margin:12px 0 0}.happy-showcase-grid{grid-template-columns:1fr;gap:12px}.happy-spot{min-height:270px;padding:22px}.happy-spot-energy{grid-row:auto;min-height:350px}.happy-spot-order{grid-column:auto}.happy-spot h3{font-size:clamp(30px,8vw,43px)}.happy-spot-can{right:9%;bottom:20px;width:70px;height:155px}.happy-can-lid{width:66px}.happy-can-body b{font-size:17px}.happy-can-body small{font-size:6px}.happy-spot-energy .happy-spot-content{max-width:72%}.happy-spot-content{max-width:85%}}
-    @media(prefers-reduced-motion:reduce){.happy-spot,.happy-spot a{transition:none}.happy-spot:hover,.happy-spot a:hover{transform:none}.happy-spot-can{animation:none}}
     /* Site-wide refined layout: compact campaign, clearer navigation and comfortable mobile UI */
     :root{--site-radius:16px;--site-green:#164a3a}
     .wrap{width:min(1240px,calc(100% - 64px))}
@@ -704,6 +662,20 @@
     @media(max-width:520px){.he-campaign{padding:22px 0 6px}.he-campaign-heading{display:block}.he-campaign-heading p{margin-top:8px}.he-campaign-grid{gap:9px}.he-tile{min-height:185px;padding:14px;border-radius:13px}.he-tile h3{font-size:clamp(19px,5vw,26px)}.he-tile p{font-size:10px}.he-tile a{font-size:9px;padding:9px}.he-tile-top{font-size:8px}.he-tile-watermark{font-size:105px}}
     @media(max-width:350px){.he-campaign-grid{grid-template-columns:1fr}.he-tile{min-height:155px}}
     @media(prefers-reduced-motion:reduce){.he-tile,.he-tile a{transition:none}.he-tile:hover,.he-tile a:hover{transform:none}}
+    /* Final unified compact spacing and responsive finishing */
+    .hero-content{padding-block:clamp(68px,9vw,100px)}
+    .hero h1{font-size:clamp(55px,8vw,110px)}
+    .weekly-offer-section{padding-top:22px}
+    .promo-banner{min-height:320px}
+    .promo-copy{padding:clamp(24px,3.2vw,43px)}
+    .promo-copy h2{font-size:clamp(45px,5vw,74px)}
+    .promo-copy h2>span{font-size:clamp(25px,3vw,41px)}
+    .promo-visual{min-height:270px}
+    .parcel-section,.hours-section,.google-reviews-section,.job-section{scroll-margin-top:25px}
+    .contact-option{border-radius:12px}
+    .footer-social-link{border-radius:15px}
+    @media(max-width:750px){.hero-content{padding-block:70px}.promo-banner{min-height:0}.promo-visual{min-height:220px}.promo-copy h2{font-size:clamp(43px,9vw,62px)}}
+    @media(max-width:480px){.hero h1{font-size:clamp(50px,12vw,67px)}.hero-content{padding-block:58px}.promo-copy{padding:23px 20px}.promo-visual{min-height:190px}.he-campaign-heading h2{font-size:32px}}
   </style>
 <script type="application/ld+json">
 {
