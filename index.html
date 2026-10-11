@@ -385,6 +385,39 @@
     @media(max-width:810px){.promo-banner{grid-template-columns:1fr}.promo-copy{padding:32px 30px 28px}.promo-copy h2{font-size:clamp(48px,9vw,78px)}.promo-visual{min-height:285px}.promo-can{height:185px;width:59px}.promo-visual-caption{bottom:15px}}
     @media(max-width:530px){.promo-banner{border-radius:13px}.promo-copy{padding:29px 23px 25px}.promo-copy h2{font-size:clamp(47px,11vw,70px)}.promo-copy h2>span{font-size:clamp(28px,7vw,40px)}.promo-eyebrow{font-size:9px;gap:7px}.promo-actions{align-items:stretch;flex-direction:column;width:100%}.promo-button{width:100%}.promo-location{text-align:center}.promo-visual{min-height:255px}.promo-can-group{transform:scale(.87) rotate(-7deg)}.promo-sticker{right:15px;top:16px;width:82px;height:82px}.promo-sticker strong{font-size:17px}.promo-sticker small{font-size:9px}.promo-sticker span{font-size:8px}}
     @media(prefers-reduced-motion:reduce){.promo-button{transition:none}}
+    /* Premium accessible overlay menu */
+    header{z-index:80}
+    header .topbar{position:relative;z-index:2}
+    .menu-backdrop{position:fixed;inset:0;background:rgba(7,18,12,.66);backdrop-filter:blur(4px);z-index:1}
+    .menu-backdrop[hidden],.menu-panel[hidden]{display:none!important}
+    body.menu-is-open{overflow:hidden}
+    .menu-toggle{position:relative;z-index:3;border-radius:11px;transition:background .2s,border-color .2s}
+    .menu-toggle:hover{background:#e4e6dd;border-color:#c6cbc0}
+    .menu-toggle span{transition:transform .2s,opacity .2s}
+    .menu-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .menu-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+    .menu-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .premium-menu{position:fixed;top:103px;right:max(24px,calc((100vw - 1320px)/2));width:min(610px,calc(100vw - 28px));max-height:calc(100dvh - 122px);background:#f9f8f4;padding:20px;border-radius:16px;border:1px solid #e6e2d8;z-index:6;box-shadow:0 28px 80px #0005;overflow:auto;overscroll-behavior:contain}
+    .premium-menu-header{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;padding:10px 10px 18px;border-bottom:1px solid #e6e1d7}
+    .premium-menu-header div{display:grid;gap:7px}
+    .premium-menu-header small{font-size:10px;letter-spacing:.18em;color:#8c784f;font-weight:900}
+    .premium-menu-header strong{font-size:26px;letter-spacing:-.05em;line-height:1.1;color:#1b3024}
+    .premium-menu-close{height:38px;width:38px;border:1px solid #dddcd2;border-radius:10px;background:white;color:#1d2e22;font:inherit;font-size:28px;cursor:pointer;display:grid;place-items:center;line-height:1}
+    .premium-menu-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:17px 0}
+    .premium-menu-grid a{display:flex;align-items:center;gap:11px;min-width:0;padding:15px 13px;border-radius:11px;background:white;border:1px solid #e8e8e0;color:#253528;transition:background .18s,border-color .18s,transform .18s}
+    .premium-menu-grid a:hover{background:#e8eee4;border-color:#bed0b9;transform:translateY(-1px)}
+    .premium-menu-grid a>span:last-child{display:grid;gap:4px;font-size:13px;font-weight:850;min-width:0;line-height:1.25}
+    .premium-menu-grid a small{font-size:10px;color:#7b8077;font-weight:550;letter-spacing:0}
+    .premium-menu-symbol{display:grid;place-items:center;flex:none;width:36px;height:36px;border-radius:10px;background:#e8eee5;color:#2a5336;font-size:21px;font-weight:800;line-height:1}
+    .premium-menu-bottom{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px 0 2px;border-top:1px solid #e6e1d7}
+    .premium-menu-bottom a{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:13px 14px;border-radius:9px;font-weight:850;font-size:12px}
+    .premium-menu-social{background:#e7ede3;color:#22402c}
+    .premium-menu-order{background:#1d3525;color:white}
+    .premium-menu-bottom a:hover{filter:brightness(.95)}
+    .premium-menu :focus-visible{outline:3px solid #c59244;outline-offset:2px}
+    @media(max-width:700px){.premium-menu{top:70px;right:9px;left:9px;width:auto;max-height:calc(100dvh - 87px);padding:14px}.premium-menu-header strong{font-size:23px}.premium-menu-grid{gap:7px}.premium-menu-grid a{padding:12px 9px;gap:7px}.premium-menu-grid a>span:last-child{font-size:12px}.premium-menu-symbol{width:30px;height:30px;font-size:19px}.premium-menu-bottom{grid-template-columns:1fr 1fr}.premium-menu-bottom a{font-size:11px}.menu-panel a{padding:12px 9px}}
+    @media(max-width:400px){.premium-menu-grid{grid-template-columns:1fr 1fr}.premium-menu-grid a small{font-size:9px}}
+    @media(prefers-reduced-motion:reduce){.premium-menu-grid a,.menu-toggle span{transition:none}}
   </style>
 <script type="application/ld+json">
 {
@@ -402,21 +435,32 @@
 <body>
   <a class="skip" href="#main">Zum Inhalt springen</a>
   <header>
+    <div class="menu-backdrop" id="menu-backdrop" hidden aria-hidden="true"></div>
     <div class="wrap topbar">
       <a class="brand" href="index.html" aria-label="Happy Eck Kiosk, Startseite"><img src="assets/logo.jpg" alt="" width="48" height="48" decoding="async"><span>HAPPY ECK</span></a>
       <div class="toplinks" aria-label="Schnellzugriff">
         <a href="#kontakt">Kontakt</a>
         <a class="top-order" href="https://www.lieferando.de/speisekarte/happy-eck-kiosk-59063-hamm" target="_blank" rel="noopener noreferrer"><img class="lieferando-mark" src="https://logowik.com/content/uploads/images/lieferando6751.logowik.com.webp" alt="" decoding="async" referrerpolicy="no-referrer"><span>Bestellen ↗</span></a>
       <button type="button" id="menu-toggle" class="menu-toggle" aria-controls="site-menu" aria-expanded="false" aria-label="Menü öffnen"><span></span><span></span><span></span></button></div>
-      <nav id="site-menu" class="menu-panel" aria-label="Menü" hidden>
-        <a href="#main">Startseite</a>
-        <a href="#anfahrt">Anfahrt</a>
-        <a href="#angebot">Angebot der Woche</a>
-        <a href="#paketshop">GLS Paketshop</a>
-        <a href="#oeffnungszeiten">Öffnungszeiten</a>
-        <a href="#bewertungen">Google-Bewertungen</a>
-        <a href="#jobs">Jobs</a>
-        <a href="#kontakt">Kontakt</a>
+      <nav id="site-menu" class="menu-panel premium-menu" aria-label="Hauptmenü" hidden>
+        <div class="premium-menu-header">
+          <div><small>ENTDECKE HAPPY ECK</small><strong>Alles auf einen Blick.</strong></div>
+          <button type="button" class="premium-menu-close" id="menu-close" aria-label="Menü schließen">×</button>
+        </div>
+        <div class="premium-menu-grid">
+          <a href="#main"><span class="premium-menu-symbol" aria-hidden="true">⌂</span><span>Startseite<small>Willkommen bei uns</small></span></a>
+          <a href="#angebot"><span class="premium-menu-symbol" aria-hidden="true">✦</span><span>Wochenangebot<small>4 Red Bull für 8 €</small></span></a>
+          <a href="#oeffnungszeiten"><span class="premium-menu-symbol" aria-hidden="true">◷</span><span>Öffnungszeiten<small>Kiosk und GLS</small></span></a>
+          <a href="#anfahrt"><span class="premium-menu-symbol" aria-hidden="true">⌖</span><span>Anfahrt<small>Apple &amp; Google Maps</small></span></a>
+          <a href="#paketshop"><span class="premium-menu-symbol" aria-hidden="true">▣</span><span>GLS Paketshop<small>Pakete abgeben &amp; abholen</small></span></a>
+          <a href="#bewertungen"><span class="premium-menu-symbol" aria-hidden="true">★</span><span>Google-Bewertungen<small>Erfahrungen ansehen</small></span></a>
+          <a href="#jobs"><span class="premium-menu-symbol" aria-hidden="true">♧</span><span>Jobs<small>Direkt bewerben</small></span></a>
+          <a href="#kontakt"><span class="premium-menu-symbol" aria-hidden="true">✉</span><span>Kontakt<small>Anrufen oder schreiben</small></span></a>
+        </div>
+        <div class="premium-menu-bottom">
+          <a href="#social-heading" class="premium-menu-social">Unsere Social-Media-Kanäle <span aria-hidden="true">↗</span></a>
+          <a href="https://www.lieferando.de/speisekarte/happy-eck-kiosk-59063-hamm" target="_blank" rel="noopener noreferrer" class="premium-menu-order">Jetzt bestellen <span aria-hidden="true">↗</span></a>
+        </div>
       </nav>
     </div>
   </header>
@@ -651,16 +695,35 @@
 <script>(function(){
   const toggle=document.getElementById('menu-toggle');
   const menu=document.getElementById('site-menu');
-  if(!toggle||!menu)return;
-  function setOpen(open){
+  const overlay=document.getElementById('menu-backdrop');
+  const closeButton=document.getElementById('menu-close');
+  if(!toggle||!menu||!overlay)return;
+  let lastFocus=null;
+  function setOpen(open,restoreFocus=false){
+    if(open)lastFocus=document.activeElement;
     menu.hidden=!open;
+    overlay.hidden=!open;
     toggle.setAttribute('aria-expanded',String(open));
     toggle.setAttribute('aria-label',open?'Menü schließen':'Menü öffnen');
+    document.body.classList.toggle('menu-is-open',open);
+    if(open){if(closeButton)closeButton.focus();}
+    else if(restoreFocus){toggle.focus();}
   }
-  toggle.addEventListener('click',()=>setOpen(menu.hidden));
+  toggle.addEventListener('click',()=>setOpen(menu.hidden,!menu.hidden));
+  if(closeButton)closeButton.addEventListener('click',()=>setOpen(false,true));
+  overlay.addEventListener('click',()=>setOpen(false,true));
   menu.addEventListener('click',event=>{if(event.target.closest('a'))setOpen(false)});
-  document.addEventListener('pointerdown',event=>{if(!menu.hidden&&!menu.contains(event.target)&&!toggle.contains(event.target))setOpen(false)});
-  document.addEventListener('keydown',event=>{if(event.key==='Escape'&&!menu.hidden){setOpen(false);toggle.focus()}});
+  document.addEventListener('keydown',event=>{
+    if(menu.hidden)return;
+    if(event.key==='Escape'){setOpen(false,true);return;}
+    if(event.key==='Tab'){
+      const nodes=[...menu.querySelectorAll('a[href],button:not([disabled])')];
+      if(!nodes.length)return;
+      const first=nodes[0],last=nodes[nodes.length-1];
+      if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus();}
+      else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus();}
+    }
+  });
 })();</script><script>(function(){
 const input=document.getElementById("job-cv");
 const birthday=document.querySelector('input[name="Geburtsdatum"]');
