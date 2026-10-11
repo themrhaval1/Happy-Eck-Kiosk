@@ -472,6 +472,29 @@
     .contact-form-section[open] .contact-trigger-state:after{content:"Kontakt schließen";font-size:12px}
     @media(max-width:710px){.brand-ribbon-inner{flex-wrap:wrap;justify-content:center;gap:6px 10px;padding:8px 0;text-align:center}.brand-ribbon-inner a{margin-left:0}.brand-ribbon-inner strong{font-size:9px}.hero h1{font-size:clamp(47px,9.1vw,73px)}}
     @media(max-width:410px){.brand-ribbon-inner{gap:4px 8px}.brand-ribbon-inner a{width:100%;font-size:9px}.hero h1{font-size:clamp(45px,9vw,65px)}}
+    /* Cinematic-but-lightweight scrolling flavor ribbon */
+    .flavor-marquee{margin:12px 0 0;padding:14px 0 0}
+    .flavor-marquee-title{display:flex;justify-content:space-between;gap:12px;font-size:10px;font-weight:900;letter-spacing:.12em;color:#6c766c;padding:4px 3px 13px}
+    .flavor-motion-label{color:#b58646}
+    .flavor-viewport{width:100%;overflow:hidden;mask-image:linear-gradient(90deg,transparent,black 5%,black 95%,transparent)}
+    .flavor-track{display:flex;width:max-content;align-items:center;gap:12px;animation:happy-flavors 38s linear infinite;will-change:transform}
+    .flavor-card{flex:none;display:flex;align-items:center;gap:10px;min-width:170px;border:1px solid #dee3da;border-radius:11px;padding:12px 15px;background:#fff;box-shadow:0 4px 16px #24402c09}
+    .flavor-card-dot{width:25px;height:33px;border-radius:5px;background:linear-gradient(90deg,#fafcfce0,#9ca9b9a0 20%,var(--flavor) 26%,var(--flavor) 78%,#e4e8e5 88%,#8d979e);box-shadow:1px 3px 5px #0002;transform:rotate(-9deg)}
+    .flavor-name{font-size:12px;font-weight:850;color:#2a382d;white-space:nowrap}
+    .flavor-card small{font-size:9px;color:#849086;white-space:nowrap;margin-left:auto}
+    .flavor-disclaimer{font-size:10px;color:#777d74;line-height:1.6;padding:9px 3px 0;margin:0}
+    .flavor-viewport:hover .flavor-track,.flavor-viewport:focus-within .flavor-track{animation-play-state:paused}
+    .promo-can-group{animation:happy-energy-bob 4.5s ease-in-out infinite}
+    .promo-glow{animation:happy-glow 5s ease-in-out infinite alternate}
+    .promo-orbit-one{animation:happy-orbit 17s linear infinite}
+    .promo-sticker{animation:happy-sticker 6s ease-in-out infinite}
+    @keyframes happy-flavors{to{transform:translateX(calc(-50% - 6px))}}
+    @keyframes happy-energy-bob{0%,100%{translate:0 0}50%{translate:0 -10px}}
+    @keyframes happy-glow{to{opacity:.55;scale:1.2}}
+    @keyframes happy-orbit{to{rotate:360deg}}
+    @keyframes happy-sticker{0%,100%{translate:0 0}50%{translate:0 -6px}}
+    @media(max-width:650px){.flavor-card{min-width:160px;padding:9px 11px}.flavor-marquee-title{font-size:9px}.flavor-motion-label{display:none}}
+    @media(prefers-reduced-motion:reduce){.flavor-track,.promo-can-group,.promo-glow,.promo-orbit-one,.promo-sticker{animation:none!important}.flavor-viewport{overflow-x:auto;mask-image:none}.flavor-track{width:max-content}}
   </style>
 <script type="application/ld+json">
 {
@@ -580,6 +603,26 @@
           <div class="promo-sticker"><small>DEAL</small><strong>4 = 8 €</strong><span>zzgl. Pfand</span></div>
           <span class="promo-visual-caption">4 DOSEN · 1 STARKER PREIS</span>
         </div>
+      </div>
+      <div class="flavor-marquee" aria-label="Red Bull Sortenbeispiele">
+        <div class="flavor-marquee-title"><span>ENTDECKE VERSCHIEDENE SORTEN</span><span class="flavor-motion-label" aria-hidden="true">✦ HAPPY ECK ✦</span></div>
+        <div class="flavor-viewport"><div class="flavor-track">
+            <span class="flavor-card" style="--flavor:#caa469"><span class="flavor-card-dot" aria-hidden="true"></span><span class="flavor-name">Original</span><small>Classic</small></span>
+            <span class="flavor-card" style="--flavor:#a8cfde"><span class="flavor-card-dot" aria-hidden="true"></span><span class="flavor-name">Sugarfree</span><small>Zero Zucker</small></span>
+            <span class="flavor-card" style="--flavor:#ed6c83"><span class="flavor-card-dot" aria-hidden="true"></span><span class="flavor-name">Watermelon</span><small>Fruchtig</small></span>
+            <span class="flavor-card" style="--flavor:#f2a15a"><span class="flavor-card-dot" aria-hidden="true"></span><span class="flavor-name">Apricot</span><small>Frisch</small></span>
+            <span class="flavor-card" style="--flavor:#779de2"><span class="flavor-card-dot" aria-hidden="true"></span><span class="flavor-name">Blue Edition</span><small>Beerig</small></span>
+            <span class="flavor-card" style="--flavor:#e9ca59"><span class="flavor-card-dot" aria-hidden="true"></span><span class="flavor-name">Tropical</span><small>Exotisch</small></span>
+            <span class="flavor-card" style="--flavor:#a2d7a4"><span class="flavor-card-dot" aria-hidden="true"></span><span class="flavor-name">Pistachio</span><small>Besonders</small></span>
+            <span class="flavor-card" style="--flavor:#caa469"><span class="flavor-card-dot" aria-hidden="true"></span><span class="flavor-name">Original</span><small>Classic</small></span>
+            <span class="flavor-card" style="--flavor:#a8cfde"><span class="flavor-card-dot" aria-hidden="true"></span><span class="flavor-name">Sugarfree</span><small>Zero Zucker</small></span>
+            <span class="flavor-card" style="--flavor:#ed6c83"><span class="flavor-card-dot" aria-hidden="true"></span><span class="flavor-name">Watermelon</span><small>Fruchtig</small></span>
+            <span class="flavor-card" style="--flavor:#f2a15a"><span class="flavor-card-dot" aria-hidden="true"></span><span class="flavor-name">Apricot</span><small>Frisch</small></span>
+            <span class="flavor-card" style="--flavor:#779de2"><span class="flavor-card-dot" aria-hidden="true"></span><span class="flavor-name">Blue Edition</span><small>Beerig</small></span>
+            <span class="flavor-card" style="--flavor:#e9ca59"><span class="flavor-card-dot" aria-hidden="true"></span><span class="flavor-name">Tropical</span><small>Exotisch</small></span>
+            <span class="flavor-card" style="--flavor:#a2d7a4"><span class="flavor-card-dot" aria-hidden="true"></span><span class="flavor-name">Pistachio</span><small>Besonders</small></span>
+        </div></div>
+        <p class="flavor-disclaimer">Sortenbeispiele. Auswahl und Angebot gelten nach Verfügbarkeit im Kiosk.</p>
       </div>
     </section>
       <section id="paketshop" class="wrap parcel-section" aria-labelledby="parcel-heading">
