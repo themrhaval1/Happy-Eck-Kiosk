@@ -676,6 +676,34 @@
     @media(max-width:900px){.happy-quicklinks{grid-template-columns:repeat(3,minmax(0,1fr))}}
     @media(max-width:650px){.happy-quicklinks{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding-top:13px}.happy-quicklinks a{padding:11px 9px;column-gap:8px;grid-template-columns:29px 1fr}.happy-quicklinks a>span{width:29px;height:29px;font-size:15px}.happy-quicklinks strong{font-size:11px}.happy-quicklinks small{font-size:9px}.happy-quicklinks a:last-child{grid-column:span 2}.happy-spot-energy .happy-spot-can{opacity:.15}}
     @media(prefers-reduced-motion:reduce){.happy-quicklinks a{transition:none}.happy-quicklinks a:hover{transform:none}}
+    /* New six-category campaign, replacing decorative pseudo-product illustrations */
+    .he-campaign{padding:28px 0 8px}
+    .he-campaign-heading{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:17px}
+    .he-campaign-heading small{font-size:10px;font-weight:900;letter-spacing:.15em;color:#54755c}
+    .he-campaign-heading h2{font-size:clamp(30px,3.5vw,44px);line-height:1.1;letter-spacing:-.06em;margin:7px 0 0}
+    .he-campaign-heading p{font-size:12px;color:#65766b;margin:0 0 4px}
+    .he-campaign-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    .he-tile{position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;min-height:200px;padding:21px;border-radius:16px;box-shadow:0 8px 24px #16291c16;transition:transform .2s ease,box-shadow .2s ease}
+    .he-tile:hover{transform:translateY(-4px);box-shadow:0 15px 32px #16291c24}
+    .he-energy{background:linear-gradient(130deg,#0e3a32,#18725b);color:white}
+    .he-drinks{background:linear-gradient(130deg,#e2f4f2,#acd8d5);color:#1b4447}
+    .he-snacks{background:linear-gradient(130deg,#ffdda9,#efad61);color:#4b2d1d}
+    .he-ice{background:linear-gradient(130deg,#eae6fa,#c1b9ed);color:#3d3560}
+    .he-gls{background:linear-gradient(130deg,#254272,#557cbd);color:white}
+    .he-order{background:linear-gradient(130deg,#262e28,#51614a);color:white}
+    .he-tile-top{display:flex;justify-content:space-between;gap:10px;font-size:10px;font-weight:900;letter-spacing:.11em;opacity:.78}
+    .he-tile-top span:last-child{font-size:21px}
+    .he-tile-main{position:relative;z-index:1;margin-top:15px}
+    .he-tile h3{font-size:clamp(23px,2.5vw,32px);line-height:1.08;letter-spacing:-.055em;margin:0 0 8px}
+    .he-tile p{font-size:11px;line-height:1.5;opacity:.82;margin:0 0 13px}
+    .he-tile a{display:inline-flex;align-items:center;background:white;color:#173d2d;padding:10px 12px;border-radius:9px;font-size:11px;font-weight:850;transition:transform .2s}
+    .he-tile a:hover{transform:translateX(3px)}
+    .he-tile a:focus-visible{outline:3px solid #e3bb68;outline-offset:3px}
+    .he-tile-watermark{position:absolute;right:-15px;bottom:-38px;font-size:155px;line-height:1;opacity:.08;pointer-events:none}
+    @media(max-width:850px){.he-campaign-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:520px){.he-campaign{padding:22px 0 6px}.he-campaign-heading{display:block}.he-campaign-heading p{margin-top:8px}.he-campaign-grid{gap:9px}.he-tile{min-height:185px;padding:14px;border-radius:13px}.he-tile h3{font-size:clamp(19px,5vw,26px)}.he-tile p{font-size:10px}.he-tile a{font-size:9px;padding:9px}.he-tile-top{font-size:8px}.he-tile-watermark{font-size:105px}}
+    @media(max-width:350px){.he-campaign-grid{grid-template-columns:1fr}.he-tile{min-height:155px}}
+    @media(prefers-reduced-motion:reduce){.he-tile,.he-tile a{transition:none}.he-tile:hover,.he-tile a:hover{transform:none}}
   </style>
 <script type="application/ld+json">
 {
@@ -789,35 +817,7 @@
           <span class="promo-visual-caption">4 DOSEN · 1 STARKER PREIS</span>
         </div>
       </div>
-      <div class="happy-showcase" aria-label="Happy Eck Highlights">
-        <div class="happy-showcase-head"><div><span class="happy-showcase-kicker"><i></i> HAPPY ECK HIGHLIGHTS</span><h2>Alles, was deinen<br><em>Tag besser macht.</em></h2></div><p>Deine Auswahl. Dein Kiosk.<br>Mitten in Hamm.</p></div>
-        <div class="happy-showcase-grid">
-          <article class="happy-spot happy-spot-energy">
-            <div class="happy-spot-top"><span>01 / ENERGY &amp; DRINKS</span><span class="happy-spot-star" aria-hidden="true">✳</span></div>
-            <div class="happy-spot-content"><span class="happy-spot-tag">EISKALT GENIESSEN</span><h3>Frisch.<br>Schnell.<br><em>Voller Energie.</em></h3><p>Von Energy bis Erfrischung: Entdecke unsere Drinks direkt im Happy Eck.</p><a href="#anfahrt" aria-label="Anfahrt zu Happy Eck ansehen">Drinks entdecken <span aria-hidden="true">↗</span></a></div>
-            <div class="happy-spot-graphic happy-spot-can" aria-hidden="true"><span class="happy-can-lid"></span><span class="happy-can-body"><b>HAPPY<br>ECK</b><small>ICE COLD</small></span></div>
-            <span class="happy-spot-outline" aria-hidden="true">DRINKS</span>
-          </article>
-          <article class="happy-spot happy-spot-snacks">
-            <div class="happy-spot-top"><span>02 / SNACKS &amp; SÜSSES</span><span class="happy-spot-star" aria-hidden="true">✳</span></div>
-            <div class="happy-spot-content"><span class="happy-spot-tag">KLEINE AUSZEIT</span><h3>Snack dich<br><em>glücklich.</em></h3><p>Für die Pause, den Filmabend und alles dazwischen.</p><a href="#anfahrt">Snacks entdecken <span aria-hidden="true">↗</span></a></div>
-            <span class="happy-snack-graphic" aria-hidden="true">✦</span>
-            <span class="happy-spot-outline" aria-hidden="true">YUMMY</span>
-          </article>
-          <article class="happy-spot happy-spot-gls">
-            <div class="happy-spot-top"><span>03 / GLS PAKETSHOP</span><span class="happy-spot-star" aria-hidden="true">↗</span></div>
-            <div class="happy-spot-content"><span class="happy-spot-tag">SERVICE VOR ORT</span><h3>Dein Paket.<br><em>Unser Eck.</em></h3><p>Abgeben oder abholen. Einfach bei uns vorbeikommen.</p><a href="#paketshop">Zum Paketshop <span aria-hidden="true">↗</span></a></div>
-            <svg class="happy-parcel-graphic" width="154" height="154" viewBox="0 0 154 154" fill="none" aria-hidden="true"><path d="M77 9 141 43v69l-64 34-64-34V43L77 9Z" stroke="currentColor" stroke-width="3"/><path d="m13 43 64 36 64-36M77 79v67M45 26l65 35v23" stroke="currentColor" stroke-width="3"/></svg>
-            <span class="happy-spot-outline" aria-hidden="true">GLS</span>
-          </article>
-          <article class="happy-spot happy-spot-order">
-            <div class="happy-spot-top"><span>04 / DIREKT BESTELLEN</span><span class="happy-spot-star" aria-hidden="true">↗</span></div>
-            <div class="happy-spot-content"><span class="happy-spot-tag">GANZ EINFACH</span><h3>Du wählst.<br><em>Wir kümmern uns.</em></h3><p>Entdecke unser Angebot auf Lieferando.</p><a href="https://www.lieferando.de/speisekarte/happy-eck-kiosk-59063-hamm" target="_blank" rel="noopener noreferrer">Jetzt bestellen <span aria-hidden="true">↗</span></a></div>
-            <span class="happy-order-graphic" aria-hidden="true">→</span>
-            <span class="happy-spot-outline" aria-hidden="true">ORDER</span>
-          </article>
-        </div>
-      </div>
+      <div class="he-campaign" aria-label="Happy Eck Highlights"><div class="he-campaign-heading"><div><small>DEIN KIOSK IN HAMM</small><h2>Entdecke Happy Eck.</h2></div><p>Alles auf einen Blick.</p></div><div class="he-campaign-grid"><article class="he-tile he-energy"><div class="he-tile-top"><span>ENERGY</span><span aria-hidden="true">✦</span></div><div class="he-tile-main"><h3>Energy & Drinks</h3><p>Eiskalt. Voller Energie.</p><a href="#angebot">Angebot ansehen ↗</a></div><span class="he-tile-watermark" aria-hidden="true">✦</span></article><article class="he-tile he-drinks"><div class="he-tile-top"><span>GETRÄNKE</span><span aria-hidden="true">◉</span></div><div class="he-tile-main"><h3>Softdrinks & Wasser</h3><p>Erfrischung für jeden Tag.</p><a href="#anfahrt">Vorbeikommen ↗</a></div><span class="he-tile-watermark" aria-hidden="true">◉</span></article><article class="he-tile he-snacks"><div class="he-tile-top"><span>SNACKS</span><span aria-hidden="true">✳</span></div><div class="he-tile-main"><h3>Snacks & Süßes</h3><p>Für deine kleine Pause.</p><a href="#anfahrt">Entdecken ↗</a></div><span class="he-tile-watermark" aria-hidden="true">✳</span></article><article class="he-tile he-ice"><div class="he-tile-top"><span>EIS</span><span aria-hidden="true">❄</span></div><div class="he-tile-main"><h3>Eis & Abkühlung</h3><p>Genau richtig für zwischendurch.</p><a href="#anfahrt">Zum Kiosk ↗</a></div><span class="he-tile-watermark" aria-hidden="true">❄</span></article><article class="he-tile he-gls"><div class="he-tile-top"><span>PAKETE</span><span aria-hidden="true">↗</span></div><div class="he-tile-main"><h3>GLS Paketshop</h3><p>Abgeben. Abholen. Fertig.</p><a href="#paketshop">GLS Service ↗</a></div><span class="he-tile-watermark" aria-hidden="true">↗</span></article><article class="he-tile he-order"><div class="he-tile-top"><span>LIEFERANDO</span><span aria-hidden="true">→</span></div><div class="he-tile-main"><h3>Einfach bestellen</h3><p>Dein Kiosk auch online.</p><a href="https://www.lieferando.de/speisekarte/happy-eck-kiosk-59063-hamm" target="_blank" rel="noopener noreferrer">Jetzt bestellen ↗</a></div><span class="he-tile-watermark" aria-hidden="true">→</span></article></div></div>
     </section>
       <section id="paketshop" class="wrap parcel-section" aria-labelledby="parcel-heading">
       <div class="parcel-card">
