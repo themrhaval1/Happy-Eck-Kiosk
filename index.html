@@ -299,6 +299,38 @@
     .apply-panel input[type="file"]{cursor:pointer}
     .contact-form-section form label,.apply-panel form label{line-height:1.45}
     .google-reviews-primary:focus-visible,.google-reviews-secondary:focus-visible,.route-options a:focus-visible,.footer-jobs:focus-visible{outline:3px solid #e3b86c;outline-offset:3px}
+    /* Weekly offer: no external product assets required */
+    .weekly-offer-section{padding:30px 0 3px;scroll-margin-top:105px}
+    .weekly-offer-card{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);background:#17291e;color:#fff;border:1px solid #395043;border-radius:16px;overflow:hidden;box-shadow:0 18px 40px #14241816}
+    .weekly-offer-info{padding:40px 45px 42px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+    .weekly-offer-eyebrow{display:inline-flex;align-items:center;gap:9px;color:#edc892;letter-spacing:.16em;font-size:11px;font-weight:850}
+    .weekly-offer-eyebrow span{font-size:16px}
+    .weekly-offer-info h2{font-size:clamp(28px,3.45vw,47px);line-height:1.12;letter-spacing:-.055em;margin:20px 0 15px;font-weight:850}
+    .weekly-offer-info h2 span{color:#eccc99}
+    .weekly-offer-info>p{font-size:14px;line-height:1.65;color:#dce5dd;max-width:425px;margin:0 0 23px}
+    .weekly-offer-cta{display:inline-flex;align-items:center;justify-content:space-between;gap:18px;border-radius:8px;background:#f1d6a7;color:#17261b;padding:15px 18px;font-size:13px;font-weight:850;transition:background .2s,transform .2s}
+    .weekly-offer-cta:hover{background:#fff0d4;transform:translateY(-2px)}
+    .weekly-offer-art{background:radial-gradient(circle at 70% 35%,#344d37 0%,#253c2a 40%,#14251b 100%);position:relative;min-height:275px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 24px 37px;isolation:isolate;overflow:hidden}
+    .weekly-offer-art:before,.weekly-offer-art:after{content:"";position:absolute;border:1px solid #ffffff1f;border-radius:50%;width:340px;height:340px;inset:auto -140px -170px auto;z-index:-1}
+    .weekly-offer-art:after{width:230px;height:230px;inset:-120px auto auto -80px}
+    .weekly-offer-quantity{display:grid;justify-items:center;gap:0;transform:rotate(-4deg)}
+    .weekly-offer-quantity>span{font-size:35px;line-height:1;font-weight:900;letter-spacing:-.08em;color:#f1d6a7}
+    .weekly-offer-quantity strong{font-size:clamp(36px,5vw,67px);line-height:1.13;letter-spacing:-.075em;font-weight:900}
+    .weekly-offer-quantity small{font-size:10px;letter-spacing:.3em;font-weight:800;color:#c8d5ca}
+    .weekly-offer-price{position:absolute;top:23px;right:25px;background:#edd4aa;color:#1b2b1d;border-radius:50%;width:105px;height:105px;display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(12deg);box-shadow:0 8px 22px #0b120b45}
+    .weekly-offer-price small{font-size:10px;font-weight:900;letter-spacing:.14em}
+    .weekly-offer-price strong{font-size:35px;letter-spacing:-.07em;line-height:1.2}
+    .weekly-offer-note{position:absolute;bottom:15px;right:15px;left:15px;text-align:center;font-size:10px;letter-spacing:.02em;color:#e2e8df;margin:0}
+    .hours-live{display:inline-flex;align-items:center;gap:7px;margin-top:11px;border:1px solid #d4d3c9;background:#ffffffa8;padding:7px 12px;border-radius:50px;font-size:12px;font-weight:800;color:#555e56}
+    .hours-live[data-status="open"]{color:#18552d;background:#e2f0de;border-color:#b5d3b3}
+    .hours-live[data-status="closed"]{color:#844530;background:#f9e8df;border-color:#e8c5b7}
+    .hours-live-dot{width:8px;height:8px;border-radius:50%;background:#a9ada5;flex:none}
+    .hours-live[data-status="open"] .hours-live-dot{background:#25934c;box-shadow:0 0 0 3px #25934c20}
+    .hours-live[data-status="closed"] .hours-live-dot{background:#b16a51}
+    .hours-disclaimer{color:#76786f;font-size:11px;line-height:1.5;margin:0 3px}
+    @media(max-width:860px){.weekly-offer-card{grid-template-columns:1fr}.weekly-offer-info{padding:33px 32px}.weekly-offer-art{min-height:240px}.weekly-offer-quantity strong{font-size:52px}}
+    @media(max-width:540px){.weekly-offer-section{padding-top:17px}.weekly-offer-card{border-radius:12px}.weekly-offer-info{padding:27px 22px 25px}.weekly-offer-info h2{font-size:33px}.weekly-offer-art{min-height:225px}.weekly-offer-price{width:79px;height:79px;top:16px;right:16px}.weekly-offer-price strong{font-size:26px}.weekly-offer-price small{font-size:8px}.weekly-offer-quantity strong{font-size:47px}}
+    @media(prefers-reduced-motion:reduce){.weekly-offer-cta{transition:none}}
   </style>
 <script type="application/ld+json">
 {
@@ -325,6 +357,7 @@
       <nav id="site-menu" class="menu-panel" aria-label="Menü" hidden>
         <a href="#main">Startseite</a>
         <a href="#anfahrt">Anfahrt</a>
+        <a href="#angebot">Angebot der Woche</a>
         <a href="#paketshop">GLS Paketshop</a>
         <a href="#oeffnungszeiten">Öffnungszeiten</a>
         <a href="#bewertungen">Google-Bewertungen</a>
@@ -363,6 +396,21 @@
         <a href="#paketshop" class="parcel-anchor">GLS Paketshop ↗</a>
       </div>
     </div>
+    <section class="wrap weekly-offer-section" id="angebot" aria-labelledby="weekly-offer-title">
+      <div class="weekly-offer-card">
+        <div class="weekly-offer-info">
+          <span class="weekly-offer-eyebrow"><span aria-hidden="true">✦</span> ANGEBOT DER WOCHE</span>
+          <h2 id="weekly-offer-title">Mehr Energy.<br><span>Mehr Happy Eck.</span></h2>
+          <p>Hol dir vier Dosen Red Bull zum Angebotspreis – direkt bei uns im Kiosk.</p>
+          <a class="weekly-offer-cta" href="https://wa.me/4917661020308?text=Hallo%20Happy%20Eck%2C%20ist%20das%20Angebot%20mit%204%20Red%20Bull%20f%C3%BCr%208%20Euro%20noch%20verf%C3%BCgbar%3F" target="_blank" rel="noopener noreferrer">Angebot per WhatsApp anfragen <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="weekly-offer-art" aria-label="4 Dosen Red Bull für 8 Euro">
+          <div class="weekly-offer-quantity"><span>4 ×</span><strong>Red Bull</strong><small>ENERGY DRINK</small></div>
+          <div class="weekly-offer-price"><small>NUR</small><strong>8 €</strong></div>
+          <p class="weekly-offer-note">Zzgl. Pfand · Solange der Vorrat reicht</p>
+        </div>
+      </div>
+    </section>
       <section id="paketshop" class="wrap parcel-section" aria-labelledby="parcel-heading">
       <div class="parcel-card">
         <div class="parcel-symbol" aria-hidden="true">📦</div>
@@ -379,6 +427,7 @@
         <div class="hours-heading">
           <small>ÖFFNUNGSZEITEN</small>
           <h2 id="hours-title">Happy Eck Kiosk</h2>
+          <span class="hours-live" id="kiosk-live" data-status="loading" aria-live="polite"><span class="hours-live-dot" aria-hidden="true"></span><span class="hours-live-label">Status wird geladen</span></span>
         </div>
         <div class="hours-list">
           <div><span>Montag – Donnerstag</span><strong>08:30 – 00:00 Uhr</strong></div>
@@ -390,11 +439,13 @@
         <div class="hours-heading">
           <small>PAKETSERVICE</small>
           <h2>GLS Paketshop</h2>
+          <span class="hours-live" id="gls-live" data-status="loading" aria-live="polite"><span class="hours-live-dot" aria-hidden="true"></span><span class="hours-live-label">Status wird geladen</span></span>
         </div>
         <div class="hours-list">
           <div><span>Montag – Sonntag</span><strong>08:30 – 00:00 Uhr</strong></div>
         </div>
       </div>
+      <p class="hours-disclaimer">Status nach regulären Öffnungszeiten in Hamm. Feiertage und Sonderzeiten können abweichen.</p>
     </section>
     <section class="wrap google-reviews-section" id="bewertungen" aria-labelledby="google-reviews-heading">
       <div class="google-reviews-card">
@@ -546,5 +597,45 @@ function validate(){
 }
 input.addEventListener("change",()=>{if(!validate())input.reportValidity()});
 input.form.addEventListener("submit",event=>{if(!validate()){event.preventDefault();input.reportValidity()}});
-})();</script><script>(function(){const contact=document.getElementById('kontakt');if(!contact)return;function reveal(){if(location.hash==='#kontakt'){contact.open=true;}}document.querySelectorAll('a[href="#kontakt"]').forEach(link=>link.addEventListener('click',()=>{contact.open=true;}));window.addEventListener('hashchange',reveal);reveal();})();</script></body>
+})();</script><script>(function(){const contact=document.getElementById('kontakt');if(!contact)return;function reveal(){if(location.hash==='#kontakt'){contact.open=true;}}document.querySelectorAll('a[href="#kontakt"]').forEach(link=>link.addEventListener('click',()=>{contact.open=true;}));window.addEventListener('hashchange',reveal);reveal();})();</script><script>
+(function(){
+  const kiosk=document.getElementById('kiosk-live');
+  const gls=document.getElementById('gls-live');
+  if(!kiosk||!gls)return;
+  const formatter=new Intl.DateTimeFormat('en-GB',{
+    timeZone:'Europe/Berlin',weekday:'short',hour:'2-digit',minute:'2-digit',hourCycle:'h23'
+  });
+  const weekdays={Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6};
+  function setStatus(el,isOpen){
+    const next=isOpen?'Jetzt geöffnet':'Jetzt geschlossen · ab 08:30 Uhr';
+    const status=isOpen?'open':'closed';
+    if(el.dataset.status!==status){
+      el.dataset.status=status;
+      el.querySelector('.hours-live-label').textContent=next;
+    }
+  }
+  function refresh(){
+    try{
+      const entries=formatter.formatToParts(new Date());
+      const part=name=>entries.find(x=>x.type===name)?.value;
+      const day=weekdays[part('weekday')];
+      const minutes=Number(part('hour'))*60+Number(part('minute'));
+      if(day===undefined||!Number.isFinite(minutes))return;
+      const daytime=minutes>=8*60+30;
+      // Fri -> Sat and Sat -> Sun stay open until 01:30 local time.
+      const lateNight=(day===6||day===0)&&minutes<90;
+      setStatus(kiosk,daytime||lateNight);
+      setStatus(gls,daytime);
+    }catch(error){
+      for(const el of [kiosk,gls]){
+        el.dataset.status='loading';
+        el.querySelector('.hours-live-label').textContent='Öffnungszeiten siehe unten';
+      }
+    }
+  }
+  refresh();
+  window.setInterval(refresh,30000);
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)refresh()});
+})();
+</script></body>
 </html>
