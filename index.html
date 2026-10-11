@@ -344,6 +344,47 @@
       .mobile-action-bar svg{flex:none}
     }
     @media(min-width:721px){body{padding-bottom:0}}
+    /* The weekly offer is a full-width promotional banner. */
+    .weekly-offer-section{padding:30px 0 5px}
+    .promo-banner{position:relative;display:grid;grid-template-columns:minmax(0,1.07fr) minmax(0,.93fr);min-height:376px;background:#10251e;border:1px solid #263c2e;color:#fff;border-radius:19px;overflow:hidden;box-shadow:0 16px 50px rgba(16,29,20,.18)}
+    .promo-banner:before{content:"";position:absolute;inset:0 auto 0 0;width:60%;background:linear-gradient(135deg,#1a372c 0%,#10251e 70%);pointer-events:none}
+    .promo-copy{position:relative;z-index:2;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:42px clamp(24px,4.1vw,63px)}
+    .promo-eyebrow{display:flex;align-items:center;flex-wrap:wrap;gap:10px;font-size:10px;font-weight:900;letter-spacing:.14em;color:#d7c4a2}
+    .promo-sparkle{color:#f1ce8c;font-size:19px}
+    .promo-eyebrow-line{height:1px;width:21px;background:#d7c4a2aa}
+    .promo-copy h2{margin:22px 0 15px;font-size:clamp(49px,5.7vw,88px);font-weight:950;letter-spacing:-.075em;line-height:.95;color:#fff;text-wrap:balance}
+    .promo-copy h2>span{display:block;font-size:clamp(28px,3.2vw,48px);line-height:1.22;letter-spacing:-.06em;margin-top:9px;font-weight:850}
+    .promo-copy h2 strong{color:#f0c278;white-space:nowrap}
+    .promo-copy>p:not(.promo-fineprint){max-width:420px;color:#d5e1d6;font-size:14px;line-height:1.65;margin:0}
+    .promo-actions{display:flex;align-items:center;flex-wrap:wrap;gap:12px 20px;margin-top:25px}
+    .promo-button{display:inline-flex;align-items:center;justify-content:center;gap:16px;background:#f0c67f;color:#1b291d;border:1px solid #ffdfa5;min-height:48px;border-radius:9px;padding:13px 18px;font-size:13px;font-weight:900;box-shadow:0 7px 15px #0002;transition:transform .2s,background .2s}
+    .promo-button:hover{background:#ffe2ad;transform:translateY(-2px)}
+    .promo-location{font-size:12px;font-weight:800;color:#f2dfbd;padding:12px 0}
+    .promo-location:hover{text-decoration:underline}
+    .promo-fineprint{font-size:10px;color:#b9c7bb;margin:25px 0 0!important;line-height:1.5;letter-spacing:.02em}
+    .promo-visual{position:relative;isolation:isolate;display:grid;place-items:center;min-height:360px;overflow:hidden;background:radial-gradient(ellipse at 50% 48%,#3c533c 0%,#172b23 58%,#12261d 100%)}
+    .promo-glow{position:absolute;width:340px;height:340px;inset:50% auto auto 50%;transform:translate(-50%,-50%);background:#e3bc7766;filter:blur(65px);border-radius:50%;z-index:-1}
+    .promo-orbit{position:absolute;width:340px;height:340px;border:1px solid #c8a36d52;border-radius:50%;transform:rotate(30deg) scaleX(.8)}
+    .promo-orbit-two{width:490px;height:490px;transform:rotate(-30deg) scaleX(.77);border-color:#ffffff20}
+    .promo-can-group{position:relative;display:flex;align-items:flex-end;justify-content:center;gap:5px;transform:rotate(-7deg) translate(0,4px);perspective:700px;padding:25px 0}
+    .promo-can{position:relative;width:65px;height:207px;border-radius:12px 12px 14px 14px;background:linear-gradient(90deg,#85949a 0%,#d9e3e6 21%,#8a9da6 31%,#162b5c 34%,#142e71 60%,#0c2357 75%,#a4b3bb 82%,#e2ebeb 92%,#677a81 100%);box-shadow:9px 17px 14px #020b1070,inset -5px 0 9px #071a2c50;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;transform-origin:bottom center}
+    .promo-can:before{content:"";position:absolute;top:-6px;left:2px;right:2px;height:13px;background:linear-gradient(#d7e0e3,#69777d);border:1px solid #96a2a8;border-radius:50%;box-shadow:0 3px 1px #0002}
+    .promo-can:after{content:"";position:absolute;bottom:-1px;left:3px;right:3px;height:5px;background:#abb9bd;border-radius:50%;opacity:.75}
+    .promo-can span{text-align:center;font-size:16px;font-weight:1000;line-height:1.02;letter-spacing:-.065em;color:#f5d2ae;text-shadow:1px 1px 1px #04112b}
+    .promo-can small{font-size:7px;letter-spacing:.03em;font-weight:800;color:#fff;text-align:center;writing-mode:vertical-rl;transform:rotate(180deg);position:absolute;right:5px;bottom:21px}
+    .promo-can-one{transform:rotate(-14deg) translateY(5px)}
+    .promo-can-two{transform:rotate(-4deg) translateY(-5px);z-index:2}
+    .promo-can-three{transform:rotate(8deg) translateY(-8px);z-index:3}
+    .promo-can-four{transform:rotate(17deg) translateY(8px);z-index:1}
+    .promo-sticker{position:absolute;top:27px;right:25px;width:112px;height:112px;border-radius:50%;background:#f0c57a;color:#19251b;display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(12deg);box-shadow:0 8px 21px #0004;border:2px dashed #b18749}
+    .promo-sticker small{font-size:12px;font-weight:900;letter-spacing:.15em}
+    .promo-sticker strong{font-size:25px;letter-spacing:-.06em;white-space:nowrap}
+    .promo-sticker span{font-size:9px;font-weight:700}
+    .promo-visual-caption{position:absolute;bottom:22px;left:10px;right:10px;color:#e3e8db;font-size:10px;font-weight:900;letter-spacing:.18em;text-align:center}
+    @media(max-width:1080px){.promo-copy h2{font-size:clamp(43px,5.6vw,72px)}.promo-can{height:186px;width:57px}.promo-sticker{width:95px;height:95px}.promo-sticker strong{font-size:20px}}
+    @media(max-width:810px){.promo-banner{grid-template-columns:1fr}.promo-copy{padding:32px 30px 28px}.promo-copy h2{font-size:clamp(48px,9vw,78px)}.promo-visual{min-height:285px}.promo-can{height:185px;width:59px}.promo-visual-caption{bottom:15px}}
+    @media(max-width:530px){.promo-banner{border-radius:13px}.promo-copy{padding:29px 23px 25px}.promo-copy h2{font-size:clamp(47px,11vw,70px)}.promo-copy h2>span{font-size:clamp(28px,7vw,40px)}.promo-eyebrow{font-size:9px;gap:7px}.promo-actions{align-items:stretch;flex-direction:column;width:100%}.promo-button{width:100%}.promo-location{text-align:center}.promo-visual{min-height:255px}.promo-can-group{transform:scale(.87) rotate(-7deg)}.promo-sticker{right:15px;top:16px;width:82px;height:82px}.promo-sticker strong{font-size:17px}.promo-sticker small{font-size:9px}.promo-sticker span{font-size:8px}}
+    @media(prefers-reduced-motion:reduce){.promo-button{transition:none}}
   </style>
 <script type="application/ld+json">
 {
@@ -410,17 +451,29 @@
       </div>
     </div>
     <section class="wrap weekly-offer-section" id="angebot" aria-labelledby="weekly-offer-title">
-      <div class="weekly-offer-card">
-        <div class="weekly-offer-info">
-          <span class="weekly-offer-eyebrow"><span aria-hidden="true">✦</span> ANGEBOT DER WOCHE</span>
-          <h2 id="weekly-offer-title">Mehr Energy.<br><span>Mehr Happy Eck.</span></h2>
-          <p>Hol dir vier Dosen Red Bull zum Angebotspreis – direkt bei uns im Kiosk.</p>
-          <a class="weekly-offer-cta" href="https://wa.me/4917661020308?text=Hallo%20Happy%20Eck%2C%20ist%20das%20Angebot%20mit%204%20Red%20Bull%20f%C3%BCr%208%20Euro%20noch%20verf%C3%BCgbar%3F" target="_blank" rel="noopener noreferrer">Angebot per WhatsApp anfragen <span aria-hidden="true">↗</span></a>
+      <div class="promo-banner">
+        <div class="promo-copy">
+          <div class="promo-eyebrow"><span class="promo-sparkle" aria-hidden="true">✦</span> HAPPY ECK DEALS <span class="promo-eyebrow-line" aria-hidden="true"></span> ANGEBOT DER WOCHE</div>
+          <h2 id="weekly-offer-title">4 RED BULL<span>FÜR NUR <strong>8 €</strong></span></h2>
+          <p>Dein Energy-Deal bei Happy Eck. Komm vorbei und schnapp dir das Angebot!</p>
+          <div class="promo-actions">
+            <a class="promo-button" href="https://wa.me/4917661020308?text=Hallo%20Happy%20Eck%2C%20ist%20das%20Angebot%20mit%204%20Red%20Bull%20f%C3%BCr%208%20Euro%20noch%20verf%C3%BCgbar%3F" target="_blank" rel="noopener noreferrer">Angebot per WhatsApp anfragen <span aria-hidden="true">↗</span></a>
+            <a class="promo-location" href="#anfahrt">So findest du uns <span aria-hidden="true">→</span></a>
+          </div>
+          <p class="promo-fineprint">Zzgl. Pfand · Nur solange der Vorrat reicht · Angebot im Kiosk</p>
         </div>
-        <div class="weekly-offer-art" aria-label="4 Dosen Red Bull für 8 Euro">
-          <div class="weekly-offer-quantity"><span>4 ×</span><strong>Red Bull</strong><small>ENERGY DRINK</small></div>
-          <div class="weekly-offer-price"><small>NUR</small><strong>8 €</strong></div>
-          <p class="weekly-offer-note">Zzgl. Pfand · Solange der Vorrat reicht</p>
+        <div class="promo-visual" aria-hidden="true">
+          <span class="promo-glow"></span>
+          <span class="promo-orbit promo-orbit-one"></span>
+          <span class="promo-orbit promo-orbit-two"></span>
+          <div class="promo-can-group">
+            <div class="promo-can promo-can-one"><span>RED<br>BULL</span><small>ENERGY DRINK</small></div>
+            <div class="promo-can promo-can-two"><span>RED<br>BULL</span><small>ENERGY DRINK</small></div>
+            <div class="promo-can promo-can-three"><span>RED<br>BULL</span><small>ENERGY DRINK</small></div>
+            <div class="promo-can promo-can-four"><span>RED<br>BULL</span><small>ENERGY DRINK</small></div>
+          </div>
+          <div class="promo-sticker"><small>DEAL</small><strong>4 = 8 €</strong><span>zzgl. Pfand</span></div>
+          <span class="promo-visual-caption">4 DOSEN · 1 STARKER PREIS</span>
         </div>
       </div>
     </section>
