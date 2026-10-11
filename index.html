@@ -145,6 +145,7 @@
     }
     @media(max-width:370px){.toplinks a:first-child{display:none}h1{font-size:57px}}
     @media(prefers-reduced-motion:reduce){.button{transition:none}}
+    .toplinks{gap:12px}.menu-toggle{height:44px;width:46px;border:1px solid #dad7ce;border-radius:8px;cursor:pointer;background:transparent;display:inline-flex;align-items:center;justify-content:center;flex-direction:column;gap:5px}.menu-toggle span{display:block;width:21px;height:2px;background:#192019;border-radius:2px}.menu-panel{position:absolute;right:20px;top:calc(100% - 6px);z-index:20;background:#fff;width:min(300px,calc(100vw - 40px));padding:12px;border:1px solid #ded9ce;border-radius:11px;box-shadow:0 15px 35px #0002}.menu-panel[hidden]{display:none}.menu-panel a{display:block;padding:11px 13px;border-radius:6px;font-size:14px;font-weight:750}.menu-panel a:hover{background:#f1eee7}header{position:relative;z-index:20}.hours-section{padding:25px 0 0}.hours-card{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:17px;background:#efeae1;border:1px solid #e2d9ce;border-radius:12px;padding:26px 30px}.hours-card small{font-weight:850;letter-spacing:.15em;color:#8a6c45}.hours-card h2{font-size:clamp(20px,3vw,29px);margin:5px 0}.hours-card>div:last-child{display:grid;gap:5px}.hours-card>div:last-child span{font-size:13px;color:#666}.hours-card strong{font-size:clamp(22px,3vw,29px)}@media(max-width:700px){.toplinks>a:first-child{display:none}.hours-card{padding:22px}}
   </style>
 </head>
 <body>
@@ -152,9 +153,17 @@
   <header>
     <div class="wrap topbar">
       <a class="brand" href="index.html" aria-label="Happy Eck Kiosk, Startseite"><img src="assets/logo.jpg" alt=""><span>HAPPY ECK</span></a>
-      <nav class="toplinks" aria-label="Hauptnavigation">
-        <a href="mailto:happyeck10@gmail.com">Kontakt</a>
+      <nav class="toplinks" aria-label="Schnellzugriff">
+        <a href="#kontakt">Kontakt</a>
         <a class="top-order" href="https://www.lieferando.de/speisekarte/happy-eck-kiosk-59063-hamm" target="_blank" rel="noopener noreferrer"><img class="lieferando-mark" src="https://logowik.com/content/uploads/images/lieferando6751.logowik.com.webp" alt="" decoding="async" referrerpolicy="no-referrer"><span>Bestellen ↗</span></a>
+      <button type="button" id="menu-toggle" class="menu-toggle" aria-controls="site-menu" aria-expanded="false" aria-label="Menü öffnen"><span></span><span></span><span></span></button></nav>
+      <nav id="site-menu" class="menu-panel" aria-label="Menü" hidden>
+        <a href="#main">Startseite</a>
+        <a href="#anfahrt">Anfahrt</a>
+        <a href="#paketshop">GLS Paketshop</a>
+        <a href="#oeffnungszeiten">Öffnungszeiten</a>
+        <a href="#jobs">Jobs</a>
+        <a href="#kontakt">Kontakt</a>
       </nav>
     </div>
   </header>
@@ -171,7 +180,7 @@
         </div>
       </div>
     </section>
-    <div class="wrap location">
+    <div class="wrap location" id="anfahrt">
       <div><strong>HAPPY ECK KIOSK</strong> · Caldenhofer Weg 207, 59063 Hamm</div>
       <div class="location-links">
         <details class="route-chooser">
@@ -197,6 +206,12 @@
           <p>Pakete abgeben oder abholen – direkt bei Happy Eck. Bitte prüfe deinen Sendungsstatus und die verfügbaren Services vor deinem Besuch.</p>
         </div>
         <a href="https://www.gls-pakete.de/" target="_blank" rel="noopener noreferrer" class="parcel-external">Mehr bei GLS ↗</a>
+      </div>
+    </section>
+    <section class="wrap hours-section" id="oeffnungszeiten">
+      <div class="hours-card">
+        <div><small>ÖFFNUNGSZEITEN</small><h2>Kiosk &amp; GLS Paketshop</h2></div>
+        <div><span>Montag bis Sonntag</span><strong>08:30 – 00:00 Uhr</strong></div>
       </div>
     </section>
     <section class="wrap job-section" id="jobs" aria-labelledby="jobs-title">
@@ -241,5 +256,5 @@
       </div>
     </div>
   </footer>
-</body>
+<script>(function(){const b=document.getElementById('menu-toggle'),m=document.getElementById('site-menu');if(!b||!m)return;function close(){m.hidden=true;b.setAttribute('aria-expanded','false')}b.addEventListener('click',()=>{m.hidden=!m.hidden;b.setAttribute('aria-expanded',String(!m.hidden))});m.addEventListener('click',e=>{if(e.target.closest('a'))close()});document.addEventListener('click',e=>{if(!m.hidden&&!b.contains(e.target)&&!m.contains(e.target))close()});document.addEventListener('keydown',e=>{if(e.key==='Escape')close()})})();</script></body>
 </html>
