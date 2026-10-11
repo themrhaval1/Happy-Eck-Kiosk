@@ -6,7 +6,7 @@ import vm from 'node:vm';
 import assert from 'node:assert/strict';
 
 const cwd=process.cwd();
-const pages=['index.html','sortiment.html','angebote.html','paketshop.html','ueber-uns.html','kontakt.html','bewerbung.html','impressum.html','datenschutz.html'];
+const pages=['index.html','angebote.html','paketshop.html','ueber-uns.html','kontakt.html','bewerbung.html','impressum.html','datenschutz.html'];
 const errors=[];
 const complain=(page,msg)=>errors.push(page+': '+msg);
 for(const page of pages){
