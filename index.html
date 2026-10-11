@@ -96,6 +96,37 @@
     .job-action .job-note{margin-top:10px;font-size:11px;line-height:1.5}
     .footlinks{align-items:center}
     @media(max-width:820px){.job-card{align-items:flex-start;flex-direction:column}.job-action{text-align:left;max-width:none}.footlinks{gap:15px 19px}}
+    /* Simple map choice and on-page parcel shop */
+    .location{overflow:visible;position:relative;z-index:4}
+    .location-links{gap:14px}
+    .route-chooser{position:relative}
+    .route-chooser summary{cursor:pointer;display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:800;list-style:none;user-select:none;padding:11px 13px;border:1px solid var(--line);border-radius:7px;background:white;color:var(--ink)}
+    .route-chooser summary::-webkit-details-marker{display:none}
+    .route-chooser[open] summary{background:#f2dfbf}
+    .route-options{position:absolute;right:0;top:calc(100% + 8px);min-width:218px;z-index:12;border:1px solid #d9d4ca;background:#fff;box-shadow:0 16px 36px #18181625;border-radius:10px;padding:7px;display:grid;gap:3px}
+    .route-options a{display:flex;align-items:center;gap:10px;padding:12px 11px;border-radius:7px;font-size:14px;white-space:nowrap}
+    .route-options a:hover{background:#f5f1e8;text-decoration:none}
+    .route-icon{display:grid;place-items:center;flex:none;width:24px;height:24px;border-radius:6px;background:#f1f1f1;font-size:14px;font-weight:900}
+    .google-map{background:#e9f3ff;color:#4285f4}
+    .apple-map{background:#222;color:white}
+    .parcel-anchor{display:inline-flex;align-items:center;min-height:40px}
+    .parcel-section{padding:27px 0 10px;scroll-margin-top:20px}
+    .parcel-card{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:23px;padding:28px 32px;background:#efebe3;border:1px solid #ded8ce;border-radius:12px}
+    .parcel-symbol{display:grid;place-items:center;width:57px;height:57px;flex:none;border-radius:13px;background:#fff;font-size:26px}
+    .parcel-label{margin:0 0 5px;color:#92744b;font-size:10px;font-weight:900;letter-spacing:.16em}
+    .parcel-card h2{font-size:clamp(21px,2.7vw,29px);letter-spacing:-.04em;margin:0 0 7px}
+    .parcel-card p:last-child{font-size:13px;line-height:1.6;color:#60635b;max-width:630px;margin:0}
+    .parcel-external{font-size:13px;font-weight:800;white-space:nowrap;border-bottom:1px solid #7a705e;padding-bottom:5px}
+    .parcel-external:hover{color:#876331}
+    @media(max-width:750px){
+      .parcel-card{grid-template-columns:auto minmax(0,1fr);gap:13px;padding:23px}
+      .parcel-external{grid-column:2;justify-self:start}
+      .route-options{right:auto;left:0}
+    }
+    @media(max-width:390px){
+      .parcel-symbol{width:43px;height:43px;font-size:21px}
+      .parcel-card{padding:19px}
+    }
     @media(max-width:700px){.top-order .lieferando-mark{display:none}.button-primary .lieferando-mark{width:65px;height:23px}.job-card{padding:25px 22px}.job-section{padding:27px 0 10px}.actions{align-items:stretch}.actions .button{flex:1;min-width:240px;justify-content:center}}
     @media(max-width:390px){.button-primary .lieferando-mark{display:none}.button{font-size:13px}.job-card h2{font-size:25px}}
     @media(max-width:700px){
@@ -142,9 +173,33 @@
     </section>
     <div class="wrap location">
       <div><strong>HAPPY ECK KIOSK</strong> · Caldenhofer Weg 207, 59063 Hamm</div>
-      <div class="location-links"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Caldenhofer+Weg+207%2C+59063+Hamm" target="_blank" rel="noopener noreferrer">Anfahrt ↗</a><a href="https://www.gls-pakete.de/" target="_blank" rel="noopener noreferrer">GLS Paketshop ↗</a></div>
+      <div class="location-links">
+        <details class="route-chooser">
+          <summary aria-label="Anfahrt: Karten-App auswählen">Anfahrt <span aria-hidden="true">⌄</span></summary>
+          <div class="route-options">
+            <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Caldenhofer+Weg+207%2C+59063+Hamm" target="_blank" rel="noopener noreferrer">
+              <span class="route-icon google-map" aria-hidden="true">G</span> Google Maps ↗
+            </a>
+            <a href="https://maps.apple.com/?daddr=Caldenhofer+Weg+207%2C+59063+Hamm" target="_blank" rel="noopener noreferrer">
+              <span class="route-icon apple-map" aria-hidden="true">●</span> Apple Karten ↗
+            </a>
+          </div>
+        </details>
+        <a href="#paketshop" class="parcel-anchor">GLS Paketshop ↗</a>
+      </div>
     </div>
-      <section class="wrap job-section" id="jobs" aria-labelledby="jobs-title">
+      <section id="paketshop" class="wrap parcel-section" aria-labelledby="parcel-heading">
+      <div class="parcel-card">
+        <div class="parcel-symbol" aria-hidden="true">📦</div>
+        <div class="parcel-copy">
+          <p class="parcel-label">SERVICE VOR ORT</p>
+          <h2 id="parcel-heading">GLS Paketshop</h2>
+          <p>Pakete abgeben oder abholen – direkt bei Happy Eck. Bitte prüfe deinen Sendungsstatus und die verfügbaren Services vor deinem Besuch.</p>
+        </div>
+        <a href="https://www.gls-pakete.de/" target="_blank" rel="noopener noreferrer" class="parcel-external">Mehr bei GLS ↗</a>
+      </div>
+    </section>
+    <section class="wrap job-section" id="jobs" aria-labelledby="jobs-title">
       <div class="job-card">
         <div class="job-description">
           <div class="job-kicker">KARRIERE BEI HAPPY ECK</div>
