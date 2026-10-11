@@ -204,6 +204,26 @@
     .contact-inner form{max-width:650px}
     .contact-inner h2{font-size:clamp(23px,3vw,32px)}
     @media(max-width:700px){.job-card{padding:23px;gap:18px}.contact-trigger{padding:21px}.contact-inner{padding:20px}.contact-chevron{height:37px;width:37px}}
+    /* Google Maps reviews */
+    .google-reviews-section{padding:25px 0 8px;scroll-margin-top:24px}
+    .google-reviews-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(265px,.74fr);align-items:center;gap:34px;background:#fff;border:1px solid #e0ddd5;border-radius:14px;padding:37px}
+    .google-reviews-eyebrow{display:flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.14em;font-weight:850;color:#68635b}
+    .google-reviews-eyebrow img{height:27px;width:27px;object-fit:contain}
+    .google-reviews-intro h2{font-size:clamp(26px,3.2vw,39px);letter-spacing:-.05em;line-height:1.18;margin:17px 0 13px}
+    .google-reviews-intro p{max-width:520px;margin:0;color:#666960;font-size:14px;line-height:1.7}
+    .google-reviews-actions{display:grid;gap:10px}
+    .google-rating{display:flex;align-items:center;gap:19px;margin-bottom:10px}
+    .google-rating strong{font-size:clamp(37px,4.2vw,54px);letter-spacing:-.07em;line-height:1}
+    .google-rating strong span{font-size:14px;letter-spacing:0;font-weight:600;color:#777}
+    .google-stars{font-size:24px;line-height:1.2;letter-spacing:1px;color:#eda72b}
+    .google-rating small{display:block;font-size:11px;color:#777a74;margin-top:5px}
+    .google-reviews-primary,.google-reviews-secondary{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 16px;border-radius:8px;font-size:13px;font-weight:850;transition:background .2s,transform .2s}
+    .google-reviews-primary{background:#1c2c20;color:#fff}
+    .google-reviews-primary:hover{background:#344f3b;transform:translateY(-2px)}
+    .google-reviews-secondary{background:#f4f2eb;border:1px solid #e2ded4}
+    .google-reviews-secondary:hover{background:#e9e6db;transform:translateY(-2px)}
+    @media(max-width:850px){.google-reviews-card{grid-template-columns:1fr;gap:26px}}
+    @media(max-width:540px){.google-reviews-card{padding:23px}.google-reviews-intro h2{font-size:29px}.google-reviews-section{padding-top:17px}}
   </style>
 </head>
 <body>
@@ -220,6 +240,7 @@
         <a href="#anfahrt">Anfahrt</a>
         <a href="#paketshop">GLS Paketshop</a>
         <a href="#oeffnungszeiten">Öffnungszeiten</a>
+        <a href="#bewertungen">Google-Bewertungen</a>
         <a href="#jobs">Jobs</a>
         <a href="#kontakt">Kontakt</a>
       </nav>
@@ -285,6 +306,26 @@
         </div>
         <div class="hours-list">
           <div><span>Montag – Sonntag</span><strong>08:30 – 00:00 Uhr</strong></div>
+        </div>
+      </div>
+    </section>
+    <section class="wrap google-reviews-section" id="bewertungen" aria-labelledby="google-reviews-heading">
+      <div class="google-reviews-card">
+        <div class="google-reviews-intro">
+          <div class="google-reviews-eyebrow">
+            <img src="assets/google-maps.svg" alt="" width="27" height="27" loading="lazy">
+            <span>BEWERTUNGEN AUF GOOGLE MAPS</span>
+          </div>
+          <h2 id="google-reviews-heading">Was unsere Kunden sagen.</h2>
+          <p>Deine Erfahrung zählt. Sieh dir die Bewertungen von Happy Eck auf Google an oder teile deine eigene.</p>
+        </div>
+        <div class="google-reviews-actions">
+          <div class="google-rating" aria-label="4,3 von 5 Sternen auf Google Maps, Stand Oktober 2026">
+            <strong>4,3<span> / 5</span></strong>
+            <div><div class="google-stars" aria-hidden="true">★★★★★</div><small>Google Maps · Stand Oktober 2026</small></div>
+          </div>
+          <a class="google-reviews-primary" href="https://www.google.com/maps/search/?api=1&amp;query=Happy%20Eck%20Kiosk%20Caldenhofer%20Weg%20207%20Hamm&amp;query_place_id=ChIJ0bg7sFRxuUcR7uXuXdwVHL4" target="_blank" rel="noopener noreferrer">Google-Bewertungen ansehen <span aria-hidden="true">↗</span></a>
+          <a class="google-reviews-secondary" href="https://search.google.com/local/writereview?placeid=ChIJ0bg7sFRxuUcR7uXuXdwVHL4" target="_blank" rel="noopener noreferrer">Jetzt bei Google bewerten <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>
