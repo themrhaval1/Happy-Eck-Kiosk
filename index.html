@@ -176,6 +176,34 @@
     .job-card{align-items:flex-start}
     @media(max-width:790px){.job-card{flex-direction:column}.job-action{width:100%;max-width:none}.apply-panel{max-width:none}}
     @media(max-width:540px){.contact-form-section form,.apply-panel form{padding:18px}}
+    /* Local app icons, responsive job card, expandable contact */
+    .route-options a{display:flex;align-items:center;gap:12px}
+    .map-app-icon{height:29px;width:29px;flex:none;object-fit:contain;border-radius:6px}
+    .jobs-highlights{display:flex;gap:9px;flex-wrap:wrap;margin-top:17px}
+    .jobs-highlights span{font-size:12px;font-weight:800;color:#3c5140;background:#e0e6dc;border:1px solid #c7d6c8;padding:7px 10px;border-radius:6px}
+    .job-card{padding:36px;gap:32px;border-radius:15px;background:#f1ecdf}
+    .job-description{max-width:460px}
+    .job-card h2{max-width:450px;font-size:clamp(27px,3.2vw,39px);line-height:1.16}
+    .apply-panel{min-width:230px}
+    .apply-panel .job-button{display:flex;align-items:center;justify-content:space-between;gap:20px;transition:background .2s}
+    .apply-panel .job-button:hover{background:#354b3a}
+    .apply-panel[open] .job-button{background:#364f3c}
+    .apply-caption{font-size:12px!important;line-height:1.55!important;margin:14px 0 7px!important;color:#525b52!important;text-align:left}
+    .contact-form-section{display:block;padding:25px 0 52px;border-top:1px solid var(--line)}
+    .contact-trigger{display:flex;align-items:center;justify-content:space-between;gap:20px;cursor:pointer;list-style:none;padding:25px 32px;background:#e8e6dd;border:1px solid #d7d6cc;border-radius:13px}
+    .contact-trigger::-webkit-details-marker{display:none}
+    .contact-trigger>span:first-child{display:grid;gap:3px}
+    .contact-trigger small{font-size:10px;color:#917547;font-weight:850;letter-spacing:.15em}
+    .contact-trigger strong{font-size:clamp(26px,3.4vw,38px);font-weight:850;letter-spacing:-.05em}
+    .contact-trigger em{font-size:13px;font-style:normal;color:#565d55}
+    .contact-trigger:hover{background:#e3e1d6}
+    .contact-chevron{border-radius:50%;background:#192b1e;color:white;width:43px;height:43px;flex:none;display:grid;place-items:center;font-size:28px;transition:transform .2s}
+    .contact-form-section[open] .contact-chevron{transform:rotate(180deg)}
+    .contact-form-section[open] .contact-trigger{border-radius:13px 13px 0 0}
+    .contact-inner{padding:24px 32px 30px;background:#f5f2eb;border:1px solid #d7d6cc;border-top:0;border-radius:0 0 13px 13px}
+    .contact-inner form{max-width:650px}
+    .contact-inner h2{font-size:clamp(23px,3vw,32px)}
+    @media(max-width:700px){.job-card{padding:23px;gap:18px}.contact-trigger{padding:21px}.contact-inner{padding:20px}.contact-chevron{height:37px;width:37px}}
   </style>
 </head>
 <body>
@@ -217,10 +245,10 @@
           <summary aria-label="Anfahrt: Karten-App auswählen">Anfahrt <span aria-hidden="true">⌄</span></summary>
           <div class="route-options">
             <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Caldenhofer+Weg+207%2C+59063+Hamm" target="_blank" rel="noopener noreferrer">
-              <span class="route-icon google-map" aria-hidden="true">G</span> Google Maps ↗
+              <img class="map-app-icon" src="assets/google-maps.svg" alt="" width="28" height="28"> <span>Google Maps ↗</span>
             </a>
             <a href="https://maps.apple.com/?daddr=Caldenhofer+Weg+207%2C+59063+Hamm" target="_blank" rel="noopener noreferrer">
-              <span class="route-icon apple-map" aria-hidden="true">●</span> Apple Karten ↗
+              <img class="map-app-icon" src="assets/apple-maps.svg" alt="" width="28" height="28"> <span>Apple Karten ↗</span>
             </a>
           </div>
         </details>
@@ -263,13 +291,14 @@
     <section class="wrap job-section" id="jobs" aria-labelledby="jobs-title">
       <div class="job-card">
         <div class="job-description">
-          <div class="job-kicker">KARRIERE BEI HAPPY ECK</div>
+          <div class="job-kicker">DEIN JOB BEI HAPPY ECK</div>
           <h2 id="jobs-title">Werde Teil unseres Teams.</h2>
-          <p>Minijob · Teilzeit · Vollzeit</p>
+          <p>Du möchtest bei uns arbeiten? Bewirb dich in wenigen Minuten.</p>
+          <div class="jobs-highlights"><span>✓ Ohne Anschreiben</span><span>✓ Nur Lebenslauf</span></div>
         </div>
         <div class="job-action">
           <details class="apply-panel">
-            <summary class="job-button">Jetzt bewerben ↗</summary>
+            <summary class="job-button">Jetzt bewerben <span aria-hidden="true">↗</span></summary><p class="apply-caption">Bitte fülle die vier Felder aus und lade deinen Lebenslauf hoch.</p>
             <form action="https://formsubmit.co/happyeck10@gmail.com" method="POST" enctype="multipart/form-data">
               <input type="hidden" name="_subject" value="Job – Happy Eck">
               <input type="hidden" name="_template" value="table">
@@ -283,9 +312,11 @@
         </div>
       </div>
     </section>
-<section class="wrap contact-form-section" id="kontakt" aria-labelledby="kontakt-title">
-<h2 id="kontakt-title">Kontakt</h2>
-<p>Schreib uns direkt. Wir antworten so schnell wie möglich.</p>
+<details class="wrap contact-form-section" id="kontakt">
+<summary class="contact-trigger"><span><small>DU HAST EINE FRAGE?</small><strong>Kontakt</strong><em>Öffnen und Nachricht schreiben</em></span><span class="contact-chevron" aria-hidden="true">⌄</span></summary>
+<div class="contact-inner">
+<h2 id="kontakt-title">Schreib uns direkt.</h2>
+<p>Fülle die Felder aus – deine Nachricht geht an Happy Eck.</p>
 <form action="https://formsubmit.co/happyeck10@gmail.com" method="POST">
 <input type="hidden" name="_subject" value="Kontakt – Happy Eck">
 <input type="hidden" name="_template" value="table">
@@ -293,9 +324,10 @@
 <label>Telefon<input type="tel" name="Telefon" autocomplete="tel" required></label>
 <label>E-Mail<input type="email" name="email" autocomplete="email" required></label>
 <label>Anliegen<textarea name="Anliegen" rows="4" required></textarea></label>
-<button type="submit">Nachricht senden</button>
+<button type="submit">Nachricht senden ↗</button>
 </form>
-</section>
+</div>
+</details>
   </main>
   <footer id="footer">
     <div class="wrap">
@@ -325,5 +357,5 @@
       </div>
     </div>
   </footer>
-<script>(function(){const b=document.getElementById('menu-toggle'),m=document.getElementById('site-menu');if(!b||!m)return;function close(){m.hidden=true;b.setAttribute('aria-expanded','false')}b.addEventListener('click',()=>{m.hidden=!m.hidden;b.setAttribute('aria-expanded',String(!m.hidden))});m.addEventListener('click',e=>{if(e.target.closest('a'))close()});document.addEventListener('click',e=>{if(!m.hidden&&!b.contains(e.target)&&!m.contains(e.target))close()});document.addEventListener('keydown',e=>{if(e.key==='Escape')close()})})();</script><script>document.getElementById("job-cv").addEventListener("change",function(){const f=this.files[0];this.setCustomValidity(f&&f.size>10485760?"Maximal 10 MB erlaubt.":"");if(!this.checkValidity())this.reportValidity();});</script></body>
+<script>(function(){const b=document.getElementById('menu-toggle'),m=document.getElementById('site-menu');if(!b||!m)return;function close(){m.hidden=true;b.setAttribute('aria-expanded','false')}b.addEventListener('click',()=>{m.hidden=!m.hidden;b.setAttribute('aria-expanded',String(!m.hidden))});m.addEventListener('click',e=>{if(e.target.closest('a'))close()});document.addEventListener('click',e=>{if(!m.hidden&&!b.contains(e.target)&&!m.contains(e.target))close()});document.addEventListener('keydown',e=>{if(e.key==='Escape')close()})})();</script><script>document.getElementById("job-cv").addEventListener("change",function(){const f=this.files[0];this.setCustomValidity(f&&f.size>10485760?"Maximal 10 MB erlaubt.":"");if(!this.checkValidity())this.reportValidity();});</script><script>(function(){const contact=document.getElementById('kontakt');if(!contact)return;function reveal(){if(location.hash==='#kontakt'){contact.open=true;}}document.querySelectorAll('a[href="#kontakt"]').forEach(link=>link.addEventListener('click',()=>{contact.open=true;}));window.addEventListener('hashchange',reveal);reveal();})();</script></body>
 </html>
