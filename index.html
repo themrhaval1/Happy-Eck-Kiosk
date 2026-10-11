@@ -1,100 +1,118 @@
 <!doctype html>
 <html lang="de">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#f5f2eb">
-<meta name="description" content="Happy Eck Kiosk in Hamm. Entdecke unseren Kiosk, bestelle über Lieferando oder besuche uns am Caldenhofer Weg 207.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Happy Eck Kiosk | Dein Eck. Dein Moment.">
-<meta property="og:description" content="Dein Kiosk in Hamm. Schau vorbei oder bestelle bei Lieferando.">
-<meta property="og:image" content="https://happyeck.de/assets/logo.jpg">
-<title>Happy Eck Kiosk Hamm | Dein Eck. Dein Moment.</title>
-<link rel="icon" href="assets/logo.jpg">
-<link rel="stylesheet" href="home.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111311">
+  <meta name="description" content="Happy Eck Kiosk in Hamm. Getränke, Snacks, GLS Paketshop und mehr. Besuche uns oder bestelle über Lieferando.">
+  <meta property="og:title" content="Happy Eck Kiosk – Hamm">
+  <meta property="og:description" content="Dein Kiosk in Hamm. Einfach vorbeikommen oder bestellen.">
+  <meta property="og:image" content="https://happyeck.de/assets/logo.jpg">
+  <title>Happy Eck Kiosk – Hamm</title>
+  <link rel="icon" href="assets/logo.jpg">
+  <style>
+    :root{--ink:#161816;--cream:#f6f5f1;--warm:#ecd8b5;--line:#dcdcd4}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--cream);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+    a:focus-visible{outline:3px solid #e8bd60;outline-offset:4px}
+    .wrap{width:min(1320px,calc(100% - 84px));margin:auto}
+    .skip{position:absolute;top:-80px;left:16px;background:#fff;padding:12px;z-index:10}
+    .skip:focus{top:12px}
+    header{background:var(--cream)}
+    .topbar{display:flex;justify-content:space-between;align-items:center;gap:20px;min-height:94px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:-.045em;font-size:22px;white-space:nowrap}
+    .brand img{width:48px;height:48px;object-fit:cover;border-radius:10px}
+    .toplinks{display:flex;align-items:center;gap:27px;font-size:13px;font-weight:800}
+    .toplinks a:first-child:hover,.footlinks a:hover{color:#8f5d22}
+    .top-order{background:var(--ink);color:#fff;border-radius:6px;padding:13px 19px;transition:background .2s}
+    .top-order:hover{background:#394239}
+    .hero{position:relative;min-height:min(760px,calc(100svh - 94px));display:flex;align-items:center;overflow:hidden;background:#1c211a;isolation:isolate}
+    .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+    .hero:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(10,13,10,.90),rgba(10,13,10,.67) 54%,rgba(10,13,10,.18)),linear-gradient(0deg,rgba(10,13,10,.36),transparent 50%)}
+    .hero-content{padding:105px 0;color:#fff}
+    .eyebrow{display:inline-flex;align-items:center;gap:12px;color:var(--warm);font-size:12px;font-weight:800;letter-spacing:.19em;text-transform:uppercase}
+    .eyebrow:before{content:"";width:26px;height:2px;background:var(--warm)}
+    h1{font-weight:850;letter-spacing:-.08em;font-size:clamp(66px,9.5vw,132px);line-height:.94;margin:31px 0 25px}
+    h1 span{color:var(--warm)}
+    .intro{font-size:clamp(16px,1.9vw,20px);line-height:1.6;color:#f1eee8;max-width:500px;margin:0}
+    .actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:36px}
+    .button{display:inline-flex;justify-content:center;align-items:center;gap:18px;min-height:55px;padding:15px 24px;border-radius:6px;font-size:14px;font-weight:800;transition:transform .2s,background .2s}
+    .button:hover{transform:translateY(-2px)}
+    .button-primary{background:var(--warm);color:#1d1b17}
+    .button-primary:hover{background:#ffebc6}
+    .button-outline{background:#ffffff08;border:1px solid #ffffffa0;color:#fff}
+    .button-outline:hover{background:#ffffff26}
+    .location{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:27px 0;border-bottom:1px solid var(--line);font-size:13px;color:#474b43}
+    .location strong{font-weight:850;color:var(--ink);letter-spacing:.04em}
+    .location a{font-weight:800;white-space:nowrap}
+    .location a:hover{text-decoration:underline}
+    footer{padding:35px 0 25px}
+    .foot-main{display:flex;align-items:center;justify-content:space-between;gap:25px;flex-wrap:wrap}
+    .foot-main p{font-size:13px;color:#6e716a;margin:0}
+    .footlinks{display:flex;flex-wrap:wrap;gap:12px 22px;font-size:13px;font-weight:700}
+    .legal{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:30px;padding-top:20px;color:#74766f;font-size:12px}
+    .legal a:hover{text-decoration:underline}
+    @media(max-width:700px){
+      .wrap{width:calc(100% - 38px)}
+      .topbar{min-height:76px}.brand{font-size:18px}.brand img{width:42px;height:42px}
+      .toplinks{gap:13px;font-size:12px}.top-order{padding:10px 13px}
+      .hero{min-height:620px;min-height:min(700px,calc(100svh - 76px))}
+      .hero:before{background:linear-gradient(90deg,rgba(10,13,10,.91),rgba(10,13,10,.6)),linear-gradient(0deg,#10151077,transparent)}
+      .hero-bg{object-position:65% center}
+      .hero-content{padding:80px 0}
+      h1{font-size:clamp(60px,13vw,92px);margin:24px 0}
+      .intro{font-size:16px}
+      .actions{gap:10px}.button{padding:14px 17px;min-height:51px;font-size:12px}
+      .location{align-items:flex-start;flex-direction:column;gap:10px}
+      footer{padding-top:28px}
+    }
+    @media(max-width:370px){.toplinks a:first-child{display:none}h1{font-size:57px}}
+    @media(prefers-reduced-motion:reduce){.button{transition:none}}
+  </style>
 </head>
 <body>
-<a class="skip-link" href="#main">Zum Inhalt springen</a>
-<header class="site-header">
-  <div class="wrapper header-inner">
-    <a href="index.html" class="brand" aria-label="Happy Eck Kiosk, Startseite"><img src="assets/logo.jpg" alt="" width="52" height="52"><span>HAPPY <span>ECK.</span></span></a>
-    <button type="button" class="menu-button" data-menu-toggle aria-expanded="false" aria-controls="mainNav">☰ Menü</button>
-    <nav class="site-nav" id="mainNav" aria-label="Hauptnavigation">
-      <a href="index.html" aria-current="page">Startseite</a>
-      <a href="#einblicke">Unser Kiosk</a>
-      <a href="paketshop.html">Paketshop</a>
-      <a href="kontakt.html">Kontakt</a>
-      <a href="https://www.lieferando.de/speisekarte/happy-eck-kiosk-59063-hamm" class="nav-order" target="_blank" rel="noopener noreferrer">Jetzt bestellen ↗</a>
-    </nav>
-  </div>
-</header>
-<main id="main">
-  <section class="hero" aria-labelledby="hero-heading">
-    <div class="hero-copy">
-      <p class="eyebrow">Dein Kiosk in Hamm</p>
-      <h1 id="hero-heading">Dein Eck.<br><em>Dein Moment.</em></h1>
-      <p class="hero-sub">Ein guter Moment ist oft ganz nah. Willkommen bei Happy Eck.</p>
-      <div class="hero-actions">
-        <a href="https://www.lieferando.de/speisekarte/happy-eck-kiosk-59063-hamm" class="button button-dark" target="_blank" rel="noopener noreferrer">Jetzt bestellen <span aria-hidden="true">↗</span></a>
-        <a href="https://www.google.com/maps/dir/?api=1&destination=Caldenhofer+Weg+207%2C+59063+Hamm" class="button button-outline" target="_blank" rel="noopener noreferrer">Route planen <span aria-hidden="true">↗</span></a>
-      </div>
-      <p class="hero-note">CALDENHOFER WEG 207 <span aria-hidden="true">·</span> 59063 HAMM</p>
-    </div>
-    <div class="hero-image">
-      <img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_27.jpg" alt="Ein Blick in den Happy Eck Kiosk" fetchpriority="high">
-      <div class="small-mark" aria-hidden="true"><span>HE</span><small>HAMM</small></div>
-      <div class="photo-signature"><strong>HAPPY ECK</strong><span>DEIN MOMENT.</span></div>
-    </div>
-  </section>
-  <section class="gallery-section" id="einblicke" aria-labelledby="gallery-heading">
-    <div class="wrapper">
-      <div class="section-top">
-        <div>
-          <p class="eyebrow">Einblicke in Happy Eck</p>
-          <h2 class="section-title" id="gallery-heading">So sieht's<br><em>bei uns aus.</em></h2>
-        </div>
-        <p class="side-note">Ein paar Eindrücke von unserem Kiosk in Hamm.</p>
-      </div>
-      <div class="photo-grid">
-        <figure><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_40.jpg" alt="Happy Eck Kiosk – Einblick 1" loading="lazy"><figcaption>Happy Eck <span>01 / 03</span></figcaption></figure>
-        <figure><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_52.jpg" alt="Happy Eck Kiosk – Einblick 2" loading="lazy"><figcaption>Happy Eck <span>02 / 03</span></figcaption></figure>
-        <figure><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_56.jpg" alt="Happy Eck Kiosk – Einblick 3" loading="lazy"><figcaption>Happy Eck <span>03 / 03</span></figcaption></figure>
-      </div>
-    </div>
-  </section>
-  <section class="visit" id="besuchen" aria-labelledby="visit-heading">
-    <div class="wrapper visit-grid">
-      <div>
-        <p class="eyebrow">Vorbeikommen</p>
-        <h2 id="visit-heading">Wir sehen<br><em>uns gleich.</em></h2>
-        <p class="visit-address">Caldenhofer Weg 207<br>59063 Hamm</p>
-        <div class="visit-actions">
-          <a href="https://www.google.com/maps/dir/?api=1&destination=Caldenhofer+Weg+207%2C+59063+Hamm" class="button" target="_blank" rel="noopener noreferrer">Route planen ↗</a>
-          <a href="https://wa.me/4917661020308" class="button button-light" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>
-        </div>
-        <p class="visit-kicker">Happy Eck Kiosk · Hamm</p>
-      </div>
-      <img class="visit-photo" src="assets/ChatGPT-Bild 8. Okt. 2026, 22_31_13.jpg" alt="Weitere Eindrücke aus Happy Eck Kiosk" loading="lazy">
-    </div>
-  </section>
-</main>
-<footer class="site-footer">
-  <div class="wrapper">
-    <div class="footer-main">
-      <div><a class="brand" href="index.html"><img src="assets/logo.jpg" alt="" width="43" height="43"><span>HAPPY <span>ECK.</span></span></a><p class="footer-caption">Dein Kiosk in Hamm.</p></div>
-      <nav class="footer-nav" aria-label="Weitere Seiten">
-        <a href="angebote.html">Angebote</a>
-        <a href="paketshop.html">Paketshop</a>
-        <a href="bewerbung.html">Jobs</a>
-        <a href="ueber-uns.html">Über uns</a>
+  <a class="skip" href="#main">Zum Inhalt springen</a>
+  <header>
+    <div class="wrap topbar">
+      <a class="brand" href="index.html" aria-label="Happy Eck Kiosk, Startseite"><img src="assets/logo.jpg" alt=""><span>HAPPY ECK</span></a>
+      <nav class="toplinks" aria-label="Hauptnavigation">
         <a href="kontakt.html">Kontakt</a>
-        <a href="https://www.instagram.com/happy.eck.kiosk/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
-        <a href="https://www.tiktok.com/@happy.eck" target="_blank" rel="noopener noreferrer">TikTok ↗</a>
+        <a class="top-order" href="https://www.lieferando.de/speisekarte/happy-eck-kiosk-59063-hamm" target="_blank" rel="noopener noreferrer">Bestellen ↗</a>
       </nav>
     </div>
-    <div class="footer-bottom"><span>© 2026 Happy Eck Kiosk</span><span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span></div>
-  </div>
-</footer>
-<script defer src="site.js"></script>
+  </header>
+  <main id="main">
+    <section class="hero" aria-labelledby="title">
+      <img class="hero-bg" src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_27.jpg" alt="" fetchpriority="high">
+      <div class="wrap hero-content">
+        <div class="eyebrow">Happy Eck Kiosk · Hamm</div>
+        <h1 id="title">Dein Kiosk.<br><span>Dein Eck.</span></h1>
+        <p class="intro">Getränke, Snacks und mehr – direkt bei uns in Hamm.</p>
+        <div class="actions">
+          <a class="button button-primary" href="https://www.lieferando.de/speisekarte/happy-eck-kiosk-59063-hamm" target="_blank" rel="noopener noreferrer">Jetzt bestellen ↗</a>
+          <a class="button button-outline" href="https://www.google.com/maps/dir/?api=1&amp;destination=Caldenhofer+Weg+207%2C+59063+Hamm" target="_blank" rel="noopener noreferrer">Anfahrt ↗</a>
+        </div>
+      </div>
+    </section>
+    <div class="wrap location">
+      <div><strong>HAPPY ECK KIOSK</strong> · Caldenhofer Weg 207, 59063 Hamm</div>
+      <a href="paketshop.html">GLS Paketshop ↗</a>
+    </div>
+  </main>
+  <footer>
+    <div class="wrap">
+      <div class="foot-main">
+        <p>Happy Eck Kiosk · Hamm</p>
+        <nav class="footlinks" aria-label="Weitere Links">
+          <a href="https://wa.me/4917661020308" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>
+          <a href="https://www.instagram.com/happy.eck.kiosk/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+          <a href="bewerbung.html">Jobs</a>
+        </nav>
+      </div>
+      <div class="legal"><span>© 2026 Happy Eck Kiosk</span><span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span></div>
+    </div>
+  </footer>
 </body>
 </html>
