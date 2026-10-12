@@ -1,0 +1,29 @@
+name: Website Quality Checks
+on:
+  push:
+    branches:
+      - design/premium-happy-eck-2026
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout draft branch
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Run structural and opening-hours tests
+        run: npm test
+      - name: Install supported test browsers
+        run: npx playwright install --with-deps chromium firefox webkit
+      - name: Run safe browser checks
+        run: npm run test:browser
