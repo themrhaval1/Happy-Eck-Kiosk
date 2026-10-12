@@ -4,305 +4,123 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#ffffff">
-  <meta name="color-scheme" content="light">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="de_DE">
-  <meta property="og:url" content="https://happyeck.de/">
-  <link rel="canonical" href="https://happyeck.de/">
-  <meta name="description" content="Happy Eck Kiosk in Hamm: Drinks, Snacks, GLS-Paketshop und mehr. Einfach vorbeikommen oder bestellen.">
-  <meta property="og:title" content="Happy Eck Kiosk – Hamm">
-  <meta property="og:description" content="Happy Eck Kiosk in Hamm: Drinks, Snacks, Pakete und mehr.">
-  <meta property="og:image" content="https://happyeck.de/assets/logo.jpg">
+  <meta name="description" content="Happy Eck Kiosk in Hamm. Öffnungszeiten, GLS Paketshop, Kontakt, Adresse und Anfahrt.">
   <title>Happy Eck Kiosk – Hamm</title>
   <link rel="icon" href="assets/logo.jpg">
-  <link rel="preload" href="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_27.jpg" as="image" fetchpriority="high">
-  <link rel="stylesheet" href="assets/site.css">
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"ConvenienceStore",
-  "name":"Happy Eck Kiosk",
-  "url":"https://happyeck.de/",
-  "image":"https://happyeck.de/assets/logo.jpg",
-  "telephone":"+49 176 61020308",
-  "address":{"@type":"PostalAddress","streetAddress":"Caldenhofer Weg 207","postalCode":"59063","addressLocality":"Hamm","addressCountry":"DE"},
-  "sameAs":["https://www.instagram.com/happy.eck.kiosk/","https://www.tiktok.com/@happy.eck"]
-}
-</script>
+  <style>
+    :root{color-scheme:light}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:#fff;color:#202420;font:16px/1.6 system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+    a{color:#245b3a}
+    a:focus-visible,summary:focus-visible{outline:3px solid #609f73;outline-offset:3px}
+    .wrap{max-width:960px;margin:auto;padding:0 24px}
+    header{border-bottom:1px solid #e4e7e4;background:white}
+    .head{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:85px}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#202420;font-size:20px;font-weight:800}
+    .brand img{width:52px;height:52px;object-fit:cover;border-radius:7px}
+    nav{display:flex;gap:18px;flex-wrap:wrap}
+    nav a{text-decoration:none;font-size:14px;font-weight:650}
+    main{padding:45px 0 60px}
+    .intro{padding:15px 0 35px}
+    h1{font-size:clamp(36px,6vw,56px);line-height:1.15;letter-spacing:-.04em;margin:0 0 15px}
+    h2{font-size:26px;line-height:1.3;letter-spacing:-.025em;margin:0 0 15px}
+    h3{font-size:18px;margin:16px 0 8px}
+    p{margin:0 0 16px}
+    .intro p{max-width:660px;color:#505d52;font-size:18px}
+    .buttons{display:flex;flex-wrap:wrap;gap:10px;margin-top:23px}
+    .button{display:inline-block;padding:11px 17px;background:#266341;color:white;text-decoration:none;font-size:14px;font-weight:700;border-radius:6px}
+    .button.secondary{color:#266341;background:#eaf2eb}
+    section.info{padding:29px 0;border-top:1px solid #e4e7e4}
+    .hours{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    .hours article{padding:20px;background:#f6f8f6;border:1px solid #e5eae5;border-radius:7px}
+    .hours article h3{margin:0 0 11px}
+    .hours dl{margin:0}
+    .hours dl div{display:flex;justify-content:space-between;gap:15px;margin:10px 0;border-bottom:1px solid #e0e6e0;padding-bottom:9px}
+    .hours dt{color:#59665c}
+    .hours dd{margin:0;font-weight:650;text-align:right;white-space:nowrap}
+    .muted{color:#69746b;font-size:13px}
+    .contact-lines{display:grid;gap:8px}
+    footer{padding:30px 0;background:#f5f7f5;border-top:1px solid #e3e8e3;font-size:13px}
+    footer details{margin:12px 0}
+    footer summary{cursor:pointer;font-weight:750;font-size:14px}
+    footer p,footer a{overflow-wrap:anywhere}
+    @media(max-width:700px){.head{flex-direction:column;justify-content:center;align-items:flex-start;padding-top:15px;padding-bottom:15px}nav{gap:12px}.wrap{padding:0 18px}main{padding-top:25px}.hours{grid-template-columns:1fr}.hours dl div{flex-wrap:wrap}.intro p{font-size:16px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
 </head>
 <body>
-  <a class="skip" href="#main">Zum Inhalt springen</a>
   <header>
-    <div class="menu-backdrop" id="menu-backdrop" hidden aria-hidden="true"></div>
-    <div class="wrap topbar">
-      <a class="brand" href="index.html" aria-label="Happy Eck Kiosk, Startseite"><img src="assets/logo.jpg" alt="" width="48" height="48" decoding="async"><span>HAPPY ECK</span></a>
-      <nav class="desktop-links" aria-label="Direktnavigation"><a href="#produktkatalog">Produkte &amp; Preise</a><a href="#angebot">Angebote</a><a href="#paketshop">GLS</a><a href="#oeffnungszeiten">Öffnungszeiten</a><a href="#anfahrt">Anfahrt</a></nav>
-      <div class="toplinks" aria-label="Schnellzugriff">
-        <a href="#kontakt">Kontakt</a>
-        <a class="top-order" href="https://www.lieferando.de/speisekarte/happy-eck-kiosk-59063-hamm" target="_blank" rel="noopener noreferrer"><span>Bestellen ↗</span></a>
-      <button type="button" id="menu-toggle" class="menu-toggle" aria-controls="site-menu" aria-expanded="false" aria-label="Menü öffnen"><span></span><span></span><span></span></button></div>
-      <nav id="site-menu" class="menu-panel premium-menu" aria-label="Hauptmenü" hidden>
-        <div class="premium-menu-header">
-          <div><small>HAPPY ECK · DEIN KIOSK IN HAMM</small><strong>Alles an einem Ort.</strong></div>
-          <button type="button" class="premium-menu-close" id="menu-close" aria-label="Menü schließen">×</button>
-        </div>
-        <div class="premium-menu-grid">
-          <a href="#main"><span class="premium-menu-symbol" aria-hidden="true">⌂</span><span>Startseite<small>Willkommen bei Happy Eck</small></span></a>
-          <a href="#angebot"><span class="premium-menu-symbol" aria-hidden="true">✦</span><span>Wochenangebot<small>4 Red Bull für 8 €</small></span></a>
-          <a href="#oeffnungszeiten"><span class="premium-menu-symbol" aria-hidden="true">◷</span><span>Öffnungszeiten<small>Kiosk und GLS</small></span></a>
-          <a href="#anfahrt"><span class="premium-menu-symbol" aria-hidden="true">⌖</span><span>Anfahrt<small>Apple &amp; Google Maps</small></span></a>
-          <a href="#paketshop"><span class="premium-menu-symbol" aria-hidden="true">▣</span><span>GLS Paketshop<small>Pakete abgeben &amp; abholen</small></span></a>
-          <a href="#bewertungen"><span class="premium-menu-symbol" aria-hidden="true">★</span><span>Google-Bewertungen<small>Erfahrungen ansehen</small></span></a>
-          <a href="#jobs"><span class="premium-menu-symbol" aria-hidden="true">♧</span><span>Jobs<small>Direkt bewerben</small></span></a>
-          <a href="#kontakt"><span class="premium-menu-symbol" aria-hidden="true">✉</span><span>Kontakt<small>Anrufen oder schreiben</small></span></a>
-        </div>
-        <div class="deep-menu-extra"><a href="#produktkatalog">Produkte & Preise →</a><a href="#galerie">Bildergalerie →</a><a href="#fragen">Häufige Fragen →</a></div>
-        <div class="premium-menu-bottom">
-          <a href="#social-heading" class="premium-menu-social">Unsere Social-Media-Kanäle <span aria-hidden="true">↗</span></a>
-          <a href="https://www.lieferando.de/speisekarte/happy-eck-kiosk-59063-hamm" target="_blank" rel="noopener noreferrer" class="premium-menu-order">Jetzt bestellen <span aria-hidden="true">↗</span></a>
-        </div>
-      </nav>
+    <div class="wrap head">
+      <a class="brand" href="#start"><img src="assets/logo.jpg" alt="">Happy Eck Kiosk</a>
+      <nav aria-label="Hauptnavigation"><a href="#oeffnungszeiten">Öffnungszeiten</a><a href="#gls">GLS</a><a href="#kontakt">Kontakt</a><a href="#anfahrt">Anfahrt</a></nav>
     </div>
   </header>
-  <div class="brand-ribbon" aria-label="Happy Eck Kiosk in Hamm">
-    <div class="wrap brand-ribbon-inner">
-      <span class="brand-ribbon-dot" aria-hidden="true">✦</span>
-      <strong>HAPPY ECK · DEIN KIOSK IN HAMM</strong>
-      <a href="#angebot">Diese Woche im Angebot <span aria-hidden="true">↗</span></a>
-    </div>
-  </div>
-<nav class="retail-nav" aria-label="Produktbereiche"><div class="wrap retail-nav-inner"><a href="#angebot">Aktuelle Angebote <span aria-hidden="true">%</span></a><a href="#sortiment">Kategorien</a><a href="#produktkatalog">Alle Produkte &amp; Preise</a><a href="#paketshop">GLS Paketshop</a><a href="#oeffnungszeiten">Öffnungszeiten</a><a href="#anfahrt">Filiale &amp; Anfahrt</a></div></nav>
-  <main id="main">
-<div class="market-promise"><div class="wrap market-promise-content"><span>✓ Dein Kiosk in Hamm</span><span>✓ Getränke &amp; Snacks</span><span>✓ GLS Paketshop</span><span>✓ Auch über Lieferando</span></div></div>
-<section class="market-hero wrap" aria-labelledby="title">
-  <div class="market-hero-main">
-    <div class="market-hero-copy"><span class="retail-discount-stamp">DEIN KIOSK IN HAMM</span><span class="market-eyebrow">WILLKOMMEN BEI HAPPY ECK</span>
-      <h1 id="title">Dein Kiosk.<br><span>Dein Eck.</span></h1>
-      <p>Deine Lieblingsgetränke, Snacks, Süßigkeiten und vieles mehr. Entdecke Happy Eck am Caldenhofer Weg in Hamm.</p>
-      <div class="market-hero-actions"><a class="market-cta" href="#sortiment">Sortiment entdecken <span aria-hidden="true">↗</span></a><a class="market-cta market-cta-white" href="https://www.lieferando.de/speisekarte/happy-eck-kiosk-59063-hamm" target="_blank" rel="noopener noreferrer">Über Lieferando bestellen</a></div>
-      <p class="market-hero-address">📍 Caldenhofer Weg 207 · 59063 Hamm</p>
-    </div>
-    <div class="market-hero-image"><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_27.jpg" alt="Illustration der Happy Eck Kiosk Auswahl" fetchpriority="high"></div>
-  </div>
-  <aside class="market-hero-aside" aria-label="Schnellinformationen">
-    <a class="market-feature market-feature-offer" href="#angebot"><span>ANGEBOT DER WOCHE</span><strong>4× Red Bull<br><em>8 €</em></strong><small>Zzgl. Pfand · solange Vorrat reicht</small><b>Angebot ansehen ↗</b></a>
-    <a class="market-feature market-feature-service" href="#paketshop"><span>SERVICE DIREKT VOR ORT</span><strong>GLS<br>Paketshop</strong><small>Pakete abgeben oder abholen</small><b>Mehr erfahren ↗</b></a>
-  </aside>
-</section>
-<nav class="market-shortcuts wrap" aria-label="Schnellzugriff"><a href="#sortiment"><span aria-hidden="true">▦</span> Kategorien</a><a href="#angebot"><span aria-hidden="true">%</span> Angebote</a><a href="#oeffnungszeiten"><span aria-hidden="true">◷</span> Öffnungszeiten</a><a href="#anfahrt"><span aria-hidden="true">⌖</span> Anfahrt</a><a href="#kontakt"><span aria-hidden="true">✉</span> Kontakt</a></nav>
-<section class="wrap market-categories-section" id="sortiment" aria-labelledby="sortiment-heading">
-  <div class="market-heading"><div><span>DEIN SORTIMENT</span><h2 id="sortiment-heading">Unsere Kategorien</h2><p>Alles, was du im Kiosk brauchst – schnell entdecken und vorbeikommen.</p></div><a href="#ueberblick">Gesamtes Sortiment ansehen ↗</a></div>
-  <div class="market-categories-grid"><a class="market-category market-cat-a" href="#sortiment-getraenke"><div class="market-category-photo"><img loading="lazy" decoding="async" src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_40.jpg" alt="Illustration der Kategorie Getränke & Energy"></div><span class="market-category-tag">ERFRISCHUNG</span><h3>Getränke & Energy</h3><p>Energy, Softdrinks, Wasser und Eistee</p><span class="market-category-arrow" aria-hidden="true">Jetzt entdecken ↗</span></a>
-<a class="market-category market-cat-b" href="#sortiment-snacks"><div class="market-category-photo"><img loading="lazy" decoding="async" src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_52.jpg" alt="Illustration der Kategorie Chips & Snacks"></div><span class="market-category-tag">SNACKS</span><h3>Chips & Snacks</h3><p>Knabbereien für jeden Geschmack</p><span class="market-category-arrow" aria-hidden="true">Jetzt entdecken ↗</span></a>
-<a class="market-category market-cat-c" href="#sortiment-eis"><div class="market-category-photo"><img loading="lazy" decoding="async" src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_56.jpg" alt="Illustration der Kategorie Eis & Slush"></div><span class="market-category-tag">EISKALT</span><h3>Eis & Slush</h3><p>Kalt, fruchtig und erfrischend</p><span class="market-category-arrow" aria-hidden="true">Jetzt entdecken ↗</span></a>
-<a class="market-category market-cat-d" href="#sortiment-suesses"><div class="market-category-photo"><img loading="lazy" decoding="async" src="assets/ChatGPT-Bild 8. Okt. 2026, 22_31_01.jpg" alt="Illustration der Kategorie Süßigkeiten"></div><span class="market-category-tag">SÜSSES</span><h3>Süßigkeiten</h3><p>Schokolade, Kekse und mehr</p><span class="market-category-arrow" aria-hidden="true">Jetzt entdecken ↗</span></a>
-<a class="market-category market-cat-e" href="#paketshop"><div class="market-category-photo"><img loading="lazy" decoding="async" src="assets/ChatGPT-Bild 8. Okt. 2026, 22_31_05.jpg" alt="Illustration der Kategorie Paketshop GLS"></div><span class="market-category-tag">SERVICE</span><h3>Paketshop GLS</h3><p>Pakete abgeben und abholen</p><span class="market-category-arrow" aria-hidden="true">Jetzt entdecken ↗</span></a>
-<a class="market-category market-cat-f" href="#ueberblick"><div class="market-category-photo"><img loading="lazy" decoding="async" src="assets/ChatGPT-Bild 8. Okt. 2026, 22_31_13.jpg" alt="Illustration der Kategorie Mehr entdecken"></div><span class="market-category-tag">VOR ORT</span><h3>Mehr entdecken</h3><p>Weitere Artikel direkt im Kiosk</p><span class="market-category-arrow" aria-hidden="true">Jetzt entdecken ↗</span></a></div>
-  <p class="market-note">Bilder dienen der Illustration. Sortiment und Verfügbarkeit können variieren.</p>
-</section>
-<section class="market-weekly" id="angebot" aria-labelledby="weekly-offer-title"><div class="wrap market-weekly-inner">
-  <div class="market-weekly-copy"><span class="retail-deal-flag">UNSER TOP-ANGEBOT</span><span class="market-eyebrow">DAS HAPPY-ECK-ANGEBOT</span><h2 id="weekly-offer-title">Dein Energy-Deal der Woche.</h2><div class="market-price-line"><span>4× RED BULL</span><strong>8 <sup>€</sup></strong></div><p>Vier Dosen Red Bull für 8 € – zuzüglich Pfand und nur solange der Vorrat reicht.</p><a class="market-cta" href="https://wa.me/4917661020308?text=Hallo%20Happy%20Eck%2C%20ist%20das%20Angebot%20mit%204%20Red%20Bull%20f%C3%BCr%208%20Euro%20noch%20verf%C3%BCgbar%3F" target="_blank" rel="noopener noreferrer">Angebot per WhatsApp anfragen ↗</a></div>
-  <div class="market-weekly-illustration" aria-hidden="true"><span class="market-weekly-star">TOP<br>DEAL</span><div class="market-deal-poster"><strong>4×</strong><span>RED BULL</span><small>8 € · zzgl. Pfand</small></div></div>
-</div></section>
-<section class="wrap market-pickup" id="anfahrt" aria-labelledby="market-visit-title"><div><span>WIR FREUEN UNS AUF DICH</span><h2 id="market-visit-title">Besuch uns in Hamm.</h2><p>Caldenhofer Weg 207 · 59063 Hamm</p></div><div class="market-pickup-links"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Caldenhofer+Weg+207%2C+59063+Hamm" target="_blank" rel="noopener noreferrer">Google Maps ↗</a><a href="https://maps.apple.com/?daddr=Caldenhofer+Weg+207%2C+59063+Hamm" target="_blank" rel="noopener noreferrer">Apple Karten ↗</a></div></section>
-<section class="wrap product-catalog" id="produktkatalog" aria-labelledby="catalog-title">
-<div class="catalog-heading"><div><span class="catalog-kicker">PRODUKTE & PREISE</span><h2 id="catalog-title">Unser Sortiment im Überblick.</h2><p>Finde deine Lieblingsartikel, entdecke Kategorien und sieh dir unsere angegebenen Kioskpreise an.</p></div><span class="catalog-count" id="catalog-total">Produktliste wird geladen …</span></div>
-<div class="catalog-controls"><label class="catalog-search-label" for="catalog-search">Produkt suchen<input id="catalog-search" type="search" placeholder="z. B. Red Bull, Coca-Cola, Pringles …" autocomplete="off"></label><label class="catalog-filter-label" for="catalog-group">Kategorie<select id="catalog-group"><option value="Alle">Alle Kategorien</option></select></label></div>
-<div class="catalog-consent"><label><input type="checkbox" id="catalog-adult"> Ich bin mindestens 18 Jahre alt und möchte auch alkoholische Produkte sehen.</label></div>
-<p class="catalog-results" id="catalog-results" role="status" aria-live="polite"></p><div class="catalog-grid" id="catalog-grid"></div>
-<div class="catalog-bottom"><button id="catalog-more" type="button" hidden>Weitere Produkte anzeigen</button><a href="https://wa.me/4917661020308?text=Hallo%20Happy%20Eck%2C%20ich%20habe%20eine%20Frage%20zu%20einem%20Produkt." target="_blank" rel="noopener noreferrer">Produkt anfragen ↗</a></div>
-<p class="catalog-disclaimer">Preise laut bereitgestellter Liste, Stand Oktober 2026. Sortiment und Verfügbarkeit können abweichen. Pfand kann zusätzlich anfallen. Keine Online-Bestellung oder Reservierung über diesen Katalog. Altersbeschränkte Waren nur im Rahmen der gesetzlichen Vorschriften.</p>
-</section>
-<section class="wrap deep-section" id="ueberblick" aria-labelledby="deep-title"><div class="deep-heading"><span>HAPPY ECK · SORTIMENT</span><h2 id="deep-title">Mehr entdecken. Alles auf einer Seite.</h2><p>Von Getränken bis zu kleinen Snacks: Hier bekommst du einen ausführlichen Überblick über unsere Auswahl und Services. Einzelne Produkte können ausverkauft sein.</p></div><div class="deep-product-grid"><article class="deep-product" id="sortiment-getraenke"><span class="deep-index">01</span><h3>Energy-Drinks</h3><strong>Red Bull, Monster, Rockstar und weitere Energy-Drinks</strong><p>Eiskalt aus dem Kühlschrank – die Auswahl kann je nach Verfügbarkeit variieren.</p></article><article class="deep-product"><span class="deep-index">02</span><h3>Wasser & Sportgetränke</h3><strong>Wasser, Active O2 und Powerade</strong><p>Für unterwegs, beim Sport oder für zwischendurch.</p></article><article class="deep-product"><span class="deep-index">03</span><h3>Softdrinks & Eistee</h3><strong>Cola, Limonade, Eistee und Fruchtgetränke</strong><p>Von Klassikern bis zu fruchtigen Erfrischungen.</p></article><article class="deep-product" id="sortiment-snacks"><span class="deep-index">04</span><h3>Chips & Knabbereien</h3><strong>Pringles, Lay’s, funny-frisch und weitere Snacks</strong><p>Etwas Salziges für den Abend oder unterwegs.</p></article><article class="deep-product" id="sortiment-suesses"><span class="deep-index">05</span><h3>Schokolade & Süßwaren</h3><strong>Schokoriegel, Kinder-Produkte und Kekse</strong><p>Kleine Naschereien und süße Lieblingsprodukte.</p></article><article class="deep-product" id="sortiment-eis"><span class="deep-index">06</span><h3>Eis & Slush</h3><strong>Eis und Slush-Getränke</strong><p>Für die schnelle Abkühlung – solange verfügbar.</p></article><article class="deep-product"><span class="deep-index">07</span><h3>Alltagsartikel</h3><strong>Ausgewählte Artikel für den spontanen Bedarf</strong><p>Frag uns gerne nach einem bestimmten Produkt.</p></article><article class="deep-product"><span class="deep-index">08</span><h3>GLS Paketservice</h3><strong>Paketabgabe und Paketabholung</strong><p>Service abhängig von Sendung und GLS-Vorgaben.</p></article></div></section>
-<section class="wrap deep-gallery" id="galerie" aria-labelledby="gallery-title"><div class="deep-heading"><span>EINBLICKE</span><h2 id="gallery-title">Ein Blick ins Happy Eck.</h2><p>Einblicke in unsere Bildwelt. Die Abbildungen sind Illustrationen und zeigen nicht zwingend den aktuellen Warenbestand.</p></div><div class="deep-gallery-grid"><figure><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_27.jpg" alt="Illustrative Darstellung zum Happy Eck Kiosk – Motiv 1" loading="lazy" decoding="async"></figure><figure><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_40.jpg" alt="Illustrative Darstellung zum Happy Eck Kiosk – Motiv 2" loading="lazy" decoding="async"></figure><figure><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_52.jpg" alt="Illustrative Darstellung zum Happy Eck Kiosk – Motiv 3" loading="lazy" decoding="async"></figure><figure><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_56.jpg" alt="Illustrative Darstellung zum Happy Eck Kiosk – Motiv 4" loading="lazy" decoding="async"></figure><figure><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_31_01.jpg" alt="Illustrative Darstellung zum Happy Eck Kiosk – Motiv 5" loading="lazy" decoding="async"></figure><figure><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_31_05.jpg" alt="Illustrative Darstellung zum Happy Eck Kiosk – Motiv 6" loading="lazy" decoding="async"></figure><figure><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_31_13.jpg" alt="Illustrative Darstellung zum Happy Eck Kiosk – Motiv 7" loading="lazy" decoding="async"></figure><figure><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_31_19.jpg" alt="Illustrative Darstellung zum Happy Eck Kiosk – Motiv 8" loading="lazy" decoding="async"></figure></div></section>
-<section class="deep-service-band"><div class="wrap"><div class="deep-heading"><span>SO EINFACH GEHT'S</span><h2>Dein Besuch bei Happy Eck.</h2></div><div class="deep-service-grid"><article><span>01</span><h3>Vorbeikommen</h3><p>Finde uns am Caldenhofer Weg 207 in Hamm. Die Anfahrt ist mit Google Maps oder Apple Karten möglich.</p><a href="#anfahrt">Anfahrt ansehen →</a></article><article><span>02</span><h3>Auswahl entdecken</h3><p>Schau dir Getränke, Snacks und weitere Artikel direkt vor Ort an. Bei Fragen helfen wir dir gerne weiter.</p><a href="#sortiment">Sortiment ansehen →</a></article><article><span>03</span><h3>Kontakt aufnehmen</h3><p>Du möchtest etwas wissen oder die Verfügbarkeit prüfen? Ruf uns an oder schreib uns über WhatsApp.</p><a href="https://wa.me/4917661020308" target="_blank" rel="noopener noreferrer">WhatsApp öffnen →</a></article></div></div></section>
-      <section id="paketshop" class="wrap parcel-section" aria-labelledby="parcel-heading">
-      <div class="parcel-card">
-        <div class="parcel-symbol" aria-hidden="true">📦</div>
-        <div class="parcel-copy">
-          <p class="parcel-label">SERVICE VOR ORT</p>
-          <h2 id="parcel-heading">GLS Paketshop</h2>
-          <p>Pakete abgeben oder abholen – direkt bei Happy Eck. Bitte prüfe deinen Sendungsstatus und die verfügbaren Services vor deinem Besuch.</p>
-        </div>
-        <a href="https://www.gls-pakete.de/" target="_blank" rel="noopener noreferrer" class="parcel-external">Mehr bei GLS ↗</a>
+  <main class="wrap" id="start">
+    <section class="intro" aria-labelledby="title">
+      <h1 id="title">Dein Kiosk. Dein Eck.</h1>
+      <p>Willkommen bei Happy Eck in Hamm! Bei uns findest du Getränke, Snacks, Süßigkeiten und mehr. Wir freuen uns auf deinen Besuch.</p>
+      <div class="buttons">
+        <a class="button" href="https://www.lieferando.de/speisekarte/happy-eck-kiosk-59063-hamm" target="_blank" rel="noopener noreferrer">Bei Lieferando bestellen</a>
+        <a class="button secondary" href="https://wa.me/4917661020308" target="_blank" rel="noopener noreferrer">WhatsApp</a>
       </div>
     </section>
-    <section class="wrap hours-section" id="oeffnungszeiten" aria-labelledby="hours-title">
-      <div class="hours-card">
-        <div class="hours-heading">
-          <small>ÖFFNUNGSZEITEN</small>
-          <h2 id="hours-title">Happy Eck Kiosk</h2>
-          <span class="hours-live" id="kiosk-live" data-status="loading" aria-live="polite"><span class="hours-live-dot" aria-hidden="true"></span><span class="hours-live-label">Status wird geladen</span></span>
-        </div>
-        <div class="hours-list">
-          <div><span>Montag – Donnerstag</span><strong>08:30 – 00:00 Uhr</strong></div>
-          <div><span>Freitag – Samstag</span><strong>08:30 – 01:30 Uhr</strong></div>
-          <div><span>Sonntag</span><strong>08:30 – 00:00 Uhr</strong></div>
-        </div>
+    <section class="info" id="oeffnungszeiten">
+      <h2>Öffnungszeiten</h2>
+      <div class="hours">
+        <article>
+          <h3>Happy Eck Kiosk</h3>
+          <dl>
+            <div><dt>Montag – Donnerstag</dt><dd>08:30 – 00:00 Uhr</dd></div>
+            <div><dt>Freitag – Samstag</dt><dd>08:30 – 01:30 Uhr</dd></div>
+            <div><dt>Sonntag</dt><dd>08:30 – 00:00 Uhr</dd></div>
+          </dl>
+        </article>
+        <article id="gls">
+          <h3>GLS Paketshop</h3>
+          <p>Pakete abgeben oder abholen.</p>
+          <dl><div><dt>Montag – Sonntag</dt><dd>08:30 – 00:00 Uhr</dd></div></dl>
+        </article>
       </div>
-      <div class="hours-card hours-gls">
-        <div class="hours-heading">
-          <small>PAKETSERVICE</small>
-          <h2>GLS Paketshop</h2>
-          <span class="hours-live" id="gls-live" data-status="loading" aria-live="polite"><span class="hours-live-dot" aria-hidden="true"></span><span class="hours-live-label">Status wird geladen</span></span>
-        </div>
-        <div class="hours-list">
-          <div><span>Montag – Sonntag</span><strong>08:30 – 00:00 Uhr</strong></div>
-        </div>
-      </div>
-      <p class="hours-disclaimer">Status nach regulären Öffnungszeiten in Hamm. Feiertage und Sonderzeiten können abweichen.</p>
+      <p class="muted" style="margin-top:13px">Feiertage und Sonderöffnungszeiten können abweichen.</p>
     </section>
-    <section class="wrap google-reviews-section" id="bewertungen" aria-labelledby="google-reviews-heading">
-      <div class="google-reviews-card">
-        <div class="google-reviews-intro">
-          <div class="google-reviews-eyebrow">
-            <img src="assets/google-maps.svg" alt="" width="27" height="27" loading="lazy">
-            <span>BEWERTUNGEN AUF GOOGLE MAPS</span>
-          </div>
-          <h2 id="google-reviews-heading">Deine Meinung zählt.</h2>
-          <p>Lies die neuesten Google-Bewertungen oder teile deine Erfahrung mit Happy Eck.</p>
-        </div>
-        <div class="google-reviews-actions">
-          <div class="google-rating" aria-label="Aktuelle Google-Bewertungen">
-            <div class="google-rating-message"><strong>Google Maps</strong><small>Aktuelle Sterne und Rezensionen direkt bei Google ansehen</small></div>
-          </div>
-          <!-- Live-Bewertungszahlen erst nach bestätigter Google-API/Widget-Anbindung anzeigen. -->
-          <a class="google-reviews-primary" href="https://www.google.com/maps/search/?api=1&amp;query=Happy%20Eck%20Kiosk%2C%20Caldenhofer%20Weg%20207%2C%2059063%20Hamm" target="_blank" rel="noopener noreferrer">Aktuelle Bewertungen ansehen <span aria-hidden="true">↗</span></a>
-          <a class="google-reviews-secondary" href="https://www.google.com/maps/search/?api=1&amp;query=Happy%20Eck%20Kiosk%2C%20Caldenhofer%20Weg%20207%2C%2059063%20Hamm" target="_blank" rel="noopener noreferrer">Auf Google bewerten <span aria-hidden="true">↗</span></a>
-        </div>
+    <section class="info" id="anfahrt">
+      <h2>Adresse &amp; Anfahrt</h2>
+      <p><strong>Happy Eck Kiosk</strong><br>Caldenhofer Weg 207<br>59063 Hamm</p>
+      <div class="buttons">
+        <a class="button secondary" href="https://www.google.com/maps/dir/?api=1&amp;destination=Caldenhofer+Weg+207%2C+59063+Hamm" target="_blank" rel="noopener noreferrer">Google Maps</a>
+        <a class="button secondary" href="https://maps.apple.com/?daddr=Caldenhofer+Weg+207%2C+59063+Hamm" target="_blank" rel="noopener noreferrer">Apple Karten</a>
       </div>
     </section>
-<section class="wrap deep-faq-section" id="fragen" aria-labelledby="faq-title"><div class="deep-heading"><span>GUT ZU WISSEN</span><h2 id="faq-title">Häufige Fragen.</h2><p>Antworten zu Sortiment, Bestellungen, GLS, Öffnungszeiten und Kontakt.</p></div><div class="deep-faq-list"><details class="deep-faq"><summary><span>01</span>Wo befindet sich Happy Eck?<b aria-hidden="true">+</b></summary><p>Du findest uns am Caldenhofer Weg 207, 59063 Hamm. Über die Anfahrt oben kannst du Google Maps oder Apple Karten öffnen.</p></details><details class="deep-faq"><summary><span>02</span>Kann ich bei Happy Eck online bestellen?<b aria-hidden="true">+</b></summary><p>Ja. Über den Lieferando-Link gelangst du zu unserem Online-Angebot. Welche Artikel lieferbar sind, siehst du dort.</p></details><details class="deep-faq"><summary><span>03</span>Kann ich bei euch GLS-Pakete abgeben und abholen?<b aria-hidden="true">+</b></summary><p>Happy Eck ist GLS Paketshop. Prüfe vor dem Besuch bitte den Status deiner Sendung und die geltenden GLS-Bedingungen.</p></details><details class="deep-faq"><summary><span>04</span>Wann hat der Kiosk geöffnet?<b aria-hidden="true">+</b></summary><p>Montag bis Donnerstag und Sonntag von 08:30 bis 00:00 Uhr. Freitag und Samstag von 08:30 bis 01:30 Uhr am Folgetag. Sonderöffnungszeiten können abweichen.</p></details><details class="deep-faq"><summary><span>05</span>Wie lange ist der GLS Paketshop geöffnet?<b aria-hidden="true">+</b></summary><p>Nach den regulären Servicezeiten täglich von 08:30 bis 00:00 Uhr. Feiertage und Sonderzeiten können abweichen.</p></details><details class="deep-faq"><summary><span>06</span>Gilt das Red-Bull-Angebot immer?<b aria-hidden="true">+</b></summary><p>Das Angebot lautet 4 Red Bull für 8 € zuzüglich Pfand. Es gilt nur solange der Vorrat reicht. Frag bei Bedarf vorab per WhatsApp nach.</p></details><details class="deep-faq"><summary><span>07</span>Kann ich nach einem bestimmten Artikel fragen?<b aria-hidden="true">+</b></summary><p>Ja. Schreib uns einfach über WhatsApp oder ruf uns an. Wir sagen dir, ob der Artikel aktuell erhältlich ist.</p></details><details class="deep-faq"><summary><span>08</span>Wie kann ich mich bei Happy Eck bewerben?<b aria-hidden="true">+</b></summary><p>Öffne weiter unten den Bereich Jobs. Dort kannst du deine Kontaktdaten angeben und deinen Lebenslauf hochladen. Der Versand läuft über einen externen Formularservice.</p></details><details class="deep-faq"><summary><span>09</span>Wie kann ich eine Bewertung schreiben?<b aria-hidden="true">+</b></summary><p>Im Bereich Google-Bewertungen findest du den Link zu Google Maps. Dort kannst du vorhandene Rezensionen lesen und deine eigene Bewertung abgeben.</p></details></div></section>
-    <section class="wrap job-section" id="jobs" aria-labelledby="jobs-title">
-      <div class="job-card">
-        <div class="job-description">
-          <div class="job-kicker">DEIN JOB BEI HAPPY ECK</div>
-          <h2 id="jobs-title">Werde Teil unseres Teams.</h2>
-          <p>Du möchtest bei uns arbeiten? Bewirb dich in wenigen Minuten.</p>
-          <div class="jobs-highlights"><span>✓ Ohne Anschreiben</span><span>✓ Nur Lebenslauf</span></div>
-        </div>
-        <div class="job-action">
-          <details class="apply-panel">
-            <summary class="job-button">Jetzt bewerben <span aria-hidden="true">↗</span></summary><p class="apply-caption">Bitte fülle die vier Felder aus und lade deinen Lebenslauf hoch.</p>
-            <form action="https://formsubmit.co/happyeck10@gmail.com" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
-              <input type="hidden" name="_subject" value="Job – Happy Eck">
-              <input type="hidden" name="_template" value="table">
-              <input class="spam-trap" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-label="Dieses Feld bitte leer lassen">
-              <label>Vor- und Nachname<input type="text" name="Name" autocomplete="name" minlength="2" maxlength="100" required></label>
-              <label>Geburtsdatum<input type="date" name="Geburtsdatum" autocomplete="bday" min="1900-01-01" required></label>
-              <label>Telefonnummer<input type="tel" name="Telefon" autocomplete="tel" inputmode="tel" maxlength="30" required></label>
-              <label>Lebenslauf als JPG oder PDF<input id="job-cv" type="file" name="attachment" accept=".jpg,.jpeg,.pdf,image/jpeg,application/pdf" aria-describedby="cv-file-hint" required></label>
-<p class="apply-form-note">Wir benötigen nur diese vier Angaben. Der Versand erfolgt über einen externen Formularservice.</p><small id="cv-file-hint">Maximal 10 MB, nur JPG/JPEG oder PDF. Nach dem Absenden kann eine Sicherheitsabfrage erscheinen.</small>
-              <button type="submit">Bewerbung senden</button>
-            </form>
-          </details>
-        </div>
+    <section class="info" id="kontakt">
+      <h2>Kontakt</h2>
+      <div class="contact-lines">
+        <div>Telefon: <a href="tel:+4917661020308">0176 61020308</a></div>
+        <div>WhatsApp: <a href="https://wa.me/4917661020308" target="_blank" rel="noopener noreferrer">Nachricht schreiben</a></div>
+        <div>E-Mail: <a href="mailto:happyeck10@gmail.com">happyeck10@gmail.com</a></div>
       </div>
     </section>
-<details class="wrap contact-form-section" id="kontakt">
-<summary class="contact-trigger"><span class="contact-trigger-copy"><small>DU FRAGST. WIR SIND DA.</small><strong>Ein Klick. Viele Wege.</strong><em>Ruf an, schreib auf WhatsApp oder sende uns deine Nachricht.</em></span><span class="contact-trigger-action" aria-hidden="true"><span class="contact-trigger-state">Kontakt öffnen</span><span class="contact-chevron">⌄</span></span></summary>
-<div class="contact-inner">
-<div class="contact-lead">
-  <div>
-    <small>DEIN DIREKTER DRAHT ZU HAPPY ECK</small>
-    <h2 id="kontakt-title">Wir sind nur einen Klick entfernt.</h2>
-    <p>Fragen, Wünsche oder eine Bestellung? Wähle einfach den Kontaktweg, der für dich passt.</p>
-  </div>
-</div>
-<div class="contact-options">
-  <a class="contact-option contact-option-call" href="tel:+4917661020308" aria-label="Happy Eck unter 0176 61020308 anrufen">
-    <span class="contact-option-icon" aria-hidden="true">☎</span><span><strong>Jetzt anrufen</strong><small>0176 61020308</small></span><span class="contact-option-arrow" aria-hidden="true">↗</span>
-  </a>
-  <a class="contact-option contact-option-wa" href="https://wa.me/4917661020308?text=Hallo%20Happy%20Eck%2C%20ich%20habe%20eine%20Frage." target="_blank" rel="noopener noreferrer">
-    <span class="contact-option-icon" aria-hidden="true">✆</span><span><strong>WhatsApp</strong><small>Schnell Nachricht schreiben</small></span><span class="contact-option-arrow" aria-hidden="true">↗</span>
-  </a>
-  <a class="contact-option contact-option-mail" href="mailto:happyeck10@gmail.com?subject=Kontakt%20-%20Happy%20Eck">
-    <span class="contact-option-icon" aria-hidden="true">✉</span><span><strong>E-Mail</strong><small>happyeck10@gmail.com</small></span><span class="contact-option-arrow" aria-hidden="true">↗</span>
-  </a>
-</div>
-<div class="contact-form-divider"><span>Oder nutze unser Kontaktformular</span></div>
-<div class="contact-form-heading"><strong>Nachricht senden</strong><small>Wir erhalten deine Angaben per E-Mail.</small></div>
-<form action="https://formsubmit.co/happyeck10@gmail.com" method="POST" accept-charset="UTF-8">
-<input type="hidden" name="_subject" value="Kontakt – Happy Eck">
-<input type="hidden" name="_template" value="table">
-              <input class="spam-trap" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-label="Dieses Feld bitte leer lassen">
-<label>Name<input type="text" name="name" autocomplete="name" minlength="2" maxlength="100" required></label>
-<label>Telefon<input type="tel" name="Telefon" autocomplete="tel" required></label>
-<label>E-Mail<input type="email" name="email" autocomplete="email" maxlength="160" required></label>
-<label>Anliegen<textarea name="Anliegen" rows="4" minlength="5" maxlength="3000" required></textarea></label>
-<p class="site-form-help">Deine Nachricht wird über einen externen Formularservice an uns per E-Mail geschickt.</p>
-<button type="submit">Nachricht senden ↗</button>
-</form>
-</div>
-</details>
+    <section class="info">
+      <h2>Social Media &amp; Bewertungen</h2>
+      <p><a href="https://www.instagram.com/happy.eck.kiosk/" target="_blank" rel="noopener noreferrer">Instagram</a> · <a href="https://www.tiktok.com/@happy.eck" target="_blank" rel="noopener noreferrer">TikTok</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=Happy%20Eck%20Kiosk%2C%20Caldenhofer%20Weg%20207%2C%2059063%20Hamm" target="_blank" rel="noopener noreferrer">Google-Bewertungen</a></p>
+    </section>
   </main>
-  <footer id="footer">
+  <footer>
     <div class="wrap">
-      <section class="footer-social" aria-labelledby="social-heading">
-        <div class="footer-social-heading">
-          <div>
-            <p class="footer-social-kicker">HAPPY ECK ONLINE</p>
-            <h2 id="social-heading">Folge uns auf <em>Social Media.</em></h2>
-            <p>Neue Drinks, frische Angebote und alles aus deinem Happy Eck. Bleib nah dran.</p>
-          </div>
-        </div>
-        <nav class="footer-social-grid" aria-label="Unsere Social-Media-Kanäle">
-          <a class="footer-social-link footer-instagram" href="https://www.instagram.com/happy.eck.kiosk/" target="_blank" rel="noopener noreferrer" aria-label="Instagram: @happy.eck.kiosk">
-            <span class="footer-social-icon"><svg class="brand-icon instagram-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ig-color" x1="0" y1="24" x2="24" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#ffdc80"/><stop offset=".35" stop-color="#f77737"/><stop offset=".7" stop-color="#c13584"/><stop offset="1" stop-color="#5851db"/></linearGradient></defs><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077" fill="url(#ig-color)"/></svg></span>
-            <span class="footer-social-label"><strong>Instagram</strong><small>@happy.eck.kiosk</small></span>
-            <span class="footer-social-arrow" aria-hidden="true">↗</span>
-          </a>
-          <a class="footer-social-link footer-tiktok" href="https://www.tiktok.com/@happy.eck" target="_blank" rel="noopener noreferrer" aria-label="TikTok: @happy.eck">
-            <span class="footer-social-icon"><span class="tiktok-shell"><svg class="brand-icon tiktok-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" fill="#25f4ee" transform="translate(-.7 .45)"/><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" fill="#fe2c55" transform="translate(.6 -.35)"/><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" fill="#fff"/></svg></span></span>
-            <span class="footer-social-label"><strong>TikTok</strong><small>@happy.eck</small></span>
-            <span class="footer-social-arrow" aria-hidden="true">↗</span>
-          </a>
-          <a class="footer-social-link footer-whatsapp" href="https://wa.me/4917661020308" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp: Schreib uns direkt">
-            <span class="footer-social-icon"><svg class="brand-icon whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" fill="currentColor"/></svg></span>
-            <span class="footer-social-label"><strong>WhatsApp</strong><small>Schreib uns direkt</small></span>
-            <span class="footer-social-arrow" aria-hidden="true">↗</span>
-          </a>
-        </nav>
-      </section>
-      <div class="footer-info-row">
-        <div class="footer-about">
-          <strong>HAPPY ECK KIOSK</strong>
-          <span>Dein Kiosk in Hamm.</span>
-        </div>
-        <a class="footer-jobs" href="#jobs"><span>Du möchtest bei uns arbeiten?</span><strong>Zu den Jobs <span aria-hidden="true">↗</span></strong></a>
-      </div>
-      <div class="legal"><span>© 2026 Happy Eck Kiosk</span><span>Caldenhofer Weg 207 · 59063 Hamm</span></div>
-      <div class="legal-details">
-        <details><summary>Impressum</summary><div class="legal-copy">
-          <h2>Impressum</h2><p>Angaben gemäß § 5 DDG</p>
-          <p><strong>Happy Eck Kiosk</strong><br>Inhaber: Haval Mahmud Haji Al Fares<br>Caldenhofer Weg 207<br>59063 Hamm<br>Deutschland</p>
-          <p>E-Mail: <a href="mailto:happyeck10@gmail.com">happyeck10@gmail.com</a><br>Telefon: <a href="tel:+4917661020308">0176 61020308</a></p>
-        </div></details>
-        <details><summary>Datenschutz</summary><div class="legal-copy">
-          <h2>Datenschutzhinweise</h2><p>Stand: Oktober 2026</p>
-          <p><strong>Verantwortlicher:</strong> Haval Mahmud Haji Al Fares, Happy Eck Kiosk, Caldenhofer Weg 207, 59063 Hamm. Kontakt: <a href="mailto:happyeck10@gmail.com">happyeck10@gmail.com</a>.</p>
-          <h3>Bereitstellung der Website</h3><p>Die Website wird über GitHub Pages gehostet. Beim Aufrufen können technisch erforderliche Informationen wie IP-Adresse, Zeitpunkt und angeforderte Seiten zur Auslieferung und Sicherheit verarbeitet werden. Einzelheiten sind in der <a href="https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">Datenschutzerklärung von GitHub</a> beschrieben. Diese Website verwendet selbst weder Tracking-Cookies noch eigene Webanalyse.</p>
-          <h3>Kontaktaufnahme und Bewerbungen</h3><p>Kontakt- und Bewerbungsformulare werden über den externen Dienst FormSubmit übermittelt. Dabei werden die eingegebenen Angaben und bei Bewerbungen der hochgeladene Lebenslauf an unser E-Mail-Postfach weitergeleitet. Diese Website selbst speichert keine Formulardaten. Die Verarbeitung erfolgt zur Bearbeitung von Anfragen und Bewerbungen auf Grundlage von Art. 6 Abs. 1 lit. b oder f DSGVO sowie den anwendbaren Vorschriften für Bewerbungen. Wir bewahren die Angaben nur so lange wie erforderlich oder gesetzlich vorgeschrieben auf. Informationen zum Formulardienst findest du auf <a href="https://formsubmit.co/" target="_blank" rel="noopener noreferrer">FormSubmit</a>.</p>
-          <h3>Externe Links</h3><p>Mit dem Öffnen von Lieferando, WhatsApp, Instagram, TikTok, Apple Karten, Google Maps oder der GLS-Website besuchst du externe Dienste. Deren Datenschutzhinweise gelten dort.</p>
-          <h3>Deine Rechte</h3><p>Du hast unter den gesetzlichen Voraussetzungen Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung, Widerspruch sowie Beschwerde bei einer Datenschutzaufsichtsbehörde. Kontaktiere uns hierfür per E-Mail.</p>
-        </div></details>
-      </div>
+      <p>© 2026 Happy Eck Kiosk · Caldenhofer Weg 207 · 59063 Hamm</p>
+      <details><summary>Impressum</summary>
+        <h3>Impressum</h3><p>Angaben gemäß § 5 DDG</p>
+        <p>Happy Eck Kiosk<br>Inhaber: Haval Mahmud Haji Al Fares<br>Caldenhofer Weg 207<br>59063 Hamm<br>Deutschland</p>
+        <p>Telefon: <a href="tel:+4917661020308">0176 61020308</a><br>E-Mail: <a href="mailto:happyeck10@gmail.com">happyeck10@gmail.com</a></p>
+      </details>
+      <details><summary>Datenschutz</summary>
+        <h3>Datenschutzhinweise</h3>
+        <p>Verantwortlicher: Haval Mahmud Haji Al Fares, Happy Eck Kiosk, Caldenhofer Weg 207, 59063 Hamm. Kontakt: <a href="mailto:happyeck10@gmail.com">happyeck10@gmail.com</a>.</p>
+        <p>Beim Aufrufen der Webseite kann der Hostinganbieter technisch notwendige Verbindungsdaten verarbeiten. Wir verwenden auf dieser Seite keine eigenen Tracking-Dienste oder Kontaktformulare.</p>
+        <p>Wenn du uns per E-Mail, Telefon oder WhatsApp kontaktierst, werden die übermittelten Angaben zur Bearbeitung deiner Anfrage verarbeitet. Bei Links zu externen Diensten gelten deren Datenschutzhinweise.</p>
+        <p>Du hast im Rahmen der gesetzlichen Voraussetzungen Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung und Widerspruch sowie ein Beschwerderecht bei der zuständigen Datenschutzaufsicht.</p>
+      </details>
     </div>
   </footer>
-<nav class="mobile-action-bar" aria-label="Schnellzugriff auf dem Handy">
-  <a class="mobile-action-order" href="https://www.lieferando.de/speisekarte/happy-eck-kiosk-59063-hamm" target="_blank" rel="noopener noreferrer" aria-label="Über Lieferando bestellen">
-    <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3h2l2 12h11l2-9H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
-    <span>Bestellen</span>
-  </a>
-  <a class="mobile-action-whatsapp" href="https://wa.me/4917661020308?text=Hallo%20Happy%20Eck%21" target="_blank" rel="noopener noreferrer" aria-label="Happy Eck auf WhatsApp schreiben">
-    <svg viewBox="0 0 24 24" width="21" height="21" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-    <span>WhatsApp</span>
-  </a>
-  <a class="mobile-action-call" href="tel:+4917661020308" aria-label="Happy Eck unter 0176 61020308 anrufen">
-    <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.19 18a19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.09 3.18 2 2 0 0 1 4.08 1h3a2 2 0 0 1 2 1.72c.12.96.35 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.04 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.56 2.81.68A2 2 0 0 1 22 16.92z"/></svg>
-    <span>Anrufen</span>
-  </a>
-</nav>
-
-<script src="assets/site.js" defer></script><script src="assets/catalog.js" defer></script><script type="module" src="assets/opening-hours.mjs"></script></body>
+</body>
 </html>
