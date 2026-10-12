@@ -1,37 +1,30 @@
-# Quality assurance report – 12 October 2026
+# Happy Eck – Qualität und Freigabestatus (12. Oktober 2026)
 
-Status: **NOT APPROVED FOR PUBLICATION**. Scope: draft branch only.
+**Nur Entwurf. Keine Veröffentlichung, kein Merge und keine Änderung an `main`.**
 
-## Confirmed directly through repository inspection
+## Aktueller Aufbau
 
-- HTML includes 12 `section` elements and the six core business areas plus extra catalogue, gallery, and FAQ content.
-- 38 HTML element IDs are unique.
-- 29 in-page anchor links resolve to existing IDs.
-- 19 local image references correspond to assets present on the draft branch.
-- The duplicate mobile-bottom navigation was removed; only one mobile action bar is retained.
-- Large embedded CSS and behavior JavaScript were extracted into dedicated files.
-- An old third-party Lieferando logo asset was removed from the rendered page.
-- 237 demonstrably unused CSS rules were removed (~18 KB); further cascade cleanup is still possible.
-- Browser tests were added to cover desktop, mobile, tablet, menu, runtime errors, horizontal overflow, and oversize attachment rejection.
-- Unit tests were added for weekday, weekend overnight, summer/winter timezone and malformed time inputs.
+- `index.html`: klarer Seiteninhalt, Hauptnavigation, Sortiment, Angebot, Öffnungszeiten, GLS, Kontakt, Social Media, Bewertungen, Anfahrt, Impressum und Datenschutz.
+- `assets/luxury.css`: ein zusammenhängendes visuelles System (dunkles Tannengrün, Champagnergold, klare Typografie, responsives Layout).
+- `assets/luxury.js`: mobile Navigation, Fortschrittsanzeige, sichtbarkeitsgesteuerte Animation, dezente Hover-Tiefe, Effektschalter und Unterstützung für reduzierte Bewegung.
+- Die früheren Dateien `assets/site.css`, `assets/site.js` und der Produktkatalog verbleiben zur Nachvollziehbarkeit im Repository, werden von der aktuellen Startseite aber **nicht eingebunden**.
 
-**These are structural/source inspections, not proof of real-world browser or form operation.**
+## Bei GitHub direkt geprüfte Punkte
 
-## Automated execution
+- 7 öffnende und 7 schließende `section`-Elemente.
+- Keine doppelten HTML-IDs.
+- Alle internen `#`-Links verweisen auf vorhandene IDs.
+- Alle lokalen, in der aktuellen Seite referenzierten Assets sind im Entwurfsbranch vorhanden.
+- Adresse, Telefon, E-Mail, WhatsApp, Instagram, TikTok und Rechtstexte weiterhin vorhanden.
+- Das Design enthält keine externen Animationsbibliotheken.
+- Der JavaScript-Effektschalter und die Abfrage `prefers-reduced-motion` sind im Quelltext vorhanden.
 
-GitHub Actions workflow `Website Quality Checks` launched on draft commit `78b93fae64b44382e0c12b08d79f3e6eca3db4fa` but concluded **failure** after only a few seconds. The run is recorded at:
-https://github.com/themrhaval1/Happy-Eck-Kiosk/actions/runs/38287499252
+## Offen – nicht als bestanden werten
 
-Job logs were unavailable when inspected, so the reason cannot be reliably established. The workflow has been changed to manual-only to avoid repeated failing runs. **No automated checks are counted as passed.**
+- Keine erfolgreiche reale Browser-Prüfung in Chrome, Firefox, Safari oder auf Mobilgeräten durchgeführt.
+- Keine Performance-Messung mit Lighthouse, keine WCAG-Auditierung und keine echte Tastatur-/Screenreader-Abnahme.
+- Keine verbindliche rechtliche Prüfung der Datenschutz- und Impressumsangaben.
+- Externe Links nicht Ende-zu-Ende geprüft.
+- Das vorhandene GitHub-Actions-Problem aus den früheren Entwürfen ist nicht als behoben verifiziert.
 
-## Remaining checks before publication
-
-- Execute `npm test` and `npm run test:browser` successfully, inspect screenshots where needed.
-- Validate FormSubmit recipient setup and end-to-end delivery only with owner-approved, non-sensitive test content.
-- Manually test Safari on a physical Apple device (WebKit automation is not identical to device Safari).
-- Confirm external link destinations and whether the exact Google business listing resolves.
-- Verify all gallery images, category descriptions, offer price, availability and service details represent the current business correctly.
-- Review accessibility, Lighthouse performance and privacy/imprint wording with an appropriate professional.
-- Review remaining CSS overrides and repeated styling rules; source cleanup is improved but not complete.
-
-**No publishing, merging, DNS or `main` operations are authorized by this QA report.**
+**Die Qualitätsbeschreibung ist ein Entwurfsziel, keine bestätigte 10/10-Bewertung.**
