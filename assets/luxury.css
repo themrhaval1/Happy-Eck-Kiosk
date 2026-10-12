@@ -182,3 +182,110 @@ header.header-scrolled{background:#0e1d17ef;box-shadow:0 16px 40px #08181030}
 @media(hover:none){.collection-card,.collection-card:hover{transform:none!important}.collection-card::before{display:none}}
 @media(prefers-reduced-motion:reduce){.hero .eyebrow,.hero h1,.hero-description,.hero-actions,.hero-foot{animation:none!important;filter:none!important}.hero-image{transform:none!important}.collection-card,.detail-card,.contact-card,.btn{transform:none!important}.btn::before,.collection-card::before,.detail-card::before,.contact-card::after{display:none!important}}
 
+
+
+/* Happy Eck x energetic editorial: original kiosk identity inspired by bold hospitality sites */
+:root{--night:#171411;--pine:#201b17;--pine2:#483323;--ivory:#fffaf0;--sand:#f5ebda;--gold:#f7b746;--gold2:#ffd480;--ink:#282018;--muted:#6b625b;--stroke:#ecd9c1;--radius:20px}
+body{background:#fffaf0;color:var(--ink)}
+header{background:#1b1613e8;border-bottom:1px solid #f2d3963b}
+header.header-scrolled{background:#1b1613f6}
+.brand{font-weight:950;letter-spacing:.055em}
+.brand small{color:#f5b94f}
+.brand img{border-color:#ffce74;box-shadow:0 0 0 3px #f8bd4930}
+.nav a:hover{color:#ffd480}
+.nav .nav-cta{background:#f5b63e;color:#201610;border:0;font-weight:900}
+.nav .nav-cta:hover{color:#201610;background:#ffca59}
+.hero{min-height:min(830px,92svh);background:#18100a}
+.hero-image{opacity:.62;object-position:center center;filter:saturate(1.15) contrast(1.09)}
+.hero::before{background:linear-gradient(90deg,#150e0aef 0%,#20130bdc 45%,#271a0e4f 100%)}
+.hero::after{border-color:#ffcc5957;box-shadow:0 0 0 64px #ffb93416,0 0 0 140px #ffad200d}
+.orbit-light{background:radial-gradient(circle,#f7af3c38,transparent 67%)}
+.hero-inner{padding-block:95px 110px}
+.eyebrow{font-weight:900;color:#ffda94}
+h1{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-weight:1000;letter-spacing:-.095em;text-transform:uppercase;font-size:clamp(82px,15vw,196px);line-height:.78;margin:38px 0 31px}
+.hero h1 em{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:.97em;font-style:normal;font-weight:1000;letter-spacing:-.095em;background:linear-gradient(110deg,#fff0b0,#ffb325 40%,#f28d13 75%,#ffd676);background-size:190% auto;background-clip:text;-webkit-background-clip:text;color:transparent}
+.hero-subline{font-weight:950;letter-spacing:.21em;color:#ffdf99;font-size:clamp(12px,1.8vw,19px);margin-bottom:22px}
+.hero-description{max-width:510px;font-size:17px;color:#f8e7d1}
+.btn{background:#f7b938;color:#2b190d;border-radius:8px;text-transform:none;font-weight:950;box-shadow:0 7px 0 #a45a1599}
+.btn:hover{background:#ffca59;box-shadow:0 10px 25px #0003,0 5px 0 #a45a1599}
+.btn.ghost{background:#ffffff10;border-color:#ffe2a5;color:#fff;box-shadow:none}
+.hero-foot span:before{color:#ffc45a}
+.strip{background:#ffb729;color:#2a180e;padding:17px 0}
+.strip-item{font-weight:950;letter-spacing:.14em}
+.strip-item:not(:last-child){border-right-color:#6f3d1c4f}
+.section{padding-block:90px}
+.kicker{color:#c26f15;font-size:11px;font-weight:950}
+.section-title{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-weight:1000;letter-spacing:-.07em;color:#272018;line-height:.99}
+.section-title em{color:#ec8f1c;font-style:normal}
+.section-head p{max-width:550px}
+.story-section{padding:100px 0;background:#fff7e9;overflow:hidden}
+.story-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.95fr);gap:clamp(35px,6vw,95px);align-items:center}
+.story-visual{position:relative;min-height:500px;border-radius:20px;overflow:hidden;box-shadow:22px 22px 0 #ffc14f}
+.story-visual img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover;filter:saturate(1.1)}
+.story-stamp{position:absolute;bottom:22px;left:22px;border:3px solid #2d1b0f;border-radius:50%;height:132px;width:132px;background:#ffbf42;color:#2c1a0c;display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(-13deg);box-shadow:0 10px 24px #0004;line-height:1}
+.story-stamp span{font-size:14px;font-weight:1000}
+.story-stamp strong{font-size:34px;font-weight:1000;letter-spacing:-.09em}
+.story-stamp small{font-size:11px;font-weight:950;letter-spacing:.2em}
+.story-content .section-title{font-size:clamp(47px,6.5vw,90px)}
+.story-content p{color:#675b4d;font-size:16px;line-height:1.9}
+.story-content .btn{margin-top:17px}
+.collection{gap:21px}
+.collection-card{min-height:455px;border-radius:18px;box-shadow:0 13px 35px #50341723}
+.collection-card::after{background:linear-gradient(180deg,transparent 25%,#100b07ed)}
+.collection-card .card-content small{color:#ffca68}
+.collection-card h3{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:clamp(24px,2.8vw,38px);font-weight:950;letter-spacing:-.055em}
+.card-arrow{background:#ffbe3b;color:#2b180e;border:0;font-weight:950}
+.offer{background:#261507}
+.offer .section-title{color:#fff5e6}
+.offer .kicker{color:#ffc56e}
+.offer p{color:#f0ddc6}
+.offer::before{background:radial-gradient(circle at 80% 48%,#ffa42f30,transparent 40%)}
+.offer::after{border-color:#ffb93535;box-shadow:0 0 0 75px #e6a5370c,0 0 0 140px #e6a53708}
+.offer-price::before{border-color:#ffbd4b99}
+.price-disc span,.price-disc small{color:#ffd786}
+.price-disc strong{color:#ffbe39;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-weight:1000;letter-spacing:-.09em}
+.highlight-section{background:#fcbd3e;padding:87px 0}
+.highlight-section .kicker{color:#603409}
+.highlight-section .section-title{color:#301d0f}
+.highlight-section .section-title em{color:#fff6e5}
+.highlights-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}
+.highlight-item{background:#28180edc;color:#fff5e7;min-height:270px;border-radius:14px;padding:28px 23px;transition:transform .35s,box-shadow .35s}
+.highlight-item:hover{transform:translateY(-7px);box-shadow:0 20px 32px #56300944}
+.highlight-number{display:block;color:#ffbe43;font-size:13px;font-weight:950;letter-spacing:.15em;margin-bottom:31px}
+.highlight-item h3{font-size:21px;line-height:1.15;letter-spacing:-.04em;font-weight:950;margin-bottom:14px}
+.highlight-item p{font-size:13px;line-height:1.65;color:#f1dcc0}
+.detail-card{border-color:#ebd5af}
+.detail-card h3{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-weight:900}
+.moment-banner{background:#e8891b;color:#221207;position:relative;overflow:hidden;padding:100px 0}
+.moment-banner:after{content:"";position:absolute;width:470px;height:470px;right:-110px;top:-100px;border-radius:50%;border:1px solid #fee5ad90;box-shadow:0 0 0 60px #fee5ad12,0 0 0 110px #fee5ad11;pointer-events:none}
+.moment-banner-inner{position:relative;z-index:1}
+.moment-small{font-weight:950;letter-spacing:.24em;font-size:13px}
+.moment-banner p{font-size:clamp(65px,11vw,160px);line-height:.92;font-weight:1000;letter-spacing:-.09em;margin:25px 0 38px}
+.moment-banner p em{font-style:normal;color:#fff4d7}
+.moment-banner .btn{background:#22180f;color:#fff;box-shadow:none}
+.contact-area{background:#f6e9d2}
+.contact-card{border-color:#e6d2b4}
+.contact-card .symbol{color:#6d4217;border-color:#e6c898}
+.social-section{background:#fff9ee}
+.social-card{background:#251b14;border-color:#60452c}
+.social-card small,.social-card .go{color:#ffd080}
+.social-card .symbol{color:#ffcd6a;border-color:#9a7852}
+.faq-section{background:#fff1d5}
+.faq-inner{display:grid;grid-template-columns:.7fr 1.3fr;gap:45px}
+.faq-list{display:grid;gap:12px}
+.faq-list details{background:#fffaf2;border:1px solid #e8d5b1;border-radius:12px;padding:17px 20px}
+.faq-list summary{cursor:pointer;font-size:15px;font-weight:850;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.faq-list summary::-webkit-details-marker{display:none}
+.faq-list summary:after{content:"+";font-size:25px;color:#a35a12;font-weight:400}
+.faq-list details[open] summary:after{content:"−"}
+.faq-list p{margin:11px 0 0;color:#6b5d4d;font-size:14px}
+.location{background:#f6ead9}
+footer{background:#1b130e}
+.effect-toggle{background:#27180de8;border-color:#ffca74;color:#ffe3a8}
+.text-link{color:#b96c1b;border-color:#e2a747}
+.text-link:hover{color:#8b490d}
+.off .highlight-item:hover{transform:none}
+@media(max-width:1000px){h1{font-size:clamp(74px,14vw,160px)}.highlights-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.story-visual{min-height:405px}}
+@media(max-width:760px){.nav{background:#20160f}.hero{min-height:620px}.hero-inner{padding-block:100px 80px}h1{font-size:clamp(76px,16vw,120px)}.hero-image{object-position:60% center}.story-section{padding:70px 0}.story-grid{grid-template-columns:1fr;gap:47px}.story-visual{min-height:330px;box-shadow:12px 12px 0 #ffc14f}.story-content .section-title{font-size:clamp(46px,10vw,70px)}.collection-card{min-height:330px}.highlights-grid{grid-template-columns:1fr 1fr}.highlight-item{min-height:210px}.moment-banner{padding:70px 0}.faq-inner{grid-template-columns:1fr;gap:22px}}
+@media(max-width:500px){h1{font-size:clamp(65px,20vw,96px)}.hero{min-height:600px}.hero-subline{letter-spacing:.12em}.highlights-grid{grid-template-columns:1fr}.highlight-item{min-height:190px}.highlight-number{margin-bottom:16px}.story-stamp{height:94px;width:94px}.story-stamp strong{font-size:26px}.moment-banner p{font-size:clamp(59px,13vw,80px)}.section{padding-block:70px}.faq-list details{padding:14px}}
+@media(prefers-reduced-motion:reduce){.highlight-item{transition:none!important}.highlight-item:hover{transform:none!important}}
