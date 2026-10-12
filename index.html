@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f6f5f1">
+  <meta name="theme-color" content="#ffffff">
   <meta name="color-scheme" content="light">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="de_DE">
@@ -916,6 +916,27 @@ button,a,summary{-webkit-tap-highlight-color:transparent}
 @media(max-width:390px){.wrap{width:calc(100% - 26px)!important}.deep-product-grid{grid-template-columns:1fr}.hours-list>div{flex-wrap:wrap}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 @media print{header,.menu-panel,.menu-backdrop,.actions,.deep-menu-extra,.footer-social,.contact-form-section,.job-section{display:none!important}body{background:#fff!important;color:#000!important}.hero{min-height:0!important;background:#fff!important;color:#000!important}.hero-bg{display:none!important}.hero h1,.hero h1 span{color:#000!important}.normal-category,.deep-product,.hours-card{break-inside:avoid;box-shadow:none!important}a{text-decoration:underline}}
+
+/* Production-oriented refinement: useful mobile navigation and predictable controls */
+.mobile-bottom-nav{display:none}
+.promo-product-photo .promo-image-fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:linear-gradient(145deg,#0b2f25,#2b5a3d);color:#fff;border-radius:12px;text-align:center}
+.promo-product-photo .promo-image-fallback strong{font-size:clamp(70px,9vw,135px);line-height:1;color:#f5d58c}
+.promo-product-photo .promo-image-fallback>span{font-size:clamp(25px,3vw,45px);font-weight:950;letter-spacing:.04em}
+.promo-product-photo .promo-image-fallback small{font-size:12px;font-weight:750}
+.promo-product-photo{min-height:240px}
+.normal-category-photo img,.deep-gallery-grid img{object-fit:cover}
+@media(max-width:760px){
+body{padding-bottom:72px!important}
+.mobile-bottom-nav{position:fixed;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));bottom:0;left:0;right:0;z-index:99;background:#fff;border-top:1px solid #dfe7de;box-shadow:0 -5px 24px #173a2418;padding:7px max(7px,env(safe-area-inset-right)) calc(7px + env(safe-area-inset-bottom)) max(7px,env(safe-area-inset-left));gap:4px}
+.mobile-bottom-nav a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-align:center;padding:5px 1px;min-height:48px;color:#2d4b35;font-size:10px;font-weight:850;border-radius:7px}
+.mobile-bottom-nav a span{font-size:22px;line-height:1.1}
+.mobile-bottom-nav a:nth-child(3){background:#245f40;color:#fff}
+.mobile-bottom-nav a:focus-visible{outline:3px solid #c1854b;outline-offset:-2px}
+.hero{min-height:480px!important}
+.normal-category-copy a{min-height:44px}
+.deep-faq summary{min-height:54px}
+}
+@media print{.mobile-bottom-nav{display:none!important}body{padding-bottom:0!important}}
 </style>
 <script type="application/ld+json">
 {
@@ -1025,7 +1046,7 @@ button,a,summary{-webkit-tap-highlight-color:transparent}
           <span class="promo-orbit promo-orbit-one"></span>
           <span class="promo-orbit promo-orbit-two"></span>
           <figure class="promo-product-photo"><span class="promo-image-fallback" aria-hidden="true"><strong>4×</strong><span>RED BULL</span><small>8 € · zzgl. Pfand</small></span>
-            <img class="promo-product-image" src="https://m.media-amazon.com/images/I/61q-BE3OlZL._SL1101_.jpg" alt="Produktfoto zum Red-Bull-Angebot" width="1101" height="1101" loading="lazy" referrerpolicy="no-referrer" decoding="async">
+            
           </figure>
           <div class="promo-sticker"><small>DEAL</small><strong>4 = 8 €</strong><span>zzgl. Pfand</span></div>
           <span class="promo-visual-caption">4 DOSEN · 1 STARKER PREIS</span>
@@ -1349,5 +1370,5 @@ input.form.addEventListener("submit",event=>{if(!validate()){event.preventDefaul
     const rel=new Set((a.getAttribute('rel')||'').split(/\s+/).filter(Boolean));
     rel.add('noopener');rel.add('noreferrer');a.setAttribute('rel',[...rel].join(' '));
   });
-})();</script></body>
+})();</script><nav class="mobile-bottom-nav" aria-label="Schnellzugriff"><a href="#sortiment"><span aria-hidden="true">▦</span>Sortiment</a><a href="#oeffnungszeiten"><span aria-hidden="true">◷</span>Zeiten</a><a href="https://www.lieferando.de/speisekarte/happy-eck-kiosk-59063-hamm" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">↗</span>Bestellen</a><a href="https://wa.me/4917661020308" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">✉</span>WhatsApp</a></nav></body>
 </html>
