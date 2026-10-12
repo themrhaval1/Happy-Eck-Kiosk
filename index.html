@@ -79,9 +79,65 @@
     @keyframes gentle-float{0%,100%{transform:translateY(0)}50%{transform:translateY(14px)}}
     @media(max-width:700px){.intro{padding:37px 23px 42px}.intro::before{width:190px;height:190px;right:-100px;top:-80px}header{position:relative}}
     @media(prefers-reduced-motion:reduce){.intro::before,.intro h1,.intro p,.intro .buttons{animation:none}.brand img,nav a::after,.button,.hours article,.scroll-ready .info.reveal,header{transition:none}.scroll-ready .info.reveal{opacity:1;transform:none}}
+
+    /* Happy Eck extreme effects – progressive enhancement, no external dependencies */
+    :root{--fx-green:#226846;--fx-lime:#c3ff7a;--fx-blue:#204d9f}
+    body{overflow-x:clip;background:radial-gradient(circle at 5% 15%,#effdf2 0,transparent 32%),radial-gradient(circle at 95% 70%,#e8f4ff 0,transparent 30%),#fff}
+    .page-progress{position:fixed;top:0;left:0;z-index:70;height:4px;width:100%;background:linear-gradient(90deg,#45a763,#d8ed53,#4fa9de);transform-origin:left;transform:scaleX(0);pointer-events:none}
+    .cursor-glow{position:fixed;z-index:5;width:300px;height:300px;left:0;top:0;pointer-events:none;opacity:0;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,#87dcab30 0,transparent 70%);transition:opacity .25s ease}
+    .cursor-glow.active{opacity:1}
+    .effects-toggle{position:fixed;z-index:60;right:17px;bottom:17px;border:1px solid #b3cdb8;background:#fff;color:#215638;border-radius:999px;padding:11px 16px;font:700 13px system-ui;box-shadow:0 9px 30px #133e2b29;cursor:pointer;transition:transform .2s,background .2s}
+    .effects-toggle:hover{transform:translateY(-3px);background:#e9f8e9}
+    .effects-toggle:focus-visible{outline:3px solid #3ca56b;outline-offset:3px}
+    header{backdrop-filter:blur(14px)}
+    .intro{min-height:410px;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(110deg,#103c2b 0%,#19573a 65%,#26744b 100%);color:#fff;border:1px solid #246849;box-shadow:0 22px 65px #14553428;overflow:hidden;isolation:isolate;position:relative}
+    .intro::before{width:510px;height:510px;right:-215px;top:-200px;border-color:#a9e4a750;box-shadow:0 0 0 44px #e5ffd911,0 0 0 95px #e5ffd90c;animation:gentle-float 7s ease-in-out infinite}
+    .intro::after{content:"";position:absolute;z-index:-1;inset:-40%;background:linear-gradient(115deg,transparent 37%,#ffffff12 50%,transparent 63%);animation:sheen 9s linear infinite;pointer-events:none}
+    .intro h1{position:relative;color:#fff;font-size:clamp(42px,6.4vw,72px);line-height:1.1;max-width:760px;text-wrap:balance;text-shadow:0 8px 35px #0004;letter-spacing:-.055em}
+    .intro h1::first-line{color:#d7ff8f}
+    .intro p{color:#e0f1e7;max-width:560px;position:relative}
+    .hero-kicker{position:relative;font-size:12px;font-weight:900;letter-spacing:.2em;color:#d2f9ac;margin-bottom:18px}
+    .intro .buttons{position:relative}
+    .intro .button{background:#e2ff9b;color:#17442b;box-shadow:0 6px 0 #082f1b}
+    .intro .button.secondary{background:#fff;color:#17442b;box-shadow:0 6px 0 #c1d0c4}
+    .intro .button:hover{box-shadow:0 11px 26px #0005,0 6px 0 #123c26;transform:translateY(-4px)}
+    .hero-decor{pointer-events:none;position:absolute;inset:0;z-index:-1}
+    .orb{position:absolute;border-radius:50%;filter:blur(1px);animation:orb-drift 7s ease-in-out infinite}
+    .orb-one{width:170px;height:170px;background:radial-gradient(circle at 28% 28%,#f1ffbd,#5ad383 60%,#21a9b300);right:13%;top:7%;opacity:.45}
+    .orb-two{width:85px;height:85px;background:radial-gradient(circle,#d4ff91,#61e8a300);right:7%;bottom:8%;animation-delay:-2s;opacity:.5}
+    .orb-three{width:48px;height:48px;background:radial-gradient(circle,#fafdbc,#a2ed9300);left:64%;top:17%;animation-delay:-5s}
+    .orbit-ring{position:absolute;width:430px;height:430px;right:-90px;top:-34px;border:1px solid #faffbd50;border-radius:50%;box-shadow:0 0 0 42px #ffffff08,0 0 0 93px #ffffff06;animation:ring-spin 35s linear infinite}
+    .ticker{overflow:hidden;background:#e2ff9c;border-radius:9px;color:#20462e;margin:0 0 20px;border:1px solid #cced91}
+    .ticker-track{display:flex;width:max-content;animation:ticker-move 24s linear infinite;will-change:transform}
+    .ticker-track span{display:inline-block;white-space:nowrap;padding:12px 0 12px 28px;font-size:12px;font-weight:950;letter-spacing:.12em}
+    .ticker:hover .ticker-track{animation-play-state:paused}
+    section.info{position:relative;isolation:isolate;background:linear-gradient(140deg,#fff,#f8fcf9);border:1px solid #dfece2;border-radius:14px;margin:17px 0;padding:30px 29px;box-shadow:0 12px 35px #133d2410;overflow:hidden}
+    section.info::before{content:"";position:absolute;z-index:-1;top:-60px;right:-60px;width:170px;height:170px;border-radius:50%;background:radial-gradient(circle,#bdf2d86e,transparent 65%);opacity:.8}
+    section.info h2{display:inline-block;position:relative}
+    section.info h2::after{content:"";display:block;margin-top:7px;width:55px;height:4px;border-radius:9px;background:linear-gradient(90deg,#2c9562,#c7ed65);transform-origin:left;animation:line-grow .9s ease backwards}
+    .hours article{background:linear-gradient(120deg,#fff,#edf9ef);box-shadow:0 10px 28px #0f452218;transform-style:preserve-3d;will-change:transform}
+    .hours article:hover{border-color:#6ebc85;box-shadow:0 18px 45px #0f45222a}
+    .hours article h3{transform:translateZ(14px)}
+    .contact-lines a:hover{text-shadow:0 0 15px #31a46080}
+    @keyframes orb-drift{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-25px,20px) scale(1.13)}}
+    @keyframes ring-spin{to{transform:rotate(360deg)}}
+    @keyframes sheen{0%{transform:translateX(-45%)}100%{transform:translateX(45%)}}
+    @keyframes ticker-move{to{transform:translateX(-50%)}}
+    @keyframes line-grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+    .effects-off .intro::before,.effects-off .intro::after,.effects-off .orb,.effects-off .orbit-ring,.effects-off .ticker-track,.effects-off .intro h1,.effects-off .intro p,.effects-off .intro .buttons,.effects-off section.info h2::after{animation:none}
+    .effects-off .cursor-glow{display:none}
+    .effects-off .scroll-ready .info.reveal,.effects-off .info.reveal{opacity:1;transform:none;transition:none}
+    .effects-off .hours article{transform:none!important;transition:none}
+    @media(hover:none),(pointer:coarse){.cursor-glow{display:none}.hours article{will-change:auto}}
+    @media(max-width:700px){.intro{min-height:350px}.intro h1{font-size:clamp(38px,10vw,54px)}.orb-one{width:105px;height:105px;right:1%}.orbit-ring{width:250px;height:250px;right:-130px;top:-10px}section.info{padding:25px 19px}.effects-toggle{bottom:12px;right:12px;padding:9px 12px;font-size:12px}.ticker-track span{font-size:11px}}
+    @media(prefers-reduced-motion:reduce){.intro::before,.intro::after,.orb,.orbit-ring,.ticker-track,.intro h1,.intro p,.intro .buttons,section.info h2::after{animation:none!important}.scroll-ready .info.reveal{opacity:1;transform:none;transition:none}.hours article,.intro .button{transform:none!important;transition:none!important}.cursor-glow{display:none}}
+
   </style>
 </head>
 <body>
+  <div class="page-progress" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <button class="effects-toggle" type="button" aria-pressed="true" aria-label="Animationen ausschalten">✦ Effekte an</button>
   <header>
     <div class="wrap head">
       <a class="brand" href="#start"><img src="assets/logo.jpg" alt="">Happy Eck Kiosk</a>
@@ -90,6 +146,8 @@
   </header>
   <main class="wrap" id="start">
     <section class="intro" aria-labelledby="title">
+      <div class="hero-decor" aria-hidden="true"><span class="orb orb-one"></span><span class="orb orb-two"></span><span class="orb orb-three"></span><span class="orbit-ring"></span></div>
+      <div class="hero-kicker">✦ HAPPY ECK · HAMM</div>
       <h1 id="title">Dein Kiosk. Dein Eck.</h1>
       <p>Willkommen bei Happy Eck in Hamm! Bei uns findest du Getränke, Snacks, Süßigkeiten und mehr. Wir freuen uns auf deinen Besuch.</p>
       <div class="buttons">
@@ -97,6 +155,7 @@
         <a class="button secondary" href="https://wa.me/4917661020308" target="_blank" rel="noopener noreferrer">WhatsApp</a>
       </div>
     </section>
+    <div class="ticker" aria-label="Getränke, Snacks, Süßigkeiten, GLS Paketshop"><div class="ticker-track" aria-hidden="true"><span>GETRÄNKE ✦ SNACKS ✦ SÜSSIGKEITEN ✦ GLS PAKETSHOP ✦ HAPPY ECK ✦</span><span>GETRÄNKE ✦ SNACKS ✦ SÜSSIGKEITEN ✦ GLS PAKETSHOP ✦ HAPPY ECK ✦</span></div></div>
     <section class="info" id="oeffnungszeiten">
       <h2>Öffnungszeiten</h2>
       <div class="hours">
@@ -175,6 +234,59 @@
         },{threshold:0.08,rootMargin:'0px 0px 35px 0px'});
         sections.forEach(section=>observer.observe(section));
       }
+    })();
+  </script>
+
+  <script>
+    (() => {
+      const reduce=window.matchMedia('(prefers-reduced-motion: reduce)');
+      const button=document.querySelector('.effects-toggle');
+      const glow=document.querySelector('.cursor-glow');
+      const bar=document.querySelector('.page-progress');
+      const desktop=window.matchMedia('(hover: hover) and (pointer: fine)');
+      let enabled=!reduce.matches;
+      const setEffects=value=>{
+        enabled=Boolean(value)&&!reduce.matches;
+        document.body.classList.toggle('effects-off',!enabled);
+        if(button){button.setAttribute('aria-pressed',String(enabled));button.textContent=enabled?'✦ Effekte an':'✧ Effekte aus';button.setAttribute('aria-label',enabled?'Animationen ausschalten':'Animationen einschalten');}
+        if(glow&&!enabled)glow.classList.remove('active');
+        document.querySelectorAll('.hours article').forEach(card=>{card.style.transform='';});
+      };
+      setEffects(enabled);
+      button?.addEventListener('click',()=>setEffects(!enabled));
+      const scrollUpdate=()=>{
+        if(!bar)return;
+        const height=document.documentElement.scrollHeight-window.innerHeight;
+        const ratio=height>0?Math.min(1,Math.max(0,window.scrollY/height)):1;
+        bar.style.transform='scaleX('+ratio+')';
+      };
+      scrollUpdate();
+      window.addEventListener('scroll',scrollUpdate,{passive:true});
+      window.addEventListener('resize',scrollUpdate,{passive:true});
+      if(desktop.matches){
+        let scheduled=false,lastX=0,lastY=0;
+        document.addEventListener('pointermove',event=>{
+          lastX=event.clientX;lastY=event.clientY;
+          if(scheduled)return;
+          scheduled=true;
+          requestAnimationFrame(()=>{
+            scheduled=false;
+            if(glow&&enabled){glow.style.left=lastX+'px';glow.style.top=lastY+'px';glow.classList.add('active');}
+          });
+        },{passive:true});
+        document.addEventListener('pointerleave',()=>glow?.classList.remove('active'));
+        document.querySelectorAll('.hours article').forEach(card=>{
+          card.addEventListener('pointermove',event=>{
+            if(!enabled)return;
+            const bounds=card.getBoundingClientRect();
+            const x=(event.clientX-bounds.left)/bounds.width-.5;
+            const y=(event.clientY-bounds.top)/bounds.height-.5;
+            card.style.transform='perspective(800px) rotateX('+(-y*8)+'deg) rotateY('+(x*8)+'deg) translateY(-3px)';
+          });
+          card.addEventListener('pointerleave',()=>{card.style.transform='';});
+        });
+      }
+      reduce.addEventListener?.('change',event=>{if(event.matches)setEffects(false);});
     })();
   </script>
 </body>
