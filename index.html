@@ -47,6 +47,38 @@
     footer p,footer a{overflow-wrap:anywhere}
     @media(max-width:700px){.head{flex-direction:column;justify-content:center;align-items:flex-start;padding-top:15px;padding-bottom:15px}nav{gap:12px}.wrap{padding:0 18px}main{padding-top:25px}.hours{grid-template-columns:1fr}.hours dl div{flex-wrap:wrap}.intro p{font-size:16px}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+    /* Dezente Effekte ohne externe Bibliotheken */
+    header{position:sticky;top:0;z-index:20;transition:box-shadow .25s ease,background-color .25s ease}
+    header.is-scrolled{box-shadow:0 8px 24px rgba(20,55,30,.09);background:rgba(255,255,255,.97)}
+    .brand img{transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+    .brand:hover img{transform:rotate(-5deg) scale(1.07)}
+    nav a{position:relative;transition:color .2s ease}
+    nav a::after{content:"";position:absolute;height:2px;left:0;right:100%;bottom:-5px;background:#328459;transition:right .25s ease}
+    nav a:hover::after,nav a:focus-visible::after{right:0}
+    .intro{position:relative;isolation:isolate;overflow:hidden;border-radius:14px;padding:48px 35px 54px;margin-bottom:18px;background:linear-gradient(115deg,#f3f9f3,#fff 65%,#eaf4ec)}
+    .intro::before{content:"";position:absolute;z-index:-1;width:280px;height:280px;right:-95px;top:-105px;border:1px solid #c7e6cf;border-radius:50%;box-shadow:0 0 0 38px #d7eedb3d,0 0 0 78px #d7eedb28;animation:gentle-float 8s ease-in-out infinite}
+    .intro h1{animation:hero-appear .7s ease-out both}
+    .intro h1::first-line{color:#205f3b}
+    .intro p{animation:hero-appear .8s .12s ease-out both}
+    .intro .buttons{animation:hero-appear .8s .2s ease-out both}
+    .button{position:relative;overflow:hidden;transition:transform .22s ease,box-shadow .22s ease,background .22s ease}
+    .button:hover{transform:translateY(-3px);box-shadow:0 8px 18px #204e3029;background:#1a5235}
+    .button.secondary:hover{background:#dcebdd}
+    .button:active{transform:translateY(0)}
+    .hours article{transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
+    .hours article:hover{transform:translateY(-4px);box-shadow:0 12px 28px #1d4a2d16;border-color:#bddbc5}
+    section.info{scroll-margin-top:115px}
+    .scroll-ready .info.reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.8,.2,1)}
+    .scroll-ready .info.reveal.in-view{opacity:1;transform:none}
+    .contact-lines a{transition:color .2s ease}
+    .contact-lines a:hover{color:#133f28}
+    footer details{border-radius:6px;transition:background .2s ease}
+    footer details[open]{background:#eaf1ea;padding:10px}
+    @keyframes hero-appear{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes gentle-float{0%,100%{transform:translateY(0)}50%{transform:translateY(14px)}}
+    @media(max-width:700px){.intro{padding:37px 23px 42px}.intro::before{width:190px;height:190px;right:-100px;top:-80px}header{position:relative}}
+    @media(prefers-reduced-motion:reduce){.intro::before,.intro h1,.intro p,.intro .buttons{animation:none}.brand img,nav a::after,.button,.hours article,.scroll-ready .info.reveal,header{transition:none}.scroll-ready .info.reveal{opacity:1;transform:none}}
   </style>
 </head>
 <body>
@@ -122,5 +154,28 @@
       </details>
     </div>
   </footer>
+
+  <script>
+    (() => {
+      const header=document.querySelector('header');
+      const onScroll=()=>header?.classList.toggle('is-scrolled',window.scrollY>20);
+      onScroll();
+      window.addEventListener('scroll',onScroll,{passive:true});
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+        const sections=[...document.querySelectorAll('section.info')];
+        sections.forEach(section=>section.classList.add('reveal'));
+        document.body.classList.add('scroll-ready');
+        const observer=new IntersectionObserver(entries=>{
+          entries.forEach(entry=>{
+            if(entry.isIntersecting){
+              entry.target.classList.add('in-view');
+              observer.unobserve(entry.target);
+            }
+          });
+        },{threshold:0.08,rootMargin:'0px 0px 35px 0px'});
+        sections.forEach(section=>observer.observe(section));
+      }
+    })();
+  </script>
 </body>
 </html>
