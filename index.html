@@ -790,6 +790,58 @@
 .contact-option,.footer-social-link{border-radius:8px!important}
 .he-tile{border-radius:9px!important}.he-energy{background:#26594b!important}.he-drinks{background:#c8e2e1!important}.he-snacks{background:#f2d098!important}.he-ice{background:#d9d1ee!important}.he-gls{background:#416c91!important}.he-order{background:#656a52!important}
 @media(max-width:760px){.hours-card,.hours-gls{padding:22px!important}}
+
+/* Standard long-form website: clean, readable sections and a continuous scroll */
+html{scroll-behavior:smooth}
+body{background:#f8f9f7!important;color:#222b25!important}
+.wrap{max-width:1180px}
+.topbar{background:#fff!important}
+.hero{min-height:540px!important}
+.hero-content{padding-block:85px!important}
+.hero h1{font-size:clamp(52px,7vw,92px)!important;letter-spacing:-.055em!important;line-height:1.02!important}
+.hero-fresh-badge{display:none!important}
+.hero .button{border-radius:8px!important}
+.brand-ribbon{background:#f0f3ee!important;color:#273a2f!important}
+.happy-quicklinks{margin-top:22px!important;margin-bottom:20px!important}
+.happy-quicklinks a{border-radius:8px!important;box-shadow:none!important;border:1px solid #dfe5dc!important}
+.weekly-offer-section{padding-block:45px!important}
+.promo-banner{border-radius:12px!important;min-height:320px!important}
+.promo-copy h2{font-size:clamp(43px,5vw,70px)!important}
+.normal-categories{padding:58px 0 35px}
+.normal-section-intro{max-width:710px;margin:0 0 38px}
+.normal-section-intro>span,.normal-step,.normal-order-strip span{font-size:11px;letter-spacing:.14em;font-weight:850;color:#538066}
+.normal-section-intro h2{font-size:clamp(34px,4.5vw,56px);letter-spacing:-.055em;line-height:1.1;margin:11px 0 15px;color:#233a2b}
+.normal-section-intro p{font-size:16px;line-height:1.7;color:#627067}
+.normal-category{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:clamp(25px,5vw,72px);padding:34px 0;border-top:1px solid #dfe5dd}
+.normal-category:nth-of-type(even) .normal-category-copy{order:2}
+.normal-category:nth-of-type(even) .normal-category-photo{order:1}
+.normal-category-copy h3{font-size:clamp(30px,3.5vw,46px);line-height:1.12;letter-spacing:-.05em;margin:13px 0;color:#253b2c}
+.normal-category-copy p{max-width:470px;color:#5b6b61;font-size:15px;line-height:1.7}
+.normal-category-copy .normal-tags{font-size:12px;font-weight:750;color:#5a8067;letter-spacing:.015em;margin:20px 0}
+.normal-category-copy a,.normal-order-strip>a{display:inline-flex;align-items:center;justify-content:center;gap:12px;background:#23563e;color:#fff!important;text-decoration:none;border-radius:7px;padding:13px 18px;font-size:13px;font-weight:800}
+.normal-category-copy a:hover,.normal-order-strip>a:hover{background:#173e2b}
+.normal-category-photo{aspect-ratio:16/10;overflow:hidden;border-radius:11px;background:#e7e9e4}
+.normal-category-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.normal-order-strip{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:28px 32px;background:#edf2eb;border:1px solid #dae5d8;border-radius:10px;margin:20px 0 15px}
+.normal-order-strip h3{font-size:27px;letter-spacing:-.04em;margin:8px 0}
+.normal-order-strip p{font-size:14px;color:#647368;margin:0}
+.hours-section{padding-top:60px!important}
+.hours-card,.hours-gls{background:#fff!important;color:#27392e!important;border:1px solid #dce5dc!important;border-radius:10px!important;border-top:4px solid #347250!important;box-shadow:none!important}
+.hours-gls{border-top-color:#4c7f9e!important}
+.hours-heading h2{font-family:inherit!important;color:#263c2c!important}
+.hours-heading small{color:#46795b!important}
+.hours-live{background:#edf4ed!important;color:#345740!important;border:1px solid #d9e5d8!important}
+.hours-list>div{color:#55665b!important;border-bottom:1px solid #e1e7df!important}
+.hours-list>div strong{color:#2a3d30!important}
+.google-reviews-card,.job-card,.contact-form-section{background:#fff!important;color:#27392e!important;border:1px solid #dfe6dd!important;border-radius:10px!important;box-shadow:none!important}
+.job-description h2{color:#263c2c!important}
+.job-description p{color:#617064!important}
+.jobs-highlights span{color:#345540!important;background:#edf3eb!important;border:1px solid #dfe6dd!important}
+.google-reviews-intro h2,.job-description h2,.contact-lead h2,.footer-social-heading h2,.contact-trigger-copy strong{font-family:inherit!important}
+.contact-trigger{background:#eef3ec!important}
+.contact-option{background:#fafcf9!important;border-radius:8px!important}
+.footer-social-link{border-radius:9px!important}
+@media(max-width:760px){.hero{min-height:470px!important}.hero-content{padding-block:65px!important}.normal-categories{padding:35px 0 20px}.normal-category{grid-template-columns:1fr;gap:20px;padding:28px 0}.normal-category:nth-of-type(even) .normal-category-copy,.normal-category:nth-of-type(even) .normal-category-photo{order:initial}.normal-category-photo{aspect-ratio:16/9}.normal-order-strip{align-items:flex-start;flex-direction:column;padding:23px}.normal-category-copy h3{font-size:33px}}
 </style>
 <script type="application/ld+json">
 {
@@ -904,7 +956,10 @@
           <span class="promo-visual-caption">4 DOSEN · 1 STARKER PREIS</span>
         </div>
       </div>
-      <div class="he-campaign" aria-label="Happy Eck Highlights"><div class="he-campaign-heading"><div><small>DEIN KIOSK IN HAMM</small><h2>SECHS GRÜNDE. EIN ECK.</h2></div><p>DRINKS · SNACKS · EIS · SERVICE</p></div><div class="he-campaign-grid"><article class="he-tile he-energy"><div class="he-tile-top"><span>ENERGY</span><span aria-hidden="true">✦</span></div><div class="he-tile-main"><h3>Energy & Drinks</h3><p>Eiskalt. Voller Energie.</p><a href="#angebot">Angebot ansehen ↗</a></div><span class="he-tile-watermark" aria-hidden="true">✦</span></article><article class="he-tile he-drinks"><div class="he-tile-top"><span>GETRÄNKE</span><span aria-hidden="true">◉</span></div><div class="he-tile-main"><h3>Softdrinks & Wasser</h3><p>Erfrischung für jeden Tag.</p><a href="#anfahrt">Vorbeikommen ↗</a></div><span class="he-tile-watermark" aria-hidden="true">◉</span></article><article class="he-tile he-snacks"><div class="he-tile-top"><span>SNACKS</span><span aria-hidden="true">✳</span></div><div class="he-tile-main"><h3>Snacks & Süßes</h3><p>Für deine kleine Pause.</p><a href="#anfahrt">Entdecken ↗</a></div><span class="he-tile-watermark" aria-hidden="true">✳</span></article><article class="he-tile he-ice"><div class="he-tile-top"><span>EIS</span><span aria-hidden="true">❄</span></div><div class="he-tile-main"><h3>Eis & Abkühlung</h3><p>Genau richtig für zwischendurch.</p><a href="#anfahrt">Zum Kiosk ↗</a></div><span class="he-tile-watermark" aria-hidden="true">❄</span></article><article class="he-tile he-gls"><div class="he-tile-top"><span>PAKETE</span><span aria-hidden="true">↗</span></div><div class="he-tile-main"><h3>GLS Paketshop</h3><p>Abgeben. Abholen. Fertig.</p><a href="#paketshop">GLS Service ↗</a></div><span class="he-tile-watermark" aria-hidden="true">↗</span></article><article class="he-tile he-order"><div class="he-tile-top"><span>LIEFERANDO</span><span aria-hidden="true">→</span></div><div class="he-tile-main"><h3>Einfach bestellen</h3><p>Dein Kiosk auch online.</p><a href="https://www.lieferando.de/speisekarte/happy-eck-kiosk-59063-hamm" target="_blank" rel="noopener noreferrer">Jetzt bestellen ↗</a></div><span class="he-tile-watermark" aria-hidden="true">→</span></article></div></div>
+      <section class="normal-categories" id="sortiment" aria-labelledby="sortiment-heading"><div class="normal-section-intro"><span>UNSER ANGEBOT</span><h2 id="sortiment-heading">Alles für deinen Kioskbesuch.</h2><p>Entdecke, was du bei Happy Eck in Hamm bekommst – übersichtlich und direkt auf einer Seite.</p></div><article class="normal-category" id="sortiment-getraenke"><div class="normal-category-copy"><span class="normal-step">01 / SORTIMENT & SERVICE</span><h3>Getränke & Energy</h3><p>Von Wasser und Eistee bis zu Softdrinks und Energy-Drinks. Bei uns findest du etwas für die kleine Pause oder für unterwegs.</p><p class="normal-tags">Wasser · Eistee · Softdrinks · Energy</p><a href="#anfahrt">Anfahrt zum Kiosk <span aria-hidden="true">→</span></a></div><div class="normal-category-photo"><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_40.jpg" alt="Happy Eck Kiosk – Impression" loading="lazy" decoding="async"></div></article>
+<article class="normal-category" id="sortiment-snacks"><div class="normal-category-copy"><span class="normal-step">02 / SORTIMENT & SERVICE</span><h3>Snacks & Süßigkeiten</h3><p>Ob süß oder salzig: Entdecke Schokolade, Chips und weitere Snacks direkt im Kiosk.</p><p class="normal-tags">Chips · Schokolade · Süßigkeiten</p><a href="#anfahrt">Anfahrt zum Kiosk <span aria-hidden="true">→</span></a></div><div class="normal-category-photo"><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_52.jpg" alt="Happy Eck Kiosk – Impression" loading="lazy" decoding="async"></div></article>
+<article class="normal-category" id="sortiment-eis"><div class="normal-category-copy"><span class="normal-step">03 / SORTIMENT & SERVICE</span><h3>Eis & Erfrischung</h3><p>Für warme Tage und zwischendurch: Schau bei uns vorbei und entdecke die aktuelle Auswahl an Eis und Erfrischungen.</p><p class="normal-tags">Eis · Kalte Getränke · Erfrischung</p><a href="#anfahrt">Anfahrt zum Kiosk <span aria-hidden="true">→</span></a></div><div class="normal-category-photo"><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_56.jpg" alt="Happy Eck Kiosk – Impression" loading="lazy" decoding="async"></div></article>
+<article class="normal-category" id="sortiment-pakete"><div class="normal-category-copy"><span class="normal-step">04 / SORTIMENT & SERVICE</span><h3>Pakete & Service</h3><p>Du möchtest ein GLS-Paket abgeben oder abholen? Unser Paketshop ist für dich da. Die Servicezeiten findest du weiter unten.</p><p class="normal-tags">GLS Paketshop · Abgabe · Abholung</p><a href="#paketshop">GLS-Informationen <span aria-hidden="true">→</span></a></div><div class="normal-category-photo"><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_31_01.jpg" alt="Happy Eck Kiosk – Impression" loading="lazy" decoding="async"></div></article><div class="normal-order-strip"><div><span>ONLINE BESTELLEN</span><h3>Lieber bequem bestellen?</h3><p>Sieh dir unser aktuelles Angebot bei Lieferando an.</p></div><a href="https://www.lieferando.de/speisekarte/happy-eck-kiosk-59063-hamm" target="_blank" rel="noopener noreferrer">Zu Lieferando →</a></div></section>
     </section>
       <section id="paketshop" class="wrap parcel-section" aria-labelledby="parcel-heading">
       <div class="parcel-card">
