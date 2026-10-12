@@ -88,3 +88,15 @@ test("External design files are populated",()=>{
   assert.ok(css.length>10000);
   assert.ok(js.length>1000);
 });
+
+test("Catalog data is present, accurately priced and excludes vape advertising",()=>{
+  const products=JSON.parse(readFileSync(join(root,"assets/products.json"),"utf8")).items;
+  assert.equal(products.length,414);
+  assert.equal(products.filter(item=>item.group==="Vapes").length,0);
+  assert.ok(products.some(item=>item.name==="Red Bull Original 0,25 l"&&item.price===3));
+  assert.ok(products.some(item=>item.name==="Pringles Original"&&item.price===4));
+  assert.equal(new Set(products.map(item=>item.group+"|"+item.name+"|"+item.price)).size,products.length);
+  assert.ok(html.includes('id="catalog-search"'));
+  assert.ok(html.includes('id="catalog-grid"'));
+  assert.ok(html.includes('src="assets/catalog.js"'));
+});
