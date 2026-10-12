@@ -905,3 +905,84 @@ header{background:#fff}
 @media(max-width:1100px){.catalog-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:760px){.catalog-heading{align-items:flex-start;flex-direction:column}.catalog-controls{grid-template-columns:1fr}.catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.catalog-product{min-height:185px;padding:12px}.catalog-product-name{font-size:14px}.catalog-product-price{font-size:23px}.catalog-product-category{font-size:9px}.product-catalog{padding:35px 0 48px}}
 @media(max-width:370px){.catalog-grid{grid-template-columns:1fr}.catalog-product{min-height:155px}}
+
+
+/* Happy Eck retail identity: bright discount-supermarket layout, unique branding */
+:root{--retail-blue:#123b8c;--retail-yellow:#ffe341;--retail-red:#e72935;--retail-paper:#f4f5f7;--retail-ink:#202b3d}
+body{background:var(--retail-paper);color:var(--retail-ink)}
+header,.topbar{background:#fff}
+header{border-bottom:1px solid #dfe4ee}
+.brand{font-weight:950;color:#123b8c}
+.top-order,.market-cta,.catalog-bottom button{background:var(--retail-blue);color:#fff}
+.top-order:hover,.market-cta:hover,.catalog-bottom button:hover{background:#092962}
+.desktop-links a{color:#2c4269}
+.desktop-links a:after{background:var(--retail-red)}
+.brand-ribbon{background:var(--retail-yellow);color:#1c2d52}
+.brand-ribbon a{color:#123b8c}
+.retail-nav{background:var(--retail-blue);color:#fff;position:relative;z-index:8}
+.retail-nav-inner{display:flex;gap:0;align-items:center;overflow-x:auto;scrollbar-width:thin}
+.retail-nav a{white-space:nowrap;display:flex;align-items:center;gap:8px;padding:16px 20px;font-size:13px;font-weight:850;color:#fff;transition:background .2s ease}
+.retail-nav a:hover{background:#285bb0}
+.retail-nav a:first-child{background:var(--retail-red);font-weight:950}
+.retail-nav a:first-child span{display:inline-grid;place-items:center;border-radius:50%;background:#fff;color:var(--retail-red);height:23px;width:23px}
+.market-promise{background:#f0f2f6;color:#304369;border-bottom:1px solid #dde3ef}
+.market-hero{grid-template-columns:minmax(0,1.9fr) minmax(240px,.73fr);gap:14px;padding-top:22px}
+.market-hero-main{background:#fceec1;border-radius:7px;min-height:510px;border:1px solid #f2df9b}
+.market-hero-copy h1{color:#153e89;font-size:clamp(47px,5.3vw,80px);font-weight:950}
+.market-hero-copy h1 span{color:#df2536}
+.market-hero-copy>p,.market-hero-copy .market-hero-address{color:#3d4c66}
+.market-eyebrow{color:#1b4b90}
+.retail-discount-stamp{display:inline-flex;align-items:center;background:var(--retail-red);color:#fff;padding:8px 13px;font-size:11px;font-weight:950;letter-spacing:.08em;transform:rotate(-2deg);margin-bottom:17px}
+.market-hero-image{background:#f2e0ad}
+.market-hero-image:after{background:linear-gradient(90deg,#fceec1,transparent 45%)}
+.market-cta{border-radius:4px;font-weight:900}
+.market-cta-white{background:#fff;color:var(--retail-blue);border-color:#d5ddeb}
+.market-cta-white:hover{background:#eaf0fc}
+.market-feature{border-radius:7px}
+.market-feature-offer{background:var(--retail-red);color:#fff}
+.market-feature-offer strong em{color:var(--retail-yellow);text-shadow:1px 2px 0 #a01a27}
+.market-feature-service{background:#dce8fc;color:var(--retail-blue)}
+.market-shortcuts a{border-radius:5px;border-color:#dfe2ea;box-shadow:0 3px 9px #152c6510;color:#123b8c}
+.market-shortcuts a span{color:var(--retail-red)}
+.market-shortcuts a:hover{background:#e6edfe}
+.market-heading>div>span,.catalog-kicker,.market-pickup>div>span{color:#d62a37}
+.market-heading h2,.catalog-heading h2,.deep-heading h2{color:#173c81}
+.market-heading>a,.market-category-arrow{color:#133c8e}
+.market-categories-grid{gap:14px}
+.market-category{border-radius:5px;border-color:#dfe3ea;box-shadow:0 5px 14px #102b5c0d}
+.market-category-photo{border-radius:3px}
+.market-category-tag{background:#ffe341;color:#21375f;align-self:flex-start;padding:6px 9px;border-radius:2px}
+.market-category h3{color:#173c81}
+.market-weekly{background:#ffe145;border-top:6px solid #e72b35;border-bottom:6px solid #e72b35}
+.market-weekly-copy h2{color:#153b83}
+.market-price-line strong{color:#e72535}
+.market-price-line>span{color:#153b83}
+.retail-deal-flag{display:inline-block;background:#e72535;color:#fff;font-size:12px;font-weight:950;padding:10px 15px;transform:rotate(-2deg);margin-bottom:12px}
+.market-weekly-copy>p{color:#405071}
+.market-weekly-illustration{background:radial-gradient(circle,#4383bd,#0d4089);border-radius:8px}
+.market-deal-poster{background:#fff;box-shadow:18px 18px 0 #0926553b;border:5px solid #ec263b;border-radius:6px;color:#183f89}
+.market-deal-poster small{color:#e62b39}
+.market-weekly-star{background:#e72535;color:#fff}
+.market-pickup{border-radius:5px;border-color:#dce2ed}
+.market-pickup h2{color:#163b82}
+.market-pickup-links a{color:var(--retail-blue);border-color:#c7d6ec}
+.market-pickup-links a:hover{background:#eef3ff}
+.catalog-count{background:#fff2b8;color:#4a3d17;border-color:#f1d963}
+.catalog-search-label input:focus-visible,.catalog-filter-label select:focus-visible{outline-color:#2b65ad}
+.catalog-product{border-radius:4px;border-color:#dce3ee;box-shadow:0 3px 12px #1837650a}
+.catalog-product-label{color:#123c89;background:#e5edff}
+.catalog-product-price{color:#d82637;font-size:28px}
+.catalog-product-name{color:#1f3559}
+.catalog-bottom a{background:#eef3ff;color:#153e89;border-color:#ceddf4}
+.deep-product,.deep-service-grid article,.hours-card,.hours-gls,.google-reviews-card,.job-card,.contact-form-section{border-radius:6px}
+.deep-product h3,.normal-category-copy h3{color:#173e86}
+.deep-index{color:#d72b3b}
+.deep-service-band{background:#ebf1fb}
+.deep-service-grid a{color:#17468b}
+.hours-card,.hours-gls{border-top-color:#174591!important}
+.hours-heading h2,.job-description h2{color:#1b3f84!important}
+.hours-live{background:#eaf1ff!important;color:#17468c!important}
+.footer-social-heading h2{color:#173b84}
+@media(max-width:1050px){.market-hero{grid-template-columns:1fr}}
+@media(max-width:760px){.retail-nav a{padding:12px 14px;font-size:12px}.market-hero-main{border-radius:6px}.market-hero-image{background:#f4e4ba}.market-hero-image:after{background:linear-gradient(0deg,#fceec1,transparent 49%)}.market-hero-copy h1{font-size:clamp(43px,11vw,62px)}.market-feature{border-radius:5px}.market-weekly{border-width:4px}.market-category{border-radius:5px}.market-shortcuts a{border-radius:5px}.catalog-product-price{font-size:24px}}
+@media(prefers-reduced-motion:reduce){.retail-nav a{transition:none}}
