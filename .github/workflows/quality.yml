@@ -1,8 +1,5 @@
 name: Website Quality Checks
 on:
-  push:
-    branches:
-      - design/premium-happy-eck-2026
   workflow_dispatch:
 
 permissions:
