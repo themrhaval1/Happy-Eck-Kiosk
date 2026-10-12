@@ -1,248 +1,221 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#ffffff">
-  <meta name="description" content="Happy Eck Kiosk in Hamm. Öffnungszeiten, GLS Paketshop, Kontakt, Adresse und Anfahrt.">
-  <title>Happy Eck Kiosk – Hamm</title>
-  <link rel="icon" href="assets/logo.jpg">
-  <style>
-    :root{color-scheme:light}
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;background:#fff;color:#202420;font:16px/1.6 system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
-    a{color:#245b3a}
-    a:focus-visible,summary:focus-visible{outline:3px solid #609f73;outline-offset:3px}
-    .wrap{max-width:960px;margin:auto;padding:0 24px}
-    header{border-bottom:1px solid #e4e7e4;background:white}
-    .head{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:85px}
-    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#202420;font-size:20px;font-weight:800}
-    .brand img{width:52px;height:52px;object-fit:cover;border-radius:7px}
-    nav{display:flex;gap:18px;flex-wrap:wrap}
-    nav a{text-decoration:none;font-size:14px;font-weight:650}
-    main{padding:45px 0 60px}
-    .intro{padding:15px 0 35px}
-    h1{font-size:clamp(36px,6vw,56px);line-height:1.15;letter-spacing:-.04em;margin:0 0 15px}
-    h2{font-size:26px;line-height:1.3;letter-spacing:-.025em;margin:0 0 15px}
-    h3{font-size:18px;margin:16px 0 8px}
-    p{margin:0 0 16px}
-    .intro p{max-width:660px;color:#505d52;font-size:18px}
-    .buttons{display:flex;flex-wrap:wrap;gap:10px;margin-top:23px}
-    .button{display:inline-block;padding:11px 17px;background:#266341;color:white;text-decoration:none;font-size:14px;font-weight:700;border-radius:6px}
-    .button.secondary{color:#266341;background:#eaf2eb}
-    section.info{padding:29px 0;border-top:1px solid #e4e7e4}
-    .hours{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-    .hours article{padding:20px;background:#f6f8f6;border:1px solid #e5eae5;border-radius:7px}
-    .hours article h3{margin:0 0 11px}
-    .hours dl{margin:0}
-    .hours dl div{display:flex;justify-content:space-between;gap:15px;margin:10px 0;border-bottom:1px solid #e0e6e0;padding-bottom:9px}
-    .hours dt{color:#59665c}
-    .hours dd{margin:0;font-weight:650;text-align:right;white-space:nowrap}
-    .muted{color:#69746b;font-size:13px}
-    .contact-lines{display:grid;gap:8px}
-    footer{padding:30px 0;background:#f5f7f5;border-top:1px solid #e3e8e3;font-size:13px}
-    footer details{margin:12px 0}
-    footer summary{cursor:pointer;font-weight:750;font-size:14px}
-    footer p,footer a{overflow-wrap:anywhere}
-    @media(max-width:700px){.head{flex-direction:column;justify-content:center;align-items:flex-start;padding-top:15px;padding-bottom:15px}nav{gap:12px}.wrap{padding:0 18px}main{padding-top:25px}.hours{grid-template-columns:1fr}.hours dl div{flex-wrap:wrap}.intro p{font-size:16px}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-
-    /* Dezente Effekte ohne externe Bibliotheken */
-    header{position:sticky;top:0;z-index:20;transition:box-shadow .25s ease,background-color .25s ease}
-    header.is-scrolled{box-shadow:0 8px 24px rgba(20,55,30,.09);background:rgba(255,255,255,.97)}
-    .brand img{transition:transform .35s cubic-bezier(.2,.8,.2,1)}
-    .brand:hover img{transform:rotate(-5deg) scale(1.07)}
-    nav a{position:relative;transition:color .2s ease}
-    nav a::after{content:"";position:absolute;height:2px;left:0;right:100%;bottom:-5px;background:#328459;transition:right .25s ease}
-    nav a:hover::after,nav a:focus-visible::after{right:0}
-    .intro{position:relative;isolation:isolate;overflow:hidden;border-radius:14px;padding:48px 35px 54px;margin-bottom:18px;background:linear-gradient(115deg,#f3f9f3,#fff 65%,#eaf4ec)}
-    .intro::before{content:"";position:absolute;z-index:-1;width:280px;height:280px;right:-95px;top:-105px;border:1px solid #c7e6cf;border-radius:50%;box-shadow:0 0 0 38px #d7eedb3d,0 0 0 78px #d7eedb28;animation:gentle-float 8s ease-in-out infinite}
-    .intro h1{animation:hero-appear .7s ease-out both}
-    .intro h1::first-line{color:#205f3b}
-    .intro p{animation:hero-appear .8s .12s ease-out both}
-    .intro .buttons{animation:hero-appear .8s .2s ease-out both}
-    .button{position:relative;overflow:hidden;transition:transform .22s ease,box-shadow .22s ease,background .22s ease}
-    .button:hover{transform:translateY(-3px);box-shadow:0 8px 18px #204e3029;background:#1a5235}
-    .button.secondary:hover{background:#dcebdd}
-    .button:active{transform:translateY(0)}
-    .hours article{transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
-    .hours article:hover{transform:translateY(-4px);box-shadow:0 12px 28px #1d4a2d16;border-color:#bddbc5}
-    section.info{scroll-margin-top:115px}
-    .scroll-ready .info.reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.8,.2,1)}
-    .scroll-ready .info.reveal.in-view{opacity:1;transform:none}
-    .contact-lines a{transition:color .2s ease}
-    .contact-lines a:hover{color:#133f28}
-    footer details{border-radius:6px;transition:background .2s ease}
-    footer details[open]{background:#eaf1ea;padding:10px}
-    @keyframes hero-appear{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
-    @keyframes gentle-float{0%,100%{transform:translateY(0)}50%{transform:translateY(14px)}}
-    @media(max-width:700px){.intro{padding:37px 23px 42px}.intro::before{width:190px;height:190px;right:-100px;top:-80px}header{position:relative}}
-    @media(prefers-reduced-motion:reduce){.intro::before,.intro h1,.intro p,.intro .buttons{animation:none}.brand img,nav a::after,.button,.hours article,.scroll-ready .info.reveal,header{transition:none}.scroll-ready .info.reveal{opacity:1;transform:none}}
-
-    /* Happy Eck extreme effects – progressive enhancement, no external dependencies */
-    :root{--fx-green:#226846;--fx-lime:#c3ff7a;--fx-blue:#204d9f}
-    body{overflow-x:clip;background:radial-gradient(circle at 5% 15%,#effdf2 0,transparent 32%),radial-gradient(circle at 95% 70%,#e8f4ff 0,transparent 30%),#fff}
-    .page-progress{position:fixed;top:0;left:0;z-index:70;height:4px;width:100%;background:linear-gradient(90deg,#45a763,#d8ed53,#4fa9de);transform-origin:left;transform:scaleX(0);pointer-events:none}
-    .cursor-glow{position:fixed;z-index:5;width:300px;height:300px;left:0;top:0;pointer-events:none;opacity:0;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,#87dcab30 0,transparent 70%);transition:opacity .25s ease}
-    .cursor-glow.active{opacity:1}
-    .effects-toggle{position:fixed;z-index:60;right:17px;bottom:17px;border:1px solid #b3cdb8;background:#fff;color:#215638;border-radius:999px;padding:11px 16px;font:700 13px system-ui;box-shadow:0 9px 30px #133e2b29;cursor:pointer;transition:transform .2s,background .2s}
-    .effects-toggle:hover{transform:translateY(-3px);background:#e9f8e9}
-    .effects-toggle:focus-visible{outline:3px solid #3ca56b;outline-offset:3px}
-    header{backdrop-filter:blur(14px)}
-    .intro{min-height:410px;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(110deg,#103c2b 0%,#19573a 65%,#26744b 100%);color:#fff;border:1px solid #246849;box-shadow:0 22px 65px #14553428;overflow:hidden;isolation:isolate;position:relative}
-    .intro::before{width:510px;height:510px;right:-215px;top:-200px;border-color:#a9e4a750;box-shadow:0 0 0 44px #e5ffd911,0 0 0 95px #e5ffd90c;animation:gentle-float 7s ease-in-out infinite}
-    .intro::after{content:"";position:absolute;z-index:-1;inset:-40%;background:linear-gradient(115deg,transparent 37%,#ffffff12 50%,transparent 63%);animation:sheen 9s linear infinite;pointer-events:none}
-    .intro h1{position:relative;color:#fff;font-size:clamp(42px,6.4vw,72px);line-height:1.1;max-width:760px;text-wrap:balance;text-shadow:0 8px 35px #0004;letter-spacing:-.055em}
-    .intro h1::first-line{color:#d7ff8f}
-    .intro p{color:#e0f1e7;max-width:560px;position:relative}
-    .hero-kicker{position:relative;font-size:12px;font-weight:900;letter-spacing:.2em;color:#d2f9ac;margin-bottom:18px}
-    .intro .buttons{position:relative}
-    .intro .button{background:#e2ff9b;color:#17442b;box-shadow:0 6px 0 #082f1b}
-    .intro .button.secondary{background:#fff;color:#17442b;box-shadow:0 6px 0 #c1d0c4}
-    .intro .button:hover{box-shadow:0 11px 26px #0005,0 6px 0 #123c26;transform:translateY(-4px)}
-    .hero-decor{pointer-events:none;position:absolute;inset:0;z-index:-1}
-    .orb{position:absolute;border-radius:50%;filter:blur(1px);animation:orb-drift 7s ease-in-out infinite}
-    .orb-one{width:170px;height:170px;background:radial-gradient(circle at 28% 28%,#f1ffbd,#5ad383 60%,#21a9b300);right:13%;top:7%;opacity:.45}
-    .orb-two{width:85px;height:85px;background:radial-gradient(circle,#d4ff91,#61e8a300);right:7%;bottom:8%;animation-delay:-2s;opacity:.5}
-    .orb-three{width:48px;height:48px;background:radial-gradient(circle,#fafdbc,#a2ed9300);left:64%;top:17%;animation-delay:-5s}
-    .orbit-ring{position:absolute;width:430px;height:430px;right:-90px;top:-34px;border:1px solid #faffbd50;border-radius:50%;box-shadow:0 0 0 42px #ffffff08,0 0 0 93px #ffffff06;animation:ring-spin 35s linear infinite}
-    .ticker{overflow:hidden;background:#e2ff9c;border-radius:9px;color:#20462e;margin:0 0 20px;border:1px solid #cced91}
-    .ticker-track{display:flex;width:max-content;animation:ticker-move 24s linear infinite;will-change:transform}
-    .ticker-track span{display:inline-block;white-space:nowrap;padding:12px 0 12px 28px;font-size:12px;font-weight:950;letter-spacing:.12em}
-    .ticker:hover .ticker-track{animation-play-state:paused}
-    section.info{position:relative;isolation:isolate;background:linear-gradient(140deg,#fff,#f8fcf9);border:1px solid #dfece2;border-radius:14px;margin:17px 0;padding:30px 29px;box-shadow:0 12px 35px #133d2410;overflow:hidden}
-    section.info::before{content:"";position:absolute;z-index:-1;top:-60px;right:-60px;width:170px;height:170px;border-radius:50%;background:radial-gradient(circle,#bdf2d86e,transparent 65%);opacity:.8}
-    section.info h2{display:inline-block;position:relative}
-    section.info h2::after{content:"";display:block;margin-top:7px;width:55px;height:4px;border-radius:9px;background:linear-gradient(90deg,#2c9562,#c7ed65);transform-origin:left;animation:line-grow .9s ease backwards}
-    .hours article{background:linear-gradient(120deg,#fff,#edf9ef);box-shadow:0 10px 28px #0f452218;transform-style:preserve-3d;will-change:transform}
-    .hours article:hover{border-color:#6ebc85;box-shadow:0 18px 45px #0f45222a}
-    .hours article h3{transform:translateZ(14px)}
-    .contact-lines a:hover{text-shadow:0 0 15px #31a46080}
-    @keyframes orb-drift{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-25px,20px) scale(1.13)}}
-    @keyframes ring-spin{to{transform:rotate(360deg)}}
-    @keyframes sheen{0%{transform:translateX(-45%)}100%{transform:translateX(45%)}}
-    @keyframes ticker-move{to{transform:translateX(-50%)}}
-    @keyframes line-grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
-    .effects-off .intro::before,.effects-off .intro::after,.effects-off .orb,.effects-off .orbit-ring,.effects-off .ticker-track,.effects-off .intro h1,.effects-off .intro p,.effects-off .intro .buttons,.effects-off section.info h2::after{animation:none}
-    .effects-off .cursor-glow{display:none}
-    .effects-off .scroll-ready .info.reveal,.effects-off .info.reveal{opacity:1;transform:none;transition:none}
-    .effects-off .hours article{transform:none!important;transition:none}
-    @media(hover:none),(pointer:coarse){.cursor-glow{display:none}.hours article{will-change:auto}}
-    @media(max-width:700px){.intro{min-height:350px}.intro h1{font-size:clamp(38px,10vw,54px)}.orb-one{width:105px;height:105px;right:1%}.orbit-ring{width:250px;height:250px;right:-130px;top:-10px}section.info{padding:25px 19px}.effects-toggle{bottom:12px;right:12px;padding:9px 12px;font-size:12px}.ticker-track span{font-size:11px}}
-    @media(prefers-reduced-motion:reduce){.intro::before,.intro::after,.orb,.orbit-ring,.ticker-track,.intro h1,.intro p,.intro .buttons,section.info h2::after{animation:none!important}.scroll-ready .info.reveal{opacity:1;transform:none;transition:none}.hours article,.intro .button{transform:none!important;transition:none!important}.cursor-glow{display:none}}
-
-
-    /* Extreme contact & social experiences: responsive, keyboard-safe, no dependencies */
-    .showcase-contact,.showcase-social{overflow:visible!important;border:0!important;background:transparent!important;box-shadow:none!important;padding:36px 0!important}
-    .showcase-heading{text-align:center;margin:0 auto 26px;max-width:660px}
-    .showcase-kicker{display:inline-block;letter-spacing:.2em;font-size:11px;font-weight:950;color:#348a55;margin-bottom:10px}
-    .showcase-heading h2{font-size:clamp(31px,5vw,45px);letter-spacing:-.05em;margin:0 0 9px}
-    .showcase-heading h2::after{margin:12px auto 0!important}
-    .showcase-heading p{color:#657a6e;margin:0}
-    .showcase-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
-    .showcase-tile{position:relative;isolation:isolate;display:flex;flex-direction:column;align-items:flex-start;min-height:240px;padding:25px 22px;border-radius:17px;text-decoration:none;color:#fff;overflow:hidden;box-shadow:0 18px 45px #122c2520;border:1px solid #ffffff40;transform-style:preserve-3d;transition:transform .33s cubic-bezier(.2,.8,.2,1),box-shadow .33s ease,filter .33s}
-    .showcase-tile:before{content:"";position:absolute;z-index:-1;width:210px;height:210px;right:-85px;top:-90px;border:1px solid #ffffff70;border-radius:50%;box-shadow:0 0 0 30px #ffffff13,0 0 0 70px #ffffff0c;animation:showcase-orbit 8s ease-in-out infinite}
-    .showcase-tile:after{content:"";position:absolute;z-index:-1;inset:0;opacity:.55;background:radial-gradient(circle at 80% 5%,#ffffff32,transparent 50%)}
-    .showcase-tile:hover{transform:translateY(-11px) rotateX(4deg);box-shadow:0 28px 55px #102d283c;filter:saturate(1.17)}
-    .showcase-tile:focus-visible{outline:4px solid #b5ef93;outline-offset:4px;transform:translateY(-5px)}
-    .showcase-symbol{display:grid;place-items:center;width:57px;height:57px;border:1px solid #ffffff85;border-radius:15px;background:#ffffff26;backdrop-filter:blur(9px);font-size:30px;margin-bottom:19px;transition:transform .35s}
-    .showcase-tile:hover .showcase-symbol{transform:rotate(-12deg) scale(1.16)}
-    .showcase-type{font-size:10px;font-weight:950;letter-spacing:.19em;color:#ffffffd9}
-    .showcase-tile strong{font-size:clamp(17px,2vw,23px);letter-spacing:-.035em;line-height:1.25;margin:8px 0 17px;overflow-wrap:anywhere}
-    .showcase-action{font-size:12px;font-weight:900;margin-top:auto;display:flex;width:100%;justify-content:space-between;align-items:center;border-top:1px solid #ffffff5e;padding-top:12px}
-    .showcase-action span{font-size:20px;transition:transform .25s}
-    .showcase-tile:hover .showcase-action span{transform:translate(4px,-4px)}
-    .showcase-shine{position:absolute;inset:0;z-index:0;pointer-events:none;transform:translateX(-180%) skewX(-23deg);background:linear-gradient(90deg,transparent,#ffffff37,transparent);width:75%;animation:showcase-shimmer 6.5s ease-in-out infinite}
-    .contact-phone{background:linear-gradient(135deg,#153d8d,#2871da)}
-    .contact-whatsapp{background:linear-gradient(135deg,#097144,#23c978)}
-    .contact-email{background:linear-gradient(135deg,#562da7,#9470e0)}
-    .social-instagram{background:linear-gradient(130deg,#6a35c1,#df3c88 57%,#f6a045)}
-    .social-tiktok{background:linear-gradient(135deg,#141822,#222b36)}
-    .social-google{background:linear-gradient(130deg,#be3d29,#ea8b43)}
-    .showcase-tile:nth-child(2) .showcase-shine{animation-delay:-2s}
-    .showcase-tile:nth-child(3) .showcase-shine{animation-delay:-4s}
-    @keyframes showcase-orbit{0%,100%{transform:translate(0,0)}50%{transform:translate(-20px,25px)}}
-    @keyframes showcase-shimmer{0%,55%{transform:translateX(-180%) skewX(-23deg)}85%,100%{transform:translateX(260%) skewX(-23deg)}}
-    .effects-off .showcase-tile:before,.effects-off .showcase-shine{animation:none}
-    .effects-off .showcase-tile,.effects-off .showcase-symbol,.effects-off .showcase-action span{transition:none!important;transform:none!important}
-    @media(max-width:760px){.showcase-grid{grid-template-columns:1fr 1fr;gap:10px}.showcase-tile{min-height:205px;padding:17px 15px;border-radius:12px}.showcase-symbol{width:43px;height:43px;font-size:23px;margin-bottom:12px}.showcase-tile strong{font-size:17px}.showcase-heading{margin-bottom:19px}.showcase-contact,.showcase-social{padding:26px 0!important}}
-    @media(max-width:460px){.showcase-grid{grid-template-columns:1fr}.showcase-tile{min-height:160px;padding:19px 21px}.showcase-symbol{margin-bottom:8px}.showcase-tile strong{margin-bottom:10px}.showcase-action{padding-top:8px}}
-    @media(hover:none){.showcase-tile:hover{transform:none}}
-    @media(prefers-reduced-motion:reduce){.showcase-tile:before,.showcase-shine{animation:none!important}.showcase-tile,.showcase-symbol,.showcase-action span{transition:none!important;transform:none!important}}
-
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101b17">
+<meta name="description" content="Happy Eck Kiosk – dein Kiosk am Caldenhofer Weg 207 in Hamm. Getränke, Snacks, GLS Paketshop und mehr.">
+<title>Happy Eck Kiosk | Dein Kiosk. Dein Eck.</title>
+<link rel="icon" href="assets/logo.jpg">
+<link rel="preload" as="image" href="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_27.jpg" fetchpriority="high">
+<style>
+:root{--night:#0d1915;--pine:#193329;--pine2:#28533d;--ivory:#faf8f2;--sand:#f0ecdf;--gold:#d4b982;--gold2:#f2dfaa;--ink:#1b2b23;--muted:#637269;--stroke:#e7e4d9;--radius:20px;color-scheme:light}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:104px}
+body{margin:0;overflow-x:clip;background:var(--ivory);color:var(--ink);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+a{color:inherit}button{font:inherit}
+:focus-visible{outline:3px solid #aa8a48;outline-offset:4px}
+img{max-width:100%;display:block}
+.wrap{width:min(1160px,calc(100% - 48px));margin-inline:auto}
+.skip{position:absolute;top:-100px;left:18px;z-index:100;padding:10px 16px;background:#fff}
+.skip:focus{top:12px}
+.progress{position:fixed;z-index:100;top:0;left:0;height:3px;width:100%;background:linear-gradient(90deg,#a6c2ab,var(--gold2),#ac8551);transform:scaleX(0);transform-origin:left;pointer-events:none}
+header{position:sticky;top:0;z-index:70;background:#111f1bcf;backdrop-filter:blur(19px);-webkit-backdrop-filter:blur(19px);border-bottom:1px solid #ffffff24;color:#fff}
+.top{min-height:80px;display:flex;align-items:center;justify-content:space-between;gap:23px}
+.brand{display:flex;align-items:center;gap:12px;font-size:19px;font-weight:850;letter-spacing:.04em;text-decoration:none;white-space:nowrap}
+.brand img{width:46px;height:46px;border-radius:50%;object-fit:cover;border:1px solid #e4d1a777}
+.brand small{display:block;font-size:9px;letter-spacing:.21em;font-weight:700;color:#cdbd97}
+.nav{display:flex;align-items:center;gap:27px}
+.nav a{font-size:12px;text-decoration:none;color:#e9e9dc;letter-spacing:.04em;position:relative}
+.nav a::after{content:"";position:absolute;bottom:-7px;left:0;right:100%;height:1px;background:var(--gold2);transition:right .26s}
+.nav a:hover::after,.nav a:focus-visible::after{right:0}
+.nav .nav-cta{border:1px solid #d6c49b77;border-radius:100px;padding:10px 19px;color:#f8e9c6}
+.nav .nav-cta::after{display:none}
+.menu-btn{display:none;background:none;border:1px solid #ffffff66;color:#fff;border-radius:9px;padding:9px 12px;cursor:pointer}
+.hero{position:relative;background:#10211b;color:#fff;min-height:670px;display:grid;align-items:center;isolation:isolate;overflow:hidden}
+.hero-image{position:absolute;z-index:-3;inset:0;width:100%;height:100%;object-fit:cover;opacity:.48}
+.hero::before{content:"";position:absolute;z-index:-2;inset:0;background:linear-gradient(95deg,#071610f7 0%,#0e2519dc 49%,#101e1929 100%)}
+.hero::after{content:"";position:absolute;z-index:-1;width:540px;height:540px;border:1px solid #f1dbab29;border-radius:50%;right:-170px;top:3%;box-shadow:0 0 0 64px #f8e0b00d,0 0 0 140px #f8e0b008;animation:orbit-breathe 10s ease-in-out infinite}
+.hero-inner{padding-block:100px 115px;position:relative}
+.eyebrow{display:flex;align-items:center;gap:12px;color:var(--gold2);letter-spacing:.24em;font-size:11px;font-weight:750}
+.eyebrow:before{content:"";width:31px;height:1px;background:var(--gold)}
+h1,h2,h3,p{margin-top:0}
+h1,.display,.section-title{font-family:Georgia,"Times New Roman",serif;font-weight:400;letter-spacing:-.055em}
+h1{font-size:clamp(64px,9vw,126px);line-height:1.05;max-width:920px;margin:27px 0 23px;text-wrap:balance}
+h1 em{color:var(--gold2);font-weight:400;font-style:italic}
+.hero-description{font-size:clamp(16px,1.9vw,19px);max-width:540px;color:#e0e8df;line-height:1.8}
+.hero-actions,.btn-group{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:50px;padding:13px 23px;border-radius:100px;background:var(--gold2);color:#1d3024;text-decoration:none;font-size:13px;font-weight:800;transition:transform .25s,box-shadow .25s,background .25s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 12px 28px #0003;background:#ffecc2}
+.btn.ghost{color:#fff;background:#ffffff16;border:1px solid #ffffff70;backdrop-filter:blur(12px)}
+.btn.ghost:hover{background:#ffffff2a}
+.hero-foot{display:flex;flex-wrap:wrap;gap:24px;align-items:center;color:#e1eadf;font-size:12px;margin-top:62px}
+.hero-foot span:before{content:"✦";color:var(--gold2);margin-right:9px}
+.orbit-light{position:absolute;pointer-events:none;z-index:-1;border-radius:50%;width:390px;height:390px;right:10%;top:18%;background:radial-gradient(circle,#f5db9026 0,transparent 65%);animation:float-light 8s ease-in-out infinite}
+.strip{background:var(--pine);color:#fff;padding:18px 0}
+.strip-inner{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;text-align:center}
+.strip-item{font-size:12px;letter-spacing:.1em;font-weight:650}
+.strip-item:not(:last-child){border-right:1px solid #ffffff36}
+.section{padding-block:100px}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:25px;margin-bottom:37px}
+.kicker{display:block;color:#927743;letter-spacing:.2em;font-weight:800;font-size:11px;margin-bottom:13px}
+.section-title{font-size:clamp(38px,5.1vw,65px);line-height:1.14;color:#183328;margin-bottom:14px}
+.section-head p,.section-intro{color:var(--muted);max-width:560px}
+.text-link{white-space:nowrap;color:var(--pine2);font-size:12px;font-weight:850;text-decoration:none;border-bottom:1px solid #bdad85;padding-bottom:6px}
+.collection{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:19px}
+.collection-card{position:relative;overflow:hidden;border-radius:16px;background:#e8e8e2;min-height:370px;text-decoration:none;color:white;isolation:isolate;transition:transform .38s ease,box-shadow .38s ease;transform-style:preserve-3d}
+.collection-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+.collection-card:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 23%,#0b1c16d6)}
+.collection-card:hover{transform:translateY(-7px);box-shadow:0 23px 35px #133a282c}
+.collection-card:hover img{transform:scale(1.08)}
+.card-content{position:absolute;z-index:1;left:27px;right:25px;bottom:28px}
+.card-content small{display:block;font-size:10px;letter-spacing:.23em;color:#e3c88d;font-weight:850;margin-bottom:8px}
+.card-content h3{font-family:Georgia,"Times New Roman",serif;font-size:32px;line-height:1.15;font-weight:400;letter-spacing:-.04em;margin-bottom:9px}
+.card-content span{display:block;font-size:12px;color:#e3ede5}
+.card-arrow{position:absolute;right:24px;top:22px;z-index:2;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;border:1px solid #ffffffaa;background:#ffffff16;backdrop-filter:blur(9px)}
+.offer{background:#14261d;color:#fff;position:relative;overflow:hidden}
+.offer::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 78% 50%,#b5a36d25,transparent 36%)}
+.offer-inner{display:grid;grid-template-columns:1.3fr .7fr;align-items:center;gap:20px;position:relative}
+.offer .section-title{color:#fff}
+.offer .kicker{color:#d4ba84}
+.offer p{color:#dce4d9}
+.offer-price{display:flex;justify-content:center;align-items:center;min-height:290px;position:relative}
+.offer-price::before{content:"";width:265px;height:265px;position:absolute;border-radius:50%;border:1px solid #d6be7a88;box-shadow:0 0 0 37px #ebdcad0d,0 0 0 79px #ebdcad09}
+.price-disc{position:relative;text-align:center;transform:rotate(-7deg)}
+.price-disc span{display:block;font-size:12px;letter-spacing:.22em;color:#e5d8ac}
+.price-disc strong{font-family:Georgia,serif;font-size:clamp(85px,12vw,142px);line-height:1;color:var(--gold2);font-weight:400}
+.price-disc small{display:block;font-size:12px;color:#e5d8ac}
+.details-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:21px}
+.detail-card{border:1px solid var(--stroke);background:#fff;border-radius:16px;padding:31px;box-shadow:0 10px 38px #0c28100b;transition:transform .28s,box-shadow .28s}
+.detail-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px #15392b1a}
+.detail-card h3{font-family:Georgia,serif;font-size:27px;letter-spacing:-.04em;font-weight:400;color:var(--pine);margin-bottom:16px}
+.detail-card dl{margin:0}
+.detail-card dl div{display:flex;justify-content:space-between;gap:14px;border-bottom:1px solid #ebece7;padding:10px 0}
+.detail-card dt{color:var(--muted)}
+.detail-card dd{margin:0;text-align:right;font-weight:700;white-space:nowrap}
+.detail-card p{color:var(--muted)}
+.notice{font-size:12px;color:var(--muted);margin-top:17px}
+.contact-area{background:#eaece5}
+.contact-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.contact-card{position:relative;display:flex;flex-direction:column;gap:15px;min-height:215px;padding:28px;border:1px solid #d6ddd2;background:#ffffffb8;backdrop-filter:blur(10px);border-radius:16px;text-decoration:none;overflow:hidden;transition:transform .3s,box-shadow .3s,border-color .3s}
+.contact-card:before{content:"";position:absolute;width:180px;height:180px;right:-85px;top:-90px;border-radius:50%;background:radial-gradient(circle,#d5b97939,transparent 70%);pointer-events:none}
+.contact-card:hover{transform:translateY(-8px);box-shadow:0 20px 36px #203e2c19;border-color:#a6b4a1}
+.contact-card .symbol{display:grid;place-items:center;width:45px;height:45px;border:1px solid #c8d4c4;border-radius:50%;font-size:22px;color:#244f36}
+.contact-card small{letter-spacing:.15em;font-size:10px;font-weight:850;color:#967f4f}
+.contact-card strong{font-size:clamp(14px,1.6vw,18px);overflow-wrap:anywhere}
+.contact-card .go{font-size:12px;font-weight:800;color:#44684e;margin-top:auto}
+.social-section{background:#fff}
+.social-card{background:#14281f;border-color:#274032;color:#fff}
+.social-card small{color:#e6c994}
+.social-card .symbol{color:#f1e2b9;border-color:#8da495}
+.social-card .go{color:#e6c994}
+.location{background:var(--sand);padding-block:75px}
+.location-grid{display:flex;justify-content:space-between;align-items:center;gap:25px}
+.location address{font-style:normal;color:#526458}
+footer{background:#0d1a15;color:#d3dfd6;padding:38px 0 55px}
+.footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;border-bottom:1px solid #ffffff25;padding-bottom:21px;margin-bottom:22px}
+footer .brand{font-size:17px}
+footer p{font-size:12px;color:#c3cec5}
+footer details{border-top:1px solid #ffffff20;padding:14px 0;font-size:13px}
+footer summary{cursor:pointer;color:#f2ead9;font-weight:750}
+footer details p{margin:10px 0}
+footer a{color:#f0dca8}
+.effect-toggle{position:fixed;z-index:79;bottom:18px;right:18px;border:1px solid #dbcda7aa;background:#142b22e8;color:#f8e9c7;backdrop-filter:blur(12px);border-radius:100px;padding:10px 17px;font-size:11px;font-weight:800;cursor:pointer;box-shadow:0 8px 30px #0003}
+.effect-toggle:hover{background:#274a35}
+.reveal{opacity:1;transform:none}
+.motion .reveal{opacity:0;transform:translateY(26px);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.8,.2,1)}
+.motion .reveal.visible{opacity:1;transform:none}
+.motion.off .reveal{opacity:1;transform:none;transition:none}
+.off .hero::after,.off .orbit-light{animation:none}
+.off .collection-card,.off .collection-card img,.off .detail-card,.off .contact-card,.off .btn{transition:none}
+.off .collection-card:hover,.off .detail-card:hover,.off .contact-card:hover,.off .btn:hover{transform:none}
+@keyframes float-light{50%{transform:translate(20px,-28px)}}
+@keyframes orbit-breathe{50%{transform:scale(1.1)}}
+@media(max-width:1000px){.nav{gap:15px}.hero{min-height:600px}.collection-card{min-height:310px}.card-content{left:20px;right:16px;bottom:20px}.card-content h3{font-size:27px}}
+@media(max-width:760px){.wrap{width:min(100% - 34px,1160px)}.top{min-height:68px}.brand{font-size:16px}.brand img{width:41px;height:41px}.menu-btn{display:inline-block}.nav{display:none;position:absolute;top:calc(100% + 1px);left:0;right:0;padding:18px 20px 22px;background:#11251d;border-bottom:1px solid #ffffff36;flex-direction:column;align-items:stretch;gap:14px}.nav.open{display:flex}.nav a{font-size:14px;padding:7px 0}.nav .nav-cta{text-align:center}.hero{min-height:580px}.hero-inner{padding-block:88px}.hero::before{background:linear-gradient(90deg,#071610ee,#0a1b16aa)}h1{font-size:clamp(58px,12vw,85px)}.hero-foot{margin-top:45px;gap:10px 20px}.strip-inner{grid-template-columns:1fr;gap:7px}.strip-item:not(:last-child){border-right:0}.section{padding-block:64px}.section-head{display:block}.section-head .text-link{display:inline-block;margin-top:14px}.collection{grid-template-columns:1fr 1fr}.collection-card{min-height:270px}.offer-inner{grid-template-columns:1fr}.offer-price{min-height:210px}.details-grid{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr 1fr}.location-grid{align-items:flex-start;flex-direction:column}}
+@media(max-width:500px){.collection{grid-template-columns:1fr}.collection-card{min-height:325px}.contact-grid{grid-template-columns:1fr}.contact-card{min-height:165px}.detail-card{padding:22px}.location{padding-block:55px}.footer-top{flex-direction:column}.hero-foot span{font-size:11px}.effect-toggle{bottom:10px;right:10px}}
+@media(hover:none){.collection-card:hover,.contact-card:hover,.detail-card:hover{transform:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation:none!important;transition:none!important}.motion .reveal{opacity:1;transform:none}}
+</style>
 </head>
 <body>
-  <div class="page-progress" aria-hidden="true"></div>
-  <div class="cursor-glow" aria-hidden="true"></div>
-  <button class="effects-toggle" type="button" aria-pressed="true" aria-label="Animationen ausschalten">✦ Effekte an</button>
-  <header>
-    <div class="wrap head">
-      <a class="brand" href="#start"><img src="assets/logo.jpg" alt="">Happy Eck Kiosk</a>
-      <nav aria-label="Hauptnavigation"><a href="#oeffnungszeiten">Öffnungszeiten</a><a href="#gls">GLS</a><a href="#kontakt">Kontakt</a><a href="#anfahrt">Anfahrt</a></nav>
-    </div>
-  </header>
-  <main class="wrap" id="start">
-    <section class="intro" aria-labelledby="title">
-      <div class="hero-decor" aria-hidden="true"><span class="orb orb-one"></span><span class="orb orb-two"></span><span class="orb orb-three"></span><span class="orbit-ring"></span></div>
-      <div class="hero-kicker">✦ HAPPY ECK · HAMM</div>
-      <h1 id="title">Dein Kiosk. Dein Eck.</h1>
-      <p>Willkommen bei Happy Eck in Hamm! Bei uns findest du Getränke, Snacks, Süßigkeiten und mehr. Wir freuen uns auf deinen Besuch.</p>
-      <div class="buttons">
-        <a class="button" href="https://www.lieferando.de/speisekarte/happy-eck-kiosk-59063-hamm" target="_blank" rel="noopener noreferrer">Bei Lieferando bestellen</a>
-        <a class="button secondary" href="https://wa.me/4917661020308" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-      </div>
-    </section>
-    <div class="ticker" aria-label="Getränke, Snacks, Süßigkeiten, GLS Paketshop"><div class="ticker-track" aria-hidden="true"><span>GETRÄNKE ✦ SNACKS ✦ SÜSSIGKEITEN ✦ GLS PAKETSHOP ✦ HAPPY ECK ✦</span><span>GETRÄNKE ✦ SNACKS ✦ SÜSSIGKEITEN ✦ GLS PAKETSHOP ✦ HAPPY ECK ✦</span></div></div>
-    <section class="info" id="oeffnungszeiten">
-      <h2>Öffnungszeiten</h2>
-      <div class="hours">
-        <article>
-          <h3>Happy Eck Kiosk</h3>
-          <dl>
-            <div><dt>Montag – Donnerstag</dt><dd>08:30 – 00:00 Uhr</dd></div>
-            <div><dt>Freitag – Samstag</dt><dd>08:30 – 01:30 Uhr</dd></div>
-            <div><dt>Sonntag</dt><dd>08:30 – 00:00 Uhr</dd></div>
-          </dl>
-        </article>
-        <article id="gls">
-          <h3>GLS Paketshop</h3>
-          <p>Pakete abgeben oder abholen.</p>
-          <dl><div><dt>Montag – Sonntag</dt><dd>08:30 – 00:00 Uhr</dd></div></dl>
-        </article>
-      </div>
-      <p class="muted" style="margin-top:13px">Feiertage und Sonderöffnungszeiten können abweichen.</p>
-    </section>
-    <section class="info" id="anfahrt">
-      <h2>Adresse &amp; Anfahrt</h2>
-      <p><strong>Happy Eck Kiosk</strong><br>Caldenhofer Weg 207<br>59063 Hamm</p>
-      <div class="buttons">
-        <a class="button secondary" href="https://www.google.com/maps/dir/?api=1&amp;destination=Caldenhofer+Weg+207%2C+59063+Hamm" target="_blank" rel="noopener noreferrer">Google Maps</a>
-        <a class="button secondary" href="https://maps.apple.com/?daddr=Caldenhofer+Weg+207%2C+59063+Hamm" target="_blank" rel="noopener noreferrer">Apple Karten</a>
-      </div>
-    </section>
-    <section class="info showcase-contact" id="kontakt">
-      <div class="showcase-heading"><span class="showcase-kicker">✦ DIREKT VERBUNDEN</span><h2>Kontakt</h2><p>Ein Klick – und du bist bei uns. Wir freuen uns auf deine Nachricht!</p></div>
-      <div class="showcase-grid contact-grid">
-        <a class="showcase-tile contact-phone" href="tel:+4917661020308"><span class="showcase-symbol" aria-hidden="true">☎</span><span class="showcase-type">ANRUFEN</span><strong>0176 61020308</strong><span class="showcase-action">Jetzt anrufen <span aria-hidden="true">↗</span></span><span class="showcase-shine" aria-hidden="true"></span></a>
-        <a class="showcase-tile contact-whatsapp" href="https://wa.me/4917661020308" target="_blank" rel="noopener noreferrer"><span class="showcase-symbol" aria-hidden="true">✉</span><span class="showcase-type">WHATSAPP</span><strong>Nachricht schreiben</strong><span class="showcase-action">Chat starten <span aria-hidden="true">↗</span></span><span class="showcase-shine" aria-hidden="true"></span></a>
-        <a class="showcase-tile contact-email" href="mailto:happyeck10@gmail.com"><span class="showcase-symbol" aria-hidden="true">@</span><span class="showcase-type">E-MAIL</span><strong>happyeck10@gmail.com</strong><span class="showcase-action">E-Mail schreiben <span aria-hidden="true">↗</span></span><span class="showcase-shine" aria-hidden="true"></span></a>
-      </div>
-    </section>
-    <section class="info showcase-social" id="social-media">
-      <div class="showcase-heading"><span class="showcase-kicker">✦ HAPPY ECK ONLINE</span><h2>Social Media &amp; Bewertungen</h2><p>Folge uns und entdecke Neuigkeiten aus deinem Happy Eck.</p></div>
-      <div class="showcase-grid social-grid">
-        <a class="showcase-tile social-instagram" href="https://www.instagram.com/happy.eck.kiosk/" target="_blank" rel="noopener noreferrer"><span class="showcase-symbol" aria-hidden="true">◎</span><span class="showcase-type">INSTAGRAM</span><strong>@happy.eck.kiosk</strong><span class="showcase-action">Profil ansehen <span aria-hidden="true">↗</span></span><span class="showcase-shine" aria-hidden="true"></span></a>
-        <a class="showcase-tile social-tiktok" href="https://www.tiktok.com/@happy.eck" target="_blank" rel="noopener noreferrer"><span class="showcase-symbol" aria-hidden="true">♪</span><span class="showcase-type">TIKTOK</span><strong>@happy.eck</strong><span class="showcase-action">Videos ansehen <span aria-hidden="true">↗</span></span><span class="showcase-shine" aria-hidden="true"></span></a>
-        <a class="showcase-tile social-google" href="https://www.google.com/maps/search/?api=1&amp;query=Happy%20Eck%20Kiosk%2C%20Caldenhofer%20Weg%20207%2C%2059063%20Hamm" target="_blank" rel="noopener noreferrer"><span class="showcase-symbol" aria-hidden="true">★</span><span class="showcase-type">GOOGLE</span><strong>Bewertungen</strong><span class="showcase-action">Bewertungen ansehen <span aria-hidden="true">↗</span></span><span class="showcase-shine" aria-hidden="true"></span></a>
-      </div>
-    </section>
-  </main>
-  <footer>
-    <div class="wrap">
-      <p>© 2026 Happy Eck Kiosk · Caldenhofer Weg 207 · 59063 Hamm</p>
-      <details><summary>Impressum</summary>
+<a class="skip" href="#main">Zum Inhalt springen</a>
+<div class="progress" aria-hidden="true"></div>
+<header>
+<div class="wrap top">
+<a class="brand" href="#main"><img src="assets/logo.jpg" width="46" height="46" alt=""><span>HAPPY ECK<small>DEIN KIOSK IN HAMM</small></span></a>
+<button type="button" class="menu-btn" aria-expanded="false" aria-controls="nav-links">Menü ☰</button>
+<nav class="nav" id="nav-links" aria-label="Hauptnavigation">
+<a href="#sortiment">Sortiment</a><a href="#angebot">Angebot</a><a href="#zeiten">Öffnungszeiten</a><a href="#gls">GLS</a><a href="#kontakt">Kontakt</a><a class="nav-cta" href="https://www.lieferando.de/speisekarte/happy-eck-kiosk-59063-hamm" target="_blank" rel="noopener noreferrer">Jetzt bestellen ↗</a>
+</nav>
+</div>
+</header>
+<main id="main">
+<section class="hero" aria-labelledby="title">
+<img class="hero-image" src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_27.jpg" alt="" fetchpriority="high">
+<div class="orbit-light" aria-hidden="true"></div>
+<div class="wrap hero-inner">
+<div class="eyebrow">HAPPY ECK KIOSK · HAMM</div>
+<h1 id="title">Dein Kiosk.<br><em>Dein Eck.</em></h1>
+<p class="hero-description">Dein Anlaufpunkt für kalte Getränke, leckere Snacks und alles für den spontanen Moment. Persönlich. Unkompliziert. Direkt in Hamm.</p>
+<div class="hero-actions">
+<a class="btn" href="#sortiment">Unser Sortiment <span aria-hidden="true">↗</span></a>
+<a class="btn ghost" href="https://wa.me/4917661020308" target="_blank" rel="noopener noreferrer">WhatsApp schreiben <span aria-hidden="true">↗</span></a>
+</div>
+<div class="hero-foot"><span>Caldenhofer Weg 207 · Hamm</span><span>GLS Paketshop</span><span>Lieferando verfügbar</span></div>
+</div>
+</section>
+<div class="strip" aria-label="Unsere Services"><div class="wrap strip-inner"><div class="strip-item">GETRÄNKE &amp; SNACKS</div><div class="strip-item">GLS PAKETSHOP</div><div class="strip-item">LIEFERANDO BESTELLUNG</div></div></div>
+<section class="section wrap" id="sortiment" aria-labelledby="sortiment-title">
+<div class="section-head reveal"><div><span class="kicker">UNSERE AUSWAHL</span><h2 class="section-title" id="sortiment-title">Kleine Auszeit.<br>Große Auswahl.</h2><p>Entdecke deinen Kiosk für Getränke, Snacks und süße Lieblingsmomente.</p></div><a class="text-link" href="#kontakt">Produkt anfragen ↗</a></div>
+<div class="collection">
+<a class="collection-card reveal" href="#kontakt"><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_40.jpg" alt="Illustration zu Getränken und Energy-Drinks" loading="lazy" decoding="async"><span class="card-arrow" aria-hidden="true">↗</span><div class="card-content"><small>01 / ERFRISCHUNG</small><h3>Getränke &amp; Energy</h3><span>Erfrischung für unterwegs</span></div></a>
+<a class="collection-card reveal" href="#kontakt"><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_52.jpg" alt="Illustration zu Snacks und Süßigkeiten" loading="lazy" decoding="async"><span class="card-arrow" aria-hidden="true">↗</span><div class="card-content"><small>02 / GENUSS</small><h3>Snacks &amp; Süßes</h3><span>Für den kleinen Hunger</span></div></a>
+<a class="collection-card reveal" href="#kontakt"><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_56.jpg" alt="Illustration zu Eis und Erfrischung" loading="lazy" decoding="async"><span class="card-arrow" aria-hidden="true">↗</span><div class="card-content"><small>03 / ABKÜHLUNG</small><h3>Eis &amp; mehr</h3><span>Für deinen Lieblingsmoment</span></div></a>
+</div>
+<p class="notice">Die Bilder dienen der Illustration. Verfügbarkeit und Sortiment können variieren.</p>
+</section>
+<section class="section offer" id="angebot" aria-labelledby="angebot-title">
+<div class="wrap offer-inner">
+<div class="reveal"><span class="kicker">UNSER AKTUELLES ANGEBOT</span><h2 class="section-title" id="angebot-title">Vier Dosen.<br>Ein guter Deal.</h2><p>4 Red Bull für 8 € – zuzüglich Pfand und solange der Vorrat reicht.</p><div class="btn-group"><a class="btn" href="https://wa.me/4917661020308?text=Hallo%20Happy%20Eck%2C%20ist%20das%20Red-Bull-Angebot%20noch%20verf%C3%BCgbar%3F" target="_blank" rel="noopener noreferrer">Verfügbarkeit anfragen ↗</a></div></div>
+<div class="offer-price reveal" aria-label="4 Red Bull für 8 Euro zuzüglich Pfand"><div class="price-disc"><span>4 × RED BULL</span><strong>8 €</strong><small>ZZGL. PFAND</small></div></div>
+</div>
+</section>
+<section class="section wrap" id="zeiten" aria-labelledby="zeiten-title">
+<div class="section-head reveal"><div><span class="kicker">WANN DU UNS FINDEST</span><h2 class="section-title" id="zeiten-title">Öffnungszeiten.</h2><p>Wir sind regelmäßig für dich da – im Kiosk und an unserem GLS-Paketshop.</p></div></div>
+<div class="details-grid">
+<article class="detail-card reveal"><h3>Happy Eck Kiosk</h3><dl><div><dt>Montag – Donnerstag</dt><dd>08:30 – 00:00 Uhr</dd></div><div><dt>Freitag – Samstag</dt><dd>08:30 – 01:30 Uhr</dd></div><div><dt>Sonntag</dt><dd>08:30 – 00:00 Uhr</dd></div></dl></article>
+<article class="detail-card reveal" id="gls"><h3>GLS Paketshop</h3><p>Pakete abgeben oder abholen.</p><dl><div><dt>Montag – Sonntag</dt><dd>08:30 – 00:00 Uhr</dd></div></dl><a class="text-link" href="#anfahrt">Anfahrt ansehen ↗</a></article>
+</div><p class="notice">An Feiertagen und bei Sonderöffnungszeiten können die Zeiten abweichen.</p>
+</section>
+<section class="section contact-area" id="kontakt" aria-labelledby="kontakt-title">
+<div class="wrap">
+<div class="section-head reveal"><div><span class="kicker">WIR SIND FÜR DICH DA</span><h2 class="section-title" id="kontakt-title">Einfach verbunden.</h2><p>Ruf uns an, schreib uns oder frag nach deinem Lieblingsprodukt.</p></div></div>
+<div class="contact-grid">
+<a class="contact-card reveal" href="tel:+4917661020308"><span class="symbol" aria-hidden="true">☎</span><small>TELEFON</small><strong>0176 61020308</strong><span class="go">Jetzt anrufen ↗</span></a>
+<a class="contact-card reveal" href="https://wa.me/4917661020308" target="_blank" rel="noopener noreferrer"><span class="symbol" aria-hidden="true">✉</span><small>WHATSAPP</small><strong>Nachricht schreiben</strong><span class="go">Chat öffnen ↗</span></a>
+<a class="contact-card reveal" href="mailto:happyeck10@gmail.com"><span class="symbol" aria-hidden="true">@</span><small>E-MAIL</small><strong>happyeck10@gmail.com</strong><span class="go">E-Mail senden ↗</span></a>
+</div>
+</div>
+</section>
+<section class="section social-section" aria-labelledby="social-title">
+<div class="wrap">
+<div class="section-head reveal"><div><span class="kicker">HAPPY ECK ONLINE</span><h2 class="section-title" id="social-title">Bleib in Kontakt.</h2><p>Folge uns für Neuigkeiten und sieh dir Erfahrungen anderer Kunden an.</p></div></div>
+<div class="contact-grid">
+<a class="contact-card social-card reveal" href="https://www.instagram.com/happy.eck.kiosk/" target="_blank" rel="noopener noreferrer"><span class="symbol" aria-hidden="true">◎</span><small>INSTAGRAM</small><strong>@happy.eck.kiosk</strong><span class="go">Profil ansehen ↗</span></a>
+<a class="contact-card social-card reveal" href="https://www.tiktok.com/@happy.eck" target="_blank" rel="noopener noreferrer"><span class="symbol" aria-hidden="true">♪</span><small>TIKTOK</small><strong>@happy.eck</strong><span class="go">Videos ansehen ↗</span></a>
+<a class="contact-card social-card reveal" href="https://www.google.com/maps/search/?api=1&amp;query=Happy%20Eck%20Kiosk%2C%20Caldenhofer%20Weg%20207%2C%2059063%20Hamm" target="_blank" rel="noopener noreferrer"><span class="symbol" aria-hidden="true">★</span><small>GOOGLE</small><strong>Bewertungen ansehen</strong><span class="go">Google Maps öffnen ↗</span></a>
+</div></div>
+</section>
+<section class="location" id="anfahrt" aria-labelledby="anfahrt-title">
+<div class="wrap location-grid">
+<div class="reveal"><span class="kicker">BESUCH UNS</span><h2 class="section-title" id="anfahrt-title">Mitten in Hamm.<br>Ganz in deiner Nähe.</h2><address>Happy Eck Kiosk<br>Caldenhofer Weg 207<br>59063 Hamm</address></div>
+<div class="btn-group reveal"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Caldenhofer+Weg+207%2C+59063+Hamm" target="_blank" rel="noopener noreferrer">Google Maps ↗</a><a class="btn ghost" style="background:#203a2d;color:white" href="https://maps.apple.com/?daddr=Caldenhofer+Weg+207%2C+59063+Hamm" target="_blank" rel="noopener noreferrer">Apple Karten ↗</a></div>
+</div>
+</section>
+</main>
+<footer><div class="wrap"><div class="footer-top"><a class="brand" href="#main">HAPPY ECK <small>DEIN KIOSK. DEIN ECK.</small></a><p>© 2026 Happy Eck Kiosk · Hamm</p></div>
+<details><summary>Impressum</summary>
         <h3>Impressum</h3><p>Angaben gemäß § 5 DDG</p>
         <p>Happy Eck Kiosk<br>Inhaber: Haval Mahmud Haji Al Fares<br>Caldenhofer Weg 207<br>59063 Hamm<br>Deutschland</p>
         <p>Telefon: <a href="tel:+4917661020308">0176 61020308</a><br>E-Mail: <a href="mailto:happyeck10@gmail.com">happyeck10@gmail.com</a></p>
@@ -255,82 +228,42 @@
         <p>Du hast im Rahmen der gesetzlichen Voraussetzungen Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung und Widerspruch sowie ein Beschwerderecht bei der zuständigen Datenschutzaufsicht.</p>
       </details>
     </div>
-  </footer>
-
-  <script>
-    (() => {
-      const header=document.querySelector('header');
-      const onScroll=()=>header?.classList.toggle('is-scrolled',window.scrollY>20);
-      onScroll();
-      window.addEventListener('scroll',onScroll,{passive:true});
-      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
-        const sections=[...document.querySelectorAll('section.info')];
-        sections.forEach(section=>section.classList.add('reveal'));
-        document.body.classList.add('scroll-ready');
-        const observer=new IntersectionObserver(entries=>{
-          entries.forEach(entry=>{
-            if(entry.isIntersecting){
-              entry.target.classList.add('in-view');
-              observer.unobserve(entry.target);
-            }
-          });
-        },{threshold:0.08,rootMargin:'0px 0px 35px 0px'});
-        sections.forEach(section=>observer.observe(section));
-      }
-    })();
-  </script>
-
-  <script>
-    (() => {
-      const reduce=window.matchMedia('(prefers-reduced-motion: reduce)');
-      const button=document.querySelector('.effects-toggle');
-      const glow=document.querySelector('.cursor-glow');
-      const bar=document.querySelector('.page-progress');
-      const desktop=window.matchMedia('(hover: hover) and (pointer: fine)');
-      let enabled=!reduce.matches;
-      const setEffects=value=>{
-        enabled=Boolean(value)&&!reduce.matches;
-        document.body.classList.toggle('effects-off',!enabled);
-        if(button){button.setAttribute('aria-pressed',String(enabled));button.textContent=enabled?'✦ Effekte an':'✧ Effekte aus';button.setAttribute('aria-label',enabled?'Animationen ausschalten':'Animationen einschalten');}
-        if(glow&&!enabled)glow.classList.remove('active');
-        document.querySelectorAll('.hours article').forEach(card=>{card.style.transform='';});
-      };
-      setEffects(enabled);
-      button?.addEventListener('click',()=>setEffects(!enabled));
-      const scrollUpdate=()=>{
-        if(!bar)return;
-        const height=document.documentElement.scrollHeight-window.innerHeight;
-        const ratio=height>0?Math.min(1,Math.max(0,window.scrollY/height)):1;
-        bar.style.transform='scaleX('+ratio+')';
-      };
-      scrollUpdate();
-      window.addEventListener('scroll',scrollUpdate,{passive:true});
-      window.addEventListener('resize',scrollUpdate,{passive:true});
-      if(desktop.matches){
-        let scheduled=false,lastX=0,lastY=0;
-        document.addEventListener('pointermove',event=>{
-          lastX=event.clientX;lastY=event.clientY;
-          if(scheduled)return;
-          scheduled=true;
-          requestAnimationFrame(()=>{
-            scheduled=false;
-            if(glow&&enabled){glow.style.left=lastX+'px';glow.style.top=lastY+'px';glow.classList.add('active');}
-          });
-        },{passive:true});
-        document.addEventListener('pointerleave',()=>glow?.classList.remove('active'));
-        document.querySelectorAll('.hours article').forEach(card=>{
-          card.addEventListener('pointermove',event=>{
-            if(!enabled)return;
-            const bounds=card.getBoundingClientRect();
-            const x=(event.clientX-bounds.left)/bounds.width-.5;
-            const y=(event.clientY-bounds.top)/bounds.height-.5;
-            card.style.transform='perspective(800px) rotateX('+(-y*8)+'deg) rotateY('+(x*8)+'deg) translateY(-3px)';
-          });
-          card.addEventListener('pointerleave',()=>{card.style.transform='';});
-        });
-      }
-      reduce.addEventListener?.('change',event=>{if(event.matches)setEffects(false);});
-    })();
-  </script>
+  
+</div></footer>
+<button type="button" class="effect-toggle" aria-pressed="true" aria-label="Animationen ausschalten">✦ Effekte an</button>
+<script>
+(()=>{'use strict';
+ const menu=document.querySelector('.menu-btn'),nav=document.querySelector('.nav');
+ const openMenu=state=>{if(!menu||!nav)return;menu.setAttribute('aria-expanded',String(state));nav.classList.toggle('open',state);menu.textContent=state?'Menü ×':'Menü ☰'};
+ menu?.addEventListener('click',()=>openMenu(menu.getAttribute('aria-expanded')!=='true'));
+ nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>openMenu(false)));
+ document.addEventListener('keydown',e=>{if(e.key==='Escape')openMenu(false)});
+ const progress=document.querySelector('.progress');
+ let busy=false;
+ function updateProgress(){busy=false;const max=document.documentElement.scrollHeight-innerHeight;progress.style.transform='scaleX('+(max>0?Math.min(1,Math.max(0,scrollY/max)):1)+')'}
+ window.addEventListener('scroll',()=>{if(!busy){busy=true;requestAnimationFrame(updateProgress)}},{passive:true});window.addEventListener('resize',updateProgress,{passive:true});updateProgress();
+ const reduced=matchMedia('(prefers-reduced-motion: reduce)'),toggle=document.querySelector('.effect-toggle');
+ let enabled=!reduced.matches;
+ const observers=[];
+ const showAll=()=>document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'));
+ function setMotion(value){
+   enabled=Boolean(value)&&!reduced.matches;
+   document.body.classList.toggle('motion',enabled);
+   document.body.classList.toggle('off',!enabled);
+   toggle.setAttribute('aria-pressed',String(enabled));
+   toggle.textContent=enabled?'✦ Effekte an':'✧ Effekte aus';
+   toggle.setAttribute('aria-label',enabled?'Animationen ausschalten':'Animationen einschalten');
+   if(!enabled){showAll();observers.forEach(o=>o.disconnect())}
+   else if('IntersectionObserver' in window){
+     document.querySelectorAll('.reveal').forEach(el=>el.classList.remove('visible'));
+     const obs=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');obs.unobserve(entry.target)}}),{threshold:.07,rootMargin:'0px 0px 40px 0px'});
+     document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));observers.push(obs)
+   }else showAll()
+ }
+ setMotion(enabled);
+ toggle.addEventListener('click',()=>setMotion(!enabled));
+ reduced.addEventListener?.('change',e=>{if(e.matches)setMotion(false)});
+})();
+</script>
 </body>
 </html>
