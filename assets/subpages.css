@@ -1,0 +1,16 @@
+/* Shared dedicated subpages */
+.sub-hero{min-height:330px;background:#24160a;position:relative;color:#fff;display:flex;align-items:center;overflow:hidden}
+.sub-hero-image{position:absolute;inset:0;background:linear-gradient(95deg,#1b1009ee,#321c0dc9),url("ChatGPT-Bild 8. Okt. 2026, 22_30_27.jpg") center/cover;opacity:.95}
+.sub-hero-content{position:relative;z-index:1;padding-top:70px;padding-bottom:68px}
+.sub-hero h1{font-size:clamp(42px,7vw,80px);line-height:1.05;letter-spacing:-.07em;margin:18px 0;font-weight:950}
+.sub-hero p{color:#f0ddc6;font-size:15px}
+.sub-back{font-size:13px;font-weight:800;color:#ffcb7a;display:inline-block;margin-top:12px}
+.page-section{min-height:360px}
+.page-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
+.page-secondary{background:#322116!important;color:#fff!important;box-shadow:none!important}
+.split-panel{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:start}
+.split-panel>div>p{max-width:600px;color:#66584a;line-height:1.8}
+.split-panel .detail-card p a{color:#90500d}
+.nav a[aria-current="page"]{color:#ffce78;font-weight:850}
+@media(max-width:760px){.sub-hero{min-height:260px}.sub-hero-content{padding-top:52px;padding-bottom:45px}.sub-hero h1{font-size:clamp(39px,9vw,58px)}.split-panel{grid-template-columns:1fr;gap:20px}.page-section{min-height:0}}
+@media(prefers-reduced-motion:reduce){.sub-hero{scroll-behavior:auto}}
