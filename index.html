@@ -882,6 +882,40 @@ body{background:#f8f9f7!important;color:#222b25!important}
 @media(max-width:650px){.deep-section,.deep-gallery,.deep-faq-section{padding-top:43px;padding-bottom:25px}.deep-product-grid{gap:9px}.deep-product{min-height:240px;padding:17px}.deep-product h3{font-size:20px}.deep-service-band{padding:45px 0}.deep-service-grid{grid-template-columns:1fr}.deep-service-grid p{min-height:0}.deep-faq summary{font-size:14px;padding:19px 3px;gap:9px}.deep-faq p{margin-left:35px}}
 @media(max-width:370px){.deep-product-grid{grid-template-columns:1fr}.deep-product{min-height:0}.deep-gallery-grid{gap:6px}}
 @media(prefers-reduced-motion:reduce){.deep-gallery-grid img,.deep-faq summary b{transition:none}}
+
+/* Final usability polish: mobile reading, keyboard access, print, clear page structure */
+html{scroll-padding-top:90px}
+section[id],details[id],div[id]{scroll-margin-top:90px}
+body{overflow-x:hidden}
+main{display:block}
+img{max-width:100%}
+.normal-category-photo img,.deep-gallery-grid img{background:#e4ebe4}
+.normal-category-photo img[loading],.deep-gallery-grid img[loading]{color:transparent}
+.normal-category-photo,.deep-gallery-grid figure{position:relative}
+.normal-category-photo:before,.deep-gallery-grid figure:before{content:"HAPPY ECK";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-weight:900;letter-spacing:.15em;font-size:12px;color:#6f8b78;pointer-events:none}
+.normal-category-photo img,.deep-gallery-grid img{position:relative;z-index:1}
+.normal-category-photo img[hidden],.deep-gallery-grid img[hidden]{display:none!important}
+.deep-faq summary:focus-visible,.apply-panel summary:focus-visible,.contact-form-section summary:focus-visible{outline:3px solid #bd8259;outline-offset:4px}
+.deep-faq[open]{background:#f1f6f0}
+.deep-faq[open] summary{color:#24593a}
+button,input,textarea,select{font:inherit}
+input,textarea{max-width:100%}
+button,a,summary{-webkit-tap-highlight-color:transparent}
+@media(max-width:760px){
+.wrap{width:calc(100% - 34px)!important}
+.topbar{min-height:68px!important}
+.hero h1{font-size:clamp(45px,12vw,70px)!important}
+.hero-content{padding-block:58px!important}
+.deep-heading h2,.normal-section-intro h2{font-size:clamp(30px,9vw,43px)}
+.normal-category-copy p,.deep-heading p{font-size:14px;line-height:1.65}
+.deep-product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.deep-product{min-width:0}
+.deep-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.normal-order-strip>a{width:100%}
+}
+@media(max-width:390px){.wrap{width:calc(100% - 26px)!important}.deep-product-grid{grid-template-columns:1fr}.hours-list>div{flex-wrap:wrap}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+@media print{header,.menu-panel,.menu-backdrop,.actions,.deep-menu-extra,.footer-social,.contact-form-section,.job-section{display:none!important}body{background:#fff!important;color:#000!important}.hero{min-height:0!important;background:#fff!important;color:#000!important}.hero-bg{display:none!important}.hero h1,.hero h1 span{color:#000!important}.normal-category,.deep-product,.hours-card{break-inside:avoid;box-shadow:none!important}a{text-decoration:underline}}
 </style>
 <script type="application/ld+json">
 {
@@ -997,13 +1031,13 @@ body{background:#f8f9f7!important;color:#222b25!important}
           <span class="promo-visual-caption">4 DOSEN · 1 STARKER PREIS</span>
         </div>
       </div>
-      <section class="normal-categories" id="sortiment" aria-labelledby="sortiment-heading"><div class="normal-section-intro"><span>UNSER ANGEBOT</span><h2 id="sortiment-heading">Alles für deinen Kioskbesuch.</h2><p>Entdecke, was du bei Happy Eck in Hamm bekommst – übersichtlich und direkt auf einer Seite.</p></div><article class="normal-category" id="sortiment-getraenke"><div class="normal-category-copy"><span class="normal-step">01 / SORTIMENT & SERVICE</span><h3>Getränke & Energy</h3><p>Von Wasser und Eistee bis zu Softdrinks und Energy-Drinks. Bei uns findest du etwas für die kleine Pause oder für unterwegs.</p><p class="normal-tags">Wasser · Eistee · Softdrinks · Energy</p><a href="#anfahrt">Anfahrt zum Kiosk <span aria-hidden="true">→</span></a></div><div class="normal-category-photo"><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_40.jpg" alt="Happy Eck Kiosk – Impression" loading="lazy" decoding="async"></div></article>
-<article class="normal-category" id="sortiment-snacks"><div class="normal-category-copy"><span class="normal-step">02 / SORTIMENT & SERVICE</span><h3>Snacks & Süßigkeiten</h3><p>Ob süß oder salzig: Entdecke Schokolade, Chips und weitere Snacks direkt im Kiosk.</p><p class="normal-tags">Chips · Schokolade · Süßigkeiten</p><a href="#anfahrt">Anfahrt zum Kiosk <span aria-hidden="true">→</span></a></div><div class="normal-category-photo"><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_52.jpg" alt="Happy Eck Kiosk – Impression" loading="lazy" decoding="async"></div></article>
-<article class="normal-category" id="sortiment-eis"><div class="normal-category-copy"><span class="normal-step">03 / SORTIMENT & SERVICE</span><h3>Eis & Erfrischung</h3><p>Für warme Tage und zwischendurch: Schau bei uns vorbei und entdecke die aktuelle Auswahl an Eis und Erfrischungen.</p><p class="normal-tags">Eis · Kalte Getränke · Erfrischung</p><a href="#anfahrt">Anfahrt zum Kiosk <span aria-hidden="true">→</span></a></div><div class="normal-category-photo"><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_56.jpg" alt="Happy Eck Kiosk – Impression" loading="lazy" decoding="async"></div></article>
-<article class="normal-category" id="sortiment-pakete"><div class="normal-category-copy"><span class="normal-step">04 / SORTIMENT & SERVICE</span><h3>Pakete & Service</h3><p>Du möchtest ein GLS-Paket abgeben oder abholen? Unser Paketshop ist für dich da. Die Servicezeiten findest du weiter unten.</p><p class="normal-tags">GLS Paketshop · Abgabe · Abholung</p><a href="#paketshop">GLS-Informationen <span aria-hidden="true">→</span></a></div><div class="normal-category-photo"><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_31_01.jpg" alt="Happy Eck Kiosk – Impression" loading="lazy" decoding="async"></div></article><div class="normal-order-strip"><div><span>ONLINE BESTELLEN</span><h3>Lieber bequem bestellen?</h3><p>Sieh dir unser aktuelles Angebot bei Lieferando an.</p></div><a href="https://www.lieferando.de/speisekarte/happy-eck-kiosk-59063-hamm" target="_blank" rel="noopener noreferrer">Zu Lieferando →</a></div></section>
+      <section class="normal-categories" id="sortiment" aria-labelledby="sortiment-heading"><div class="normal-section-intro"><span>UNSER ANGEBOT</span><h2 id="sortiment-heading">Alles für deinen Kioskbesuch.</h2><p>Entdecke, was du bei Happy Eck in Hamm bekommst – übersichtlich und direkt auf einer Seite.</p></div><article class="normal-category" id="sortiment-getraenke"><div class="normal-category-copy"><span class="normal-step">01 / SORTIMENT & SERVICE</span><h3>Getränke & Energy</h3><p>Von Wasser und Eistee bis zu Softdrinks und Energy-Drinks. Bei uns findest du etwas für die kleine Pause oder für unterwegs.</p><p class="normal-tags">Wasser · Eistee · Softdrinks · Energy</p><a href="#anfahrt">Anfahrt zum Kiosk <span aria-hidden="true">→</span></a></div><div class="normal-category-photo"><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_40.jpg" alt="Illustratives Motiv zu Sortiment und Service" loading="lazy" decoding="async"></div></article>
+<article class="normal-category" id="sortiment-snacks"><div class="normal-category-copy"><span class="normal-step">02 / SORTIMENT & SERVICE</span><h3>Snacks & Süßigkeiten</h3><p>Ob süß oder salzig: Entdecke Schokolade, Chips und weitere Snacks direkt im Kiosk.</p><p class="normal-tags">Chips · Schokolade · Süßigkeiten</p><a href="#anfahrt">Anfahrt zum Kiosk <span aria-hidden="true">→</span></a></div><div class="normal-category-photo"><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_52.jpg" alt="Illustratives Motiv zu Sortiment und Service" loading="lazy" decoding="async"></div></article>
+<article class="normal-category" id="sortiment-eis"><div class="normal-category-copy"><span class="normal-step">03 / SORTIMENT & SERVICE</span><h3>Eis & Erfrischung</h3><p>Für warme Tage und zwischendurch: Schau bei uns vorbei und entdecke die aktuelle Auswahl an Eis und Erfrischungen.</p><p class="normal-tags">Eis · Kalte Getränke · Erfrischung</p><a href="#anfahrt">Anfahrt zum Kiosk <span aria-hidden="true">→</span></a></div><div class="normal-category-photo"><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_56.jpg" alt="Illustratives Motiv zu Sortiment und Service" loading="lazy" decoding="async"></div></article>
+<article class="normal-category" id="sortiment-pakete"><div class="normal-category-copy"><span class="normal-step">04 / SORTIMENT & SERVICE</span><h3>Pakete & Service</h3><p>Du möchtest ein GLS-Paket abgeben oder abholen? Unser Paketshop ist für dich da. Die Servicezeiten findest du weiter unten.</p><p class="normal-tags">GLS Paketshop · Abgabe · Abholung</p><a href="#paketshop">GLS-Informationen <span aria-hidden="true">→</span></a></div><div class="normal-category-photo"><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_31_01.jpg" alt="Illustratives Motiv zu Sortiment und Service" loading="lazy" decoding="async"></div></article><div class="normal-order-strip"><div><span>ONLINE BESTELLEN</span><h3>Lieber bequem bestellen?</h3><p>Sieh dir unser aktuelles Angebot bei Lieferando an.</p></div><a href="https://www.lieferando.de/speisekarte/happy-eck-kiosk-59063-hamm" target="_blank" rel="noopener noreferrer">Zu Lieferando →</a></div></section>
     </section>
 <section class="wrap deep-section" id="ueberblick" aria-labelledby="deep-title"><div class="deep-heading"><span>HAPPY ECK · SORTIMENT</span><h2 id="deep-title">Mehr entdecken. Alles auf einer Seite.</h2><p>Von Getränken bis zu kleinen Snacks: Hier bekommst du einen ausführlichen Überblick über unsere Auswahl und Services. Einzelne Produkte können ausverkauft sein.</p></div><div class="deep-product-grid"><article class="deep-product"><span class="deep-index">01</span><h3>Energy-Drinks</h3><strong>Red Bull, Monster, Rockstar und weitere Energy-Drinks</strong><p>Eiskalt aus dem Kühlschrank – die Auswahl kann je nach Verfügbarkeit variieren.</p></article><article class="deep-product"><span class="deep-index">02</span><h3>Wasser & Sportgetränke</h3><strong>Wasser, Active O2 und Powerade</strong><p>Für unterwegs, beim Sport oder für zwischendurch.</p></article><article class="deep-product"><span class="deep-index">03</span><h3>Softdrinks & Eistee</h3><strong>Cola, Limonade, Eistee und Fruchtgetränke</strong><p>Von Klassikern bis zu fruchtigen Erfrischungen.</p></article><article class="deep-product"><span class="deep-index">04</span><h3>Chips & Knabbereien</h3><strong>Pringles, Lay’s, funny-frisch und weitere Snacks</strong><p>Etwas Salziges für den Abend oder unterwegs.</p></article><article class="deep-product"><span class="deep-index">05</span><h3>Schokolade & Süßwaren</h3><strong>Schokoriegel, Kinder-Produkte und Kekse</strong><p>Kleine Naschereien und süße Lieblingsprodukte.</p></article><article class="deep-product"><span class="deep-index">06</span><h3>Eis & Slush</h3><strong>Eis und Slush-Getränke</strong><p>Für die schnelle Abkühlung – solange verfügbar.</p></article><article class="deep-product"><span class="deep-index">07</span><h3>Alltagsartikel</h3><strong>Ausgewählte Artikel für den spontanen Bedarf</strong><p>Frag uns gerne nach einem bestimmten Produkt.</p></article><article class="deep-product"><span class="deep-index">08</span><h3>GLS Paketservice</h3><strong>Paketabgabe und Paketabholung</strong><p>Service abhängig von Sendung und GLS-Vorgaben.</p></article></div></section>
-<section class="wrap deep-gallery" id="galerie" aria-labelledby="gallery-title"><div class="deep-heading"><span>EINBLICKE</span><h2 id="gallery-title">Ein Blick ins Happy Eck.</h2><p>Impressionen aus unserer Bildergalerie.</p></div><div class="deep-gallery-grid"><figure><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_27.jpg" alt="Happy Eck – Galerieansicht 1" loading="lazy" decoding="async"></figure><figure><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_40.jpg" alt="Happy Eck – Galerieansicht 2" loading="lazy" decoding="async"></figure><figure><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_52.jpg" alt="Happy Eck – Galerieansicht 3" loading="lazy" decoding="async"></figure><figure><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_56.jpg" alt="Happy Eck – Galerieansicht 4" loading="lazy" decoding="async"></figure><figure><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_31_01.jpg" alt="Happy Eck – Galerieansicht 5" loading="lazy" decoding="async"></figure><figure><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_31_05.jpg" alt="Happy Eck – Galerieansicht 6" loading="lazy" decoding="async"></figure><figure><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_31_13.jpg" alt="Happy Eck – Galerieansicht 7" loading="lazy" decoding="async"></figure><figure><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_31_19.jpg" alt="Happy Eck – Galerieansicht 8" loading="lazy" decoding="async"></figure></div></section>
+<section class="wrap deep-gallery" id="galerie" aria-labelledby="gallery-title"><div class="deep-heading"><span>EINBLICKE</span><h2 id="gallery-title">Ein Blick ins Happy Eck.</h2><p>Einblicke in unsere Bildwelt. Die Abbildungen sind Illustrationen und zeigen nicht zwingend den aktuellen Warenbestand.</p></div><div class="deep-gallery-grid"><figure><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_27.jpg" alt="Illustrative Darstellung zum Happy Eck Kiosk – Motiv 1" loading="lazy" decoding="async"></figure><figure><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_40.jpg" alt="Illustrative Darstellung zum Happy Eck Kiosk – Motiv 2" loading="lazy" decoding="async"></figure><figure><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_52.jpg" alt="Illustrative Darstellung zum Happy Eck Kiosk – Motiv 3" loading="lazy" decoding="async"></figure><figure><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_56.jpg" alt="Illustrative Darstellung zum Happy Eck Kiosk – Motiv 4" loading="lazy" decoding="async"></figure><figure><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_31_01.jpg" alt="Illustrative Darstellung zum Happy Eck Kiosk – Motiv 5" loading="lazy" decoding="async"></figure><figure><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_31_05.jpg" alt="Illustrative Darstellung zum Happy Eck Kiosk – Motiv 6" loading="lazy" decoding="async"></figure><figure><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_31_13.jpg" alt="Illustrative Darstellung zum Happy Eck Kiosk – Motiv 7" loading="lazy" decoding="async"></figure><figure><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_31_19.jpg" alt="Illustrative Darstellung zum Happy Eck Kiosk – Motiv 8" loading="lazy" decoding="async"></figure></div></section>
 <section class="deep-service-band"><div class="wrap"><div class="deep-heading"><span>SO EINFACH GEHT'S</span><h2>Dein Besuch bei Happy Eck.</h2></div><div class="deep-service-grid"><article><span>01</span><h3>Vorbeikommen</h3><p>Finde uns am Caldenhofer Weg 207 in Hamm. Die Anfahrt ist mit Google Maps oder Apple Karten möglich.</p><a href="#anfahrt">Anfahrt ansehen →</a></article><article><span>02</span><h3>Auswahl entdecken</h3><p>Schau dir Getränke, Snacks und weitere Artikel direkt vor Ort an. Bei Fragen helfen wir dir gerne weiter.</p><a href="#sortiment">Sortiment ansehen →</a></article><article><span>03</span><h3>Kontakt aufnehmen</h3><p>Du möchtest etwas wissen oder die Verfügbarkeit prüfen? Ruf uns an oder schreib uns über WhatsApp.</p><a href="https://wa.me/4917661020308" target="_blank" rel="noopener noreferrer">WhatsApp öffnen →</a></article></div></div></section>
       <section id="paketshop" class="wrap parcel-section" aria-labelledby="parcel-heading">
       <div class="parcel-card">
@@ -1073,7 +1107,7 @@ body{background:#f8f9f7!important;color:#222b25!important}
         <div class="job-action">
           <details class="apply-panel">
             <summary class="job-button">Jetzt bewerben <span aria-hidden="true">↗</span></summary><p class="apply-caption">Bitte fülle die vier Felder aus und lade deinen Lebenslauf hoch.</p>
-            <form action="https://formsubmit.co/happyeck10@gmail.com" method="POST" enctype="multipart/form-data">
+            <form action="https://formsubmit.co/happyeck10@gmail.com" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
               <input type="hidden" name="_subject" value="Job – Happy Eck">
               <input type="hidden" name="_template" value="table">
               <input class="spam-trap" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-label="Dieses Feld bitte leer lassen">
@@ -1111,7 +1145,7 @@ body{background:#f8f9f7!important;color:#222b25!important}
 </div>
 <div class="contact-form-divider"><span>Oder nutze unser Kontaktformular</span></div>
 <div class="contact-form-heading"><strong>Nachricht senden</strong><small>Wir erhalten deine Angaben per E-Mail.</small></div>
-<form action="https://formsubmit.co/happyeck10@gmail.com" method="POST">
+<form action="https://formsubmit.co/happyeck10@gmail.com" method="POST" accept-charset="UTF-8">
 <input type="hidden" name="_subject" value="Kontakt – Happy Eck">
 <input type="hidden" name="_template" value="table">
               <input class="spam-trap" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-label="Dieses Feld bitte leer lassen">
@@ -1264,10 +1298,10 @@ input.form.addEventListener("submit",event=>{if(!validate()){event.preventDefaul
       const entries=formatter.formatToParts(new Date());
       const part=name=>entries.find(x=>x.type===name)?.value;
       const day=weekdays[part('weekday')];
-      const minutes=Number(part('hour'))*60+Number(part('minute'));
+      const minutes=(Number(part('hour'))%24)*60+Number(part('minute'));
       if(day===undefined||!Number.isFinite(minutes))return;
       const early=minutes<90;
-      const afterOpen=minutes>=510;
+      const afterOpen=minutes>=510&&minutes<1440;
       // Fri/Sat: open until 01:30 next morning. All other days until midnight.
       const kioskOpen=afterOpen||((day===6||day===0)&&early);
       const glsOpen=afterOpen;
@@ -1302,6 +1336,18 @@ input.form.addEventListener("submit",event=>{if(!validate()){event.preventDefaul
       const button=form.querySelector('button[type="submit"]');
       if(button){button.disabled=true;button.setAttribute('aria-busy','true');button.textContent='Wird gesendet …';}
     });
+  });
+})();</script><script>(function(){
+  // Make failed gallery images graceful instead of showing broken image icons.
+  document.querySelectorAll('.normal-category-photo img,.deep-gallery-grid img').forEach(img=>{
+    const fallback=()=>{img.hidden=true;img.parentElement?.classList.add('image-failed')};
+    img.addEventListener('error',fallback);
+    if(img.complete&&!img.naturalWidth)fallback();
+  });
+  // Status is informational only; opening times can differ on holidays.
+  document.querySelectorAll('a[target="_blank"]').forEach(a=>{
+    const rel=new Set((a.getAttribute('rel')||'').split(/\s+/).filter(Boolean));
+    rel.add('noopener');rel.add('noreferrer');a.setAttribute('rel',[...rel].join(' '));
   });
 })();</script></body>
 </html>
