@@ -132,6 +132,45 @@
     @media(max-width:700px){.intro{min-height:350px}.intro h1{font-size:clamp(38px,10vw,54px)}.orb-one{width:105px;height:105px;right:1%}.orbit-ring{width:250px;height:250px;right:-130px;top:-10px}section.info{padding:25px 19px}.effects-toggle{bottom:12px;right:12px;padding:9px 12px;font-size:12px}.ticker-track span{font-size:11px}}
     @media(prefers-reduced-motion:reduce){.intro::before,.intro::after,.orb,.orbit-ring,.ticker-track,.intro h1,.intro p,.intro .buttons,section.info h2::after{animation:none!important}.scroll-ready .info.reveal{opacity:1;transform:none;transition:none}.hours article,.intro .button{transform:none!important;transition:none!important}.cursor-glow{display:none}}
 
+
+    /* Extreme contact & social experiences: responsive, keyboard-safe, no dependencies */
+    .showcase-contact,.showcase-social{overflow:visible!important;border:0!important;background:transparent!important;box-shadow:none!important;padding:36px 0!important}
+    .showcase-heading{text-align:center;margin:0 auto 26px;max-width:660px}
+    .showcase-kicker{display:inline-block;letter-spacing:.2em;font-size:11px;font-weight:950;color:#348a55;margin-bottom:10px}
+    .showcase-heading h2{font-size:clamp(31px,5vw,45px);letter-spacing:-.05em;margin:0 0 9px}
+    .showcase-heading h2::after{margin:12px auto 0!important}
+    .showcase-heading p{color:#657a6e;margin:0}
+    .showcase-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+    .showcase-tile{position:relative;isolation:isolate;display:flex;flex-direction:column;align-items:flex-start;min-height:240px;padding:25px 22px;border-radius:17px;text-decoration:none;color:#fff;overflow:hidden;box-shadow:0 18px 45px #122c2520;border:1px solid #ffffff40;transform-style:preserve-3d;transition:transform .33s cubic-bezier(.2,.8,.2,1),box-shadow .33s ease,filter .33s}
+    .showcase-tile:before{content:"";position:absolute;z-index:-1;width:210px;height:210px;right:-85px;top:-90px;border:1px solid #ffffff70;border-radius:50%;box-shadow:0 0 0 30px #ffffff13,0 0 0 70px #ffffff0c;animation:showcase-orbit 8s ease-in-out infinite}
+    .showcase-tile:after{content:"";position:absolute;z-index:-1;inset:0;opacity:.55;background:radial-gradient(circle at 80% 5%,#ffffff32,transparent 50%)}
+    .showcase-tile:hover{transform:translateY(-11px) rotateX(4deg);box-shadow:0 28px 55px #102d283c;filter:saturate(1.17)}
+    .showcase-tile:focus-visible{outline:4px solid #b5ef93;outline-offset:4px;transform:translateY(-5px)}
+    .showcase-symbol{display:grid;place-items:center;width:57px;height:57px;border:1px solid #ffffff85;border-radius:15px;background:#ffffff26;backdrop-filter:blur(9px);font-size:30px;margin-bottom:19px;transition:transform .35s}
+    .showcase-tile:hover .showcase-symbol{transform:rotate(-12deg) scale(1.16)}
+    .showcase-type{font-size:10px;font-weight:950;letter-spacing:.19em;color:#ffffffd9}
+    .showcase-tile strong{font-size:clamp(17px,2vw,23px);letter-spacing:-.035em;line-height:1.25;margin:8px 0 17px;overflow-wrap:anywhere}
+    .showcase-action{font-size:12px;font-weight:900;margin-top:auto;display:flex;width:100%;justify-content:space-between;align-items:center;border-top:1px solid #ffffff5e;padding-top:12px}
+    .showcase-action span{font-size:20px;transition:transform .25s}
+    .showcase-tile:hover .showcase-action span{transform:translate(4px,-4px)}
+    .showcase-shine{position:absolute;inset:0;z-index:0;pointer-events:none;transform:translateX(-180%) skewX(-23deg);background:linear-gradient(90deg,transparent,#ffffff37,transparent);width:75%;animation:showcase-shimmer 6.5s ease-in-out infinite}
+    .contact-phone{background:linear-gradient(135deg,#153d8d,#2871da)}
+    .contact-whatsapp{background:linear-gradient(135deg,#097144,#23c978)}
+    .contact-email{background:linear-gradient(135deg,#562da7,#9470e0)}
+    .social-instagram{background:linear-gradient(130deg,#6a35c1,#df3c88 57%,#f6a045)}
+    .social-tiktok{background:linear-gradient(135deg,#141822,#222b36)}
+    .social-google{background:linear-gradient(130deg,#be3d29,#ea8b43)}
+    .showcase-tile:nth-child(2) .showcase-shine{animation-delay:-2s}
+    .showcase-tile:nth-child(3) .showcase-shine{animation-delay:-4s}
+    @keyframes showcase-orbit{0%,100%{transform:translate(0,0)}50%{transform:translate(-20px,25px)}}
+    @keyframes showcase-shimmer{0%,55%{transform:translateX(-180%) skewX(-23deg)}85%,100%{transform:translateX(260%) skewX(-23deg)}}
+    .effects-off .showcase-tile:before,.effects-off .showcase-shine{animation:none}
+    .effects-off .showcase-tile,.effects-off .showcase-symbol,.effects-off .showcase-action span{transition:none!important;transform:none!important}
+    @media(max-width:760px){.showcase-grid{grid-template-columns:1fr 1fr;gap:10px}.showcase-tile{min-height:205px;padding:17px 15px;border-radius:12px}.showcase-symbol{width:43px;height:43px;font-size:23px;margin-bottom:12px}.showcase-tile strong{font-size:17px}.showcase-heading{margin-bottom:19px}.showcase-contact,.showcase-social{padding:26px 0!important}}
+    @media(max-width:460px){.showcase-grid{grid-template-columns:1fr}.showcase-tile{min-height:160px;padding:19px 21px}.showcase-symbol{margin-bottom:8px}.showcase-tile strong{margin-bottom:10px}.showcase-action{padding-top:8px}}
+    @media(hover:none){.showcase-tile:hover{transform:none}}
+    @media(prefers-reduced-motion:reduce){.showcase-tile:before,.showcase-shine{animation:none!important}.showcase-tile,.showcase-symbol,.showcase-action span{transition:none!important;transform:none!important}}
+
   </style>
 </head>
 <body>
@@ -183,17 +222,21 @@
         <a class="button secondary" href="https://maps.apple.com/?daddr=Caldenhofer+Weg+207%2C+59063+Hamm" target="_blank" rel="noopener noreferrer">Apple Karten</a>
       </div>
     </section>
-    <section class="info" id="kontakt">
-      <h2>Kontakt</h2>
-      <div class="contact-lines">
-        <div>Telefon: <a href="tel:+4917661020308">0176 61020308</a></div>
-        <div>WhatsApp: <a href="https://wa.me/4917661020308" target="_blank" rel="noopener noreferrer">Nachricht schreiben</a></div>
-        <div>E-Mail: <a href="mailto:happyeck10@gmail.com">happyeck10@gmail.com</a></div>
+    <section class="info showcase-contact" id="kontakt">
+      <div class="showcase-heading"><span class="showcase-kicker">✦ DIREKT VERBUNDEN</span><h2>Kontakt</h2><p>Ein Klick – und du bist bei uns. Wir freuen uns auf deine Nachricht!</p></div>
+      <div class="showcase-grid contact-grid">
+        <a class="showcase-tile contact-phone" href="tel:+4917661020308"><span class="showcase-symbol" aria-hidden="true">☎</span><span class="showcase-type">ANRUFEN</span><strong>0176 61020308</strong><span class="showcase-action">Jetzt anrufen <span aria-hidden="true">↗</span></span><span class="showcase-shine" aria-hidden="true"></span></a>
+        <a class="showcase-tile contact-whatsapp" href="https://wa.me/4917661020308" target="_blank" rel="noopener noreferrer"><span class="showcase-symbol" aria-hidden="true">✉</span><span class="showcase-type">WHATSAPP</span><strong>Nachricht schreiben</strong><span class="showcase-action">Chat starten <span aria-hidden="true">↗</span></span><span class="showcase-shine" aria-hidden="true"></span></a>
+        <a class="showcase-tile contact-email" href="mailto:happyeck10@gmail.com"><span class="showcase-symbol" aria-hidden="true">@</span><span class="showcase-type">E-MAIL</span><strong>happyeck10@gmail.com</strong><span class="showcase-action">E-Mail schreiben <span aria-hidden="true">↗</span></span><span class="showcase-shine" aria-hidden="true"></span></a>
       </div>
     </section>
-    <section class="info">
-      <h2>Social Media &amp; Bewertungen</h2>
-      <p><a href="https://www.instagram.com/happy.eck.kiosk/" target="_blank" rel="noopener noreferrer">Instagram</a> · <a href="https://www.tiktok.com/@happy.eck" target="_blank" rel="noopener noreferrer">TikTok</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=Happy%20Eck%20Kiosk%2C%20Caldenhofer%20Weg%20207%2C%2059063%20Hamm" target="_blank" rel="noopener noreferrer">Google-Bewertungen</a></p>
+    <section class="info showcase-social" id="social-media">
+      <div class="showcase-heading"><span class="showcase-kicker">✦ HAPPY ECK ONLINE</span><h2>Social Media &amp; Bewertungen</h2><p>Folge uns und entdecke Neuigkeiten aus deinem Happy Eck.</p></div>
+      <div class="showcase-grid social-grid">
+        <a class="showcase-tile social-instagram" href="https://www.instagram.com/happy.eck.kiosk/" target="_blank" rel="noopener noreferrer"><span class="showcase-symbol" aria-hidden="true">◎</span><span class="showcase-type">INSTAGRAM</span><strong>@happy.eck.kiosk</strong><span class="showcase-action">Profil ansehen <span aria-hidden="true">↗</span></span><span class="showcase-shine" aria-hidden="true"></span></a>
+        <a class="showcase-tile social-tiktok" href="https://www.tiktok.com/@happy.eck" target="_blank" rel="noopener noreferrer"><span class="showcase-symbol" aria-hidden="true">♪</span><span class="showcase-type">TIKTOK</span><strong>@happy.eck</strong><span class="showcase-action">Videos ansehen <span aria-hidden="true">↗</span></span><span class="showcase-shine" aria-hidden="true"></span></a>
+        <a class="showcase-tile social-google" href="https://www.google.com/maps/search/?api=1&amp;query=Happy%20Eck%20Kiosk%2C%20Caldenhofer%20Weg%20207%2C%2059063%20Hamm" target="_blank" rel="noopener noreferrer"><span class="showcase-symbol" aria-hidden="true">★</span><span class="showcase-type">GOOGLE</span><strong>Bewertungen</strong><span class="showcase-action">Bewertungen ansehen <span aria-hidden="true">↗</span></span><span class="showcase-shine" aria-hidden="true"></span></a>
+      </div>
     </section>
   </main>
   <footer>
