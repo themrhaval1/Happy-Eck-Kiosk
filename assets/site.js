@@ -56,50 +56,7 @@ input.form.addEventListener("submit",event=>{if(!validate()){event.preventDefaul
 (function(){const contact=document.getElementById('kontakt');if(!contact)return;function reveal(){if(location.hash==='#kontakt'){contact.open=true;}}document.querySelectorAll('a[href="#kontakt"]').forEach(link=>link.addEventListener('click',()=>{contact.open=true;}));window.addEventListener('hashchange',reveal);reveal();})();
 
 
-(function(){
-  const kiosk=document.getElementById('kiosk-live');
-  const gls=document.getElementById('gls-live');
-  if(!kiosk||!gls)return;
-  const formatter=new Intl.DateTimeFormat('en-GB',{
-    timeZone:'Europe/Berlin',weekday:'short',hour:'2-digit',minute:'2-digit',hourCycle:'h23'
-  });
-  const weekdays={Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6};
-  function setStatus(el,isOpen){
-    const next=isOpen?'Jetzt geöffnet':'Jetzt geschlossen · ab 08:30 Uhr';
-    const status=isOpen?'open':'closed';
-    if(el.dataset.status!==status){
-      el.dataset.status=status;
-      el.querySelector('.hours-live-label').textContent=next;
-    }
-  }
-  function refresh(){
-    try{
-      const entries=formatter.formatToParts(new Date());
-      const part=name=>entries.find(x=>x.type===name)?.value;
-      const day=weekdays[part('weekday')];
-      const minutes=(Number(part('hour'))%24)*60+Number(part('minute'));
-      if(day===undefined||!Number.isFinite(minutes))return;
-      const early=minutes<90;
-      const afterOpen=minutes>=510&&minutes<1440;
-      // Fri/Sat: open until 01:30 next morning. All other days until midnight.
-      const kioskOpen=afterOpen||((day===6||day===0)&&early);
-      const glsOpen=afterOpen;
-      setStatus(kiosk,kioskOpen);
-      setStatus(gls,glsOpen);
-      if(!kioskOpen&&kiosk.dataset.status==='closed'){
-        kiosk.querySelector('.hours-live-label').textContent='Jetzt geschlossen · ab 08:30 Uhr';
-      }
-    }catch(error){
-      for(const el of [kiosk,gls]){
-        el.dataset.status='loading';
-        el.querySelector('.hours-live-label').textContent='Öffnungszeiten siehe unten';
-      }
-    }
-  }
-  refresh();
-  window.setInterval(refresh,30000);
-  document.addEventListener('visibilitychange',()=>{if(!document.hidden)refresh()});
-})();
+
 
 
 (function(){
