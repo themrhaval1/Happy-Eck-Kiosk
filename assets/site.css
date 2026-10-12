@@ -870,3 +870,38 @@ header{background:#fff}
 .market-deal-poster span{font-size:clamp(23px,3vw,35px);font-weight:950;letter-spacing:-.035em}
 .market-deal-poster small{margin-top:10px;font-size:13px;font-weight:800;color:#9d442d}
 @media(max-width:760px){.market-deal-poster{min-height:175px;padding:16px;transform:rotate(-5deg)}.market-deal-poster strong{font-size:70px}.market-deal-poster span{font-size:25px}}
+
+
+/* Supermarket product list – dense but readable responsive price cards */
+.product-catalog{padding:52px 0 70px}
+.catalog-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:22px;margin-bottom:28px}
+.catalog-kicker{display:block;color:#3a7a4c;font-size:11px;letter-spacing:.15em;font-weight:900}
+.catalog-heading h2{font-size:clamp(32px,4vw,54px);line-height:1.1;letter-spacing:-.06em;color:#193c29;margin:10px 0}
+.catalog-heading p{color:#5e7362;font-size:15px;max-width:650px;line-height:1.6}
+.catalog-count{white-space:nowrap;background:#eaf3e7;border:1px solid #cee5ce;color:#2a6141;border-radius:999px;padding:10px 15px;font-size:12px;font-weight:850}
+.catalog-controls{display:grid;grid-template-columns:minmax(0,2fr) minmax(180px,1fr);gap:14px}
+.catalog-search-label,.catalog-filter-label{display:flex;flex-direction:column;gap:7px;color:#344f3c;font-size:12px;font-weight:850}
+.catalog-search-label input,.catalog-filter-label select{width:100%;border:1px solid #cbddcd;background:#fff;border-radius:9px;padding:13px 15px;font-size:15px;min-height:50px;color:#25402c}
+.catalog-search-label input:focus-visible,.catalog-filter-label select:focus-visible{outline:3px solid #7ab38a;outline-offset:2px}
+.catalog-consent{margin-top:15px;background:#fff7e8;border:1px solid #efdfc4;border-radius:9px;padding:13px 15px;font-size:13px;color:#5b4730}
+.catalog-consent label{display:flex;align-items:flex-start;gap:10px;cursor:pointer}
+.catalog-consent input{width:18px;height:18px;flex-shrink:0;accent-color:#276143}
+.catalog-results{font-size:13px;color:#5b715f;margin:21px 0 14px}
+.catalog-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.catalog-product{display:flex;flex-direction:column;align-items:flex-start;min-width:0;min-height:187px;padding:17px;background:#fff;border:1px solid #e0e9e0;border-radius:11px;box-shadow:0 5px 14px #153b1c0b}
+.catalog-product-top{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin-bottom:13px}
+.catalog-product-label{color:#257449;background:#e8f3e8;padding:5px 8px;font-size:9px;font-weight:950;letter-spacing:.09em;border-radius:5px}
+.catalog-product-category{font-size:10px;color:#78847b;line-height:1.4}
+.catalog-product-name{font-size:16px;font-weight:800;letter-spacing:-.02em;line-height:1.37;color:#253d2b;margin:0 0 14px;overflow-wrap:anywhere}
+.catalog-product-price{margin-top:auto;font-size:25px;font-weight:950;letter-spacing:-.05em;color:#183b27;font-variant-numeric:tabular-nums}
+.catalog-product-note{display:block;color:#89928a;font-size:10px;margin-top:5px}
+.catalog-product-age{margin-top:7px;color:#995d26;font-size:10px;font-weight:850}
+.catalog-bottom{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:12px;margin:25px 0}
+.catalog-bottom button,.catalog-bottom a{padding:13px 19px;background:#23623e;color:#fff;border:0;border-radius:9px;font-size:13px;font-weight:850;cursor:pointer;min-height:45px}
+.catalog-bottom a{background:#eaf3e8;color:#245c3c;border:1px solid #ccdfce}
+.catalog-bottom button:hover{background:#17482c}
+.catalog-bottom button[hidden]{display:none}
+.catalog-disclaimer{font-size:11px;color:#6c796e;line-height:1.6;margin-top:20px}
+@media(max-width:1100px){.catalog-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:760px){.catalog-heading{align-items:flex-start;flex-direction:column}.catalog-controls{grid-template-columns:1fr}.catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.catalog-product{min-height:185px;padding:12px}.catalog-product-name{font-size:14px}.catalog-product-price{font-size:23px}.catalog-product-category{font-size:9px}.product-catalog{padding:35px 0 48px}}
+@media(max-width:370px){.catalog-grid{grid-template-columns:1fr}.catalog-product{min-height:155px}}
