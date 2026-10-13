@@ -1,0 +1,25 @@
+/* Happy Eck mobile credit / prepaid page */
+.topup-hero{min-height:390px;background:linear-gradient(120deg,#102d20,#1c593e)}
+.topup-hero .sub-hero-content{padding:80px 0}
+.topup-hero h1{max-width:850px;font-size:clamp(42px,6.5vw,78px);line-height:1.06;color:#fff}
+.topup-hero p{font-size:17px;color:#d4e8d9;max-width:670px}
+.topup-scroll-link{color:#c9ead2;text-decoration:none;font-weight:800;font-size:13px;border-bottom:1px solid #93c5a2;padding-bottom:5px}
+.topup-section-title{max-width:740px;margin-bottom:32px}
+.topup-section-title p{color:#596a60;line-height:1.7}
+.topup-brand-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.topup-brand{background:white;border:1px solid #e0e7e0;border-radius:12px;padding:17px;min-height:190px;box-shadow:0 8px 24px #16392812;display:flex;flex-direction:column;gap:15px;transition:transform .25s,box-shadow .25s}
+.topup-brand:hover{transform:translateY(-4px);box-shadow:0 17px 32px #16392824}
+.brand-logo-frame{background:#f7f8f7;border-radius:8px;height:90px;padding:16px;display:flex;justify-content:center;align-items:center}
+.brand-logo-frame img{display:block;max-width:100%;max-height:60px;width:auto;height:auto;object-fit:contain}
+.topup-brand h3{font-size:19px;letter-spacing:-.02em;margin:0 0 4px;color:#1b3d29}
+.topup-brand p{color:#6b786e;font-size:13px;margin:0}
+.topup-disclaimer{margin-top:18px;color:#69766e;font-size:12px}
+.topup-help{background:#e9f2e9;padding:67px 0}
+.topup-help-inner{display:flex;justify-content:space-between;align-items:center;gap:30px}
+.topup-help-inner>div:first-child{max-width:570px}
+.topup-help-inner p{color:#596b5d}
+.topup-help-actions{display:flex;flex-direction:column;align-items:stretch;gap:12px}
+.topup-help-actions .btn{white-space:nowrap;box-shadow:none}
+@media(max-width:800px){.topup-brand-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.topup-help-inner{align-items:flex-start;flex-direction:column}.topup-help-actions{flex-direction:row;flex-wrap:wrap}}
+@media(max-width:480px){.topup-brand-grid{grid-template-columns:1fr}.topup-brand{min-height:160px}.topup-hero{min-height:310px}.topup-help-actions{flex-direction:column;align-items:stretch}}
+@media(prefers-reduced-motion:reduce){.topup-brand{transition:none}.topup-brand:hover{transform:none}}
