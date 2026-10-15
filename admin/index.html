@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#183d2b">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="description" content="Geschützter Happy Eck Statistikbereich.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src https://jhoueubxgwerbwxyfhml.supabase.co; base-uri 'none'; form-action 'self'">
+  <title>Happy Eck | Meine Statistik</title>
+  <link rel="icon" href="../assets/logo.jpg">
+  <link rel="stylesheet" href="./admin.css">
+  <script src="./dashboard.js" defer></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="Happy Eck Startseite">
+        <img src="../assets/logo.jpg" width="43" height="43" alt="">
+        <span>HAPPY ECK <small>PRIVATER STATISTIKBEREICH</small></span>
+      </a>
+      <span class="private-tag"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> Privat</span>
+    </header>
+    <main id="main">
+      <section id="login-view" class="login-view" aria-labelledby="login-title">
+        <div class="login-intro">
+          <span class="eyebrow"><span class="eyebrow-line"></span> HAPPY ECK ADMIN</span>
+          <h1 id="login-title">Dein Geschäft.<br><em>Deine Zahlen.</em></h1>
+          <p>Melde dich mit deinem freigeschalteten Konto an und sieh, welche Seiten und Buttons am häufigsten genutzt werden.</p>
+          <div class="privacy-bullet"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg><span>Geschützt – nur für freigeschaltete Admins.</span></div>
+        </div>
+        <section class="login-card" aria-label="Admin Anmeldung">
+          <div class="login-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+          <h2>Willkommen zurück.</h2>
+          <p>Melde dich mit deiner Admin-E-Mail und deinem Passwort an.</p>
+          <form id="login-form" novalidate>
+            <label for="admin-email">E-Mail-Adresse</label>
+            <input id="admin-email" type="email" inputmode="email" autocomplete="username" placeholder="deine@email.de" maxlength="250" required>
+            <label for="admin-password">Passwort</label>
+            <input id="admin-password" type="password" autocomplete="current-password" placeholder="Dein Passwort" required minlength="6">
+            <button type="submit" id="login-submit" class="primary-btn"><span id="login-label">Sicher anmelden</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          </form>
+          <p id="login-error" class="status error" role="alert" hidden></p>
+          <p class="login-note">Kein öffentliches Nutzerkonto. Deine Anmeldung wird nicht auf der Startseite angezeigt.</p>
+        </section>
+      </section>
+      <section id="dashboard-view" class="dashboard-view" aria-labelledby="dashboard-title" hidden>
+        <div class="dashboard-heading">
+          <div><span class="eyebrow dashboard-eyebrow">HAPPY ECK · ANALYTICS</span><h1 id="dashboard-title">Deine Übersicht.</h1><p>Hier siehst du zusammengefasste Seitenaufrufe und Klicks – ohne einzelne Personen zu verfolgen.</p></div>
+          <button class="logout-btn" type="button" id="logout">Abmelden <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 17l5-5-5-5M15 12H3M12 3h5a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3h-5"/></svg></button>
+        </div>
+        <div class="dashboard-controls">
+          <div class="range" role="group" aria-label="Zeitraum"><button type="button" data-days="7">7 Tage</button><button type="button" data-days="30" aria-pressed="true">30 Tage</button></div>
+          <button id="refresh" class="refresh-btn" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 0 0-14-5L3 9M3 3v6h6M4 13a8 8 0 0 0 14 5l3-3M21 21v-6h-6"/></svg> Aktualisieren</button>
+        </div>
+        <p id="dashboard-status" class="dashboard-status" role="status" aria-live="polite"></p>
+        <div class="stat-grid">
+          <article class="stat-card"><div class="stat-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 3v18M8 9h13"/></svg></div><span>Seitenaufrufe</span><strong id="views-total">–</strong><small>Alle aufgerufenen Seiten</small></article>
+          <article class="stat-card"><div class="stat-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 3 13 9-6 1-3 7-4-17Z"/></svg></div><span>Erfasste Klicks</span><strong id="clicks-total">–</strong><small>Buttons und Links</small></article>
+          <article class="stat-card"><div class="stat-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h18v17H3zM7 2v4M17 2v4M3 10h18"/></svg></div><span>Heute</span><strong id="today-total">–</strong><small>Seitenaufrufe heute (UTC)</small></article>
+        </div>
+        <div class="dashboard-grid">
+          <section class="chart-card" aria-labelledby="daily-title"><div class="card-head"><div><span class="eyebrow small">BESUCHERINTERESSE</span><h2 id="daily-title">Seitenaufrufe pro Tag</h2></div><span class="subtle" id="chart-period">30 Tage</span></div><div id="daily-chart" class="daily-chart" role="img" aria-label="Diagramm der täglichen Seitenaufrufe"></div></section>
+          <section class="rank-card" aria-labelledby="click-title"><div class="card-head"><div><span class="eyebrow small">BELIEBTESTE AKTIONEN</span><h2 id="click-title">Was wird angeklickt?</h2></div></div><div id="top-clicks" class="rank-list"></div></section>
+          <section class="rank-card span-all" aria-labelledby="page-title"><div class="card-head"><div><span class="eyebrow small">BELIEBTESTE SEITEN</span><h2 id="page-title">Welche Seiten kommen gut an?</h2></div></div><div id="top-pages" class="rank-list page-rank"></div></section>
+        </div>
+        <p class="disclaimer"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7h.01"/></svg><span><strong>So werden die Zahlen gezählt:</strong> Ein Seitenaufruf ist nicht automatisch ein einzelner Besucher. Klicks zeigen Betätigungen von Links und Buttons, nicht unbedingt abgeschlossene Bestellungen oder Nachrichten. Es werden nur anonym zusammengefasste Tageszahlen gespeichert, ohne Cookies oder persönliche Besucherprofile. Die Erfassung beginnt erst mit der Veröffentlichung des Statistik-Codes.</span></p>
+      </section>
+    </main>
+    <footer>© 2026 Happy Eck Kiosk · <a href="../index.html">Zur Webseite</a></footer>
+  </div>
+</body>
+</html>
