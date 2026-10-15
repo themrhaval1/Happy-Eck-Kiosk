@@ -46,6 +46,46 @@
 @media(max-width:850px){.hc-hero .hc-hero-grid,.hc-location{grid-template-columns:1fr}.hc-hero-panel{max-width:550px}.hc-cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:610px){.hc-hero{padding:57px 0 65px}.hc-hero h1{font-size:clamp(47px,11vw,69px)}.hc-section{padding:62px 0}.hc-cards,.hc-social-grid{grid-template-columns:1fr}.hc-card{min-height:205px}.hc-social-card{min-height:235px}.hc-address-panel{padding:25px}.hc-hero-actions .hc-btn{width:100%}}
 @media(prefers-reduced-motion:reduce){.hc-card,.hc-social-card,.hc-btn{transition:none!important;transform:none!important}}
+
+
+/* Kontaktformular */
+.hc-form-layout{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(285px,.78fr);gap:24px;align-items:start;margin-top:36px}
+.hc-form-card{background:#fff;border:1px solid #dce6dc;border-radius:22px;padding:clamp(22px,4vw,42px);box-shadow:0 17px 55px #12352110;min-width:0}
+.hc-form-head{display:flex;align-items:center;gap:14px;margin-bottom:28px}
+.hc-form-head strong{display:block;color:#183729;font-size:18px}
+.hc-form-head small{display:block;color:#748576;font-size:12px;margin-top:2px}
+.hc-form-step{width:48px;height:48px;border-radius:13px;background:#e5efe6;color:#24593b;display:grid;place-items:center;font-size:24px}
+.hc-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 16px}
+.hc-field{display:flex;flex-direction:column;gap:8px;min-width:0}
+.hc-field.wide{grid-column:1/-1}
+.hc-field label{color:#283e2f;font-size:13px;font-weight:800}
+.hc-field input:not([type=checkbox]),.hc-field select,.hc-field textarea{width:100%;min-width:0;max-width:100%;font:inherit;color:#1f402c;background:#fcfefb;border:1px solid #cad8ce;border-radius:11px;padding:13px 15px;transition:border-color .2s,box-shadow .2s}
+.hc-field input:not([type=checkbox]),.hc-field select{min-height:51px}
+.hc-field textarea{line-height:1.6;resize:vertical;min-height:146px}
+.hc-field input::placeholder,.hc-field textarea::placeholder{color:#889989}
+.hc-field input:focus,.hc-field textarea:focus,.hc-field select:focus{border-color:#2b6441;outline:none;box-shadow:0 0 0 3px #37824b1e}
+.hc-field-note,.hc-submit-note{font-size:12px;color:#6c8070;line-height:1.6}
+.hc-submit-note{margin:5px 0 0}
+.hc-consent{display:flex;align-items:flex-start;gap:11px;font-weight:500!important;color:#5e7162!important;line-height:1.65;font-size:12px!important}
+.hc-consent input{width:18px;height:18px;margin-top:1px;accent-color:#275d3b;flex:0 0 auto}
+.hc-consent a{color:#215a37;text-decoration:underline;font-weight:800}
+.hc-submit{display:flex;align-items:center;justify-content:center;gap:12px;min-height:54px;padding:15px 23px;border:0;border-radius:12px;background:#214d33;color:white;font:inherit;font-weight:850;cursor:pointer;transition:background .2s,transform .2s}
+.hc-submit:hover{background:#316944;transform:translateY(-2px)}
+.hc-honeypot{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;opacity:0!important;pointer-events:none!important}
+.hc-form-aside{background:linear-gradient(140deg,#152b20,#244933);color:#fff;padding:33px;border-radius:22px;position:sticky;top:104px}
+.hc-form-aside .hc-label{color:#e4cc99}
+.hc-form-aside h3{font-family:Georgia,serif;font-size:32px;letter-spacing:-.045em;line-height:1.2;font-weight:400;margin:17px 0}
+.hc-form-aside>p{color:#d9e4da;line-height:1.75;font-size:14px}
+.hc-aside-link{color:white;text-decoration:none;border:1px solid #ffffff2d;background:#ffffff0c;border-radius:13px;display:flex;align-items:center;gap:13px;margin-top:12px;padding:15px}
+.hc-aside-link:hover{background:#ffffff1a}
+.hc-aside-link .hc-aside-icon{width:38px;height:38px;flex:0 0 38px;background:#ffffff15;border-radius:11px;display:grid;place-items:center;color:#ecd5a5;font-size:18px}
+.hc-aside-link>span:nth-child(2){flex:1;min-width:0}
+.hc-aside-link small{display:block;color:#d2dbd2;font-size:10px;letter-spacing:.08em}
+.hc-aside-link strong{font-size:13px;overflow-wrap:anywhere}
+.hc-form-aside hr{border:0;border-top:1px solid #ffffff39;margin:26px 0}
+.hc-form-aside .hc-aside-address{font-size:13px;margin:0}
+@media(max-width:850px){.hc-form-layout{grid-template-columns:1fr}.hc-form-aside{position:static}}
+@media(max-width:570px){.hc-form{grid-template-columns:1fr}.hc-form-card{padding:23px}.hc-form-aside{padding:25px}.hc-submit{width:100%}}
 </style></head><body><a class="skip" href="#main">Zum Inhalt springen</a><div class="progress" aria-hidden="true"></div><header><div class="wrap top"><a class="brand" href="index.html"><img src="assets/logo.jpg" width="46" height="46" alt=""><span>HAPPY ECK<small>DEIN KIOSK IN HAMM</small></span></a><button type="button" class="menu-btn" aria-expanded="false" aria-controls="nav-links">Menü ☰</button><nav class="nav" id="nav-links" aria-label="Hauptnavigation"><a href="index.html#ueber-uns">Über uns</a><a href="index.html#services">Sortiment</a><a href="guthaben.html">Angebot</a><a href="oeffnungszeiten.html">Öffnungszeiten</a><a href="jobs.html">Jobs</a><a href="kontakt.html" aria-current="page">Kontakt</a><a class="nav-cta" href="https://www.lieferando.de/speisekarte/happy-eck-kiosk-59063-hamm" target="_blank" rel="noopener noreferrer">Jetzt bestellen ↗</a></nav></div></header><main id="main">
 <section class="hc-hero" aria-labelledby="hc-title"><div class="wrap hc-hero-grid"><div>
 <span class="hc-label">Kontakt · Happy Eck Kiosk</span>
@@ -53,11 +93,36 @@
 <p class="hc-hero-lead">Du hast eine Frage, möchtest ein Produkt anfragen oder uns besuchen? Schreib uns ganz unkompliziert – wir freuen uns auf deine Nachricht.</p>
 <div class="hc-hero-actions"><a class="hc-btn" href="https://wa.me/4917661020308?text=Hallo%20Happy%20Eck%2C%20ich%20habe%20eine%20Frage." target="_blank" rel="noopener noreferrer">WhatsApp schreiben <span aria-hidden="true">↗</span></a><a class="hc-btn hc-btn-outline" href="tel:+4917661020308">Jetzt anrufen <span aria-hidden="true">↗</span></a></div>
 </div><aside class="hc-hero-panel"><span>Dein Kiosk in Hamm</span><strong>Persönlich. Erreichbar.<br>Ganz in deiner Nähe.</strong><p>Caldenhofer Weg 207<br>59063 Hamm</p></aside></div></section>
-<section class="hc-section alt" aria-labelledby="hc-contact-title"><div class="wrap"><span class="kicker">WÄHLE DEINEN KONTAKTWEG</span><h2 class="hc-section-title" id="hc-contact-title">So erreichst du uns.</h2><p class="hc-intro">Ein Anruf, eine Nachricht oder eine E-Mail – wähle einfach den Weg, der für dich am besten passt.</p>
-<div class="hc-cards">
-<a class="hc-card" href="tel:+4917661020308"><span class="hc-card-icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.18 2 19.9 19.9 0 0 1-8.69-3.09 19.6 19.6 0 0 1-6.02-6.02A19.9 19.9 0 0 1 2.02 4.1 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.72c.13.95.37 1.87.7 2.76a2 2 0 0 1-.45 2.11L8 9.9a16 16 0 0 0 6.1 6.1l1.31-1.25a2 2 0 0 1 2.11-.45 13 13 0 0 0 2.76.7A2 2 0 0 1 22 16.9Z"/></svg></span><small>Telefon</small><strong>0176 61020308</strong><span class="hc-card-arrow">Jetzt anrufen ↗</span></a>
-<a class="hc-card" href="https://wa.me/4917661020308?text=Hallo%20Happy%20Eck%21" target="_blank" rel="noopener noreferrer"><span class="hc-card-icon" style="background:#e4f7e9;color:#128c4b"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>WhatsApp</title><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></span><small>WhatsApp</small><strong>Direkt mit uns chatten</strong><span class="hc-card-arrow">Nachricht schreiben ↗</span></a>
-<a class="hc-card" href="mailto:happyeck10@gmail.com"><span class="hc-card-icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m3 6 9 7 9-7"/></svg></span><small>E-Mail</small><strong>happyeck10@gmail.com</strong><span class="hc-card-arrow">E-Mail schreiben ↗</span></a>
+<section class="hc-section alt" id="nachricht" aria-labelledby="hc-contact-title"><div class="wrap">
+<span class="kicker">WIR SIND FÜR DICH DA</span>
+<h2 class="hc-section-title" id="hc-contact-title">Schreib uns eine Nachricht.</h2>
+<p class="hc-intro">Du hast eine Frage oder einen Wunsch? Trage einfach deine Angaben und dein Anliegen ein. Wir melden uns bei dir.</p>
+<div class="hc-form-layout">
+<div class="hc-form-card">
+<div class="hc-form-head"><span class="hc-form-step" aria-hidden="true">✉</span><div><strong>Kontaktformular</strong><small>Mit * gekennzeichnete Felder sind Pflichtfelder.</small></div></div>
+<form id="kontaktformular" class="hc-form" action="https://formsubmit.co/happyeck10@gmail.com" method="POST" accept-charset="UTF-8">
+<input type="hidden" name="_subject" value="Neue Kontaktanfrage – Happy Eck Kiosk">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_next" value="https://happyeck.de/kontakt-erfolg.html">
+<input type="hidden" name="_url" value="https://happyeck.de/kontakt.html">
+<input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" class="hc-honeypot">
+<div class="hc-field"><label for="contact-name">Vor- und Nachname *</label><input id="contact-name" name="Name" type="text" autocomplete="name" placeholder="Dein vollständiger Name" minlength="2" maxlength="120" required></div>
+<div class="hc-field"><label for="contact-phone">Telefonnummer *</label><input id="contact-phone" name="Telefon" type="tel" autocomplete="tel" placeholder="z. B. 0176 12345678" maxlength="35" required></div>
+<div class="hc-field"><label for="contact-email">Deine E-Mail-Adresse *</label><input id="contact-email" name="email" type="email" autocomplete="email" placeholder="name@beispiel.de" maxlength="200" required></div>
+<div class="hc-field"><label for="contact-topic">Dein Anliegen *</label><select id="contact-topic" name="Anliegen" required><option value="">Bitte auswählen</option><option>Frage zu einem Produkt</option><option>Bestellung oder Lieferung</option><option>GLS Paketshop</option><option>Guthaben &amp; Gutscheine</option><option>Lob oder Feedback</option><option>Sonstiges Anliegen</option></select></div>
+<div class="hc-field wide"><label for="contact-message">Deine Nachricht *</label><textarea id="contact-message" name="Nachricht" rows="6" minlength="10" maxlength="4000" placeholder="Erzähl uns kurz, wie wir dir helfen können …" required></textarea><span class="hc-field-note">Schreib uns hier deine Frage oder deinen Wunsch.</span></div>
+<div class="hc-field wide"><label class="hc-consent"><input type="checkbox" required><span>Ich habe die <a href="#datenschutz-kontakt">Datenschutzhinweise</a> gelesen und bin mit der Verarbeitung meiner Angaben zur Bearbeitung meiner Anfrage einverstanden. *</span></label></div>
+<div class="hc-field wide"><button type="submit" class="hc-submit">Nachricht senden <span aria-hidden="true">↗</span></button><p class="hc-submit-note">Nach dem Absenden erhältst du eine Bestätigung. Wir melden uns so bald wie möglich persönlich bei dir.</p></div>
+</form>
+</div>
+<aside class="hc-form-aside">
+<span class="hc-label">DEIN DIREKTER DRAHT</span>
+<h3>Wir hören dir zu.</h3>
+<p>Du möchtest lieber sofort mit uns sprechen? Ruf uns einfach an oder schreib uns über WhatsApp.</p>
+<a class="hc-aside-link" href="tel:+4917661020308"><span class="hc-aside-icon" aria-hidden="true">☎</span><span><small>Telefon</small><strong>0176 61020308</strong></span><span aria-hidden="true">↗</span></a>
+<a class="hc-aside-link" href="https://wa.me/4917661020308?text=Hallo%20Happy%20Eck%2C%20ich%20habe%20eine%20Frage." target="_blank" rel="noopener noreferrer"><span class="hc-aside-icon" aria-hidden="true">✦</span><span><small>WhatsApp</small><strong>Nachricht schreiben</strong></span><span aria-hidden="true">↗</span></a>
+<hr><p class="hc-aside-address"><strong>Happy Eck Kiosk</strong><br>Caldenhofer Weg 207<br>59063 Hamm</p>
+</aside>
 </div></div></section>
 <section class="hc-section" id="social" aria-labelledby="hc-social-title"><div class="wrap"><span class="kicker">FOLGE HAPPY ECK</span><h2 class="hc-section-title" id="hc-social-title">Auch online für dich da.</h2><p class="hc-intro">Entdecke unseren Kiosk auf Instagram und TikTok. Dort findest du unsere Beiträge und Videos.</p><div class="hc-social-grid">
 <a class="hc-social-card hc-instagram" href="https://www.instagram.com/happy.eck.kiosk/" target="_blank" rel="noopener noreferrer" aria-label="Happy Eck Instagram Profil @happy.eck.kiosk öffnen"><span class="hc-social-symbol"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Instagram</title><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></span><small>Instagram</small><strong>@happy.eck.kiosk</strong><span class="hc-social-cta">Instagram-Profil besuchen ↗</span></a>
@@ -73,11 +138,11 @@
         <p>Happy Eck Kiosk<br>Inhaber: Haval Mahmud Haji Al Fares<br>Caldenhofer Weg 207<br>59063 Hamm<br>Deutschland</p>
         <p>Telefon: <a href="tel:+4917661020308">0176 61020308</a><br>E-Mail: <a href="mailto:happyeck10@gmail.com">happyeck10@gmail.com</a></p>
       </details>
-      <details><summary>Datenschutz</summary>
+      <details id="datenschutz-kontakt"><summary>Datenschutz</summary>
         <h3>Datenschutzhinweise</h3>
         <p>Verantwortlicher: Haval Mahmud Haji Al Fares, Happy Eck Kiosk, Caldenhofer Weg 207, 59063 Hamm. Kontakt: <a href="mailto:happyeck10@gmail.com">happyeck10@gmail.com</a>.</p>
-        <p>Beim Aufrufen der Webseite kann der Hostinganbieter technisch notwendige Verbindungsdaten verarbeiten. Wir verwenden auf dieser Seite keine eigenen Tracking-Dienste oder Kontaktformulare.</p>
-        <p>Wenn du uns per E-Mail, Telefon oder WhatsApp kontaktierst, werden die übermittelten Angaben zur Bearbeitung deiner Anfrage verarbeitet. Bei Links zu externen Diensten gelten deren Datenschutzhinweise.</p>
+        <p>Beim Aufrufen der Webseite kann der Hostinganbieter technisch notwendige Verbindungsdaten verarbeiten. Wir verwenden auf dieser Seite keine eigenen Tracking-Dienste. Das Kontaktformular sendet die angegebenen Kontaktdaten, das ausgewählte Anliegen und die Nachricht über den externen Dienst FormSubmit zur Bearbeitung deiner Anfrage.</p>
+        <p>Wenn du das Kontaktformular verwendest oder uns telefonisch beziehungsweise über WhatsApp kontaktierst, verarbeiten wir die Angaben zur Beantwortung deiner Anfrage. Der Formulardienst FormSubmit verarbeitet die Formulardaten bei der Übermittlung. Bitte beachte seine Datenschutzhinweise. Bei anderen externen Diensten gelten deren jeweiligen Datenschutzhinweise.</p>
         <p>Du hast im Rahmen der gesetzlichen Voraussetzungen Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung und Widerspruch sowie ein Beschwerderecht bei der zuständigen Datenschutzaufsicht.</p>
       </details>
 </div></footer>
