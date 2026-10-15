@@ -40,8 +40,19 @@
             <input id="admin-password" type="password" autocomplete="current-password" placeholder="Dein Passwort" required minlength="6">
             <button type="submit" id="login-submit" class="primary-btn"><span id="login-label">Sicher anmelden</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
           </form>
+          <button id="forgot-password" class="logout-btn" type="button">Passwort vergessen?</button>
           <p id="login-error" class="status error" role="alert" hidden></p>
+          <p id="recovery-request-status" class="status" role="status" hidden></p>
           <p class="login-note">Kein öffentliches Nutzerkonto. Deine Anmeldung wird nicht auf der Startseite angezeigt.</p>
+        </section>
+      </section>
+      <section id="reset-view" class="login-view" aria-labelledby="reset-title" hidden>
+        <div class="login-intro"><span class="eyebrow">HAPPY ECK ADMIN</span><h1 id="reset-title">Neues Passwort.</h1><p>Lege hier ein neues, sicheres Passwort für deinen privaten Statistikbereich fest.</p></div>
+        <section class="login-card" aria-label="Passwort ändern"><h2>Passwort zurücksetzen</h2><p>Mindestens 12 Zeichen. Nutze am besten ein einzigartiges Passwort.</p>
+          <form id="reset-form"><label for="new-password">Neues Passwort</label><input id="new-password" type="password" autocomplete="new-password" minlength="12" maxlength="128" required>
+          <label for="confirm-password">Passwort wiederholen</label><input id="confirm-password" type="password" autocomplete="new-password" minlength="12" maxlength="128" required>
+          <button id="reset-submit" class="primary-btn" type="submit">Passwort sicher speichern</button></form>
+          <p id="reset-status" class="status" role="alert" hidden></p>
         </section>
       </section>
       <section id="dashboard-view" class="dashboard-view" aria-labelledby="dashboard-title" hidden>
