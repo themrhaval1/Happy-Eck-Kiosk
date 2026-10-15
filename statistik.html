@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="same-origin">
+<meta name="theme-color" content="#123a28">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self' https://jhoueubxgwerbwxyfhml.supabase.co; font-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'none'; form-action 'self'">
+<title>Happy Eck Login & Statistik</title>
+<link rel="icon" href="assets/logo.jpg">
+<link rel="stylesheet" href="assets/statistik.css">
+</head>
+<body>
+<header class="site-header"><div class="shell header-inner">
+<a class="brand" href="index.html"><img src="assets/logo.jpg" alt="" width="42" height="42"><span>HAPPY ECK<small>INTERNER BEREICH</small></span></a>
+<a class="back" href="index.html">← Zur Startseite</a>
+</div></header>
+<main class="shell">
+<section class="intro"><span class="eyebrow">HAPPY ECK · INHABERBEREICH</span><h1>Deine Webseite.<br><em>Deine Zahlen.</em></h1><p>Sieh, welche Seiten besucht werden und was deine Kunden am häufigsten anklicken.</p></section>
+<p id="notice" class="notice" role="status" aria-live="polite" hidden></p>
+<section id="login-panel" class="login-layout">
+<div class="login-box">
+<div class="login-icon" aria-hidden="true">⌁</div>
+<h2>Happy Eck Login</h2><p class="subtext">Melde dich mit deinem freigeschalteten Konto an.</p>
+<form id="login-form">
+<label for="login-email">E-Mail-Adresse</label>
+<input id="login-email" type="email" autocomplete="username" maxlength="254" placeholder="Deine E-Mail-Adresse" required>
+<label for="login-password">Passwort</label>
+<input id="login-password" type="password" autocomplete="current-password" placeholder="Dein Passwort" minlength="6" required>
+<button id="login-submit" type="submit">Sicher anmelden <span aria-hidden="true">→</span></button>
+</form>
+<small class="login-help">Die Statistiken sind ausschließlich für freigeschaltete Konten sichtbar. Zugangsdaten bitte nicht weitergeben.</small>
+</div>
+<aside class="info-box"><span class="eyebrow">DEIN ÜBERBLICK</span><h2>Alles auf einen Blick.</h2><div class="info-item"><span aria-hidden="true">◷</span><p><strong>Heute und letzte 7 Tage</strong><small>Wie oft wurde deine Webseite aufgerufen?</small></p></div><div class="info-item"><span aria-hidden="true">↗</span><p><strong>Meistgeklickte Bereiche</strong><small>GLS, Anfahrt, Lieferando, Kontakt und mehr.</small></p></div><div class="info-item"><span aria-hidden="true">▥</span><p><strong>Ohne Besucherprofile</strong><small>Nur zusammengefasste Zahlen, keine Namen oder IP-Adressen in der Statistik.</small></p></div></aside>
+</section>
+<section id="dashboard" hidden aria-labelledby="dashboard-title">
+<div class="dash-top"><div><span class="eyebrow">PRIVATE AUSWERTUNG</span><h2 id="dashboard-title">Happy Eck Statistik</h2><p id="account-label" class="subtext"></p></div><div class="top-actions"><button id="refresh" type="button" class="secondary">Aktualisieren ↻</button><button id="logout" type="button" class="secondary">Abmelden</button></div></div>
+<div class="stats-grid">
+<article class="stat-card"><small>SEITENAUFRUFE HEUTE</small><strong id="views-today" aria-live="polite">–</strong><span>Alle besuchten Seiten</span></article>
+<article class="stat-card"><small>SEITENAUFRUFE · 7 TAGE</small><strong id="views-week" aria-live="polite">–</strong><span>Letzte 7 Kalendertage</span></article>
+<article class="stat-card"><small>SEITENAUFRUFE · 30 TAGE</small><strong id="views-month" aria-live="polite">–</strong><span>Letzte 30 Kalendertage</span></article>
+<article class="stat-card"><small>KLICKS · 30 TAGE</small><strong id="clicks-month" aria-live="polite">–</strong><span>Auf wichtige Buttons und Links</span></article>
+</div>
+<div class="data-grid">
+<section class="data-card"><div class="card-heading"><div><small>AUFRUFE</small><h3>Letzte 14 Tage</h3></div><span id="chart-period" class="hint"></span></div><div id="views-chart" class="views-chart" aria-label="Seitenaufrufe pro Tag"></div></section>
+<section class="data-card"><div class="card-heading"><div><small>MEISTGEKLICKT</small><h3>Das interessiert Kunden</h3></div></div><div id="popular-clicks" class="rank-list"></div></section>
+</div>
+<div class="data-grid bottom-grid">
+<section class="data-card"><div class="card-heading"><div><small>BELIEBTE SEITEN</small><h3>Aufrufe je Seite</h3></div></div><div id="popular-pages" class="rank-list"></div></section>
+<section class="data-card note-card"><h3>Was bedeuten die Zahlen?</h3><p>Die Statistik zählt <strong>Seitenaufrufe</strong> und <strong>Klicks</strong>. Sie zählt nicht eindeutig unterschiedliche Personen: Ein Mensch kann mehrere Aufrufe erzeugen. Es werden keine Besucherprofile gespeichert.</p><p>Die Erfassung beginnt erst mit der Aktivierung dieser Funktion. Frühere Besuche können nicht rückwirkend gezählt werden.</p><small id="last-updated"></small></section>
+</div>
+</section>
+</main>
+<footer>© 2026 Happy Eck Kiosk · <a href="index.html">Zur Webseite</a></footer>
+<script src="assets/statistik.js" defer></script>
+</body>
+</html>
