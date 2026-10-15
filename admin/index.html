@@ -9,8 +9,8 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src https://jhoueubxgwerbwxyfhml.supabase.co; base-uri 'none'; form-action 'self'">
   <title>Happy Eck | Meine Statistik</title>
   <link rel="icon" href="../assets/logo.jpg">
-  <link rel="stylesheet" href="./admin.css">
-  <script src="./dashboard.js" defer></script>
+  <link rel="stylesheet" href="./admin.css?v=3">
+  <script src="./dashboard.js?v=3" defer></script>
 </head>
 <body>
   <div class="page-shell">
@@ -61,8 +61,8 @@
           <button class="logout-btn" type="button" id="logout">Abmelden <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 17l5-5-5-5M15 12H3M12 3h5a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3h-5"/></svg></button>
         </div>
         <div class="dashboard-controls">
-          <div class="range" role="group" aria-label="Zeitraum"><button type="button" data-days="7">7 Tage</button><button type="button" data-days="30" aria-pressed="true">30 Tage</button></div>
-          <button id="refresh" class="refresh-btn" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 0 0-14-5L3 9M3 3v6h6M4 13a8 8 0 0 0 14 5l3-3M21 21v-6h-6"/></svg> Aktualisieren</button>
+          <div class="range" role="group" aria-label="Zeitraum"><button type="button" data-days="7">7 Tage</button><button type="button" data-days="30" aria-pressed="true">30 Tage</button><button type="button" data-days="90">90 Tage</button></div>
+          <button id="export-csv" class="refresh-btn" type="button">CSV exportieren</button><button id="refresh" class="refresh-btn" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 0 0-14-5L3 9M3 3v6h6M4 13a8 8 0 0 0 14 5l3-3M21 21v-6h-6"/></svg> Aktualisieren</button>
         </div>
         <p id="dashboard-status" class="dashboard-status" role="status" aria-live="polite"></p>
         <div class="stat-grid">
@@ -70,6 +70,7 @@
           <article class="stat-card"><div class="stat-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 3 13 9-6 1-3 7-4-17Z"/></svg></div><span>Erfasste Klicks</span><strong id="clicks-total">–</strong><small>Buttons und Links</small></article>
           <article class="stat-card"><div class="stat-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h18v17H3zM7 2v4M17 2v4M3 10h18"/></svg></div><span>Heute</span><strong id="today-total">–</strong><small>Seitenaufrufe heute (UTC)</small></article>
         </div>
+        <section class="insights-panel" aria-labelledby="insights-title"><div class="card-head"><div><span class="eyebrow small">DEIN GESCHÄFT AUF EINEN BLICK</span><h2 id="insights-title">Kurzüberblick</h2></div></div><div class="insights-grid"><div><span>Ø Seitenaufrufe pro Tag</span><strong id="avg-views">–</strong></div><div><span>Aktivster Tag</span><strong id="best-day">–</strong></div><div><span>Beliebteste Seite</span><strong id="best-page">–</strong></div><div><span>Häufigster Klick</span><strong id="best-click">–</strong></div></div></section>
         <div class="dashboard-grid">
           <section class="chart-card" aria-labelledby="daily-title"><div class="card-head"><div><span class="eyebrow small">BESUCHERINTERESSE</span><h2 id="daily-title">Seitenaufrufe pro Tag</h2></div><span class="subtle" id="chart-period">30 Tage</span></div><div id="daily-chart" class="daily-chart" role="img" aria-label="Diagramm der täglichen Seitenaufrufe"></div></section>
           <section class="rank-card" aria-labelledby="click-title"><div class="card-head"><div><span class="eyebrow small">BELIEBTESTE AKTIONEN</span><h2 id="click-title">Was wird angeklickt?</h2></div></div><div id="top-clicks" class="rank-list"></div></section>
