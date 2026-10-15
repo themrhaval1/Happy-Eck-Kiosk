@@ -1,0 +1,159 @@
+/* Happy Eck – mobile-first refinements, intentionally scoped to site pages.
+   Keep large screens unchanged and respect reduced-motion settings. */
+@media (max-width: 1020px) {
+  .site-page .top { min-height: 68px; gap: 12px; }
+  .site-page .brand { font-size: 16px; letter-spacing: .01em; }
+  .site-page .brand img { width: 41px; height: 41px; }
+  .site-page .menu-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 43px; padding: 10px 15px; border-radius: 12px;
+    font-size: 13px; font-weight: 800; white-space: nowrap;
+  }
+  .site-page .nav {
+    display: none; position: absolute; top: calc(100% + 1px);
+    left: 0; right: 0; z-index: 95;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px; padding: 17px max(17px, calc((100vw - 650px) / 2));
+    max-height: calc(100dvh - 70px); overflow-y: auto;
+    box-shadow: 0 18px 35px #0c211a2c;
+    border-bottom: 1px solid #d8e5d9;
+    border-radius: 0 0 20px 20px;
+  }
+  .site-page .nav.open { display: grid; }
+  .site-page .nav a {
+    display: flex; align-items: center; justify-content: center;
+    min-width: 0; min-height: 49px; padding: 10px 8px;
+    border-radius: 11px; border: 1px solid #d9e6dc;
+    background: #f4f8f3; color: #254b32; text-align: center;
+    font-size: 12px; font-weight: 750; line-height: 1.2;
+    letter-spacing: 0; white-space: normal;
+  }
+  .site-page .nav a::after { display: none; }
+  .site-page .nav a[aria-current="page"] { border-color: #8cb69a; background: #e8f3e9; color: #1c5a36; }
+  .site-page .nav .nav-cta {
+    grid-column: 1 / -1; min-height: 48px;
+    background: #214d33; color: #fff; border-color: #214d33;
+    padding: 13px;
+  }
+  .site-page:not(.page-home) .nav { background: #142e22; border-color: #244f34; }
+  .site-page:not(.page-home) .nav a { background: #1d3d2d; color: #f4f8f3; border-color: #3a5946; }
+  .site-page:not(.page-home) .nav a[aria-current="page"] { background: #2a5738; color: #f4dcaa; }
+  .site-page:not(.page-home) .nav .nav-cta { background: #f0dba7; color: #1e3d2a; border-color: #f0dba7; }
+}
+@media (max-width: 650px) {
+  html { scroll-padding-top: 74px; }
+  .site-page .wrap { width: min(100% - 32px, 1080px); }
+  .site-page .section { padding-block: 44px; }
+  .site-page .section-title { font-size: clamp(29px, 8vw, 39px); line-height: 1.17; }
+  .page-home .hero-layout { grid-template-columns: 1fr; padding-block: 35px 29px; gap: 19px; }
+  .page-home .hero-inner { padding: 0; }
+  .page-home .hero h1 { font-size: clamp(45px, 12vw, 64px); margin: 13px 0 10px; line-height: 1.05; }
+  .page-home .eyebrow { font-size: 9px; line-height: 1.4; letter-spacing: .095em; }
+  .page-home .hero-tagline { font-size: 18px; line-height: 1.42; margin-bottom: 8px; }
+  .page-home .hero-description { font-size: 13px; line-height: 1.65; margin: 0; }
+  .page-home .hero-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-top: 19px; }
+  .page-home .hero-actions .btn { min-width: 0; min-height: 49px; font-size: 12px; line-height: 1.25; padding: 10px 8px; text-align: center; }
+  .page-home .hero-panel { width: 100%; max-width: none; border-radius: 14px; box-shadow: none; }
+  .page-home .hero-panel-inner { min-height: 0; padding: 13px 17px; border-radius: 13px; display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 13px; }
+  .page-home .hero-panel-eyebrow, .page-home .hero-panel-symbol, .page-home .hero-panel-inner strong { display: none; }
+  .page-home .hero-panel-inner p { margin: 0; color: #ebf3ea; font-size: 11px; line-height: 1.5; }
+  .page-home .hero-panel-inner a { margin: 0; flex-shrink: 0; font-size: 11px; border: 0; padding: 7px 0; text-align: right; }
+  .page-home .intro-section { padding-block: 25px; }
+  .page-home .intro-section .section-title { font-size: 23px; margin: 8px 0 10px; line-height: 1.2; }
+  .page-home .intro-section p { font-size: 13px; line-height: 1.6; margin: 0; }
+  .page-home .service-section { padding-block: 43px; }
+  .page-home .service-section .section-head { margin-bottom: 19px; }
+  .page-home .service-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .page-home .service-card {
+    min-height: 169px; padding: 17px 14px;
+    border-radius: 16px; gap: 4px;
+    box-shadow: 0 5px 19px #123f1f0d;
+  }
+  .page-home .service-icon { width: 39px; height: 39px; border-radius: 11px; font-size: 23px; margin-bottom: 8px; }
+  .page-home .service-card h3 { font-size: clamp(15px, 4.2vw, 18px); line-height: 1.18; margin: 0 0 8px; overflow-wrap: anywhere; }
+  .page-home .service-card p { display: none; }
+  .page-home .service-card strong { font-size: 11px; line-height: 1.4; }
+  .page-home .visit-section { padding-block: 41px; }
+  .page-home .visit-grid { gap: 18px; }
+  .page-home .visit-grid address { font-size: 13px; line-height: 1.6; }
+  .page-home .visit-actions { display: grid; grid-template-columns: 1fr 1fr; width: 100%; gap: 9px; margin-top: 0; }
+  .page-home .visit-actions .btn { min-height: 47px; padding: 10px 9px; font-size: 12px; }
+  .page-home .shop-gallery { padding-block: 41px 46px; }
+  .page-home .shop-gallery .section-head { margin-bottom: 18px; }
+  .page-home .gallery-intro { font-size: 13px; }
+  .page-home .shop-gallery-grid {
+    display: grid; grid-template-columns: none;
+    grid-auto-columns: minmax(215px, 75%);
+    grid-auto-flow: column;
+    gap: 11px; overflow-x: auto; overflow-y: hidden;
+    scroll-snap-type: x mandatory; overscroll-behavior-x: contain;
+    padding: 0 1px 12px;
+  }
+  .page-home .gallery-tile { scroll-snap-align: start; border-radius: 15px; }
+  .page-home .shop-gallery-grid::-webkit-scrollbar { height: 5px; }
+  .page-home .shop-gallery-grid::-webkit-scrollbar-thumb { background: #bdd0bf; border-radius: 5px; }
+  .page-home .gallery-notice { font-size: 11px; margin-top: 9px; }
+  .page-home .footer-top { align-items: flex-start; gap: 8px; }
+  .site-page footer { padding-bottom: 32px; }
+
+  /* Faster first impression on service pages: skip the redundant large info panels. */
+  .page-contact .hc-hero, .page-jobs .jb-hero { padding-block: 43px 46px; }
+  .page-contact .hc-hero .hc-hero-grid, .page-jobs .jb-hero-grid { grid-template-columns: 1fr; gap: 0; }
+  .page-contact .hc-hero h1, .page-jobs .jb-hero h1 { font-size: clamp(42px, 11vw, 61px); margin: 14px 0 13px; }
+  .page-contact .hc-hero-lead, .page-jobs .jb-lead { font-size: 14px; line-height: 1.6; }
+  .page-contact .hc-hero-panel, .page-jobs .jb-hero-aside { display: none; }
+  .page-contact .hc-hero-actions, .page-jobs .jb-actions { margin-top: 19px; }
+  .page-contact .hc-section, .page-jobs .jb-section { padding-block: 45px; }
+  .page-contact .hc-section-title, .page-jobs .jb-title { font-size: clamp(31px, 8vw, 40px); }
+  .page-contact .hc-intro, .page-jobs .jb-intro { font-size: 14px; line-height: 1.65; }
+  .page-contact .hc-social-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; }
+  .page-contact .hc-social-card { min-width: 0; min-height: 170px; padding: 17px; gap: 10px; border-radius: 16px; }
+  .page-contact .hc-social-symbol { width: 43px; height: 43px; border-radius: 12px; }
+  .page-contact .hc-social-symbol svg { width: 24px; height: 24px; }
+  .page-contact .hc-social-card strong { font-size: clamp(14px, 3.8vw, 19px); line-height: 1.15; overflow-wrap: anywhere; }
+  .page-contact .hc-social-card small { font-size: 10px; }
+  .page-contact .hc-social-card .hc-social-cta { font-size: 11px; line-height: 1.4; }
+  .page-contact .hc-form-layout { margin-top: 22px; }
+  .page-contact .hc-form-card, .page-jobs .jb-form-card { padding: 21px; }
+  .page-jobs .jb-perks { display: flex; gap: 11px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 12px; margin-top: 20px; }
+  .page-jobs .jb-perk { flex: 0 0 min(270px, 82%); scroll-snap-align: start; padding: 19px; min-height: 175px; }
+  .page-jobs .jb-perk b { width: 38px; height: 38px; margin-bottom: 10px; }
+  .page-jobs .jb-perk h3 { font-size: 22px; margin-bottom: 6px; }
+  .page-jobs .jb-perk p { font-size: 13px; line-height: 1.5; }
+  .page-hours .sub-hero { min-height: 0; background: linear-gradient(115deg,#122d20,#2a553a); }
+  .page-hours .sub-hero-image { background: none; }
+  .page-hours .sub-hero-content { padding-block: 42px 38px; }
+  .page-hours .sub-hero h1 { font-size: clamp(35px, 9vw, 51px); margin: 11px 0; }
+  .page-hours .sub-hero p { font-size: 13px; line-height: 1.5; }
+  .page-hours .page-section { padding-block: 45px; }
+  .page-hours .section-head { margin-bottom: 18px; }
+  .page-hours .detail-card { padding: 23px; }
+  .page-hours .detail-card h3 { font-size: 25px; }
+  .page-hours .detail-card dl div { display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: baseline; gap: 9px; }
+  .page-hours .detail-card dt, .page-hours .detail-card dd { font-size: 13px; white-space: normal; }
+  .page-hours .page-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+  .page-hours .page-actions .btn { min-height: 48px; padding: 10px; text-align: center; font-size: 12px; }
+}
+@media (max-width: 750px) {
+  .page-gls .main { padding-top: 20px; padding-bottom: 45px; }
+  .page-gls .main-grid { gap: 14px; }
+  .page-gls .schedule { display: none; }
+  .page-gls .hours h2 { margin-bottom: 14px; }
+  .page-gls .time-highlight { margin-bottom: 0; }
+  .page-gls .note { margin-top: 10px; }
+  .page-gls .gls-help { margin-top: 14px; }
+  .page-gls .location { margin-top: 14px; }
+}
+@media (max-width: 430px) {
+  .page-home .hero-panel-inner { padding: 12px 13px; gap: 8px; }
+  .page-home .hero-panel-inner a { font-size: 10px; }
+  .page-home .hero-actions .btn { font-size: 11px; }
+  .page-home .service-card { padding: 15px 12px; min-height: 155px; }
+  .page-home .service-icon { width: 36px; height: 36px; font-size: 20px; }
+  .page-home .service-card h3 { font-size: 15px; }
+  .page-home .gallery-tile { aspect-ratio: 4 / 3; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-page *, .site-page *::before, .site-page *::after,
+  .page-gls *, .page-gls *::before, .page-gls *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
