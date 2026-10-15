@@ -5,7 +5,7 @@ const el=id=>document.getElementById(id);
 const labels={startseite:"Startseite",kontakt:"Kontakt",jobs:"Jobs & Bewerbung",gls:"GLS Paketshop",guthaben:"Guthaben & Gutscheine",oeffnungszeiten:"Öffnungszeiten",kontakt_erfolg:"Kontaktbestätigung",bewerbung_erfolg:"Bewerbungsbestätigung",navigation:"Navigation",lieferando:"Lieferando",google_maps:"Google Maps",apple_karten:"Apple Karten",instagram:"Instagram",tiktok:"TikTok",whatsapp:"WhatsApp",anrufen:"Anrufen",kontaktformular:"Kontaktformular",bewerbung:"Bewerbung senden",paket_versenden:"GLS Paket versenden",sendung_verfolgen:"Sendung verfolgen",andere_aktion:"Weitere Aktionen"};
 let token="",rows=[],days=30,utcToday=new Date().toISOString().slice(0,10);
 const num=new Intl.NumberFormat("de-DE");
-function showLogin(msg=""){token="";el("login-view").hidden=false;el("dashboard-view").hidden=true;el("login-error").textContent=msg;el("login-error").hidden=!msg;}
+function showLogin(msg=""){token="";el("login-view").hidden=false;el("dashboard-view").hidden=true;el("reset-view").hidden=true;el("login-error").textContent=msg;el("login-error").hidden=!msg;}
 function showDashboard(){el("login-view").hidden=true;el("dashboard-view").hidden=false;el("admin-password").value="";}
 function setBusy(b){el("login-submit").disabled=b;el("login-label").textContent=b?"Anmeldung läuft …":"Sicher anmelden";}
 function errorMessage(e){return e?.message||"Bitte versuche es erneut.";}
@@ -62,4 +62,76 @@ el("login-form").addEventListener("submit",login);
 el("logout").addEventListener("click",()=>showLogin());
 el("refresh").addEventListener("click",async()=>{el("refresh").disabled=true;try{await fetchStats()}catch(e){el("dashboard-status").textContent="Fehler: "+errorMessage(e);if(e.message.includes("abgelaufen")||e.message==="Nicht berechtigt")showLogin(e.message);}finally{el("refresh").disabled=false}});
 for(const btn of document.querySelectorAll("[data-days]"))btn.addEventListener("click",()=>{days=Number(btn.dataset.days);for(const b of document.querySelectorAll("[data-days]"))b.setAttribute("aria-pressed",String(b===btn));render()});
-showLogin();
+
+function showRecoveryStatus(message,isError=false){
+ const node=el("recovery-request-status");node.textContent=message;node.hidden=!message;
+ node.style.color=isError?"#923e38":"#285b3d";
+}
+el("forgot-password").addEventListener("click",async()=>{
+ const address=el("admin-email").value.trim();
+ if(!address||!el("admin-email").checkValidity()){
+  showRecoveryStatus("Bitte gib zuerst deine Admin-E-Mail-Adresse ein.",true);el("admin-email").focus();return;
+ }
+ const btn=el("forgot-password");btn.disabled=true;showRecoveryStatus("Einen Moment, wir senden den Link …");
+ try{
+  const redirect=location.origin+"/admin/";
+  const res=await fetch(URL+"/auth/v1/recover?redirect_to="+encodeURIComponent(redirect),{
+   method:"POST",headers:{"Content-Type":"application/json",apikey:KEY},
+   body:JSON.stringify({email:address})
+  });
+  if(!res.ok)throw new Error(res.status===429?"Bitte warte etwas, bevor du erneut einen Link anforderst.":"Der Link konnte gerade nicht versendet werden. Bitte versuche es später erneut.");
+  showRecoveryStatus("Wenn die E-Mail registriert ist, erhältst du einen Link zum Zurücksetzen. Prüfe auch deinen Spam-Ordner.");
+ }catch(e){showRecoveryStatus(errorMessage(e),true)}
+ finally{btn.disabled=false;}
+});
+function openReset(tokenFromLink){
+ token=tokenFromLink;el("login-view").hidden=true;el("dashboard-view").hidden=true;el("reset-view").hidden=false;
+ el("reset-status").hidden=true;
+}
+async function handleRecoveryLink(){
+ const hash=new URLSearchParams(location.hash.slice(1));
+ const query=new URLSearchParams(location.search);
+ const type=hash.get("type")||query.get("type");
+ const access=hash.get("access_token");
+ const refresh=hash.get("refresh_token");
+ const code=query.get("code");
+ const error=hash.get("error_description")||query.get("error_description")||hash.get("error")||query.get("error");
+ // Remove sensitive tokens immediately, including browser history.
+ if(location.hash||query.has("code")||query.has("error"))history.replaceState(null,"",location.pathname);
+ if(error){showLogin("Der Link ist abgelaufen oder ungültig. Fordere bitte einen neuen Link an.");return;}
+ if(type==="recovery"&&access){openReset(access);return;}
+ // PKCE recovery links may return an authorization code rather than a hash.
+ if(code){
+  try{
+   const verifier=sessionStorage.getItem("happy_eck_recovery_verifier");
+   if(!verifier)throw new Error("Bitte fordere auf diesem Gerät einen neuen Passwort-Link an.");
+   sessionStorage.removeItem("happy_eck_recovery_verifier");
+   const res=await fetch(URL+"/auth/v1/token?grant_type=pkce",{method:"POST",headers:{"Content-Type":"application/json",apikey:KEY},body:JSON.stringify({auth_code:code,code_verifier:verifier})});
+   const data=await res.json();if(!res.ok||!data.access_token)throw new Error("Der Link konnte nicht bestätigt werden.");
+   openReset(data.access_token);
+  }catch(e){showLogin(errorMessage(e));}
+  return;
+ }
+ showLogin();
+}
+el("reset-form").addEventListener("submit",async event=>{
+ event.preventDefault();const a=el("new-password").value,b=el("confirm-password").value,node=el("reset-status");
+ node.hidden=false;
+ if(a.length<12){node.textContent="Bitte mindestens 12 Zeichen verwenden.";return;}
+ if(a!==b){node.textContent="Die beiden Passwörter stimmen nicht überein.";return;}
+ if(!token){node.textContent="Der Link ist ungültig. Fordere bitte einen neuen an.";return;}
+ const btn=el("reset-submit");btn.disabled=true;node.textContent="Passwort wird gespeichert …";
+ try{
+  const res=await fetch(URL+"/auth/v1/user",{method:"PUT",headers:{"Content-Type":"application/json",apikey:KEY,Authorization:"Bearer "+token},body:JSON.stringify({password:a})});
+  const data=await res.json().catch(()=>({}));
+  if(!res.ok)throw new Error(data.msg||data.message||"Das Passwort konnte nicht gespeichert werden. Bitte fordere einen neuen Link an.");
+  el("new-password").value="";el("confirm-password").value="";
+  showLogin();
+  el("login-error").hidden=false;el("login-error").textContent="Dein Passwort wurde geändert. Du kannst dich jetzt mit dem neuen Passwort anmelden.";
+  el("login-error").style.color="#285b3d";
+  el("login-error").style.background="#e8f3e9";
+ }catch(e){node.textContent=errorMessage(e)}
+ finally{btn.disabled=false;}
+});
+
+handleRecoveryLink();
