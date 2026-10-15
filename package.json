@@ -1,0 +1,16 @@
+{
+  "name": "happy-eck-kiosk",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/site.test.mjs",
+    "test:browser": "node --test tests/browser.test.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "playwright": "^1.55.0"
+  }
+}

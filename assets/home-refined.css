@@ -1,0 +1,44 @@
+/* Happy Eck 2026 – focused contemporary redesign */
+:root{--forest:#142d21;--ink:#172a20}
+header{border-bottom:1px solid #e0e7df}
+.top{min-height:84px}
+.hero{background:linear-gradient(118deg,#0a2117,#1b4b32);isolation:isolate}
+.hero:after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(circle at 95% 12%,#7bbd8150,transparent 36%),radial-gradient(circle at 4% 91%,#2e71473c,transparent 44%)}
+.hero-layout{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(270px,.7fr);gap:clamp(20px,5vw,70px);align-items:center;padding-top:70px;padding-bottom:75px}
+.hero-inner{padding:0;min-width:0}
+.hero h1{font-size:clamp(52px,6.9vw,93px);line-height:1.05;letter-spacing:-.065em;margin:22px 0}
+.hero h1 span{color:#b8e2bc}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;color:#cbe7ce}
+.eyebrow-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#8dde9a;box-shadow:0 0 0 5px #8dde9a21}
+.hero-tagline{font-size:clamp(18px,2vw,24px);margin-bottom:13px}
+.hero-description{line-height:1.75;max-width:580px}
+.hero-actions .btn{min-height:53px}
+.hero-panel{padding:1px;background:linear-gradient(145deg,#ffffff8c,#ffffff18);border-radius:23px;box-shadow:0 24px 65px #05150b53}
+.hero-panel-inner{display:flex;flex-direction:column;align-items:flex-start;min-height:390px;padding:37px;background:linear-gradient(135deg,#ffffff1d,#ffffff09);border-radius:22px;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.hero-panel-eyebrow{font-size:11px;letter-spacing:.15em;font-weight:900;color:#bee4c4}
+.hero-panel-symbol{display:flex;align-items:center;justify-content:center;align-self:center;flex:1;width:100%;padding:25px 0}
+.hero-panel-symbol img{width:148px;height:148px;border-radius:50%;object-fit:cover;box-shadow:0 16px 35px #0006,0 0 0 13px #ffffff12}
+.hero-panel-inner strong{font-size:23px;letter-spacing:-.04em}
+.hero-panel-inner p{font-size:13px;color:#d0e4d5;margin:8px 0 18px}
+.hero-panel-inner a{font-size:13px;color:#d2f3d1;font-weight:800;text-decoration:none;border-bottom:1px solid #95d09a;padding-bottom:5px}
+.intro-section{padding:74px 0}
+.intro-section .section-title{max-width:650px}
+.service-section{padding:80px 0}
+.service-card{border-radius:15px;min-height:244px;padding:30px;box-shadow:0 6px 20px #153a2010}
+.service-icon{border-radius:12px}
+.visit-section{padding:74px 0}
+@media(max-width:850px){.hero-layout{grid-template-columns:1fr;gap:35px}.hero-panel{max-width:650px;width:100%}.hero-panel-inner{min-height:250px}.hero-panel-symbol{position:absolute;right:30px;top:42px;width:100px;padding:0}.hero-panel-symbol img{width:95px;height:95px}.hero-panel-inner strong{margin-top:auto}.hero-panel-inner p{margin-right:110px}.hero-panel-inner a{margin-right:110px}}
+@media(max-width:570px){.hero-layout{padding-top:59px;padding-bottom:60px;gap:28px}.hero h1{font-size:clamp(49px,13vw,68px)}.hero-panel-inner{min-height:226px;padding:26px}.hero-panel-inner strong{font-size:20px}.hero-panel-symbol{top:38px;right:25px}.hero-panel-symbol img{width:78px;height:78px}.intro-section{padding:60px 0}.service-section{padding:65px 0}}
+@media(prefers-reduced-motion:reduce){.hero-panel{transition:none}}
+
+/* Eight-image gallery, shown after the main information */
+.shop-gallery{background:#fff;padding-block:76px 90px}
+.shop-gallery .section-head{margin-bottom:27px}
+.gallery-intro{color:#64736a;margin:0}
+.shop-gallery-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}
+.gallery-tile{margin:0;overflow:hidden;border-radius:12px;background:#edf3ef;aspect-ratio:4/3;border:1px solid #e4ebe4}
+.gallery-tile img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .55s ease,filter .55s ease}
+.gallery-tile:hover img{transform:scale(1.055);filter:saturate(1.09)}
+.gallery-notice{color:#758278;font-size:12px;margin-top:18px}
+@media(max-width:760px){.shop-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.shop-gallery{padding-block:60px 65px}}
+@media(prefers-reduced-motion:reduce){.gallery-tile img{transition:none}.gallery-tile:hover img{transform:none}}
