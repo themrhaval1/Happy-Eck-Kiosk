@@ -15,7 +15,7 @@ async function login(event){
  const res=await fetch(URL+"/auth/v1/token?grant_type=password",{method:"POST",headers:{"Content-Type":"application/json",apikey:KEY},body:JSON.stringify({email:el("admin-email").value.trim(),password:el("admin-password").value})});
  const data=await res.json();if(!res.ok||!data.access_token)throw new Error("E-Mail oder Passwort ist nicht richtig.");
  token=data.access_token;
- await fetchStats();showDashboard();
+ await fetchStats();showDashboard();fetchInbox();
  }catch(e){showLogin(e.message==="Nicht berechtigt"?"Dieses Konto hat keine Admin-Berechtigung.":errorMessage(e));}
  finally{setBusy(false);}
 }
@@ -135,3 +135,24 @@ el("reset-form").addEventListener("submit",async event=>{
 });
 
 handleRecoveryLink();
+
+async function fetchInbox(){
+ if(!token)return;
+ const state=el("inbox-status"),list=el("inbox-items");state.textContent="Posteingang wird geladen …";
+ try{
+  const response=await fetch(URL+"/functions/v1/happy-eck-inbox-list",{headers:{Authorization:"Bearer "+token,apikey:KEY}});
+  if(!response.ok)throw new Error(response.status===401?"Bitte neu anmelden.":"Posteingang momentan nicht erreichbar.");
+  const data=await response.json();list.replaceChildren();
+  const items=Array.isArray(data.items)?data.items:[];
+  state.textContent=items.length+" Einträge · neueste zuerst";
+  if(!items.length){const p=document.createElement("p");p.className="empty";p.textContent="Noch keine Kontaktanfragen oder Bewerbungen gespeichert.";list.append(p);return;}
+  for(const item of items){
+   const card=document.createElement("article");card.style.cssText="padding:16px 0;border-bottom:1px solid #e3eae2;overflow-wrap:anywhere";
+   const heading=document.createElement("strong");heading.textContent=(item.kind==="bewerbung"?"Bewerbung":"Kontakt")+" · "+item.full_name;
+   const date=document.createElement("div");date.style.cssText="font-size:12px;color:#718374;margin:4px 0";date.textContent=new Date(item.created_at).toLocaleString("de-DE");
+   const info=document.createElement("div");info.style.cssText="font-size:13px;white-space:pre-wrap";info.textContent=[item.email,item.phone,item.topic,item.message].filter(Boolean).join("\n");
+   card.append(heading,date,info);list.append(card);
+  }
+ }catch(e){state.textContent=errorMessage(e);}
+}
+el("inbox-refresh").addEventListener("click",fetchInbox);
