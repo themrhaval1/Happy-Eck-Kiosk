@@ -34,6 +34,7 @@ function render(){
  el("chart-period").textContent=days+" Tage";
  const grouped=(records)=>{const o=new Map();for(const r of records)o.set(r.event_key,(o.get(r.event_key)||0)+Number(r.total||0));return [...o].sort((a,b)=>b[1]-a[1]);};
  renderRanks("top-clicks",grouped(clicks));renderRanks("top-pages",grouped(pages));renderChart(pages);
+ renderInsights(pages,grouped(pages),grouped(clicks));
  el("dashboard-status").textContent="Letzte Aktualisierung: "+new Date().toLocaleString("de-DE")+" · Zeitraum: "+days+" Tage";
 }
 function renderRanks(id,items){
@@ -135,3 +136,20 @@ el("reset-form").addEventListener("submit",async event=>{
 });
 
 handleRecoveryLink();
+
+function renderInsights(pages,topPages,topClicks){
+ const daily=new Map();for(const r of pages)daily.set(r.day,(daily.get(r.day)||0)+Number(r.total||0));
+ const best=[...daily].sort((a,b)=>b[1]-a[1])[0];
+ el("avg-views").textContent=num.format(Math.round(sum(pages)/days));
+ el("best-day").textContent=best?new Date(best[0]+"T12:00:00Z").toLocaleDateString("de-DE",{day:"2-digit",month:"short",timeZone:"UTC"})+" · "+num.format(best[1]):"–";
+ el("best-page").textContent=topPages.length?(labels[topPages[0][0]]||topPages[0][0]):"–";
+ el("best-click").textContent=topClicks.length?(labels[topClicks[0][0]]||topClicks[0][0]):"–";
+}
+el("export-csv").addEventListener("click",()=>{
+ if(!token)return;
+ const safe=v=>'"'+String(v??"").replace(/^[=+@\-\t\r]/,"'").replaceAll('"','""')+'"';
+ const selected=rows.filter(recent);
+ const csv="Datum;Art;Bereich;Anzahl\r\n"+selected.map(r=>[r.day,r.event_kind,labels[r.event_key]||r.event_key,r.total].map(safe).join(";")).join("\r\n");
+ const blob=new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8"});
+ const link=document.createElement("a");link.href=window.URL.createObjectURL(blob);link.download="happy-eck-statistik-"+days+"-tage.csv";link.click();setTimeout(()=>window.URL.revokeObjectURL(link.href),1000);
+});
