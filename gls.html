@@ -70,6 +70,33 @@ footer a{color:#e8d4a6}
 @media(max-width:750px){.main-grid{grid-template-columns:1fr}.hours,.links{padding:25px}.hero{padding:49px 0 46px}}
 @media(max-width:470px){.wrap{width:min(100% - 28px,1050px)}.back{padding:9px 12px}.brand{font-size:14px}.brand img{width:39px;height:39px}.hours,.links{padding:21px}.time-highlight{padding:16px}.schedule dt,.schedule dd{font-size:13px}.action{padding:13px;gap:11px}.action-icon{height:45px;width:45px}.action-copy strong{font-size:14px}.location{padding:18px}.location a{width:100%;text-align:center}}
 @media(prefers-reduced-motion:reduce){.action{transition:none}.action:hover{transform:none}}
+
+.gls-help{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px;padding:25px 29px;background:#173b2a;color:#fff;border-radius:18px;margin-top:22px}
+.gls-help .label{color:#e1cca0}
+.gls-help h2{color:#fff;font-size:clamp(28px,4vw,36px);line-height:1.2;margin:7px 0 5px}
+.gls-help p{color:#dce8de;font-size:13px;margin:0}
+.gls-call{display:flex;align-items:center;gap:12px;min-height:55px;padding:12px 18px;background:#eed7a7;border-radius:12px;color:#193b2a;font-weight:850;font-size:14px}
+.gls-call:hover{background:#fae7c2}
+.gls-call svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.gls-call span:nth-child(2){display:flex;flex-direction:column}
+.gls-call small{font-size:12px;font-weight:650;opacity:.84}
+.location button{font:inherit;font-size:12px;font-weight:850;color:#265f3a;border:1px solid #abc8b1;background:white;padding:11px 17px;border-radius:999px;cursor:pointer}
+.location button:hover{background:#dbeade}
+.gls-route-dialog{border:1px solid #d8e5d9;padding:0;border-radius:18px;background:#fff;color:#1c3929;width:min(410px,calc(100% - 28px));max-height:min(85vh,630px);box-shadow:0 30px 90px #061c1280;overflow:auto}
+.gls-route-dialog::backdrop{background:#081910ac;backdrop-filter:blur(5px)}
+.gls-route-header{position:relative;padding:24px 23px 14px;background:linear-gradient(125deg,#eaf4ea,#fff)}
+.gls-route-header h2{font-size:clamp(26px,4vw,31px);line-height:1.2;margin:10px 30px 7px;color:#163b27}
+.gls-route-header p{font-size:12px;color:#607565;margin:0}
+.gls-route-close{position:absolute;right:16px;top:16px;width:34px;height:34px;display:grid;place-items:center;border:1px solid #d7e4d8;background:#fff;color:#234932;border-radius:50%;font-size:24px;cursor:pointer}
+.gls-route-choices{display:grid;gap:10px;padding:17px 22px 23px}
+.gls-route-choices a{display:flex;align-items:center;gap:13px;padding:13px;border:1px solid #dce8de;background:#fff;border-radius:13px;transition:border-color .2s,transform .2s}
+.gls-route-choices a:hover{border-color:#94b69a;transform:translateY(-2px)}
+.gls-route-icon{display:grid;place-items:center;width:42px;height:42px;flex-shrink:0;border-radius:11px;font-weight:900;font-size:22px}
+.gls-google{color:#4285f4;background:#eaf2fc}.gls-apple{color:#274630;background:#ebf0ec}
+.gls-route-choices a span:nth-child(2){flex:1;display:flex;flex-direction:column}
+.gls-route-choices a strong{font-size:14px}.gls-route-choices a small{font-size:11px;color:#657d69}
+@media(max-width:470px){.gls-help{padding:21px}.gls-call{width:100%;justify-content:center}.location button{width:100%}}
+@media(prefers-reduced-motion:reduce){.gls-route-choices a{transition:none}.gls-route-choices a:hover{transform:none}}
 </style>
 </head>
 <body>
@@ -108,8 +135,11 @@ footer a{color:#e8d4a6}
 </div>
 </section>
 </div>
-<div class="location"><div><small>Hier findest du uns</small><strong>Happy Eck Kiosk · Caldenhofer Weg 207 · 59063 Hamm</strong></div><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Caldenhofer+Weg+207%2C+59063+Hamm" target="_blank" rel="noopener noreferrer">Route ansehen ↗</a></div>
+<section class="gls-help" aria-label="Fragen zum GLS Paketshop"><div><span class="label">WIR HELFEN DIR GERNE</span><h2>Noch Fragen?</h2><p>Ruf uns einfach direkt im Happy Eck Kiosk an.</p></div><a class="gls-call" href="tel:+4917661020308" aria-label="Happy Eck anrufen unter 0176 61020308"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 2.09 4.18 2 2 0 0 1 4.08 2h3a2 2 0 0 1 2 1.72c.13.93.36 1.85.69 2.72a2 2 0 0 1-.45 2.11L8.06 9.82a16 16 0 0 0 6.12 6.12l1.27-1.26a2 2 0 0 1 2.11-.45c.87.33 1.79.56 2.72.69A2 2 0 0 1 22 16.92Z"/></svg><span>Jetzt anrufen<small>0176 61020308</small></span><span aria-hidden="true">↗</span></a></section>
+<div class="location"><div><small>Hier findest du uns</small><strong>Happy Eck Kiosk · Caldenhofer Weg 207 · 59063 Hamm</strong></div><button type="button" id="gls-route-open" aria-haspopup="dialog" aria-controls="gls-route-dialog">Route ansehen ↗</button></div>
 </div></main>
 <footer><div class="wrap">© 2026 Happy Eck Kiosk · <a href="index.html">Startseite</a></div></footer>
+<dialog id="gls-route-dialog" class="gls-route-dialog" aria-labelledby="gls-route-heading" aria-describedby="gls-route-address"><div class="gls-route-header"><div><span class="label">ANFAHRT · HAPPY ECK</span><h2 id="gls-route-heading">Karten-App wählen</h2><p id="gls-route-address">Caldenhofer Weg 207 · 59063 Hamm</p></div><button id="gls-route-close" class="gls-route-close" type="button" aria-label="Fenster schließen">×</button></div><div class="gls-route-choices"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Caldenhofer+Weg+207%2C+59063+Hamm" target="_blank" rel="noopener noreferrer"><span class="gls-route-icon gls-google" aria-hidden="true">G</span><span><strong>Google Maps</strong><small>Route öffnen</small></span><span aria-hidden="true">↗</span></a><a href="https://maps.apple.com/?daddr=Caldenhofer+Weg+207%2C+59063+Hamm" target="_blank" rel="noopener noreferrer"><span class="gls-route-icon gls-apple" aria-hidden="true">⌖</span><span><strong>Apple Karten</strong><small>Route öffnen</small></span><span aria-hidden="true">↗</span></a></div></dialog>
+<script>(function(){const modal=document.getElementById("gls-route-dialog"),open=document.getElementById("gls-route-open"),close=document.getElementById("gls-route-close");if(!modal||!open||!close)return;open.addEventListener("click",()=>{if(typeof modal.showModal==="function")modal.showModal();else modal.setAttribute("open","")});close.addEventListener("click",()=>modal.close());modal.addEventListener("click",e=>{if(e.target===modal)modal.close()})})();</script>
 </body>
 </html>
