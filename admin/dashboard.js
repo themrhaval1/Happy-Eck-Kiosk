@@ -151,5 +151,5 @@ el("export-csv").addEventListener("click",()=>{
  const selected=rows.filter(recent);
  const csv="Datum;Art;Bereich;Anzahl\r\n"+selected.map(r=>[r.day,r.event_kind,labels[r.event_key]||r.event_key,r.total].map(safe).join(";")).join("\r\n");
  const blob=new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8"});
- const link=document.createElement("a");link.href=URL.createObjectURL(blob);link.download="happy-eck-statistik-"+days+"-tage.csv";link.click();setTimeout(()=>URL.revokeObjectURL(link.href),1000);
+ const link=document.createElement("a");link.href=window.URL.createObjectURL(blob);link.download="happy-eck-statistik-"+days+"-tage.csv";link.click();setTimeout(()=>window.URL.revokeObjectURL(link.href),1000);
 });
