@@ -24,4 +24,5 @@ function render(){let q=search.value.toLocaleLowerCase('de').trim();let shown=it
 filters.replaceChildren(...categories.map(c=>{let b=document.createElement('button');b.className='filter'+(c===active?' active':'');b.type='button';b.textContent=c;b.setAttribute('aria-pressed',c===active?'true':'false');b.onclick=()=>{active=c;render()};return b}));
 count.textContent=shown.length.toString();results.replaceChildren(...shown.map(x=>{const i=spriteMap[x.n],card=document.createElement('article'),image=document.createElement('div'),sprite=document.createElement('div'),name=document.createElement('div');card.className='card';image.className='card-image';sprite.className='sprite';sprite.style.backgroundPosition=(-(i%6)*150)+'px '+(-Math.floor(i/6)*75)+'px';sprite.setAttribute('role','img');sprite.setAttribute('aria-label',x.n+' Anbieterlogo');name.className='card-name';name.textContent=x.n;image.append(sprite);card.append(image,name);return card}));if(!shown.length){let msg=document.createElement('p');msg.className='empty';msg.textContent='Keine Anbieter gefunden. Bitte versuche einen anderen Suchbegriff.';results.append(msg)}}
 search.addEventListener('input',render);render();
-</script></body></html>
+</script><script defer src="assets/analytics.js"></script>
+</body></html>
