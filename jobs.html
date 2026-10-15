@@ -59,7 +59,7 @@
 <div class="jb-field"><label for="app-phone">Telefonnummer *</label><input id="app-phone" name="Telefonnummer" type="tel" autocomplete="tel" placeholder="z. B. 0176 12345678" required maxlength="35"></div>
 <div class="jb-field wide"><label for="app-role">Gewünschte Beschäftigung *</label><select id="app-role" name="Beschaeftigung" required><option value="">Bitte wählen</option><option>Minijob</option><option>Teilzeit</option><option>Vollzeit</option></select></div>
 <div class="jb-field wide"><label for="app-cv">Lebenslauf hochladen *</label><input id="app-cv" name="attachment" type="file" accept=".pdf,.doc,.docx" required aria-describedby="cv-help"><small class="jb-help" id="cv-help">PDF, DOC oder DOCX · maximal 10 MB. Bitte keine Ausweiskopien oder Gesundheitsdaten hochladen.</small></div>
-<div class="jb-field wide"><label class="jb-consent"><input type="checkbox" required> <span>Ich habe die <a href="#bewerbung-datenschutz">Datenschutzhinweise</a> gelesen. Meine Angaben werden zur Bearbeitung meiner Bewerbung übermittelt. *</span></label></div>
+<div class="jb-field wide"><label class="jb-consent"><input type="checkbox" required> <span>Ich habe die <a href="#bewerbung-datenschutz">Datenschutzhinweise</a> gelesen. Meine Angaben werden zur Bearbeitung meiner Bewerbung übermittelt. * Meine Kontaktdaten werden zusätzlich im geschützten Happy-Eck-Posteingang gespeichert, damit wir die Anfrage bearbeiten können.</span></label></div>
 <div class="jb-field wide"><button class="jb-submit" type="submit">Bewerbung senden ↗</button><p class="jb-submit-note">Nach erfolgreichem Versand erhältst du eine automatische Eingangsbestätigung, sofern der Formulardienst aktiviert ist. Prüfe auch deinen Spam-Ordner.</p></div>
 </form></div>
 <aside class="jb-info-panel"><span class="jb-kicker">WIR SIND FÜR DICH DA</span><h3>Fragen zur Bewerbung?</h3><p>Du kannst uns auch direkt kontaktieren. Wir helfen dir gerne weiter.</p><p><strong>Happy Eck Kiosk</strong><br>Caldenhofer Weg 207<br>59063 Hamm</p><p><a href="tel:+4917661020308">0176 61020308</a><br><a href="mailto:happyeck10@gmail.com">happyeck10@gmail.com</a></p><hr>
@@ -82,4 +82,5 @@
       </details>
 </div></footer>
 <script src="assets/luxury.js" defer></script><script>const cv=document.getElementById("app-cv");cv.addEventListener("change",()=>{if(cv.files.length&&cv.files[0].size>10*1024*1024){cv.setCustomValidity("Bitte eine Datei mit maximal 10 MB auswählen.");cv.reportValidity()}else cv.setCustomValidity("")});const birth=document.getElementById("app-birth");birth.max=new Date().toISOString().slice(0,10);</script><script defer src="assets/analytics.js"></script>
+<script defer src="assets/private-inbox-submit.js"></script>
 </body></html>
