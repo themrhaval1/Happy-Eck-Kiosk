@@ -170,7 +170,7 @@ context.globalAlpha=1;
 raf=requestAnimationFrame(frame);
 }
 function revealMagic(){
-if(!playing)return;
+if(stage.hidden)return;
 $("countdown").hidden=true;
 $("phase").hidden=true;
 stage.dataset.phase="reveal";
