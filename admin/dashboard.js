@@ -24,7 +24,7 @@ async function fetchStats(){
  const res=await fetch(URL+"/functions/v1/happy-eck-statistics",{method:"GET",headers:{Authorization:"Bearer "+token,apikey:KEY}});
  let data={};try{data=await res.json()}catch{}
  if(!res.ok){if(res.status===401||res.status===403)throw new Error(res.status===403?"Nicht berechtigt":"Sitzung abgelaufen. Bitte erneut anmelden.");throw new Error(data.error||"Statistik ist momentan nicht erreichbar.");}
- rows=Array.isArray(data.rows)?data.rows:[];minuteRows=Array.isArray(data.minutes)?data.minutes:[];renderTime();utcToday=(data.updated_at||new Date().toISOString()).slice(0,10);render();
+ rows=Array.isArray(data.rows)?data.rows:[];minuteRows=Array.isArray(data.minutes)?data.minutes:[];utcToday=(data.updated_at||new Date().toISOString()).slice(0,10);render();renderTime();
 }
 function recent(r){const start=new Date(utcToday+"T00:00:00Z");start.setUTCDate(start.getUTCDate()-(days-1));return r.day>=start.toISOString().slice(0,10);}
 function sum(a){return a.reduce((s,x)=>s+Number(x.total||0),0)}
@@ -164,7 +164,7 @@ el("time-apply").addEventListener("click",renderTime);
 function localInputToDate(v){
  if(!/^\d{4}-\d\d-\d\dT\d\d:\d\d$/.test(v))return null;
  // Convert the selected Hamm wall-clock time to an instant, accounting for daylight-saving time.
- const desired=v.replace("T"," ");
+
  const stamp=Date.parse(v+"Z");if(!Number.isFinite(stamp))return null;
  const format=new Intl.DateTimeFormat("sv-SE",{timeZone:"Europe/Berlin",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hourCycle:"h23"});
  const asWall=d=>format.format(d).replace(" ","T");
@@ -175,6 +175,10 @@ function localInputToDate(v){
 function renderTime(){
  if(!el("dashboard-view")||!minuteRows)return;
  const now=Date.now(),preset=timeSelect.value;let start,end=now;
+ const dailyMode=preset==="30d"||preset==="90d";
+ el("daily-summary").hidden=!dailyMode;el("daily-details").hidden=!dailyMode;
+ el("time-summary").hidden=dailyMode;el("time-chart-section").hidden=dailyMode;
+ if(dailyMode){days=preset==="90d"?90:30;render();el("time-note").textContent="Tagesstatistik der letzten "+days+" Tage · Ältere Daten sind nur nach Tagen verfügbar.";return;}
  const durations={"15m":900000,"60m":3600000,"6h":21600000,"24h":86400000,"7d":604800000};
  if(preset==="custom"){
   const a=localInputToDate(el("time-from").value),b=localInputToDate(el("time-to").value);
