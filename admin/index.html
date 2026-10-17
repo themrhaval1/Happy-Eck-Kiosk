@@ -100,7 +100,7 @@
             <section class="tool-card" aria-labelledby="margin-title">
               <span class="eyebrow small">PREIS & MARGE</span><h3 id="margin-title">Verkaufspreis-Rechner</h3>
               <p>Finde heraus, wie viel pro Artikel nach Abzug der Umsatzsteuer und des Wareneinsatzes übrig bleibt.</p>
-              <form id="margin-form" class="tool-fields" onsubmit="return false">
+              <form id="margin-form" class="tool-fields">
                 <label>Einkaufspreis inkl. MwSt. (€)<input id="calc-buy" type="number" min="0" max="1000000" step="0.01" inputmode="decimal" placeholder="z. B. 1,20"></label>
                 <label>Verkaufspreis inkl. MwSt. (€)<input id="calc-sell" type="number" min="0" max="1000000" step="0.01" inputmode="decimal" placeholder="z. B. 2,00"></label>
                 <label>MwSt. beim Einkauf<select id="calc-buy-vat"><option value="19">19 %</option><option value="7">7 %</option><option value="0">0 %</option></select></label>
@@ -118,7 +118,7 @@
             <section class="tool-card" aria-labelledby="cash-title">
               <span class="eyebrow small">KASSENABSCHLUSS</span><h3 id="cash-title">Tageskasse prüfen</h3>
               <p>Vergleiche deinen erwarteten Bargeldbestand mit dem gezählten Geld in der Kasse.</p>
-              <form id="cash-form" class="tool-fields" onsubmit="return false">
+              <form id="cash-form" class="tool-fields">
                 <label>Start-Bargeld (€)<input id="cash-start" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0,00"></label>
                 <label>Bargeld-Umsatz (€)<input id="cash-income" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0,00"></label>
                 <label>Kartenzahlungen (€)<input id="card-income" type="number" min="0" step="0.01" inputmode="decimal" value="0"></label>
@@ -137,7 +137,7 @@
             <section class="tool-card" aria-labelledby="target-title">
               <span class="eyebrow small">PLANUNG</span><h3 id="target-title">Monatsziel erreichen</h3>
               <p>Wie viel Umsatz fehlt noch, und wie viel brauchst du durchschnittlich pro verbleibendem Tag?</p>
-              <form id="target-form" class="tool-fields" onsubmit="return false">
+              <form id="target-form" class="tool-fields">
                 <label>Umsatzziel (€)<input id="target-goal" type="number" min="0.01" step="0.01" inputmode="decimal" placeholder="z. B. 10000"></label>
                 <label>Umsatz bisher (€)<input id="target-current" type="number" min="0" step="0.01" inputmode="decimal" placeholder="z. B. 6500"></label>
                 <label class="full">Verbleibende Tage<input id="target-days" type="number" min="1" max="366" step="1" inputmode="numeric" placeholder="z. B. 10"></label>
