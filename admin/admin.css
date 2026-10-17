@@ -49,3 +49,14 @@ footer{padding:23px;text-align:center;background:#122f22;color:#bacdc0;font-size
 #time-chart-section{margin:16px 0 25px}
 #time-chart{min-height:205px;overflow-x:auto}
 @media(max-width:620px){.time-controls{align-items:stretch}.time-controls select{width:100%}#custom-time:not([hidden]){align-items:stretch;flex-direction:column}#custom-time input{width:100%}}
+
+/* Simplified dashboard */
+.dashboard-controls{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.time-controls{flex:1 1 330px;background:#fff;border:1px solid #dce7dc;border-radius:16px;padding:14px 18px;box-shadow:0 5px 20px #173b2910}
+.time-controls>label{font-weight:850;color:#244a32}
+.time-controls>select{flex:1;min-width:175px;background:#f2f7f1;border-color:#c5dbc8;font-weight:750}
+#time-summary .stat-card{border-color:#cbdccc;background:linear-gradient(140deg,#fff,#f5faf4)}
+#time-summary .stat-card>strong{font-size:clamp(29px,5vw,46px)}
+#time-chart-section{margin-top:18px}
+#time-chart{gap:3px}
+@media(max-width:620px){.time-controls{flex-basis:100%}.time-controls>select{min-width:0}#time-summary{grid-template-columns:repeat(2,minmax(0,1fr))}#time-summary .stat-card:last-child{grid-column:1/-1}}
