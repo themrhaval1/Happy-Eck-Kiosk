@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#080e16">
+<title>PROBE HAPPY ECK – Testseite</title>
+<style>
+:root{color-scheme:dark;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 20% 15%,#173b55 0%,transparent 45%),radial-gradient(ellipse at 90% 85%,#2b2356 0%,transparent 45%),#080e16;color:#fff}header{max-width:1100px;margin:auto;padding:28px 25px;display:flex;align-items:center;justify-content:space-between;gap:16px}header b{letter-spacing:.13em;font-size:16px}header a{color:#dbe6ff;text-decoration:none;border:1px solid #ffffff35;border-radius:50px;padding:10px 17px;font-size:13px}.pill{display:inline-flex;align-items:center;gap:9px;padding:10px 17px;border:1px solid #5bb9ff5e;border-radius:50px;background:#5bb9ff15;color:#99d9ff;font-size:12px;font-weight:800;letter-spacing:.15em}.dot{height:8px;width:8px;background:#62e5b5;border-radius:50%;box-shadow:0 0 15px #62e5b5}main{max-width:1100px;margin:auto;padding:9vh 25px 90px}.hero{max-width:850px}h1{font-size:clamp(56px,11vw,130px);line-height:.94;letter-spacing:-.085em;margin:25px 0;text-transform:uppercase}h1 span{display:block;background:linear-gradient(110deg,#7bdeff,#e9d2ff,#82ffcb);background-clip:text;-webkit-background-clip:text;color:transparent}p{color:#aebed1;font-size:clamp(16px,2.2vw,20px);line-height:1.7;max-width:620px}.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px;margin-top:70px}.card{padding:30px;border:1px solid #ffffff24;border-radius:24px;background:#ffffff0a;backdrop-filter:blur(12px);min-height:190px}.card .icon{font-size:28px}.card h2{font-size:19px;margin:24px 0 8px}.card p{font-size:14px;margin:0}.action{margin-top:34px;background:linear-gradient(110deg,#8de0ff,#b6a2ff);color:#0a1220;border:0;border-radius:14px;padding:16px 24px;font-size:15px;font-weight:850;cursor:pointer}.action:hover{filter:brightness(1.12)}#feedback{min-height:25px;font-size:14px;color:#9fe7c9;margin-top:14px}footer{padding:26px;text-align:center;color:#8193a8;font-size:12px;border-top:1px solid #ffffff16}@media(max-width:650px){.cards{grid-template-columns:1fr;margin-top:40px}.card{min-height:0}header b{font-size:13px}}
+</style>
+</head>
+<body>
+<header><b>HAPPY ECK <span style="color:#7fd7ff">/ LAB</span></b><a href="/">← Zur echten Webseite</a></header>
+<main><section class="hero"><div class="pill"><span class="dot"></span> NUR EINE TESTSEITE</div><h1>PROBE <span>HAPPY ECK.</span></h1><p>Ein komplett anderer Look zum Ausprobieren. Diese Seite ist nur ein Design-Test und verändert weder deinen echten Kiosk-Auftritt noch den Adminbereich.</p><button class="action" id="test-button" type="button">Test-Button ausprobieren →</button><div id="feedback" role="status" aria-live="polite"></div></section>
+<section class="cards"><article class="card"><div class="icon">✦</div><h2>Neues Design</h2><p>Moderner, dunkler Stil mit besonderen Farbverläufen.</p></article><article class="card"><div class="icon">◈</div><h2>Nur zum Testen</h2><p>Die bestehende Happy-Eck-Seite bleibt unverändert.</p></article><article class="card"><div class="icon">↗</div><h2>Handyfreundlich</h2><p>Auch auf kleinen Bildschirmen gut bedienbar.</p></article></section></main>
+<footer>PROBE HAPPY ECK · Unverbindliche Vorschau · Keine Bestellfunktion</footer>
+<script>document.getElementById("test-button").addEventListener("click",()=>{document.getElementById("feedback").textContent="✓ Test erfolgreich! Der Button funktioniert."})</script>
+</body></html>
