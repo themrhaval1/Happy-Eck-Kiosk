@@ -40,3 +40,12 @@ footer{padding:23px;text-align:center;background:#122f22;color:#bacdc0;font-size
 .insights-grid strong{display:block;font-size:clamp(17px,2.1vw,26px);line-height:1.3;overflow-wrap:anywhere}
 @media(max-width:800px){.insights-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:520px){.insights-panel{padding:19px 16px}.insights-grid{gap:9px}.insights-grid>div{padding:12px}.insights-grid strong{font-size:17px}.dashboard-controls{flex-wrap:wrap;gap:10px}#export-csv{font-size:12px}}
+
+.time-controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap;width:100%;padding:13px 0}
+.time-controls label{font-size:13px;font-weight:750;color:#395d45}
+.time-controls select,.time-controls input{font:inherit;font-size:13px;border:1px solid #ccdace;border-radius:11px;background:#fff;color:#1b3c29;padding:10px 12px;max-width:100%}
+#custom-time:not([hidden]){display:flex;align-items:center;gap:9px;flex-wrap:wrap;width:100%}
+#time-summary{margin:16px 0 20px}
+#time-chart-section{margin:16px 0 25px}
+#time-chart{min-height:205px;overflow-x:auto}
+@media(max-width:620px){.time-controls{align-items:stretch}.time-controls select{width:100%}#custom-time:not([hidden]){align-items:stretch;flex-direction:column}#custom-time input{width:100%}}
