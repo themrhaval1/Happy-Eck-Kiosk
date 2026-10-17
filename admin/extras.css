@@ -47,3 +47,7 @@
 @media(max-width:800px){.tool-grid,.insight-extras-grid{grid-template-columns:1fr}.tool-card-wide{grid-column:auto}}
 @media(max-width:600px){.admin-tab{flex:1}.tool-fields{gap:10px}.tool-results{gap:8px}.tool-result{padding:12px}.tool-result strong{font-size:21px}.quicklinks{grid-template-columns:repeat(2,minmax(0,1fr))}.week-summary{gap:6px}.week-summary div{padding:10px}.week-summary strong{font-size:19px}.insight-extras .chart-card{padding:19px}}
 @media(prefers-reduced-motion:reduce){.check-track span{transition:none}}
+
+/* Keep result values aligned, including the combined netto prices. */
+.tool-result.full{grid-column:1/-1}
+.tool-result strong span{display:inline;color:inherit;font-weight:inherit;font-size:inherit}
