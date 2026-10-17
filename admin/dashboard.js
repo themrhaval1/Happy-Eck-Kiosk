@@ -5,7 +5,7 @@ const el=id=>document.getElementById(id);
 const labels={startseite:"Startseite",kontakt:"Kontakt",jobs:"Jobs & Bewerbung",gls:"GLS Paketshop",guthaben:"Guthaben & Gutscheine",oeffnungszeiten:"Öffnungszeiten",kontakt_erfolg:"Kontaktbestätigung",bewerbung_erfolg:"Bewerbungsbestätigung",navigation:"Navigation",lieferando:"Lieferando",google_maps:"Google Maps",apple_karten:"Apple Karten",instagram:"Instagram",tiktok:"TikTok",whatsapp:"WhatsApp",anrufen:"Anrufen",kontaktformular:"Kontaktformular",bewerbung:"Bewerbung senden",paket_versenden:"GLS Paket versenden",sendung_verfolgen:"Sendung verfolgen",andere_aktion:"Weitere Aktionen"};
 let token="",rows=[],minuteRows=[],days=30,utcToday=new Date().toISOString().slice(0,10);
 const num=new Intl.NumberFormat("de-DE");
-function showLogin(msg=""){token="";el("login-view").hidden=false;el("dashboard-view").hidden=true;el("reset-view").hidden=true;el("login-error").textContent=msg;el("login-error").hidden=!msg;}
+function showLogin(msg=""){token="";el("login-view").hidden=false;el("dashboard-view").hidden=true;el("reset-view").hidden=true;el("login-error").textContent=msg;el("login-error").hidden=!msg;document.dispatchEvent(new Event("happy-eck:logout"));}
 function showDashboard(){el("login-view").hidden=true;el("dashboard-view").hidden=false;el("admin-password").value="";renderTime();}
 function setBusy(b){el("login-submit").disabled=b;el("login-label").textContent=b?"Anmeldung läuft …":"Sicher anmelden";}
 function errorMessage(e){return e?.message||"Bitte versuche es erneut.";}
@@ -24,7 +24,7 @@ async function fetchStats(){
  const res=await fetch(URL+"/functions/v1/happy-eck-statistics",{method:"GET",cache:"no-store",headers:{Authorization:"Bearer "+token,apikey:KEY}});
  let data={};try{data=await res.json()}catch{}
  if(!res.ok){if(res.status===401||res.status===403)throw new Error(res.status===403?"Nicht berechtigt":"Sitzung abgelaufen. Bitte erneut anmelden.");throw new Error(data.error||"Statistik ist momentan nicht erreichbar.");}
- rows=Array.isArray(data.rows)?data.rows:[];minuteRows=Array.isArray(data.minutes)?data.minutes:[];utcToday=(data.updated_at||new Date().toISOString()).slice(0,10);render();renderTime();
+ rows=Array.isArray(data.rows)?data.rows:[];minuteRows=Array.isArray(data.minutes)?data.minutes:[];utcToday=(data.updated_at||new Date().toISOString()).slice(0,10);render();renderTime();document.dispatchEvent(new CustomEvent("happy-eck:stats",{detail:{rows,utcToday}}));
 }
 function recent(r){const start=new Date(utcToday+"T00:00:00Z");start.setUTCDate(start.getUTCDate()-(days-1));return r.day>=start.toISOString().slice(0,10);}
 function sum(a){return a.reduce((s,x)=>s+Number(x.total||0),0)}
