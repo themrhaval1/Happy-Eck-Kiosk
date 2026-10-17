@@ -3,175 +3,54 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#f6f1ff">
+<meta name="theme-color" content="#f8f2ff">
 <meta name="robots" content="noindex,nofollow">
-<meta name="description" content="Eine kleine, ziemlich unnötige Überraschung nur für Lea.">
-<title>Nur für Lea 💌</title>
+<title>Für Lea 💌</title>
 <style>
-:root{--ink:#27213e;--muted:#77718b;--purple:#7954de;--pink:#ff89aa;--line:#e8e2ef;--paper:#fff;--bg:#f8f5ff;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--bg)}
+:root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#302548;background:#f8f2ff}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;min-width:320px;overflow-x:hidden;background:radial-gradient(circle at 5% 6%,#ffe3ec 0,transparent 30%),radial-gradient(circle at 95% 25%,#e2d8ff 0,transparent 31%),#f8f5ff}
-button{font:inherit;cursor:pointer;touch-action:manipulation}
-button:focus-visible{outline:3px solid #392d82;outline-offset:4px}
-button:disabled{cursor:default}
+body{margin:0;min-height:100svh;display:grid;place-items:center;padding:20px;background:radial-gradient(circle at 15% 15%,#ffe0e9,transparent 42%),radial-gradient(circle at 85% 80%,#e5d7ff,transparent 45%),#f8f2ff}
+.card{width:min(100%,390px);padding:39px 29px 35px;border:1px solid #eee4f5;border-radius:29px;background:#fff;box-shadow:0 20px 65px #5d3c8217;text-align:center}
+.emoji{font-size:51px;display:block;margin-bottom:16px}
+h1{font-size:clamp(35px,10vw,46px);letter-spacing:-.065em;line-height:1.12;margin:0 0 15px}
+p{font-size:17px;color:#6d627c;line-height:1.6;margin:0 0 24px}
+button{appearance:none;width:100%;min-height:55px;background:#8462dc;color:white;border:0;border-radius:16px;font:inherit;font-weight:850;font-size:17px;cursor:pointer;touch-action:manipulation}
+button:active{transform:scale(.98)}
+button:focus-visible{outline:3px solid #50348c;outline-offset:4px}
+small{display:block;color:#aba1b4;margin-top:17px;font-size:12px}
 [hidden]{display:none!important}
-.wrap{width:min(100% - 36px,610px);margin:0 auto}
-.intro{min-height:100svh;display:grid;place-items:center;padding:35px 20px;isolation:isolate;text-align:center;position:relative}
-.intro:before,.intro:after{content:"";position:absolute;border-radius:50%;z-index:-1;filter:blur(3px)}
-.intro:before{width:210px;height:210px;background:#ffd3e3;top:6%;left:-95px}
-.intro:after{width:250px;height:250px;background:#dfd4ff;right:-130px;bottom:5%}
-.intro-inner{max-width:470px;width:100%}
-.pill{display:inline-block;background:#fff;border:1px solid #e9e2f0;border-radius:100px;padding:9px 14px;font-size:12px;font-weight:800;letter-spacing:.06em;color:#7954de;box-shadow:0 5px 20px #3b235b0b}
-.envelope{position:relative;display:block;width:156px;height:120px;margin:34px auto 22px;filter:drop-shadow(0 17px 20px #aa80bd38);transform:rotate(-7deg);transition:transform .35s ease}
-.envelope .back{position:absolute;inset:9px 0 0;border-radius:12px;background:#ffb4cb;border:2px solid #e88daf}
-.envelope .letter{position:absolute;background:#fffefd;top:0;left:17px;width:122px;height:97px;border-radius:9px;border:2px solid #eed8e1;transform:rotate(5deg)}
-.envelope .letter:before{content:"Für Lea ♡";position:absolute;top:20px;left:12px;right:12px;color:#ac5f86;font-weight:800;font-size:17px}
-.envelope .front{position:absolute;inset:25px 0 0;border-radius:0 0 12px 12px;background:#ffa4c2;clip-path:polygon(0 0,50% 44%,100% 0,100% 100%,0 100%);border-bottom:2px solid #ea89a9}
-.intro h1{font-size:clamp(48px,11.8vw,76px);letter-spacing:-.085em;line-height:1.02;margin:20px 0}
-.intro h1 span{color:#8060df}
-.subtitle{font-size:18px;line-height:1.65;color:#5d566d;margin:0 auto 24px;max-width:395px}
-.btn{border:0;border-radius:17px;background:var(--purple);color:white;font-weight:800;padding:17px 23px;min-height:56px;box-shadow:0 9px 0 #6042ba25,0 10px 23px #6b4cbd21;transition:transform .15s,box-shadow .15s,background .15s}
-.btn:hover{background:#6745cd;transform:translateY(-2px)}
-.btn:active{transform:translateY(3px);box-shadow:0 3px 0 #6042ba25}
-.intro .btn{width:min(100%,330px);font-size:17px}
-.mini{font-size:12px;color:#898294;margin-top:21px}
-.page{padding:32px 0 60px;animation:enter .45s ease both}
-.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:34px}
-.brand{font-weight:900;letter-spacing:-.04em;font-size:18px}
-.brand span{color:var(--purple)}
-.top .tag{font-size:11px;color:#88819a}
-.headline{font-size:clamp(38px,8vw,57px);line-height:1.1;letter-spacing:-.065em;margin:0 0 17px}
-.headline .marker{position:relative;z-index:0;white-space:nowrap}
-.headline .marker:before{content:"";position:absolute;bottom:2px;left:-2px;right:-3px;height:16px;background:#ffd2e1;transform:rotate(-2deg);z-index:-1}
-.lead{font-size:17px;line-height:1.7;color:#675e76;margin:0 0 27px}
-.card{background:var(--paper);border:1px solid var(--line);border-radius:25px;padding:clamp(22px,5vw,32px);box-shadow:0 12px 35px #3826540b;margin:18px 0}
-.card.standout{background:#f3eefe;border-color:#e0d3fb;transform:rotate(-.5deg)}
-.card-label{display:inline-block;color:#7954de;font-size:11px;letter-spacing:.12em;font-weight:900;text-transform:uppercase;margin-bottom:10px}
-.card h2{font-size:clamp(25px,5vw,32px);letter-spacing:-.05em;line-height:1.2;margin:0 0 12px}
-.card p{font-size:16px;line-height:1.7;color:#685f75;margin:0}
-.quote{font-size:24px!important;font-weight:850!important;letter-spacing:-.04em;color:#302445!important;line-height:1.4!important;margin:8px 0 18px!important}
-.choices{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}
-.choice{flex:1 1 auto;border:1px solid #e5dced;background:#fff;color:#302445;border-radius:14px;min-height:51px;padding:11px 14px;font-weight:750;transition:background .15s,transform .15s,border-color .15s}
-.choice:hover{background:#f7f1ff;border-color:#ab95e2}
-.choice:active{transform:scale(.97)}
-.choice.selected{background:#e9defe;border-color:#9074de}
-.reply{padding:14px 16px;background:#f7f2ff;border:1px solid #e9dcff;border-radius:14px;font-weight:750;color:#6349a8;line-height:1.55;margin-top:18px;animation:pop .25s ease}
-.date{background:#fff5f7;border-color:#ffd7e2}
-.date .card-label{color:#d15d87}
-.date .choice.selected{background:#ffe0e9;border-color:#f58dad}
-.date .reply{background:#fff;border-color:#ffd2e0;color:#aa4672}
-.end{text-align:center;padding:29px 12px 10px}
-.end .heart{font-size:36px;display:block;margin-bottom:10px}
-.end h2{font-size:29px;letter-spacing:-.04em;margin:0 0 10px}
-.end p{color:#716a80;line-height:1.6;font-size:15px}
-.again{border:0;background:transparent;color:#7954de;font-weight:800;padding:12px;margin-top:10px;text-decoration:underline;text-underline-offset:4px}
-.footer{text-align:center;color:#9a92a6;font-size:11px;padding-top:30px}
-.sprinkle{position:fixed;z-index:10;pointer-events:none;font-size:24px;animation:floataway 1.2s ease-out forwards}
-@keyframes enter{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
-@keyframes pop{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:scale(1)}}
-@keyframes floataway{to{transform:translateY(-110px) rotate(20deg);opacity:0}}
-@media(max-width:400px){.wrap{width:min(100% - 28px,610px)}.top .tag{font-size:10px}.card{border-radius:21px}.choices{display:grid;grid-template-columns:1fr}.choice{text-align:left}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
-</style></head>
+#surprise{animation:appear .35s ease both}
+@keyframes appear{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){#surprise{animation:none}}
+</style>
+</head>
 <body>
-<section class="intro" id="intro" aria-label="Nachricht für Lea">
-<div class="intro-inner">
-<span class="pill">💌 EINE NACHRICHT NUR FÜR LEA</span>
-<div class="envelope" aria-hidden="true"><div class="back"></div><div class="letter"></div><div class="front"></div></div>
-<h1>Lea, <span>ganz kurz …</span></h1>
-<p class="subtitle">Ich hätte dir einfach auf WhatsApp schreiben können. Aber anscheinend musste ich dafür eine ganze Website machen. 💀</p>
-<button type="button" class="btn" id="open">Okay, zeig her 😂 →</button>
-<div class="mini">Keine Werbung. Keine ernste Sache. Versprochen.</div>
-</div>
+<main class="card">
+<section id="welcome">
+<span class="emoji" aria-hidden="true">💌</span>
+<h1>Lea, ganz kurz …</h1>
+<p>Ich hab eine wichtige Nachricht für dich. 😂</p>
+<button type="button" id="open">Öffnen 👀</button>
+<small>Keine Sorge, dauert nur 5 Sekunden.</small>
 </section>
-<main class="wrap page" id="page" hidden>
-<div class="top"><div class="brand">für <span>lea ♡</span></div><div class="tag">von deinem leicht nervigen Freund</div></div>
-<h1 class="headline">Ich hab da eine <span class="marker">Beschwerde.</span> 😤</h1>
-<p class="lead">Seit wir zusammen sind, hab ich ein Problem: Ich will dir ständig irgendwas erzählen. Und jetzt baue ich dir sogar Websites. Das ist doch nicht normal. 😂</p>
-<section class="card standout">
-<span class="card-label">Beschwerde Nr. 001</span>
-<p class="quote">Du bist schuld daran, dass ich beim Schreiben manchmal einfach dumm grinse.</p>
-<p>Wollte ich nur mal gesagt haben. So, weiter im Programm.</p>
+<section id="surprise" hidden aria-live="polite">
+<span class="emoji" aria-hidden="true">😂❤️</span>
+<h1>Hab dich lieb, Lea!</h1>
+<p>Andere schreiben einfach „Ich vermisse dich“.<br>Ich bau dir direkt eine Website. 💀</p>
+<button type="button" id="again">Nochmal ansehen 😂</button>
 </section>
-<section class="card">
-<span class="card-label">Eine wichtige Abstimmung</span>
-<h2>Wie peinlich ist diese Website?</h2>
-<p>Bitte bewerte fair. Ich hab mir Mühe gegeben. Ein bisschen zumindest.</p>
-<div class="choices" id="rating-choices" role="group" aria-label="Website bewerten">
-<button class="choice" type="button" data-rating="0">Geht klar 😌</button>
-<button class="choice" type="button" data-rating="1">Bisschen 😂</button>
-<button class="choice" type="button" data-rating="2">Sehr 💀</button>
-</div>
-<div class="reply" id="rating-reply" role="status" aria-live="polite" hidden></div>
-</section>
-<section class="card date">
-<span class="card-label">Letzte wichtige Frage</span>
-<h2>Was machen wir demnächst?</h2>
-<p>Du darfst entscheiden. Ich tu dann so, als wäre es meine Idee gewesen.</p>
-<div class="choices" id="date-choices" role="group" aria-label="Unternehmung auswählen">
-<button class="choice" type="button" data-date="0">Pommes essen 🍟</button>
-<button class="choice" type="button" data-date="1">Eis holen 🍦</button>
-<button class="choice" type="button" data-date="2">Einfach chillen 🛋️</button>
-</div>
-<div class="reply" id="date-reply" role="status" aria-live="polite" hidden></div>
-</section>
-<section class="end">
-<span class="heart" aria-hidden="true">🤍</span>
-<h2>Okay, das war's.</h2>
-<p>Ich wollte dich einfach kurz zum Lachen bringen.<br>Hab dich lieb, Lea. Auch wenn du die Website jetzt auslachst. 😂</p>
-<button class="again" id="again" type="button">Nochmal von vorne ↺</button>
-</section>
-<footer class="footer">Mit Liebe gebaut. Und mit sehr fragwürdigen Entscheidungen.</footer>
 </main>
 <script>
-(function(){
-"use strict";
-const $=id=>document.getElementById(id);
-const intro=$("intro"),page=$("page");
-function burst(){
-if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;
-for(let i=0;i<11;i++){
-const s=document.createElement("span");s.className="sprinkle";
-s.textContent=["♡","✨","😂","✦"][i%4];
-s.style.left=(12+Math.random()*76)+"vw";s.style.top=(25+Math.random()*60)+"vh";
-document.body.appendChild(s);s.addEventListener("animationend",()=>s.remove(),{once:true});
-}
-}
-$("open").addEventListener("click",()=>{
-intro.hidden=true;page.hidden=false;window.scrollTo(0,0);burst();
+const welcome=document.getElementById("welcome");
+const surprise=document.getElementById("surprise");
+document.getElementById("open").addEventListener("click",()=>{
+welcome.hidden=true;surprise.hidden=false;
+document.getElementById("again").focus({preventScroll:true});
 });
-const ratingReplies=[
-"Okay, ich nehme die 10/10 einfach mal an. Danke, Lea. 😎",
-"Fair. Aber du hast trotzdem bis hier gelesen. 😂",
-"Das tut weh. Ich geh kurz meine Karriere als Webdesigner überdenken. 💀"
-];
-const dateReplies=[
-"Deal. Aber ich klau dir safe eine Pommes. 🍟",
-"Abgemacht. Ich probiere aber auf jeden Fall von deinem Eis. 🍦",
-"Perfekt. Du suchst aus, was wir schauen. Ich beschwere mich nur ein bisschen. 😂"
-];
-function wire(groupId,attr,replyId,replies){
-const group=$(groupId),out=$(replyId);
-group.addEventListener("click",ev=>{
-const b=ev.target.closest("button["+attr+"]");
-if(!b||!group.contains(b))return;
-for(const child of group.querySelectorAll("button")){child.classList.toggle("selected",child===b);child.setAttribute("aria-pressed",String(child===b));}
-out.textContent=replies[Number(b.getAttribute(attr))];out.hidden=false;
-if(attr==="data-date")burst();
+document.getElementById("again").addEventListener("click",()=>{
+surprise.hidden=true;welcome.hidden=false;
+document.getElementById("open").focus({preventScroll:true});
 });
-for(const child of group.querySelectorAll("button"))child.setAttribute("aria-pressed","false");
-}
-wire("rating-choices","data-rating","rating-reply",ratingReplies);
-wire("date-choices","data-date","date-reply",dateReplies);
-$("again").addEventListener("click",()=>{
-page.hidden=true;intro.hidden=false;
-for(const id of ["rating-choices","date-choices"]){
-for(const b of $(id).querySelectorAll("button")){b.classList.remove("selected");b.setAttribute("aria-pressed","false");}
-}
-for(const id of ["rating-reply","date-reply"])$(id).hidden=true;
-window.scrollTo(0,0);$("open").focus({preventScroll:true});
-});
-})();
 </script>
-</body></html>
+</body>
+</html>
