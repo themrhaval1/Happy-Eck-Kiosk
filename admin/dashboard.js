@@ -195,7 +195,7 @@ function renderTime(){
  for(const r of pages){const t=Math.floor(Date.parse(r.bucket)/interval)*interval;points.set(t,(points.get(t)||0)+Number(r.total||0));}
  const chart=el("time-chart");chart.replaceChildren();
  const first=Math.floor(start/interval)*interval,last=Math.floor(end/interval)*interval;
- const totalPoints=Math.min(300,Math.floor((last-first)/interval)+1);
+ const totalPoints=Math.max(1,Math.floor((last-first)/interval)+1);
  const step=Math.max(1,Math.ceil(totalPoints/80));
  const entries=[];for(let t=first;t<=last;t+=interval*step){let count=0;for(let i=0;i<step;i++)count+=points.get(t+i*interval)||0;entries.push([t,count]);}
  const max=Math.max(1,...entries.map(x=>x[1]));
