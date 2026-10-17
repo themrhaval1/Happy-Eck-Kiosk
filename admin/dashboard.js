@@ -6,7 +6,7 @@ const labels={startseite:"Startseite",kontakt:"Kontakt",jobs:"Jobs & Bewerbung",
 let token="",rows=[],minuteRows=[],days=30,utcToday=new Date().toISOString().slice(0,10);
 const num=new Intl.NumberFormat("de-DE");
 function showLogin(msg=""){token="";el("login-view").hidden=false;el("dashboard-view").hidden=true;el("reset-view").hidden=true;el("login-error").textContent=msg;el("login-error").hidden=!msg;}
-function showDashboard(){el("login-view").hidden=true;el("dashboard-view").hidden=false;el("admin-password").value="";}
+function showDashboard(){el("login-view").hidden=true;el("dashboard-view").hidden=false;el("admin-password").value="";renderTime();}
 function setBusy(b){el("login-submit").disabled=b;el("login-label").textContent=b?"Anmeldung läuft …":"Sicher anmelden";}
 function errorMessage(e){return e?.message||"Bitte versuche es erneut.";}
 async function login(event){
@@ -21,7 +21,7 @@ async function login(event){
 }
 async function fetchStats(){
  if(!token)throw new Error("Bitte melde dich an.");
- const res=await fetch(URL+"/functions/v1/happy-eck-statistics",{method:"GET",headers:{Authorization:"Bearer "+token,apikey:KEY}});
+ const res=await fetch(URL+"/functions/v1/happy-eck-statistics",{method:"GET",cache:"no-store",headers:{Authorization:"Bearer "+token,apikey:KEY}});
  let data={};try{data=await res.json()}catch{}
  if(!res.ok){if(res.status===401||res.status===403)throw new Error(res.status===403?"Nicht berechtigt":"Sitzung abgelaufen. Bitte erneut anmelden.");throw new Error(data.error||"Statistik ist momentan nicht erreichbar.");}
  rows=Array.isArray(data.rows)?data.rows:[];minuteRows=Array.isArray(data.minutes)?data.minutes:[];utcToday=(data.updated_at||new Date().toISOString()).slice(0,10);render();renderTime();
@@ -178,7 +178,7 @@ function renderTime(){
  const dailyMode=preset==="30d"||preset==="90d";
  el("daily-summary").hidden=!dailyMode;el("daily-details").hidden=!dailyMode;
  el("time-summary").hidden=dailyMode;el("time-chart-section").hidden=dailyMode;
- if(dailyMode){days=preset==="90d"?90:30;render();el("time-note").textContent="Tagesstatistik der letzten "+days+" Tage · Ältere Daten sind nur nach Tagen verfügbar.";return;}
+ if(dailyMode){days=preset==="90d"?90:30;render();el("time-note").textContent="Tagesstatistik der letzten "+days+" Tage · Für Minuten oder Stunden oben einen kürzeren Zeitraum auswählen.";return;}
  const durations={"15m":900000,"60m":3600000,"6h":21600000,"24h":86400000,"7d":604800000};
  if(preset==="custom"){
   const a=localInputToDate(el("time-from").value),b=localInputToDate(el("time-to").value);
@@ -189,7 +189,7 @@ function renderTime(){
   const parts=new Intl.DateTimeFormat("sv-SE",{timeZone:"Europe/Berlin",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());
   start=localInputToDate(parts+"T00:00")?.getTime()??now-86400000;
  }else start=now-(durations[preset]||3600000);
- const selected=minuteRows.filter(r=>{const t=Date.parse(r.bucket);return t>=start&&t<=end;});
+ const selected=minuteRows.filter(r=>{const t=Date.parse(r.bucket);return Number.isFinite(t)&&t>=start&&t<=end;});
  const pages=selected.filter(r=>r.event_kind==="page"),clicks=selected.filter(r=>r.event_kind==="click");
  el("time-summary").hidden=false;el("time-chart-section").hidden=false;
  el("time-views").textContent=num.format(sum(pages));el("time-clicks").textContent=num.format(sum(clicks));
@@ -208,7 +208,7 @@ function renderTime(){
  const label=document.createElement("span");label.className="chart-label";label.textContent=(i===0||i===entries.length-1||i%Math.max(1,Math.ceil(entries.length/6))===0)?berlinTime.format(new Date(t)).split(", ").pop():"";
  wrap.append(bar,label);chart.append(wrap);}
  el("time-chart-title").textContent=hourly?"Aufrufe pro Stunde":"Aufrufe pro Minute";
- el("time-note").textContent=(selected.length?"":"In diesem Zeitraum wurden noch keine Aufrufe oder Klicks erfasst. · ")+"Zeitraum: "+berlinTime.format(new Date(start))+" bis "+berlinTime.format(new Date(end))+" · Uhrzeit Hamm · Genaue Zeitdaten erst ab Aktivierung der neuen Erfassung.";
+ el("time-note").textContent=(selected.length?"":"Noch keine minutengenauen Daten in diesem Zeitraum. Die bisherigen Aufrufe findest du unter „Letzte 30 Tage“. · ")+"Zeitraum: "+berlinTime.format(new Date(start))+" bis "+berlinTime.format(new Date(end))+" · Uhrzeit Hamm.";
 }
 
 // Aktualisiere die Zahlen jede Minute, solange das Dashboard geöffnet ist.
