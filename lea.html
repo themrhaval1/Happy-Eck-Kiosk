@@ -3,138 +3,232 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#f7f4fc">
-<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#f8f5ff">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="A little magic for Lea.">
 <title>Lea is The Mentalist</title>
 <style>
-:root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#241f33;background:#f7f4fc}
+:root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:#211a35;background:#f8f5ff;font-synthesis:none}
 *{box-sizing:border-box}
-body{margin:0;min-height:100svh;display:grid;place-items:center;padding:20px;overflow-x:hidden;position:relative;isolation:isolate;background:radial-gradient(ellipse at 15% 5%,#f9dbff 0%,transparent 42%),radial-gradient(ellipse at 88% 89%,#d9d5ff 0%,transparent 43%),#f7f4fc}
-body::before,body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background-repeat:no-repeat;opacity:.7}
-body::before{background-image:radial-gradient(circle,#b897f3 0 2px,transparent 3px),radial-gradient(circle,#d1afff 0 2px,transparent 3px),radial-gradient(circle,#b897f3 0 1px,transparent 2px),radial-gradient(circle,#b897f3 0 2px,transparent 3px);background-size:8px 8px,7px 7px,6px 6px,8px 8px;background-position:15% 22%,80% 19%,10% 81%,90% 77%;animation:ambient 9s ease-in-out infinite alternate}
-body::after{background-image:radial-gradient(circle,#cca4e8 0 2px,transparent 3px),radial-gradient(circle,#927ad5 0 1px,transparent 2px),radial-gradient(circle,#b897f3 0 2px,transparent 3px);background-size:8px 8px,6px 6px,8px 8px;background-position:32% 12%,74% 84%,91% 38%;animation:ambient 11s ease-in-out infinite alternate-reverse}
-main{width:min(100%,390px);padding:clamp(24px,7vw,38px);background:linear-gradient(145deg,#fff 68%,#fbf7ff);border:1px solid #e9ddfa;border-radius:25px;box-shadow:0 22px 70px #7056b329,0 0 0 5px #ffffff55;text-align:center;position:relative;overflow:hidden}
-main::before{content:"";position:absolute;left:-40%;top:0;width:180%;height:2px;background:linear-gradient(90deg,transparent,#b18bec,#fbcdfe,#b18bec,transparent);opacity:.8}
-h1{font-size:clamp(34px,9vw,45px);letter-spacing:-.07em;line-height:1.1;margin:0 0 27px;background:linear-gradient(105deg,#241f33 12%,#7b4bc1 42%,#241f33 69%,#9961c7 100%);background-size:240% auto;background-clip:text;-webkit-background-clip:text;color:transparent;animation:shimmer 6s ease-in-out infinite}
-h2{font-size:24px;margin:0 0 15px}
-button{font:inherit;cursor:pointer;touch-action:manipulation}
-button:focus-visible{outline:3px solid #5745a8;outline-offset:3px}
-.action{display:block;width:100%;min-height:54px;border:0;border-radius:14px;background:linear-gradient(120deg,#7854c9,#9b6ce4,#7754ca);color:#fff;font-weight:800;padding:13px;box-shadow:0 8px 22px #7355c438;transition:transform .18s ease,box-shadow .18s ease}
-.action:hover{transform:translateY(-2px);box-shadow:0 12px 25px #7355c449}
-.action.secondary{background:#eee9f8;color:#6546aa;margin-top:12px}
+html{min-height:100%;-webkit-text-size-adjust:100%}
+body{margin:0;min-height:100svh}
+button{font:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+button:focus-visible{outline:3px solid #9e80ff;outline-offset:4px}
 [hidden]{display:none!important}
-#game{margin-top:22px}
-.score{font-size:13px;color:#736989;margin:0 0 12px;font-weight:700}
-.board{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}
-.tile{aspect-ratio: .82;border:1px solid #ded4ef;border-radius:13px;background:linear-gradient(150deg,#f5edff,#e7dcfb);color:#6a50ad;font-size:clamp(23px,7vw,34px);font-weight:800;min-width:0;padding:0;display:grid;place-items:center;box-shadow:0 4px 9px #4d307412;transform-style:preserve-3d;transition:box-shadow .2s ease,transform .2s ease}
-.tile:not(:disabled):hover{transform:translateY(-3px);box-shadow:0 8px 15px #76549a24}
-.tile.open{background:linear-gradient(145deg,#fff,#f9edff);color:#302147;border-color:#c4b3e5;animation:turnCard .28s ease both}
-.tile.matched{background:linear-gradient(145deg,#effef4,#d8f3e3);border-color:#9bcfb0;color:#2a6442;box-shadow:0 0 0 2px #b0e7c655,0 4px 15px #64c89224}
-.tile:disabled{cursor:default;opacity:1}
-.status{font-size:13px;color:#6e5b95;min-height:20px;margin:15px 0}
-.back{margin-top:15px;background:none;border:0;color:#7459b7;font-size:14px;font-weight:700;padding:10px}
-#start:not([hidden]),#content:not([hidden]){animation:appear .42s cubic-bezier(.18,.75,.35,1) both}
-.spark{position:fixed;z-index:15;pointer-events:none;width:8px;height:8px;background:#a071e3;clip-path:polygon(50% 0%,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0% 50%,38% 38%);filter:drop-shadow(0 0 3px #9b75e6);animation:sparkle .85s ease-out forwards}
-.spark:nth-of-type(3n){background:#f3a8ed}.spark:nth-of-type(5n){background:#72bfe6}
-@keyframes appear{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
-@keyframes shimmer{0%,100%{background-position:0% center}50%{background-position:100% center}}
-@keyframes ambient{from{transform:translateY(0)}to{transform:translateY(-12px)}}
-@keyframes turnCard{0%{transform:rotateY(85deg);opacity:.5}100%{transform:rotateY(0);opacity:1}}
-@keyframes sparkle{0%{opacity:1;transform:translate(0,0) scale(.2) rotate(0)}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(1.25) rotate(180deg)}}
-@media(max-width:350px){body{padding:10px}.board{gap:6px}main{padding:23px}}
+.home{min-height:100svh;display:grid;place-items:center;padding:26px;position:relative;overflow:hidden;background:radial-gradient(ellipse at 15% 5%,#edddff 0,transparent 43%),radial-gradient(ellipse at 95% 80%,#ffe6f6 0,transparent 40%),#f8f5ff}
+.home::before,.home::after{content:"";position:absolute;pointer-events:none;border-radius:50%}
+.home::before{width:260px;height:260px;left:-175px;top:9%;border:1px solid #ad9ae738;box-shadow:0 0 0 50px #c7b2f112,0 0 0 100px #c7b2f10b}
+.home::after{width:350px;height:350px;right:-260px;bottom:7%;border:1px solid #d9a7dd36;box-shadow:0 0 0 50px #c7b2f112,0 0 0 100px #c7b2f10b}
+.intro{text-align:center;width:min(100%,450px);position:relative;z-index:1}
+.symbol{margin:0 auto 32px;width:94px;height:94px;display:grid;place-items:center;border-radius:29px;background:linear-gradient(140deg,#fff,#ede4fc);border:1px solid #e7dbf6;box-shadow:0 18px 50px #7552ae25;position:relative}
+.symbol::before,.symbol::after{content:"";position:absolute;inset:15px;border:2px solid #8564d5;border-radius:50%}
+.symbol::after{inset:25px;border:1px solid #bdaaf0}
+.symbol span{font-size:40px;color:#7555cc;font-weight:850;position:relative;z-index:1;font-family:Georgia,serif}
+.intro h1{font-size:clamp(49px,11.8vw,76px);letter-spacing:-.09em;line-height:.98;margin:0 0 35px;font-weight:900}
+.intro h1 span{display:block;color:#8460da}
+.launch{width:min(100%,310px);min-height:64px;border:0;border-radius:19px;color:white;background:linear-gradient(110deg,#6b47c4,#9969e7);font-size:18px;font-weight:850;letter-spacing:.015em;box-shadow:0 12px 32px #6d4ac345,0 3px 0 #5034a6;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s}
+.launch::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 25%,#ffffff50 50%,transparent 75%);transform:translateX(-150%);transition:transform .7s}
+.launch:hover::after{transform:translateX(150%)}
+.launch:hover{transform:translateY(-2px);box-shadow:0 15px 35px #6d4ac34a,0 3px 0 #5034a6}
+.launch:active{transform:translateY(2px);box-shadow:0 5px 15px #6d4ac345}
+.stage{position:fixed;inset:0;z-index:50;overflow:hidden;isolation:isolate;background:radial-gradient(ellipse at 50% 38%,#26174a 0,#0b091b 47%,#050510 100%);color:#fff}
+.stage::before{content:"";position:absolute;inset:-30%;background:conic-gradient(from 0deg at 50% 50%,transparent 0deg,#9a68ff18 32deg,transparent 70deg,#dd78e514 155deg,transparent 220deg,#65aaf014 290deg,transparent);animation:skyturn 25s linear infinite;pointer-events:none}
+.stage::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at center,transparent 24%,#05051092 93%)}
+.particles{position:absolute;inset:0;display:block;width:100%;height:100%;z-index:3;pointer-events:none}
+.stage-top{position:absolute;top:max(19px,env(safe-area-inset-top));left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:0 clamp(18px,5vw,42px);z-index:8}
+.stage-mark{font-size:11px;letter-spacing:.25em;font-weight:850;color:#c6b5ee}
+.close{border:1px solid #ffffff35;border-radius:50%;background:#ffffff0b;color:#f4ecff;width:45px;height:45px;display:grid;place-items:center;font-size:23px;line-height:1;transition:background .2s}
+.close:hover{background:#ffffff28}
+.portal{position:absolute;left:50%;top:47%;width:min(78vw,375px);aspect-ratio:1;transform:translate(-50%,-50%);z-index:2;filter:drop-shadow(0 0 50px #9770ff56);transition:opacity .8s,transform 1s}
+.ring{position:absolute;border-radius:50%;border:1px solid #d9c1ff84}
+.ring.one{inset:0;border-top:3px solid #ddd0ff;border-right-color:transparent;border-bottom-color:#b38afe70;box-shadow:0 0 38px #8d5ef17a,inset 0 0 40px #633db23f;animation:spin 8s linear infinite}
+.ring.two{inset:12%;border-left:2px solid #98dfff;border-right:2px solid #d8abff;border-top-color:transparent;box-shadow:0 0 23px #b57dff6b;animation:spinReverse 6s linear infinite}
+.ring.three{inset:27%;border:2px solid #d6c5ff75;border-bottom-color:transparent;box-shadow:0 0 25px #a66cff55;animation:spin 4s linear infinite}
+.portal-core{position:absolute;inset:38%;border-radius:50%;background:radial-gradient(circle,#e7d7ff,#8c61da6b 38%,transparent 70%);filter:blur(10px);animation:heartbeat 1.9s ease-in-out infinite}
+.portal-dots{position:absolute;inset:-8%;border:1px dashed #af95e947;border-radius:50%;animation:spin 18s linear infinite}
+.countdown{position:absolute;left:50%;top:47%;transform:translate(-50%,-50%);z-index:6;font-size:clamp(88px,26vw,175px);font-weight:950;letter-spacing:-.09em;text-shadow:0 0 30px #d6b4ff,0 0 90px #8c61ed;line-height:1}
+.countdown.tick{animation:numberIn .7s cubic-bezier(.18,.8,.2,1) both}
+.phase{position:absolute;left:15px;right:15px;bottom:max(11%,env(safe-area-inset-bottom));z-index:6;font-size:12px;letter-spacing:.21em;color:#c0b2df;font-weight:800;text-align:center;text-transform:uppercase}
+.flash{position:absolute;inset:0;z-index:7;pointer-events:none;opacity:0;background:radial-gradient(circle,#fff 0,#dbc4ff 28%,#995bff 60%,transparent 82%)}
+.flash.go{animation:flash .8s ease-out both}
+.reveal{position:absolute;z-index:6;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:26px 16px;isolation:isolate}
+.reveal::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at center,#6e39bf49,transparent 65%);animation:heartbeat 2.8s ease-in-out infinite}
+.reveal-title{margin:0;line-height:.96;letter-spacing:-.087em;text-transform:uppercase;font-weight:950;max-width:100%;filter:drop-shadow(0 0 30px #8e65ee9b);transform:translateZ(0)}
+.reveal-title span{display:block;background:linear-gradient(135deg,#fff 8%,#dfc2ff 48%,#fff 67%,#a6dcff 100%);background-clip:text;-webkit-background-clip:text;color:transparent}
+.reveal-title span:first-child{font-size:clamp(75px,18vw,158px);animation:revealLine .7s cubic-bezier(.15,.7,.2,1) both}
+.reveal-title span:last-child{font-size:clamp(35px,8.8vw,76px);margin-top:17px;animation:revealLine .9s .14s cubic-bezier(.15,.7,.2,1) both}
+.reveal .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:55px;animation:fadeIn 1s .7s both}
+.replay,.done{border:1px solid #d6b8ff64;padding:15px 21px;border-radius:14px;font-size:14px;letter-spacing:.03em;font-weight:850;min-height:51px}
+.replay{background:#cfafff;color:#1b102b}
+.done{background:#ffffff0a;color:#f4ecff}
+.replay:hover{background:#e2ccff}
+.done:hover{background:#ffffff26}
+.reveal-glow{width:min(74vw,470px);height:min(74vw,470px);border-radius:50%;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:-1;border:1px solid #bb9aff23;box-shadow:0 0 0 45px #bd8aff09,0 0 0 90px #bd8aff07,0 0 135px #9667fc55;animation:heartbeat 3s ease-in-out infinite}
+.stage[data-phase="reveal"] .portal{opacity:0;transform:translate(-50%,-50%) scale(1.9)}
+.stage[data-phase="reveal"] .phase{display:none}
+body.magic-open{overflow:hidden}
+@keyframes numberIn{0%{opacity:0;transform:translate(-50%,-50%) scale(2);filter:blur(14px)}30%{opacity:1}100%{opacity:1;transform:translate(-50%,-50%) scale(1);filter:blur(0)}}
+@keyframes skyturn{to{transform:rotate(360deg)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes spinReverse{to{transform:rotate(-360deg)}}
+@keyframes heartbeat{0%,100%{opacity:.65;scale:1}50%{opacity:1;scale:1.07}}
+@keyframes flash{0%{opacity:0}15%{opacity:.96}100%{opacity:0}}
+@keyframes revealLine{0%{opacity:0;transform:scale(1.4);filter:blur(20px)}100%{opacity:1;transform:scale(1);filter:blur(0)}}
+@keyframes fadeIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:430px){.symbol{width:86px;height:86px}.portal{width:82vw}.reveal-title span:first-child{font-size:21vw}.reveal-title span:last-child{font-size:9.1vw}.reveal .actions{margin-top:42px}.replay,.done{font-size:13px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
-<main>
-<section id="start">
-<h1>Lea is The Mentalist</h1>
-<button class="action" id="open" type="button">Öffnen</button>
-</section>
-<section id="content" hidden>
-<h1>Lea is The Mentalist</h1>
-<button class="action" id="play" type="button">Kartenspiel starten</button>
-<div id="game" hidden>
-<h2>Memory</h2>
-<p class="score" id="score">0 von 6 Paaren</p>
-<div class="board" id="board" aria-label="Memory-Kartenspiel"></div>
-<p class="status" id="status" role="status" aria-live="polite"></p>
-<button class="action secondary" id="restart" type="button">Neu mischen</button>
-</div>
-<button class="back" id="back" type="button">Zurück</button>
-</section>
+<main class="home" id="home">
+  <div class="intro">
+    <div class="symbol" aria-hidden="true"><span>L</span></div>
+    <h1>Lea is <span>The Mentalist</span></h1>
+    <button type="button" class="launch" id="start">Magic starten <span aria-hidden="true">→</span></button>
+  </div>
 </main>
+<section class="stage" id="stage" data-phase="countdown" role="dialog" aria-modal="true" aria-label="Magic für Lea" tabindex="-1" hidden>
+  <canvas class="particles" id="particles" aria-hidden="true"></canvas>
+  <div class="stage-top">
+    <span class="stage-mark">L / MAGIC</span>
+    <button type="button" class="close" id="exit" aria-label="Magic schließen">×</button>
+  </div>
+  <div class="portal" id="portal" aria-hidden="true">
+    <div class="portal-dots"></div><div class="ring one"></div><div class="ring two"></div><div class="ring three"></div><div class="portal-core"></div>
+  </div>
+  <div class="countdown" id="countdown" aria-live="off">3</div>
+  <div class="phase" id="phase" aria-live="polite">Die Magie beginnt</div>
+  <div class="flash" id="flash" aria-hidden="true"></div>
+  <div class="reveal" id="reveal" hidden>
+    <div class="reveal-glow" aria-hidden="true"></div>
+    <h2 class="reveal-title"><span>LEA IS</span><span>THE MENTALIST</span></h2>
+    <div class="actions">
+      <button type="button" class="replay" id="replay">Noch einmal</button>
+      <button type="button" class="done" id="done">Schließen</button>
+    </div>
+  </div>
+</section>
 <script>
 (()=>{
 "use strict";
 const $=id=>document.getElementById(id);
-const faces=["A","B","C","D","E","F"];
-const reducedMotion=window.matchMedia("(prefers-reduced-motion: reduce)");
-function magicBurst(element,count=14){
-if(reducedMotion.matches||!element)return;
-const rect=element.getBoundingClientRect();
-const cx=rect.left+rect.width/2,cy=rect.top+rect.height/2;
-for(let i=0;i<count;i++){
-const star=document.createElement("span");
-star.className="spark";star.setAttribute("aria-hidden","true");
-star.style.left=cx+"px";star.style.top=cy+"px";
-const angle=Math.PI*2*i/count+(Math.random()-.5)*.35;
-const dist=28+Math.random()*75;
-star.style.setProperty("--dx",Math.cos(angle)*dist+"px");
-star.style.setProperty("--dy",Math.sin(angle)*dist+"px");
-document.body.appendChild(star);
-star.addEventListener("animationend",()=>star.remove(),{once:true});
+const home=$("home"),stage=$("stage"),canvas=$("particles");
+const context=canvas.getContext?canvas.getContext("2d"):null;
+const reduce=window.matchMedia("(prefers-reduced-motion: reduce)");
+let timers=[],raf=0,stars=[],mode="orbit",playing=false;
+let width=0,height=0,dpr=1,lastFrame=0;
+const rand=(min,max)=>min+Math.random()*(max-min);
+function schedule(fn,ms){timers.push(setTimeout(fn,ms))}
+function clearSequence(){timers.forEach(clearTimeout);timers=[];if(raf)cancelAnimationFrame(raf);raf=0;playing=false}
+function resize(){
+if(!context)return;
+width=window.innerWidth;height=window.innerHeight;
+dpr=Math.min(window.devicePixelRatio||1,2);
+canvas.width=Math.floor(width*dpr);canvas.height=Math.floor(height*dpr);
+context.setTransform(dpr,0,0,dpr,0,0);
+}
+function setupStars(){
+if(!context)return;
+const cx=width/2,cy=height*.47;
+stars=[];
+const n=Math.min(200,Math.max(95,Math.floor(width*height/3000)));
+for(let i=0;i<n;i++){
+const angle=rand(0,Math.PI*2),radius=rand(40,Math.min(width,height)*.65);
+stars.push({angle,radius,speed:rand(-.012,.012),x:cx+Math.cos(angle)*radius,y:cy+Math.sin(angle)*radius*.7,vx:0,vy:0,light:rand(.3,.95),size:rand(.7,2.6),tint:i%5===0?"#9be4ff":i%3===0?"#ffc1f3":"#d6b7ff"});
 }
 }
-let cards=[],first=null,second=null,matches=0,busy=false,pending=null;
-function stop(){clearTimeout(pending);pending=null;busy=false}
-function startGame(){
-stop();first=null;second=null;matches=0;
-cards=[...faces,...faces].map((face,i)=>({face,id:i,open:false,matched:false}));
-for(let i=cards.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[cards[i],cards[j]]=[cards[j],cards[i]]}
-$("game").hidden=false;$("play").hidden=true;
-$("score").textContent="0 von 6 Paaren";$("status").textContent="";
-render();
+function explode(){
+mode="explode";
+const cx=width/2,cy=height*.47;
+for(const p of stars){
+p.x=cx+rand(-35,35);p.y=cy+rand(-35,35);
+const a=rand(0,Math.PI*2),force=rand(2.6,12);
+p.vx=Math.cos(a)*force;p.vy=Math.sin(a)*force;
+p.light=rand(.75,1);
 }
-function render(){
-const board=$("board");board.replaceChildren();
-cards.forEach((c,i)=>{
-const b=document.createElement("button");b.type="button";
-b.className="tile"+(c.matched?" matched":c.open?" open":"");
-b.textContent=c.open||c.matched?c.face:"?";
-b.setAttribute("aria-label",c.open||c.matched?"Karte "+(i+1)+": "+c.face:"Karte "+(i+1)+", verdeckt");
-b.disabled=c.open||c.matched||busy;
-b.addEventListener("click",()=>flip(i));
-board.appendChild(b);
-});
 }
-function flip(i){
-if(busy||cards[i].open||cards[i].matched)return;
-cards[i].open=true;
-if(first===null){first=i;render();return}
-second=i;busy=true;render();
-if(cards[first].face===cards[second].face){
-cards[first].matched=cards[second].matched=true;
-matches++;$("score").textContent=matches+" von 6 Paaren";
-$("status").textContent=matches===6?"Gewonnen!":"Paar gefunden.";
-const matchedIndices=[first,second];
-first=null;second=null;busy=false;render();
-for(const idx of matchedIndices)magicBurst($("board").children[idx],7);
-if(matches===6)magicBurst($("board"),22);
+function frame(time){
+if(!playing||!context)return;
+const dt=Math.min(2.3,(time-lastFrame)/16.7||1);lastFrame=time;
+context.clearRect(0,0,width,height);
+const cx=width/2,cy=height*.47;
+for(const p of stars){
+if(mode==="orbit"){
+p.angle+=p.speed*dt;
+p.x=cx+Math.cos(p.angle)*p.radius;
+p.y=cy+Math.sin(p.angle)*p.radius*.7;
 }else{
-$("status").textContent="Noch mal versuchen.";
-pending=setTimeout(()=>{
-cards[first].open=false;cards[second].open=false;
-first=null;second=null;busy=false;pending=null;render();
-},850);
+p.x+=p.vx*dt;p.y+=p.vy*dt;p.vx*=Math.pow(.983,dt);p.vy*=Math.pow(.983,dt);
+p.light=Math.max(.13,p.light-.0025*dt);
 }
+context.globalAlpha=p.light*(.7+.3*Math.sin(time*.002+p.angle*13));
+context.fillStyle=p.tint;
+context.beginPath();context.arc(p.x,p.y,p.size,0,Math.PI*2);context.fill();
+if(p.size>1.9){context.lineWidth=.5;context.strokeStyle=p.tint;context.beginPath();context.moveTo(p.x-5,p.y);context.lineTo(p.x+5,p.y);context.moveTo(p.x,p.y-5);context.lineTo(p.x,p.y+5);context.stroke()}
 }
-$("open").addEventListener("click",()=>{$("start").hidden=true;$("content").hidden=false;magicBurst($("content").querySelector("h1"),22)});
-$("play").addEventListener("click",()=>{startGame();magicBurst($("board"),14)});
-$("restart").addEventListener("click",()=>{startGame();magicBurst($("board"),10)});
-$("back").addEventListener("click",()=>{
-stop();$("game").hidden=true;$("play").hidden=false;
-$("content").hidden=true;$("start").hidden=false;
+context.globalAlpha=1;
+raf=requestAnimationFrame(frame);
+}
+function revealMagic(){
+if(!playing)return;
+$("countdown").hidden=true;
+$("phase").hidden=true;
+stage.dataset.phase="reveal";
+$("flash").classList.remove("go");
+void $("flash").offsetWidth;
+$("flash").classList.add("go");
+explode();
+$("reveal").hidden=false;
+schedule(()=>$("replay").focus({preventScroll:true}),950);
+}
+function showNumber(n){
+const element=$("countdown");
+element.textContent=String(n);
+element.classList.remove("tick");void element.offsetWidth;element.classList.add("tick");
+}
+function startMagic(){
+clearSequence();
+stage.hidden=false;document.body.classList.add("magic-open");
+home.inert=true;stage.dataset.phase="countdown";
+$("reveal").hidden=true;$("countdown").hidden=false;$("phase").hidden=false;
+$("phase").textContent="Die Magie beginnt";$("flash").classList.remove("go");
+showNumber(3);
+stage.focus({preventScroll:true});
+if(reduce.matches||!context){$("countdown").hidden=true;revealMagic();return}
+resize();setupStars();mode="orbit";playing=true;lastFrame=performance.now();
+raf=requestAnimationFrame(frame);
+schedule(()=>showNumber(2),850);
+schedule(()=>showNumber(1),1700);
+schedule(()=>{$("countdown").hidden=true;$("phase").textContent="Bereit für die Enthüllung?";},2600);
+schedule(revealMagic,3250);
+}
+function closeMagic(){
+clearSequence();stage.hidden=true;home.inert=false;
+document.body.classList.remove("magic-open");
+$("start").focus({preventScroll:true});
+}
+$("start").addEventListener("click",startMagic);
+$("replay").addEventListener("click",startMagic);
+$("done").addEventListener("click",closeMagic);
+$("exit").addEventListener("click",closeMagic);
+document.addEventListener("keydown",e=>{
+if(stage.hidden)return;
+if(e.key==="Escape"){e.preventDefault();closeMagic()}
+if(e.key==="Tab"){
+const interactive=stage.dataset.phase==="reveal"?[$("exit"),$("replay"),$("done")]:[$("exit")];
+const i=interactive.indexOf(document.activeElement);
+if(e.shiftKey&&(i===0||i<0)){e.preventDefault();interactive[interactive.length-1].focus()}
+else if(!e.shiftKey&&(i===interactive.length-1||i<0)){e.preventDefault();interactive[0].focus()}
+}
+});
+window.addEventListener("resize",()=>{
+if(stage.hidden||!playing)return;
+resize();setupStars();
+if(mode==="explode")explode();
+});
+document.addEventListener("visibilitychange",()=>{
+if(document.hidden&&playing){if(raf)cancelAnimationFrame(raf);raf=0}
+else if(!document.hidden&&playing&&context&&!raf){lastFrame=performance.now();raf=requestAnimationFrame(frame)}
 });
 })();
 </script>
