@@ -5,52 +5,248 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#f8f2ff">
 <meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Eine kleine Überraschung und zwei Minispiele für Lea.">
 <title>Für Lea 💌</title>
 <style>
-:root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#302548;background:#f8f2ff}
+:root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#302548;background:#f8f2ff;font-synthesis:none}
 *{box-sizing:border-box}
 body{margin:0;min-height:100svh;display:grid;place-items:center;padding:20px;background:radial-gradient(circle at 15% 15%,#ffe0e9,transparent 42%),radial-gradient(circle at 85% 80%,#e5d7ff,transparent 45%),#f8f2ff}
-.card{width:min(100%,390px);padding:39px 29px 35px;border:1px solid #eee4f5;border-radius:29px;background:#fff;box-shadow:0 20px 65px #5d3c8217;text-align:center}
-.emoji{font-size:51px;display:block;margin-bottom:16px}
-h1{font-size:clamp(35px,10vw,46px);letter-spacing:-.065em;line-height:1.12;margin:0 0 15px}
-p{font-size:17px;color:#6d627c;line-height:1.6;margin:0 0 24px}
-button{appearance:none;width:100%;min-height:55px;background:#8462dc;color:white;border:0;border-radius:16px;font:inherit;font-weight:850;font-size:17px;cursor:pointer;touch-action:manipulation}
-button:active{transform:scale(.98)}
-button:focus-visible{outline:3px solid #50348c;outline-offset:4px}
-small{display:block;color:#aba1b4;margin-top:17px;font-size:12px}
+.card{width:min(100%,435px);padding:clamp(23px,6vw,37px);border:1px solid #eee4f5;border-radius:29px;background:#fff;box-shadow:0 20px 65px #5d3c8217;text-align:center}
+.emoji{font-size:49px;display:block;margin-bottom:14px}
+h1{font-size:clamp(30px,8vw,42px);letter-spacing:-.06em;line-height:1.13;margin:0 0 13px}
+h2{font-size:clamp(25px,6vw,31px);letter-spacing:-.05em;line-height:1.14;margin:0 0 10px}
+p{font-size:16px;color:#6d627c;line-height:1.55;margin:0 0 21px}
+button{appearance:none;min-height:51px;background:#8462dc;color:white;border:0;border-radius:15px;font:inherit;font-weight:800;font-size:16px;cursor:pointer;touch-action:manipulation}
+button:active{transform:scale(.97)}
+button:focus-visible{outline:3px solid #50348c;outline-offset:3px}
+.btn{width:100%;padding:13px 16px}
+.btn.alt{background:#f1eaff;color:#6342c1}
+.btn.light{background:#fff0f6;color:#c34e85}
+.btn:disabled{opacity:.7;cursor:default}
+small{display:block;color:#aba1b4;margin-top:14px;font-size:12px}
 [hidden]{display:none!important}
-#surprise{animation:appear .35s ease both}
-@keyframes appear{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-@media(prefers-reduced-motion:reduce){#surprise{animation:none}}
+section:not([hidden]){animation:appear .3s ease both}
+@keyframes appear{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
+.game-buttons{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:23px 0 17px}
+.game-pick{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;min-height:105px;background:#f5f0ff;color:#503e76;border:1px solid #e6d9ff;border-radius:19px;font-weight:850}
+.game-pick:nth-child(2){background:#fff1f6;border-color:#ffdce9}
+.game-pick .symbol{font-size:31px}
+.back{display:block;border:0;background:transparent;color:#7e5ecf;font-weight:850;margin:0 0 20px;padding:7px 0;min-height:38px;text-align:left}
+.game-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:14px}
+.game-top h2{margin:0}
+.score{background:#f5f0ff;color:#7050bc;border-radius:11px;padding:8px 12px;font-size:13px;font-weight:850;font-variant-numeric:tabular-nums}
+#snake-board{display:block;width:100%;max-width:336px;aspect-ratio:1;margin:0 auto 12px;background:#201b38;border:5px solid #e2d6fb;border-radius:17px;touch-action:none}
+.status{min-height:44px;font-size:14px;line-height:1.45;font-weight:750;color:#7554b3;margin:10px 0}
+.dpad{display:grid;grid-template-columns:repeat(3,63px);grid-template-rows:repeat(2,58px);gap:8px;justify-content:center;margin:12px auto 18px}
+.dpad button{background:#f1eaff;color:#684abb;border:1px solid #decffc;font-size:26px;min-height:0}
+.dpad .up{grid-column:2;grid-row:1}
+.dpad .left{grid-column:1;grid-row:2}
+.dpad .down{grid-column:2;grid-row:2}
+.dpad .right{grid-column:3;grid-row:2}
+.game-bottom{display:flex;gap:10px}
+.game-bottom .btn{flex:1}
+.memory-board{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:22px 0 13px}
+.memory-tile{aspect-ratio: .83;min-width:0;min-height:0;border:1px solid #e1d5f8;border-radius:14px;background:#eee6ff;color:#7554b5;font-size:clamp(26px,8vw,38px);font-weight:900;display:grid;place-items:center;transition:background .15s,transform .15s}
+.memory-tile.flipped{background:#fff2f7;border-color:#f5cddd}
+.memory-tile.matched{background:#e8faef;border-color:#b6e8c9}
+.memory-tile:disabled{cursor:default;opacity:1}
+.hint{font-size:13px;color:#8b8099;margin-top:12px}
+@media(max-width:360px){body{padding:11px}.card{padding:21px}.memory-board{gap:6px}.dpad{grid-template-columns:repeat(3,57px)}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
-<main class="card">
+<main class="card" aria-label="Leas Überraschung und Spiele">
 <section id="welcome">
 <span class="emoji" aria-hidden="true">💌</span>
 <h1>Lea, ganz kurz …</h1>
 <p>Ich hab eine wichtige Nachricht für dich. 😂</p>
-<button type="button" id="open">Öffnen 👀</button>
+<button class="btn" type="button" id="open">Öffnen 👀</button>
 <small>Keine Sorge, dauert nur 5 Sekunden.</small>
 </section>
-<section id="surprise" hidden aria-live="polite">
+<section id="surprise" hidden>
 <span class="emoji" aria-hidden="true">😂❤️</span>
 <h1>Lea is The Mentalist 🕵️‍♀️</h1>
 <p>Andere schreiben einfach „Ich vermisse dich“.<br>Ich bau dir direkt eine Website. 💀</p>
-<button type="button" id="again">Nochmal ansehen 😂</button>
+<h2>Lust auf ein Minispiel?</h2>
+<div class="game-buttons">
+<button type="button" class="game-pick" id="play-snake"><span class="symbol" aria-hidden="true">🐍</span>Snake spielen</button>
+<button type="button" class="game-pick" id="play-memory"><span class="symbol" aria-hidden="true">🃏</span>Karten spielen</button>
+</div>
+<button class="btn alt" type="button" id="again">Nochmal ansehen 😂</button>
+</section>
+<section id="snake" hidden aria-label="Snake Spiel">
+<button class="back" type="button" data-menu>← Zurück</button>
+<div class="game-top"><h2>Snake 🐍</h2><span class="score" id="snake-score">0 Punkte</span></div>
+<canvas id="snake-board" width="320" height="320" aria-label="Snake Spielfeld mit Schlange und Futter"></canvas>
+<div class="status" id="snake-status" role="status" aria-live="polite">Sammle die pinken Punkte! 🍓</div>
+<div class="dpad" aria-label="Snake steuern">
+<button type="button" class="up" data-dir="up" aria-label="Nach oben">↑</button>
+<button type="button" class="left" data-dir="left" aria-label="Nach links">←</button>
+<button type="button" class="down" data-dir="down" aria-label="Nach unten">↓</button>
+<button type="button" class="right" data-dir="right" aria-label="Nach rechts">→</button>
+</div>
+<div class="game-bottom">
+<button class="btn alt" type="button" id="snake-pause">Pause ⏸</button>
+<button class="btn" type="button" id="snake-restart">Neu starten ↻</button>
+</div>
+<small>Tippe auf die Pfeile oder wische über das Spielfeld.</small>
+</section>
+<section id="memory" hidden aria-label="Karten Memory Spiel">
+<button class="back" type="button" data-menu>← Zurück</button>
+<div class="game-top"><h2>Memory 🃏</h2><span class="score" id="memory-score">0 / 6 Paare</span></div>
+<p>Finde die gleichen Karten. Schaffst du alle sechs? 👀</p>
+<div class="memory-board" id="memory-board" aria-label="Zwölf verdeckte Karten"></div>
+<div class="status" id="memory-status" role="status" aria-live="polite">Decke zwei Karten auf!</div>
+<button class="btn" type="button" id="memory-restart">Nochmal mischen ↻</button>
+<small>Immer zwei Karten aufdecken. Viel Glück! 🍀</small>
 </section>
 </main>
 <script>
-const welcome=document.getElementById("welcome");
-const surprise=document.getElementById("surprise");
-document.getElementById("open").addEventListener("click",()=>{
-welcome.hidden=true;surprise.hidden=false;
-document.getElementById("again").focus({preventScroll:true});
+(function(){
+"use strict";
+const $=id=>document.getElementById(id);
+const scenes=["welcome","surprise","snake","memory"];
+let current="welcome";
+function showScene(name){
+if(current==="snake")stopSnake();
+if(current==="memory")clearMemoryWait();
+for(const id of scenes)$(id).hidden=id!==name;
+current=name;
+window.scrollTo(0,0);
+}
+$("open").addEventListener("click",()=>showScene("surprise"));
+$("again").addEventListener("click",()=>showScene("welcome"));
+document.querySelectorAll("[data-menu]").forEach(b=>b.addEventListener("click",()=>showScene("surprise")));
+$("play-snake").addEventListener("click",()=>{showScene("snake");startSnake()});
+$("play-memory").addEventListener("click",()=>{showScene("memory");startMemory()});
+const canvas=$("snake-board"),ctx=canvas.getContext("2d");
+const size=16,unit=20;
+let snake=[],food={x:0,y:0},direction={x:1,y:0},nextDirection={x:1,y:0},snakePoints=0,snakeTimer=null,snakeRunning=false,snakeEnded=false;
+function stopSnake(){clearInterval(snakeTimer);snakeTimer=null;snakeRunning=false}
+function newFood(){
+const free=[];
+for(let y=0;y<size;y++)for(let x=0;x<size;x++)if(!snake.some(s=>s.x===x&&s.y===y))free.push({x,y});
+if(free.length===0){endSnake(true);return}
+food=free[Math.floor(Math.random()*free.length)];
+}
+function drawSnake(){
+if(!ctx)return;
+ctx.fillStyle="#201b38";ctx.fillRect(0,0,320,320);
+ctx.strokeStyle="#ffffff09";ctx.lineWidth=1;
+for(let i=1;i<size;i++){ctx.beginPath();ctx.moveTo(i*unit,0);ctx.lineTo(i*unit,320);ctx.moveTo(0,i*unit);ctx.lineTo(320,i*unit);ctx.stroke()}
+ctx.fillStyle="#ff85af";ctx.beginPath();ctx.arc(food.x*unit+10,food.y*unit+10,7.4,0,Math.PI*2);ctx.fill();
+ctx.fillStyle="#8cecba";
+snake.forEach((s,i)=>{ctx.fillStyle=i===0?"#c4a8ff":"#8cecba";ctx.beginPath();ctx.roundRect(s.x*unit+1,s.y*unit+1,unit-2,unit-2,5);ctx.fill()});
+const h=snake[0];if(h){ctx.fillStyle="#302548";ctx.beginPath();ctx.arc(h.x*unit+7,h.y*unit+7,1.6,0,Math.PI*2);ctx.arc(h.x*unit+13,h.y*unit+7,1.6,0,Math.PI*2);ctx.fill()}
+}
+function snakeStep(){
+if(current!=="snake"||!snakeRunning)return;
+direction=nextDirection;
+const head={x:snake[0].x+direction.x,y:snake[0].y+direction.y};
+const eating=head.x===food.x&&head.y===food.y;
+if(head.x<0||head.x>=size||head.y<0||head.y>=size||snake.slice(0,eating?snake.length:snake.length-1).some(s=>s.x===head.x&&s.y===head.y)){endSnake(false);return}
+snake.unshift(head);
+if(eating){snakePoints+=10;$("snake-score").textContent=snakePoints+" Punkte";newFood()}else snake.pop();
+drawSnake();
+}
+function endSnake(won){
+stopSnake();snakeEnded=true;
+$("snake-status").textContent=won?"Wahnsinn, Lea! Du hast gewonnen! 🏆":"Game Over 😂 "+snakePoints+" Punkte! Versuch's nochmal.";
+$("snake-pause").textContent="Pause ⏸";
+drawSnake();
+}
+function startSnake(){
+stopSnake();snakeEnded=false;snakeRunning=true;snakePoints=0;snake=[{x:8,y:8},{x:7,y:8},{x:6,y:8}];
+direction={x:1,y:0};nextDirection={x:1,y:0};
+$("snake-score").textContent="0 Punkte";
+$("snake-status").textContent="Los geht's! Sammle die pinken Punkte 🍓";
+$("snake-pause").textContent="Pause ⏸";
+newFood();drawSnake();snakeTimer=setInterval(snakeStep,165);
+}
+function setDirection(x,y){
+if(!snakeRunning||snakeEnded)return;
+if(x===-direction.x&&y===-direction.y)return;
+nextDirection={x,y};
+}
+const vector={up:[0,-1],down:[0,1],left:[-1,0],right:[1,0]};
+document.querySelectorAll("[data-dir]").forEach(b=>b.addEventListener("click",()=>{const v=vector[b.dataset.dir];setDirection(v[0],v[1])}));
+document.addEventListener("keydown",e=>{
+if(current!=="snake")return;
+const dirs={ArrowUp:vector.up,ArrowDown:vector.down,ArrowLeft:vector.left,ArrowRight:vector.right,w:vector.up,s:vector.down,a:vector.left,d:vector.right};
+if(dirs[e.key]){e.preventDefault();setDirection(...dirs[e.key])}
 });
-document.getElementById("again").addEventListener("click",()=>{
-surprise.hidden=true;welcome.hidden=false;
-document.getElementById("open").focus({preventScroll:true});
+let touchStart=null;
+canvas.addEventListener("touchstart",e=>{if(current!=="snake"||!e.changedTouches.length)return;touchStart={x:e.changedTouches[0].clientX,y:e.changedTouches[0].clientY}},{passive:true});
+canvas.addEventListener("touchend",e=>{
+if(!touchStart||!e.changedTouches.length)return;
+const dx=e.changedTouches[0].clientX-touchStart.x,dy=e.changedTouches[0].clientY-touchStart.y;touchStart=null;
+if(Math.max(Math.abs(dx),Math.abs(dy))<18)return;
+if(Math.abs(dx)>Math.abs(dy))setDirection(dx>0?1:-1,0);else setDirection(0,dy>0?1:-1);
+},{passive:true});
+$("snake-pause").addEventListener("click",()=>{
+if(snakeEnded)return;
+if(snakeRunning){stopSnake();$("snake-status").textContent="Pausiert 😌";$("snake-pause").textContent="Weiter ▶"}
+else{snakeRunning=true;snakeTimer=setInterval(snakeStep,165);$("snake-status").textContent="Weiter geht's! 🐍";$("snake-pause").textContent="Pause ⏸"}
 });
+$("snake-restart").addEventListener("click",startSnake);
+document.addEventListener("visibilitychange",()=>{
+if(document.hidden&&current==="snake"&&snakeRunning){stopSnake();$("snake-status").textContent="Pausiert 😌";$("snake-pause").textContent="Weiter ▶"}
+});
+const icons=["🍓","🍒","🍉","🍋","🍇","🍦"];
+let memoryCards=[],selected=[],memoryMatches=0,memoryMoves=0,memoryLocked=false,memoryTimeout=null;
+function clearMemoryWait(){clearTimeout(memoryTimeout);memoryTimeout=null;memoryLocked=false}
+function shuffle(list){
+for(let i=list.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[list[i],list[j]]=[list[j],list[i]]}
+return list;
+}
+function startMemory(){
+clearMemoryWait();memoryCards=shuffle([...icons,...icons].map((icon,index)=>({id:index,icon,matched:false,revealed:false})));
+selected=[];memoryMatches=0;memoryMoves=0;
+$("memory-score").textContent="0 / 6 Paare";
+$("memory-status").textContent="Decke zwei Karten auf!";
+renderMemory();
+}
+function renderMemory(){
+const board=$("memory-board");board.replaceChildren();
+memoryCards.forEach((card,i)=>{
+const b=document.createElement("button");b.type="button";b.className="memory-tile";
+const visible=card.matched||card.revealed;
+b.textContent=visible?card.icon:"?";
+b.setAttribute("aria-label",visible?"Karte "+(i+1)+": "+card.icon:"Verdeckte Karte "+(i+1));
+if(visible)b.classList.add("flipped");
+if(card.matched)b.classList.add("matched");
+b.disabled=card.matched||card.revealed||memoryLocked;
+b.addEventListener("click",()=>flipMemory(i));
+board.appendChild(b);
+});
+}
+function flipMemory(i){
+if(current!=="memory"||memoryLocked||memoryCards[i].matched||memoryCards[i].revealed)return;
+memoryCards[i].revealed=true;selected.push(i);
+if(selected.length===2){
+memoryMoves++;
+const [a,b]=selected;
+if(memoryCards[a].icon===memoryCards[b].icon){
+memoryCards[a].matched=true;memoryCards[b].matched=true;memoryMatches++;selected=[];
+$("memory-score").textContent=memoryMatches+" / 6 Paare";
+$("memory-status").textContent=memoryMatches===6?"Geschafft, Lea! 🎉 Alle Paare in "+memoryMoves+" Zügen.":"Yes! Ein Paar gefunden ✨";
+if(memoryMatches===6){renderMemory();return}
+}else{
+memoryLocked=true;
+$("memory-status").textContent="Nicht ganz! 😂 Versuch's nochmal.";
+renderMemory();
+memoryTimeout=setTimeout(()=>{
+memoryCards[a].revealed=false;memoryCards[b].revealed=false;selected=[];memoryLocked=false;memoryTimeout=null;
+$("memory-status").textContent="Finde die nächsten Paare 👀";renderMemory();
+},850);
+return;
+}
+}else{$("memory-status").textContent="Noch eine Karte aufdecken 👀"}
+renderMemory();
+}
+$("memory-restart").addEventListener("click",startMemory);
+})();
 </script>
 </body>
 </html>
