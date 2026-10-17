@@ -208,5 +208,11 @@ function renderTime(){
  const label=document.createElement("span");label.className="chart-label";label.textContent=(i===0||i===entries.length-1||i%Math.max(1,Math.ceil(entries.length/6))===0)?berlinTime.format(new Date(t)).split(", ").pop():"";
  wrap.append(bar,label);chart.append(wrap);}
  el("time-chart-title").textContent=hourly?"Aufrufe pro Stunde":"Aufrufe pro Minute";
- el("time-note").textContent="Zeitraum: "+berlinTime.format(new Date(start))+" bis "+berlinTime.format(new Date(end))+" · Uhrzeit Hamm · Genaue Zeitdaten erst ab Aktivierung der neuen Erfassung.";
+ el("time-note").textContent=(selected.length?"":"In diesem Zeitraum wurden noch keine Aufrufe oder Klicks erfasst. · ")+"Zeitraum: "+berlinTime.format(new Date(start))+" bis "+berlinTime.format(new Date(end))+" · Uhrzeit Hamm · Genaue Zeitdaten erst ab Aktivierung der neuen Erfassung.";
 }
+
+// Aktualisiere die Zahlen jede Minute, solange das Dashboard geöffnet ist.
+window.setInterval(async()=>{
+ if(!token||el("dashboard-view").hidden||document.hidden)return;
+ try{await fetchStats()}catch(e){el("dashboard-status").textContent="Aktualisierung fehlgeschlagen: "+errorMessage(e);}
+},60000);
