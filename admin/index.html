@@ -10,7 +10,9 @@
   <title>Happy Eck | Meine Statistik</title>
   <link rel="icon" href="../assets/logo.jpg">
   <link rel="stylesheet" href="./admin.css?v=6">
-  <script src="./dashboard.js?v=6" defer></script>
+  <link rel="stylesheet" href="./extras.css?v=1">
+  <script src="./dashboard.js?v=7" defer></script>
+  <script src="./extras.js?v=1" defer></script>
 </head>
 <body>
   <div class="page-shell">
@@ -60,6 +62,11 @@
           <div><span class="eyebrow dashboard-eyebrow">HAPPY ECK · ANALYTICS</span><h1 id="dashboard-title">Deine Übersicht.</h1><p>Hier siehst du zusammengefasste Seitenaufrufe und Klicks – ohne einzelne Personen zu verfolgen.</p></div>
           <button class="logout-btn" type="button" id="logout">Abmelden <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 17l5-5-5-5M15 12H3M12 3h5a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3h-5"/></svg></button>
         </div>
+        <div class="admin-tabs" role="tablist" aria-label="Adminbereiche">
+          <button class="admin-tab" type="button" role="tab" data-admin-tab="analytics" id="admin-tab-analytics" aria-selected="true" aria-controls="analytics-tab" tabindex="0">Statistiken</button>
+          <button class="admin-tab" type="button" role="tab" data-admin-tab="tools" id="admin-tab-tools" aria-selected="false" aria-controls="tools-tab" tabindex="-1">Kiosk-Werkzeuge</button>
+        </div>
+        <div id="analytics-tab" role="tabpanel" aria-labelledby="admin-tab-analytics">
         <div class="dashboard-controls">
           
           <div class="time-controls"><label for="time-preset">Zeitraum</label><select id="time-preset"><option value="15m">Letzte 15 Minuten</option><option value="60m">Letzte Stunde</option><option value="6h">Letzte 6 Stunden</option><option value="24h">Letzte 24 Stunden</option><option value="today">Heute (Hamm)</option><option value="7d">Letzte 7 Tage</option><option value="30d" selected>Letzte 30 Tage</option><option value="90d">Letzte 90 Tage</option><option value="custom">Von – bis</option></select><div id="custom-time" hidden><label for="time-from">Von</label><input id="time-from" type="datetime-local"><label for="time-to">Bis</label><input id="time-to" type="datetime-local"><button type="button" id="time-apply" class="refresh-btn">Anzeigen</button></div></div><button id="export-csv" class="refresh-btn" type="button">CSV exportieren</button><button id="refresh" class="refresh-btn" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 0 0-14-5L3 9M3 3v6h6M4 13a8 8 0 0 0 14 5l3-3M21 21v-6h-6"/></svg> Aktualisieren</button>
@@ -71,12 +78,105 @@
           <article class="stat-card"><div class="stat-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h18v17H3zM7 2v4M17 2v4M3 10h18"/></svg></div><span>Heute</span><strong id="today-total">–</strong><small>Seitenaufrufe heute (UTC)</small></article>
         </div>
         <div id="daily-details"><section class="insights-panel" aria-labelledby="insights-title"><div class="card-head"><div><span class="eyebrow small">DEIN GESCHÄFT AUF EINEN BLICK</span><h2 id="insights-title">Kurzüberblick</h2></div></div><div class="insights-grid"><div><span>Ø Seitenaufrufe pro Tag</span><strong id="avg-views">–</strong></div><div><span>Aktivster Tag</span><strong id="best-day">–</strong></div><div><span>Beliebteste Seite</span><strong id="best-page">–</strong></div><div><span>Häufigster Klick</span><strong id="best-click">–</strong></div></div></section>
+        <section id="admin-new-insights" class="insight-extras" aria-label="Wochenvergleich und Wochentage" hidden>
+          <div class="insight-extras-grid">
+            <section class="chart-card"><div class="card-head"><div><span class="eyebrow small">ENTWICKLUNG</span><h2>Wochenvergleich</h2></div></div>
+              <div class="week-summary"><div><span>Letzte 7 Tage</span><strong id="week-this">–</strong></div><div><span>7 Tage davor</span><strong id="week-last">–</strong></div><div><span>Veränderung</span><strong id="week-change">–</strong></div></div>
+              <p class="tool-hint" id="week-note"></p></section>
+            <section class="chart-card"><div class="card-head"><div><span class="eyebrow small">BESUCHERINTERESSE</span><h2>Aufrufe nach Wochentag</h2></div></div>
+              <div class="weekday-bars" id="weekday-bars"></div><p class="tool-hint" id="weekday-note"></p></section>
+          </div>
+        </section>
         <div class="dashboard-grid">
           <section class="chart-card" aria-labelledby="daily-title"><div class="card-head"><div><span class="eyebrow small">BESUCHERINTERESSE</span><h2 id="daily-title">Seitenaufrufe pro Tag</h2></div><span class="subtle" id="chart-period">30 Tage</span></div><div id="daily-chart" class="daily-chart" role="img" aria-label="Diagramm der täglichen Seitenaufrufe"></div></section>
           <section class="rank-card" aria-labelledby="click-title"><div class="card-head"><div><span class="eyebrow small">BELIEBTESTE AKTIONEN</span><h2 id="click-title">Was wird angeklickt?</h2></div></div><div id="top-clicks" class="rank-list"></div></section>
           <section class="rank-card span-all" aria-labelledby="page-title"><div class="card-head"><div><span class="eyebrow small">BELIEBTESTE SEITEN</span><h2 id="page-title">Welche Seiten kommen gut an?</h2></div></div><div id="top-pages" class="rank-list page-rank"></div></section>
         </div>
         </div><p class="disclaimer"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7h.01"/></svg><span><strong>So werden die Zahlen gezählt:</strong> Ein Seitenaufruf ist nicht automatisch ein einzelner Besucher. Klicks zeigen Betätigungen von Links und Buttons, nicht unbedingt abgeschlossene Bestellungen oder Nachrichten. Es werden nur anonym zusammengefasste Tages- und Minutenzahlen gespeichert, ohne Cookies oder persönliche Besucherprofile. Die Erfassung beginnt erst mit der Veröffentlichung des Statistik-Codes.</span></p>
+        </div>
+        <section id="tools-tab" role="tabpanel" aria-labelledby="admin-tab-tools" hidden>
+          <div class="toolbox-intro"><span class="eyebrow small">FÜR DEINEN KIOSK-ALLTAG</span><h2>Deine Kiosk-Werkzeuge.</h2><p>Rechne Verkaufspreise, Tageskasse und Umsatzziele durch. Finanzwerte bleiben nur in deinem Browser während dieser Sitzung und werden nicht an einen Server gesendet.</p></div>
+          <div class="tool-grid">
+            <section class="tool-card" aria-labelledby="margin-title">
+              <span class="eyebrow small">PREIS & MARGE</span><h3 id="margin-title">Verkaufspreis-Rechner</h3>
+              <p>Finde heraus, wie viel pro Artikel nach Abzug der Umsatzsteuer und des Wareneinsatzes übrig bleibt.</p>
+              <form id="margin-form" class="tool-fields" onsubmit="return false">
+                <label>Einkaufspreis inkl. MwSt. (€)<input id="calc-buy" type="number" min="0" max="1000000" step="0.01" inputmode="decimal" placeholder="z. B. 1,20"></label>
+                <label>Verkaufspreis inkl. MwSt. (€)<input id="calc-sell" type="number" min="0" max="1000000" step="0.01" inputmode="decimal" placeholder="z. B. 2,00"></label>
+                <label>MwSt. beim Einkauf<select id="calc-buy-vat"><option value="19">19 %</option><option value="7">7 %</option><option value="0">0 %</option></select></label>
+                <label>MwSt. beim Verkauf<select id="calc-sell-vat"><option value="19">19 %</option><option value="7">7 %</option><option value="0">0 %</option></select></label>
+                <label class="full">Verkaufte Stückzahl<input id="calc-qty" type="number" min="1" max="1000000" step="1" inputmode="numeric" value="1"></label>
+              </form>
+              <div class="tool-results" aria-live="polite">
+                <div class="tool-result"><span>Beitrag pro Stück</span><strong id="margin-unit">–</strong></div>
+                <div class="tool-result"><span>Beitrag gesamt</span><strong id="margin-total">–</strong></div>
+                <div class="tool-result"><span>Marge (netto)</span><strong id="margin-percent">–</strong></div>
+                <div class="tool-result"><span>Einkauf / Verkauf netto</span><strong><span id="margin-net-buy">–</span> / <span id="margin-net-sell">–</span></strong></div>
+              </div><p class="tool-hint" id="margin-note"></p><button class="tool-action" id="calc-reset" type="button">Rechner leeren</button>
+              <p class="tool-help">Ohne Pfand, Rabatte, Gebühren und Fixkosten. Kein vollständiger Gewinn oder steuerliche Beratung.</p>
+            </section>
+            <section class="tool-card" aria-labelledby="cash-title">
+              <span class="eyebrow small">KASSENABSCHLUSS</span><h3 id="cash-title">Tageskasse prüfen</h3>
+              <p>Vergleiche deinen erwarteten Bargeldbestand mit dem gezählten Geld in der Kasse.</p>
+              <form id="cash-form" class="tool-fields" onsubmit="return false">
+                <label>Start-Bargeld (€)<input id="cash-start" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0,00"></label>
+                <label>Bargeld-Umsatz (€)<input id="cash-income" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0,00"></label>
+                <label>Kartenzahlungen (€)<input id="card-income" type="number" min="0" step="0.01" inputmode="decimal" value="0"></label>
+                <label>Bar-Ausgaben (€)<input id="cash-expenses" type="number" min="0" step="0.01" inputmode="decimal" value="0"></label>
+                <label>Bargeld zugeführt (€)<input id="cash-add" type="number" min="0" step="0.01" inputmode="decimal" value="0"></label>
+                <label>Bargeld entnommen (€)<input id="cash-take" type="number" min="0" step="0.01" inputmode="decimal" value="0"></label>
+                <label class="full">Gezähltes Bargeld am Ende (€)<input id="cash-counted" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0,00"></label>
+              </form>
+              <div class="tool-results" aria-live="polite">
+                <div class="tool-result"><span>Soll-Bargeld</span><strong id="cash-expected">–</strong></div>
+                <div class="tool-result"><span>Kassendifferenz</span><strong id="cash-diff">–</strong></div>
+                <div class="tool-result full"><span>Bar- + Kartenumsatz</span><strong id="cash-sales">–</strong></div>
+              </div><p class="tool-hint" id="cash-note"></p><button class="tool-action" type="button" id="cash-reset">Kasse leeren</button>
+              <p class="tool-help">Nur Rechenhilfe; kein offizieller Kassenabschluss, keine Buchhaltung und keine Speicherung.</p>
+            </section>
+            <section class="tool-card" aria-labelledby="target-title">
+              <span class="eyebrow small">PLANUNG</span><h3 id="target-title">Monatsziel erreichen</h3>
+              <p>Wie viel Umsatz fehlt noch, und wie viel brauchst du durchschnittlich pro verbleibendem Tag?</p>
+              <form id="target-form" class="tool-fields" onsubmit="return false">
+                <label>Umsatzziel (€)<input id="target-goal" type="number" min="0.01" step="0.01" inputmode="decimal" placeholder="z. B. 10000"></label>
+                <label>Umsatz bisher (€)<input id="target-current" type="number" min="0" step="0.01" inputmode="decimal" placeholder="z. B. 6500"></label>
+                <label class="full">Verbleibende Tage<input id="target-days" type="number" min="1" max="366" step="1" inputmode="numeric" placeholder="z. B. 10"></label>
+              </form>
+              <div class="tool-results" aria-live="polite">
+                <div class="tool-result"><span>Noch fehlender Umsatz</span><strong id="target-left">–</strong></div>
+                <div class="tool-result"><span>Nötig pro Tag</span><strong id="target-daily">–</strong></div>
+                <div class="tool-result full"><span>Ziel erreicht</span><strong id="target-progress">–</strong></div>
+              </div><p class="tool-hint" id="target-note"></p><button class="tool-action" type="button" id="target-reset">Planung leeren</button>
+            </section>
+            <section class="tool-card" aria-labelledby="check-title">
+              <span class="eyebrow small">HEUTE ERLEDIGEN</span><h3 id="check-title">Tages-Checkliste</h3>
+              <p id="check-date"></p>
+              <div class="daily-progress"><span id="check-progress">0 von 5 erledigt</span><span>HEUTE</span></div>
+              <div class="check-track" aria-hidden="true"><span id="check-progress-fill"></span></div>
+              <div class="daily-check">
+                <label><input type="checkbox">Kasse und Wechselgeld prüfen</label>
+                <label><input type="checkbox">Kühlschränke und Getränke auffüllen</label>
+                <label><input type="checkbox">Regale, Preise und Warenbestand prüfen</label>
+                <label><input type="checkbox">GLS-Pakete und Scanner prüfen</label>
+                <label><input type="checkbox">Laden sauber hinterlassen</label>
+              </div>
+              <button class="tool-action" type="button" id="check-reset">Checkliste zurücksetzen</button>
+              <p class="tool-help">Nur Häkchen werden lokal auf diesem Gerät gespeichert, täglich automatisch neu. Keine Synchronisierung mit anderen Geräten.</p>
+            </section>
+            <section class="tool-card tool-card-wide" aria-labelledby="links-title">
+              <span class="eyebrow small">SCHNELLZUGRIFF</span><h3 id="links-title">Wichtige Seiten</h3>
+              <p>Öffne deine öffentlichen Happy-Eck-Seiten direkt aus dem Adminbereich.</p>
+              <nav class="quicklinks" aria-label="Happy-Eck-Seiten">
+                <a href="../index.html" target="_blank" rel="noopener noreferrer">Startseite ↗</a>
+                <a href="../index.html#sortiment" target="_blank" rel="noopener noreferrer">Sortiment ↗</a>
+                <a href="../gls.html" target="_blank" rel="noopener noreferrer">GLS ↗</a>
+                <a href="../jobs.html" target="_blank" rel="noopener noreferrer">Jobs ↗</a>
+                <a href="../kontakt.html" target="_blank" rel="noopener noreferrer">Kontakt ↗</a>
+                <a href="../oeffnungszeiten.html" target="_blank" rel="noopener noreferrer">Öffnungszeiten ↗</a>
+              </nav>
+            </section>
+          </div>
+        </section>
       </section>
     </main>
     <footer>© 2026 Happy Eck Kiosk · <a href="../index.html">Zur Webseite</a></footer>
