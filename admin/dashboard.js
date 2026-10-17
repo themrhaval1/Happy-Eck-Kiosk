@@ -3,7 +3,7 @@ const URL="https://jhoueubxgwerbwxyfhml.supabase.co";
 const KEY="sb_publishable_5NWg7hn7iNYqYx_Kvg9dQw_pNxquHJv";
 const el=id=>document.getElementById(id);
 const labels={startseite:"Startseite",kontakt:"Kontakt",jobs:"Jobs & Bewerbung",gls:"GLS Paketshop",guthaben:"Guthaben & Gutscheine",oeffnungszeiten:"Öffnungszeiten",kontakt_erfolg:"Kontaktbestätigung",bewerbung_erfolg:"Bewerbungsbestätigung",navigation:"Navigation",lieferando:"Lieferando",google_maps:"Google Maps",apple_karten:"Apple Karten",instagram:"Instagram",tiktok:"TikTok",whatsapp:"WhatsApp",anrufen:"Anrufen",kontaktformular:"Kontaktformular",bewerbung:"Bewerbung senden",paket_versenden:"GLS Paket versenden",sendung_verfolgen:"Sendung verfolgen",andere_aktion:"Weitere Aktionen"};
-let token="",rows=[],days=30,utcToday=new Date().toISOString().slice(0,10);
+let token="",rows=[],minuteRows=[],days=30,utcToday=new Date().toISOString().slice(0,10);
 const num=new Intl.NumberFormat("de-DE");
 function showLogin(msg=""){token="";el("login-view").hidden=false;el("dashboard-view").hidden=true;el("reset-view").hidden=true;el("login-error").textContent=msg;el("login-error").hidden=!msg;}
 function showDashboard(){el("login-view").hidden=true;el("dashboard-view").hidden=false;el("admin-password").value="";}
@@ -24,7 +24,7 @@ async function fetchStats(){
  const res=await fetch(URL+"/functions/v1/happy-eck-statistics",{method:"GET",headers:{Authorization:"Bearer "+token,apikey:KEY}});
  let data={};try{data=await res.json()}catch{}
  if(!res.ok){if(res.status===401||res.status===403)throw new Error(res.status===403?"Nicht berechtigt":"Sitzung abgelaufen. Bitte erneut anmelden.");throw new Error(data.error||"Statistik ist momentan nicht erreichbar.");}
- rows=Array.isArray(data.rows)?data.rows:[];utcToday=(data.updated_at||new Date().toISOString()).slice(0,10);render();
+ rows=Array.isArray(data.rows)?data.rows:[];minuteRows=Array.isArray(data.minutes)?data.minutes:[];renderTime();utcToday=(data.updated_at||new Date().toISOString()).slice(0,10);render();
 }
 function recent(r){const start=new Date(utcToday+"T00:00:00Z");start.setUTCDate(start.getUTCDate()-(days-1));return r.day>=start.toISOString().slice(0,10);}
 function sum(a){return a.reduce((s,x)=>s+Number(x.total||0),0)}
@@ -153,3 +153,56 @@ el("export-csv").addEventListener("click",()=>{
  const blob=new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8"});
  const link=document.createElement("a");link.href=window.URL.createObjectURL(blob);link.download="happy-eck-statistik-"+days+"-tage.csv";link.click();setTimeout(()=>window.URL.revokeObjectURL(link.href),1000);
 });
+
+const berlinTime=new Intl.DateTimeFormat("de-DE",{timeZone:"Europe/Berlin",hour:"2-digit",minute:"2-digit",day:"2-digit",month:"2-digit"});
+const timeSelect=el("time-preset");
+timeSelect.addEventListener("change",()=>{
+ el("custom-time").hidden=timeSelect.value!=="custom";
+ if(timeSelect.value!=="custom")renderTime();
+});
+el("time-apply").addEventListener("click",renderTime);
+function localInputToDate(v){
+ if(!/^\d{4}-\d\d-\d\dT\d\d:\d\d$/.test(v))return null;
+ // Convert the selected Hamm wall-clock time to an instant, accounting for daylight-saving time.
+ const desired=v.replace("T"," ");
+ const stamp=Date.parse(v+"Z");if(!Number.isFinite(stamp))return null;
+ const format=new Intl.DateTimeFormat("sv-SE",{timeZone:"Europe/Berlin",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hourCycle:"h23"});
+ const asWall=d=>format.format(d).replace(" ","T");
+ const target=v;let guess=stamp-3600000;
+ for(let i=0;i<3;i++){const actual=asWall(new Date(guess));const delta=Date.parse(target+"Z")-Date.parse(actual+"Z");guess+=delta;if(!delta)break;}
+ return asWall(new Date(guess))===target?new Date(guess):null;
+}
+function renderTime(){
+ if(!el("dashboard-view")||!minuteRows)return;
+ const now=Date.now(),preset=timeSelect.value;let start,end=now;
+ const durations={"15m":900000,"60m":3600000,"6h":21600000,"24h":86400000,"7d":604800000};
+ if(preset==="custom"){
+  const a=localInputToDate(el("time-from").value),b=localInputToDate(el("time-to").value);
+  if(!a||!b||a>b){el("time-note").textContent="Bitte einen gültigen Zeitraum von–bis eingeben.";return;}
+  start=a.getTime();end=b.getTime();
+  if(end-start>7*86400000){el("time-note").textContent="Für minutengenaue Auswertungen maximal 7 Tage auswählen.";return;}
+ }else if(preset==="today"){
+  const parts=new Intl.DateTimeFormat("sv-SE",{timeZone:"Europe/Berlin",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());
+  start=localInputToDate(parts+"T00:00")?.getTime()??now-86400000;
+ }else start=now-(durations[preset]||3600000);
+ const selected=minuteRows.filter(r=>{const t=Date.parse(r.bucket);return t>=start&&t<=end;});
+ const pages=selected.filter(r=>r.event_kind==="page"),clicks=selected.filter(r=>r.event_kind==="click");
+ el("time-summary").hidden=false;el("time-chart-section").hidden=false;
+ el("time-views").textContent=num.format(sum(pages));el("time-clicks").textContent=num.format(sum(clicks));
+ el("time-buckets").textContent=num.format(new Set(selected.map(r=>r.bucket)).size);
+ const hourly=end-start>6*3600000;const interval=hourly?3600000:60000;
+ const points=new Map();
+ for(const r of pages){const t=Math.floor(Date.parse(r.bucket)/interval)*interval;points.set(t,(points.get(t)||0)+Number(r.total||0));}
+ const chart=el("time-chart");chart.replaceChildren();
+ const first=Math.floor(start/interval)*interval,last=Math.floor(end/interval)*interval;
+ const totalPoints=Math.min(300,Math.floor((last-first)/interval)+1);
+ const step=Math.max(1,Math.ceil(totalPoints/80));
+ const entries=[];for(let t=first;t<=last;t+=interval*step){let count=0;for(let i=0;i<step;i++)count+=points.get(t+i*interval)||0;entries.push([t,count]);}
+ const max=Math.max(1,...entries.map(x=>x[1]));
+ for(let i=0;i<entries.length;i++){const [t,count]=entries[i];const wrap=document.createElement("div");wrap.className="chart-bar-wrap";wrap.title=berlinTime.format(new Date(t))+": "+num.format(count)+" Aufrufe";
+ const bar=document.createElement("div");bar.className="chart-bar";bar.style.height=Math.max(2,count/max*172)+"px";
+ const label=document.createElement("span");label.className="chart-label";label.textContent=(i===0||i===entries.length-1||i%Math.max(1,Math.ceil(entries.length/6))===0)?berlinTime.format(new Date(t)).split(", ").pop():"";
+ wrap.append(bar,label);chart.append(wrap);}
+ el("time-chart-title").textContent=hourly?"Aufrufe pro Stunde":"Aufrufe pro Minute";
+ el("time-note").textContent="Zeitraum: "+berlinTime.format(new Date(start))+" bis "+berlinTime.format(new Date(end))+" · Uhrzeit Hamm · Genaue Zeitdaten erst ab Aktivierung der neuen Erfassung.";
+}
