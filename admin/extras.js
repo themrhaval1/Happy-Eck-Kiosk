@@ -8,13 +8,15 @@
   const node=byId(id);node.textContent=value;node.classList.toggle("negative-result",Boolean(negative));
  };
  function switchTab(name){
-  if(byId("dashboard-view").hidden)return;
   for(const btn of document.querySelectorAll("[data-admin-tab]")){
    const active=btn.dataset.adminTab===name;
    btn.setAttribute("aria-selected",String(active));btn.tabIndex=active?0:-1;
   }
   byId("analytics-tab").hidden=name!=="analytics";
   byId("tools-tab").hidden=name!=="tools";
+ }
+ for(const form of ["margin-form","cash-form","target-form"]){
+  byId(form).addEventListener("submit",event=>event.preventDefault());
  }
  const tabButtons=[...document.querySelectorAll("[data-admin-tab]")];
  tabButtons.forEach((btn,index)=>{
@@ -119,7 +121,6 @@
  readChecklist();
  // Re-render weekly analytics only with already-authorized aggregates, never request raw visitor information.
  let cachedRows=[],dateUTC="";
- const dayFormat=new Intl.DateTimeFormat("de-DE",{weekday:"short",timeZone:"UTC"});
  const dayNames=["So","Mo","Di","Mi","Do","Fr","Sa"];
  function shiftDate(day,offset){
   const d=new Date(day+"T00:00:00Z");d.setUTCDate(d.getUTCDate()+offset);return d.toISOString().slice(0,10);
