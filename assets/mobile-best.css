@@ -108,3 +108,55 @@
  .page-home .gallery-zoom img{transition:none}
  .page-home .gallery-zoom:hover img{transform:none}
 }
+
+/* October 2026: Phone gallery shows eight large photos in one vertical column.
+   Keep this after older slider rules so swipe scrolling cannot override it. */
+@media (max-width: 760px) {
+  .page-home .shop-gallery .shop-gallery-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto;
+    grid-auto-flow: row;
+    grid-auto-columns: auto;
+    gap: 16px;
+    width: 100%;
+    overflow-x: visible;
+    overflow-y: visible;
+    scroll-snap-type: none;
+    scroll-padding: 0;
+    padding: 0;
+    overscroll-behavior-x: auto;
+  }
+  .page-home .shop-gallery .gallery-tile {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    aspect-ratio: 4 / 3;
+    scroll-snap-align: none;
+    border-radius: 19px;
+    box-shadow: 0 10px 26px #133c2420;
+  }
+  .page-home .shop-gallery .gallery-zoom,
+  .page-home .shop-gallery .gallery-zoom img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+    border-radius: inherit;
+  }
+  .page-home .shop-gallery .gallery-zoom img {
+    object-fit: cover;
+    object-position: center;
+  }
+  .page-home .shop-gallery .gallery-magnify {
+    right: 12px;
+    bottom: 12px;
+  }
+}
+@media (max-width: 390px) {
+  .page-home .shop-gallery .shop-gallery-grid {
+    grid-auto-columns: auto;
+    gap: 13px;
+  }
+  .page-home .shop-gallery .gallery-tile { border-radius: 15px; }
+}
