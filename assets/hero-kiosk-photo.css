@@ -1,0 +1,60 @@
+/* Actual Happy Eck storefront photo, a small accent BEHIND the original hero title.
+   Content, Vice City colors, order buttons and page structure stay as they are. */
+.page-home .hero-inner { position:relative; isolation:isolate; }
+.page-home .hero-inner .hero-kiosk-photo {
+  display:block;
+  position:absolute;
+  z-index:-1;
+  top:clamp(68px,7.2vw,88px);
+  right:0;
+  width:clamp(185px,23vw,260px);
+  aspect-ratio:720 / 475;
+  overflow:hidden;
+  border-radius:17px;
+  pointer-events:none;
+  border:1px solid rgba(255,202,235,.56);
+  box-shadow:0 16px 36px rgba(8,4,32,.35),0 0 22px rgba(255,125,200,.19);
+  opacity:.84;
+}
+.page-home .hero-inner .hero-kiosk-photo img {
+  display:block;width:100%;height:100%;object-fit:cover;object-position:center;
+}
+.page-home .hero-inner .hero-kiosk-photo::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(112deg,rgba(35,13,55,.4),rgba(28,11,48,.04) 65%);
+  pointer-events:none;
+}
+.page-home .hero-inner h1 {
+  position:relative;
+  z-index:1;
+  text-shadow:0 4px 16px rgba(14,8,39,.66);
+}
+.page-home .hero-inner .hero-actions,
+.page-home .hero-inner .hero-description,
+.page-home .hero-inner .hero-tagline,
+.page-home .hero-inner .eyebrow {
+  position:relative;z-index:1;
+}
+@media(max-width:850px){
+  .page-home .hero-inner .hero-kiosk-photo{
+    top:57px;
+    right:clamp(0px,12vw,95px);
+    width:clamp(180px,28vw,245px);
+  }
+}
+@media(max-width:570px){
+  .page-home .hero-inner .hero-kiosk-photo{
+    width:clamp(132px,42vw,174px);
+    top:56px;
+    right:0;
+    border-radius:13px;
+    opacity:.76;
+    box-shadow:0 10px 25px rgba(10,4,37,.37);
+  }
+  .page-home .hero-inner h1{
+    text-shadow:0 3px 13px rgba(13,6,39,.8);
+  }
+}
+@media(max-width:360px){
+  .page-home .hero-inner .hero-kiosk-photo{width:128px;top:54px;opacity:.7}
+}
