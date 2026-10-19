@@ -1,0 +1,72 @@
+/* Happy Eck – professional editorial image gallery, responsive for phones. */
+.page-home .gallery-premium{padding-block:70px 84px;background:linear-gradient(155deg,#fff,#f6f8f4)}
+.page-home .gallery-premium .section-head{margin-bottom:27px;max-width:760px}
+.page-home .gallery-premium .gallery-intro{font-size:15px;line-height:1.65;color:#677a6d}
+.page-home .gallery-premium .shop-gallery-grid{
+ display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+ grid-auto-flow:row;gap:14px;overflow:visible;scroll-snap-type:none;padding:0
+}
+.page-home .gallery-premium .gallery-tile{
+ display:block;min-width:0;width:100%;height:auto;margin:0;position:relative;
+ aspect-ratio:1/1;overflow:hidden;border-radius:17px;
+ border:1px solid #e1e8df;background:#e0e8df;
+ box-shadow:0 12px 28px #163d251b;scroll-snap-align:none
+}
+.page-home .gallery-premium .gallery-tile:nth-child(1),
+.page-home .gallery-premium .gallery-tile:nth-child(2),
+.page-home .gallery-premium .gallery-tile:nth-child(7),
+.page-home .gallery-premium .gallery-tile:nth-child(8){
+ grid-column:span 2;aspect-ratio:1.88/1
+}
+.page-home .gallery-premium .gallery-zoom{
+ display:block;width:100%;height:100%;position:relative;overflow:hidden;
+ padding:0;border:0;border-radius:inherit;background:#e2eae0;cursor:zoom-in
+}
+.page-home .gallery-premium .gallery-zoom:focus-visible{outline:3px solid #94d6a4;outline-offset:-5px}
+.page-home .gallery-premium .gallery-zoom img{
+ display:block;position:absolute;inset:0;width:100%;height:100%;
+ object-fit:cover;object-position:center;max-height:none;
+ filter:contrast(1.035) saturate(1.06);transform:none;
+ transition:transform .36s ease,filter .36s ease
+}
+.page-home .gallery-premium .gallery-zoom:hover img{
+ transform:scale(1.05);filter:contrast(1.06) saturate(1.12)
+}
+.page-home .gallery-premium .gallery-shade{
+ position:absolute;inset:19% 0 0;display:block;pointer-events:none;
+ background:linear-gradient(0deg,#04130ad1,transparent 70%)
+}
+.page-home .gallery-premium .gallery-name{
+ position:absolute;left:18px;right:50px;bottom:17px;
+ text-align:left;font-size:clamp(15px,1.5vw,21px);font-weight:900;
+ letter-spacing:-.025em;line-height:1.24;color:#fff;text-shadow:0 2px 10px #0008;
+ pointer-events:none
+}
+.page-home .gallery-premium .gallery-expand{
+ position:absolute;right:15px;bottom:15px;display:grid;place-items:center;
+ width:33px;height:33px;border-radius:50%;font-size:20px;font-weight:800;
+ border:1px solid #ffffff92;background:#ffffff30;color:#fff;
+ backdrop-filter:blur(6px);pointer-events:none
+}
+.page-home .gallery-premium .gallery-notice{margin-top:18px;font-size:12px;line-height:1.6;color:#6b7d70}
+@media(max-width:760px){
+ .page-home .gallery-premium{padding-block:49px 56px}
+ .page-home .gallery-premium .shop-gallery-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr));gap:11px
+ }
+ .page-home .gallery-premium .gallery-tile:nth-child(n){grid-column:auto;aspect-ratio:1/1}
+ .page-home .gallery-premium .gallery-tile:first-child,
+ .page-home .gallery-premium .gallery-tile:last-child{
+  grid-column:span 2;aspect-ratio:1.7/1
+ }
+ .page-home .gallery-premium .gallery-name{left:13px;right:38px;bottom:12px;font-size:clamp(12px,3.5vw,17px)}
+ .page-home .gallery-premium .gallery-expand{right:10px;bottom:10px;width:28px;height:28px;font-size:18px}
+}
+@media(max-width:430px){
+ .page-home .gallery-premium .shop-gallery-grid{gap:9px}
+ .page-home .gallery-premium .gallery-tile{border-radius:14px}
+ .page-home .gallery-premium .gallery-name{font-size:12px;left:10px;right:33px;bottom:10px}
+ .page-home .gallery-premium .gallery-expand{right:9px;bottom:9px;width:24px;height:24px;font-size:16px}
+ .page-home .gallery-premium .gallery-intro{font-size:13px}
+}
+@media(prefers-reduced-motion:reduce){.page-home .gallery-premium .gallery-zoom img{transition:none}.page-home .gallery-premium .gallery-zoom:hover img{transform:none}}
