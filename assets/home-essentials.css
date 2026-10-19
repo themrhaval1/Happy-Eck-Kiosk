@@ -1,41 +1,96 @@
-/* Happy Eck 2026 — clear links to stand-alone service pages */
-.page-home .essentials-section{background:#fff;padding-block:clamp(58px,7vw,86px);position:relative}
-.page-home .essentials-section .section-head{max-width:720px}
-.page-home .essentials-section .section-title{margin:12px 0 13px}
-.page-home .essentials-lead{color:#67776b;line-height:1.7;font-size:15px;margin:0;max-width:650px}
-.page-home .essentials-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-.page-home .essential-card{display:flex;flex-direction:column;min-width:0;align-items:flex-start;padding:29px;border:1px solid #dce9dd;border-radius:19px;background:#fafcf9;color:#193c2b;text-decoration:none;box-shadow:0 10px 30px #1435210c;transition:transform .22s,border-color .22s,box-shadow .22s}
-.page-home .essential-card:hover{transform:translateY(-5px);border-color:#8cb799;box-shadow:0 17px 38px #1435211c}
-.page-home .essential-card:focus-visible{outline:3px solid #80b98d;outline-offset:3px}
-.page-home .essential-top{display:flex;align-items:center;justify-content:space-between;width:100%;gap:12px;margin-bottom:21px}
-.page-home .essential-icon{width:55px;height:55px;border-radius:15px;background:#e6f2e7;display:grid;place-items:center;color:#22673e}
-.page-home .essential-icon svg{width:29px;height:29px}
-.page-home .essential-open{width:36px;height:36px;border:1px solid #d8e7d8;display:grid;place-items:center;border-radius:50%;color:#3e744e;font-size:20px;background:#fff}
-.page-home .essential-tag{font-size:10px;letter-spacing:.13em;font-weight:900;color:#6b9275;min-height:17px}
-.page-home .essential-title{display:block;font-size:clamp(22px,2.4vw,27px);line-height:1.2;letter-spacing:-.04em;font-weight:900;margin:7px 0 11px;color:#183b29}
-.page-home .essential-text{display:block;color:#607164;font-size:13px;line-height:1.65;min-height:58px}
-.page-home .essential-hours-preview{display:flex;flex-direction:column;gap:9px;width:100%;margin:13px 0 17px;color:#315a3c;font-size:12px}
-.page-home .essential-hours-preview>span{display:flex;justify-content:space-between;gap:7px;border-bottom:1px solid #dfe8df;padding-bottom:9px}
-.page-home .essential-hours-preview b{font-variant-numeric:tabular-nums;color:#1a492e;font-size:12px;white-space:nowrap}
-.page-home .essential-pill{padding:9px 12px;margin:13px 0 19px;border-radius:9px;background:#e8f2e7;color:#326647;font-size:12px;font-weight:850}
-.page-home .essential-contact-info{font-size:16px;font-weight:850;color:#23533a;margin:15px 0 18px;font-variant-numeric:tabular-nums;letter-spacing:-.025em}
-.page-home .essential-link{display:flex;gap:6px;align-items:center;font-size:12px;font-weight:900;color:#286c40;margin-top:auto;padding-top:13px}
-.page-home .essential-jobs{background:linear-gradient(135deg,#f9fbf7,#eefaeb)}
-.page-home .essential-contact{background:linear-gradient(135deg,#fdfefd,#f3f8f3)}
-@media(max-width:930px){.page-home .essentials-grid{gap:12px}.page-home .essential-card{padding:21px}.page-home .essential-title{font-size:22px}.page-home .essential-hours-preview>span{flex-direction:column;align-items:flex-start;gap:2px}}
-@media(max-width:760px){.page-home .essentials-grid{grid-template-columns:1fr;gap:12px}.page-home .essential-card{min-height:0;padding:20px 19px;border-radius:17px}.page-home .essential-top{margin-bottom:14px}.page-home .essential-icon{height:49px;width:49px;border-radius:13px}.page-home .essential-icon svg{width:25px;height:25px}.page-home .essential-title{font-size:23px}.page-home .essential-text{min-height:0;font-size:13px}.page-home .essential-hours-preview>span{flex-direction:row;align-items:center;justify-content:space-between;gap:9px}.page-home .essential-hours-preview{max-width:370px}.page-home .essential-link{padding-top:15px}.page-home .essential-contact-info{margin-bottom:8px}}
-@media(max-width:650px){.page-home .essentials-section{padding-block:49px}.page-home .essentials-section .section-head{margin-bottom:23px}.page-home .essentials-lead{font-size:13px}.page-home .essential-card{box-shadow:0 7px 21px #1435210c}}
-@media(max-width:365px){.page-home .essential-hours-preview>span{font-size:11px}.page-home .essential-hours-preview b{font-size:11px}}
-@media(prefers-reduced-motion:reduce){.page-home .essential-card{transition:none}.page-home .essential-card:hover{transform:none}}
-
-/* Official-style map app symbols are shown at their native colors. */
-.page-home .directions-symbol.google,.page-home .directions-symbol.apple{background:#fff;border:1px solid #e1e9e2}
-.page-home .directions-symbol img{display:block;width:26px;height:28px;object-fit:contain}
-.page-home .directions-symbol.apple img{width:29px;height:29px;border-radius:6px}
+/* Happy Eck – compact bottom links beside the social-media icons. */
+.page-home .footer-page-links{
+  border-top:1px solid #ffffff24;
+  margin-top:28px;
+  padding:26px 0 0;
+  text-align:center;
+}
+.page-home .footer-page-title{
+  display:block;
+  color:#d4dfd3;
+  letter-spacing:.17em;
+  font-size:10px;
+  font-weight:850;
+}
+.page-home .footer-page-grid{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  margin:16px auto 0;
+  max-width:760px;
+}
+.page-home .footer-page-grid a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:48px;
+  gap:10px;
+  padding:11px 19px;
+  background:#ffffff0c;
+  border:1px solid #ffffff3b;
+  border-radius:12px;
+  text-decoration:none;
+  font-size:13px;
+  line-height:1.35;
+  color:#f4f8f3;
+  font-weight:800;
+  transition:background .18s ease,border-color .18s ease;
+}
+.page-home .footer-page-grid a span{
+  color:#c1e7c6;
+  font-size:16px;
+}
+.page-home .footer-page-grid a:hover{
+  background:#ffffff23;
+  border-color:#d4eed2a8;
+}
+.page-home .footer-page-grid a:focus-visible{
+  outline:3px solid #a1dcb0;
+  outline-offset:3px;
+}
+.page-home .footer-social-links{
+  margin-top:20px;
+  padding-top:19px;
+}
+@media(max-width:620px){
+  .page-home .footer-page-links{margin-top:22px;padding-top:23px}
+  .page-home .footer-page-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+  .page-home .footer-page-grid a{padding:11px 8px;font-size:12px;min-height:51px;gap:6px}
+  .page-home .footer-page-grid a:last-child{grid-column:1/-1}
+  .page-home .footer-social-links{margin-top:18px;padding-top:17px}
+}
+@media(prefers-reduced-motion:reduce){
+  .page-home .footer-page-grid a{transition:none}
+}
+/* Preserve branded map symbols used in the route panel. */
+.page-home .directions-symbol.google,
+.page-home .directions-symbol.apple{
+  background:#fff;
+  border:1px solid #e1e9e2;
+}
+.page-home .directions-symbol img{
+  display:block;
+  width:26px;
+  height:28px;
+  object-fit:contain;
+}
+.page-home .directions-symbol.apple img{
+  width:29px;
+  height:29px;
+  border-radius:6px;
+}
 .page-home .visit-actions .btn{gap:9px}
-.page-home .visit-actions .app-map-logo{display:block;flex:none;width:23px;height:25px;object-fit:contain}
+.page-home .visit-actions .app-map-logo{
+  display:block;
+  flex:none;
+  width:23px;
+  height:25px;
+  object-fit:contain;
+}
 .page-home .visit-actions a:has(.app-map-logo){min-height:51px}
 @media(max-width:650px){
- .page-home .visit-actions .btn{gap:6px}
- .page-home .visit-actions .app-map-logo{width:20px;height:22px}
+  .page-home .visit-actions .btn{gap:6px}
+  .page-home .visit-actions .app-map-logo{width:20px;height:22px}
 }
