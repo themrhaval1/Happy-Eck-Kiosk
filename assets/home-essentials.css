@@ -27,3 +27,15 @@
 @media(max-width:650px){.page-home .essentials-section{padding-block:49px}.page-home .essentials-section .section-head{margin-bottom:23px}.page-home .essentials-lead{font-size:13px}.page-home .essential-card{box-shadow:0 7px 21px #1435210c}}
 @media(max-width:365px){.page-home .essential-hours-preview>span{font-size:11px}.page-home .essential-hours-preview b{font-size:11px}}
 @media(prefers-reduced-motion:reduce){.page-home .essential-card{transition:none}.page-home .essential-card:hover{transform:none}}
+
+/* Official-style map app symbols are shown at their native colors. */
+.page-home .directions-symbol.google,.page-home .directions-symbol.apple{background:#fff;border:1px solid #e1e9e2}
+.page-home .directions-symbol img{display:block;width:26px;height:28px;object-fit:contain}
+.page-home .directions-symbol.apple img{width:29px;height:29px;border-radius:6px}
+.page-home .visit-actions .btn{gap:9px}
+.page-home .visit-actions .app-map-logo{display:block;flex:none;width:23px;height:25px;object-fit:contain}
+.page-home .visit-actions a:has(.app-map-logo){min-height:51px}
+@media(max-width:650px){
+ .page-home .visit-actions .btn{gap:6px}
+ .page-home .visit-actions .app-map-logo{width:20px;height:22px}
+}
