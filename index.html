@@ -60,11 +60,29 @@
 <div class="visit-actions reveal"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Caldenhofer+Weg+207%2C+59063+Hamm" target="_blank" rel="noopener noreferrer"><img class="app-map-logo" src="assets/google-maps.svg" alt="" width="22" height="26">Google Maps ↗</a><a class="btn ghost-dark" href="https://maps.apple.com/?daddr=Caldenhofer+Weg+207%2C+59063+Hamm" target="_blank" rel="noopener noreferrer"><img class="app-map-logo" src="assets/apple-maps.svg" alt="" width="26" height="26">Apple Karten ↗</a></div>
 </div></section>
 
+<section class="section shop-gallery" id="galerie" aria-labelledby="galerie-title"><div class="wrap"><div class="section-head reveal"><span class="kicker">HAPPY ECK · EINBLICKE</span><h2 class="section-title" id="galerie-title">Hier ist unser Laden</h2><p class="gallery-intro">Acht Einblicke in die Bildwelt von Happy Eck. Tippe auf ein Bild, um es groß anzusehen.</p></div><div class="shop-gallery-grid"><figure class="gallery-tile reveal"><button type="button" class="gallery-zoom" aria-label="Bild 1 groß ansehen"><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_27.jpg" alt="Illustrative Darstellung zu Happy Eck – Bild 1" loading="lazy" decoding="async" width="640" height="480"><span class="gallery-magnify" aria-hidden="true">Vergrößern ↗</span></button></figure>
+<figure class="gallery-tile reveal"><button type="button" class="gallery-zoom" aria-label="Bild 2 groß ansehen"><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_40.jpg" alt="Illustrative Darstellung zu Happy Eck – Bild 2" loading="lazy" decoding="async" width="640" height="480"><span class="gallery-magnify" aria-hidden="true">Vergrößern ↗</span></button></figure>
+<figure class="gallery-tile reveal"><button type="button" class="gallery-zoom" aria-label="Bild 3 groß ansehen"><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_52.jpg" alt="Illustrative Darstellung zu Happy Eck – Bild 3" loading="lazy" decoding="async" width="640" height="480"><span class="gallery-magnify" aria-hidden="true">Vergrößern ↗</span></button></figure>
+<figure class="gallery-tile reveal"><button type="button" class="gallery-zoom" aria-label="Bild 4 groß ansehen"><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_30_56.jpg" alt="Illustrative Darstellung zu Happy Eck – Bild 4" loading="lazy" decoding="async" width="640" height="480"><span class="gallery-magnify" aria-hidden="true">Vergrößern ↗</span></button></figure>
+<figure class="gallery-tile reveal"><button type="button" class="gallery-zoom" aria-label="Bild 5 groß ansehen"><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_31_01.jpg" alt="Illustrative Darstellung zu Happy Eck – Bild 5" loading="lazy" decoding="async" width="640" height="480"><span class="gallery-magnify" aria-hidden="true">Vergrößern ↗</span></button></figure>
+<figure class="gallery-tile reveal"><button type="button" class="gallery-zoom" aria-label="Bild 6 groß ansehen"><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_31_05.jpg" alt="Illustrative Darstellung zu Happy Eck – Bild 6" loading="lazy" decoding="async" width="640" height="480"><span class="gallery-magnify" aria-hidden="true">Vergrößern ↗</span></button></figure>
+<figure class="gallery-tile reveal"><button type="button" class="gallery-zoom" aria-label="Bild 7 groß ansehen"><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_31_13.jpg" alt="Illustrative Darstellung zu Happy Eck – Bild 7" loading="lazy" decoding="async" width="640" height="480"><span class="gallery-magnify" aria-hidden="true">Vergrößern ↗</span></button></figure>
+<figure class="gallery-tile reveal"><button type="button" class="gallery-zoom" aria-label="Bild 8 groß ansehen"><img src="assets/ChatGPT-Bild 8. Okt. 2026, 22_31_19.jpg" alt="Illustrative Darstellung zu Happy Eck – Bild 8" loading="lazy" decoding="async" width="640" height="480"><span class="gallery-magnify" aria-hidden="true">Vergrößern ↗</span></button></figure></div><p class="gallery-notice">Hinweis: Die Bilder sind Illustrationen und keine Originalfotos unseres Ladens.</p></div></section>
 </main>
 <a class="mobile-order-cta" href="bestellen.html" aria-label="Online bestellen: Wolt, Lieferando oder WhatsApp">
 <span><strong>Online bestellen</strong><small>Wolt · Lieferando · WhatsApp</small></span><span class="mobile-order-arrow" aria-hidden="true">↗</span>
 </a>
 
+<dialog class="gallery-dialog" id="gallery-dialog" aria-label="Bildergalerie im Großformat" aria-modal="true">
+<div class="gallery-dialog-inner">
+<button class="gallery-close" id="gallery-close" type="button" aria-label="Galerie schließen">×</button>
+<div class="gallery-full-stage"><img id="gallery-full-image" alt="Große Ansicht eines Happy Eck Bildes"></div>
+<div class="gallery-controls">
+<button type="button" id="gallery-prev" aria-label="Vorheriges Bild">←</button>
+<span id="gallery-count" aria-live="polite">1 / 8</span>
+<button type="button" id="gallery-next" aria-label="Nächstes Bild">→</button>
+</div></div>
+</dialog>
 <dialog class="directions-dialog" id="directions-dialog" aria-labelledby="directions-title" aria-describedby="directions-description">
 <div class="directions-head"><div><span class="directions-eyebrow">HAPPY ECK · ANFAHRT</span><h2 id="directions-title">Wählen Sie Ihre Karten-App</h2><p id="directions-description">Happy Eck Kiosk · Caldenhofer Weg 207 · 59063 Hamm</p></div><button class="directions-close" type="button" id="close-directions" aria-label="Auswahl schließen">×</button></div>
 <div class="directions-options">
@@ -101,6 +119,7 @@
 </div></footer>
 
 <script src="assets/luxury.js" defer></script>
+<script src="assets/gallery-viewer.js?v=1" defer></script>
 
 <script>(function(){const dialog=document.getElementById("directions-dialog");const open=document.getElementById("open-directions");const close=document.getElementById("close-directions");if(!dialog||!open||!close)return;open.addEventListener("click",()=>dialog.showModal());close.addEventListener("click",()=>dialog.close());dialog.addEventListener("click",event=>{if(event.target===dialog)dialog.close()});})();</script>
 <script defer src="assets/analytics.js"></script>
