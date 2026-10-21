@@ -12,8 +12,10 @@
   <link rel="stylesheet" href="./admin.css?v=6">
   <link rel="stylesheet" href="./extras.css?v=1">
   <link rel="stylesheet" href="./pro-dashboard.css?v=1">
+  <link rel="stylesheet" href="./premium-v2.css?v=1">
   <script src="./dashboard.js?v=7" defer></script>
   <script src="./extras.js?v=1" defer></script>
+  <script src="./premium-v2.js?v=1" defer></script>
 </head>
 <body>
   <div class="page-shell">
@@ -60,14 +62,27 @@
       </section>
       <section id="dashboard-view" class="dashboard-view" aria-labelledby="dashboard-title" hidden>
         <div class="dashboard-heading">
-          <div><span class="eyebrow dashboard-eyebrow">HAPPY ECK · ANALYTICS</span><h1 id="dashboard-title">Geschäftsübersicht.</h1><p>Hier siehst du zusammengefasste Seitenaufrufe und Klicks – ohne einzelne Personen zu verfolgen.</p></div>
+          <div class="dashboard-heading-main"><span class="eyebrow dashboard-eyebrow">HAPPY ECK · BETRIEBSZENTRALE</span><h1 id="dashboard-title">Alles im Blick.</h1><p>Deine Webseiten-Statistiken und Kiosk-Werkzeuge an einem Ort.</p><div class="dashboard-meta"><span class="dashboard-location"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg> Hamm</span><span id="admin-last-update" class="dashboard-update" role="status">Noch keine Daten geladen</span></div></div>
           <button class="logout-btn" type="button" id="logout">Abmelden <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 17l5-5-5-5M15 12H3M12 3h5a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3h-5"/></svg></button>
         </div>
-        <div class="admin-tabs" role="tablist" aria-label="Adminbereiche">
+        <aside class="admin-sidebar" aria-label="Bereichsnavigation">
+          <div class="sidebar-title"><span>ADMINISTRATION</span><strong>Dein Arbeitsplatz</strong></div>
+          <div class="admin-tabs" role="tablist" aria-label="Adminbereiche">
           <button class="admin-tab" type="button" role="tab" data-admin-tab="analytics" id="admin-tab-analytics" aria-selected="true" aria-controls="analytics-tab" tabindex="0">Statistiken</button>
           <button class="admin-tab" type="button" role="tab" data-admin-tab="tools" id="admin-tab-tools" aria-selected="false" aria-controls="tools-tab" tabindex="-1">Kiosk-Werkzeuge</button>
-        </div>
+          </div>
+          <div class="sidebar-links"><span>WEITERE SEITEN</span><a href="../index.html" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h6"/></svg>Webseite öffnen <span aria-hidden="true">↗</span></a><p>Geschützter Adminbereich</p></div>
+        </aside>
         <div id="analytics-tab" role="tabpanel" aria-labelledby="admin-tab-analytics">
+        <div class="analytics-intro">
+          <div><span class="eyebrow small">AUSWERTUNG DEINER WEBSEITE</span><h2>Webseiten-Analyse</h2><p>Aufrufe und Klicks, übersichtlich zusammengefasst.</p></div>
+          <div class="range-shortcuts" role="group" aria-label="Zeitraum schnell auswählen">
+            <button type="button" data-quick-range="24h" aria-pressed="false">24 Std.</button>
+            <button type="button" data-quick-range="7d" aria-pressed="false">7 Tage</button>
+            <button type="button" data-quick-range="30d" aria-pressed="true">30 Tage</button>
+            <button type="button" data-quick-range="90d" aria-pressed="false">90 Tage</button>
+          </div>
+        </div>
         <div class="dashboard-controls">
           
           <div class="time-controls"><label for="time-preset">Zeitraum</label><select id="time-preset"><option value="15m">Letzte 15 Minuten</option><option value="60m">Letzte Stunde</option><option value="6h">Letzte 6 Stunden</option><option value="24h">Letzte 24 Stunden</option><option value="today">Heute (Hamm)</option><option value="7d">Letzte 7 Tage</option><option value="30d" selected>Letzte 30 Tage</option><option value="90d">Letzte 90 Tage</option><option value="custom">Von – bis</option></select><div id="custom-time" hidden><label for="time-from">Von</label><input id="time-from" type="datetime-local"><label for="time-to">Bis</label><input id="time-to" type="datetime-local"><button type="button" id="time-apply" class="refresh-btn">Anzeigen</button></div></div><button id="export-csv" class="refresh-btn" type="button">CSV exportieren</button><button id="refresh" class="refresh-btn" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 0 0-14-5L3 9M3 3v6h6M4 13a8 8 0 0 0 14 5l3-3M21 21v-6h-6"/></svg> Aktualisieren</button>
