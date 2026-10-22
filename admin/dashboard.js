@@ -5,7 +5,7 @@ const el=id=>document.getElementById(id);
 const labels={startseite:"Startseite",kontakt:"Kontakt",jobs:"Jobs & Bewerbung",gls:"GLS Paketshop",guthaben:"Guthaben & Gutscheine",oeffnungszeiten:"Öffnungszeiten",kontakt_erfolg:"Kontaktbestätigung",bewerbung_erfolg:"Bewerbungsbestätigung",navigation:"Navigation",lieferando:"Lieferando",google_maps:"Google Maps",apple_karten:"Apple Karten",instagram:"Instagram",tiktok:"TikTok",whatsapp:"WhatsApp",anrufen:"Anrufen",kontaktformular:"Kontaktformular",bewerbung:"Bewerbung senden",paket_versenden:"GLS Paket versenden",sendung_verfolgen:"Sendung verfolgen",andere_aktion:"Weitere Aktionen"};
 let token="",rows=[],minuteRows=[],days=30,utcToday=new Date().toISOString().slice(0,10);
 const num=new Intl.NumberFormat("de-DE");
-function showLogin(msg=""){token="";rows=[];minuteRows=[];el("login-view").hidden=false;el("dashboard-view").hidden=true;el("reset-view").hidden=true;for(const id of ["daily-chart","time-chart","top-clicks","top-pages"]){el(id).replaceChildren();}for(const id of ["views-total","clicks-total","today-total","avg-views","best-day","best-page","best-click","time-views","time-clicks","time-buckets"]){el(id).textContent="–";}el("login-error").textContent=msg;el("login-error").hidden=!msg;document.dispatchEvent(new Event("happy-eck:logout"));}
+function showLogin(msg=""){token="";rows=[];minuteRows=[];el("login-view").hidden=false;el("dashboard-view").hidden=true;el("reset-view").hidden=true;for(const id of ["daily-chart","time-chart","top-clicks","top-pages"]){el(id).replaceChildren();}for(const id of ["views-total","clicks-total","today-total","time-views","time-clicks","time-buckets"]){el(id).textContent="–";}el("login-error").textContent=msg;el("login-error").hidden=!msg;document.dispatchEvent(new Event("happy-eck:logout"));}
 function showDashboard(){el("login-view").hidden=true;el("dashboard-view").hidden=false;el("admin-password").value="";renderTime();}
 function setBusy(b){el("login-submit").disabled=b;el("login-label").textContent=b?"Anmeldung läuft …":"Sicher anmelden";}
 function errorMessage(e){return e?.message||"Bitte versuche es erneut.";}
@@ -34,7 +34,6 @@ function render(){
  el("chart-period").textContent=days+" Tage";
  const grouped=(records)=>{const o=new Map();for(const r of records)o.set(r.event_key,(o.get(r.event_key)||0)+Number(r.total||0));return [...o].sort((a,b)=>b[1]-a[1]);};
  renderRanks("top-clicks",grouped(clicks));renderRanks("top-pages",grouped(pages));renderChart(pages);
- renderInsights(pages,grouped(pages),grouped(clicks));
  el("dashboard-status").textContent="Letzte Aktualisierung: "+new Date().toLocaleString("de-DE")+" · Zeitraum: "+days+" Tage";
 }
 function renderRanks(id,items){
@@ -137,14 +136,6 @@ el("reset-form").addEventListener("submit",async event=>{
 
 handleRecoveryLink();
 
-function renderInsights(pages,topPages,topClicks){
- const daily=new Map();for(const r of pages)daily.set(r.day,(daily.get(r.day)||0)+Number(r.total||0));
- const best=[...daily].sort((a,b)=>b[1]-a[1])[0];
- el("avg-views").textContent=num.format(Math.round(sum(pages)/days));
- el("best-day").textContent=best?new Date(best[0]+"T12:00:00Z").toLocaleDateString("de-DE",{day:"2-digit",month:"short",timeZone:"UTC"})+" · "+num.format(best[1]):"–";
- el("best-page").textContent=topPages.length?(labels[topPages[0][0]]||topPages[0][0]):"–";
- el("best-click").textContent=topClicks.length?(labels[topClicks[0][0]]||topClicks[0][0]):"–";
-}
 el("export-csv").addEventListener("click",()=>{
  if(!token)return;
  const safe=v=>'"'+String(v??"").replace(/^[=+@\-\t\r]/,"'").replaceAll('"','""')+'"';
