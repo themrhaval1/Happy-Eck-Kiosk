@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="288" height="240" viewBox="0 0 288 240" fill="none" role="img" aria-labelledby="title desc">
+<title id="title">Glaselefant Hamm</title>
+<desc id="desc">Eine eigene stilisierte Illustration des gläsernen Elefanten im Maximilianpark Hamm, mit leuchtenden Fenstern, Rüssel und Stoßzähnen.</desc>
+<defs>
+ <linearGradient id="frame" x1="32" y1="35" x2="234" y2="206" gradientUnits="userSpaceOnUse"><stop stop-color="#9EECFF"/><stop offset=".55" stop-color="#A59BFF"/><stop offset="1" stop-color="#FF98D8"/></linearGradient>
+ <linearGradient id="glass" x1="40" y1="64" x2="224" y2="174" gradientUnits="userSpaceOnUse"><stop stop-color="#76E7F3" stop-opacity=".27"/><stop offset="1" stop-color="#B78AFF" stop-opacity=".13"/></linearGradient>
+ <linearGradient id="trunk" x1="196" y1="137" x2="194" y2="206" gradientUnits="userSpaceOnUse"><stop stop-color="#E5F8FF"/><stop offset="1" stop-color="#89F2FA"/></linearGradient>
+ <clipPath id="body"><path d="M34 74 126 54 164 68V153l-130 21z"/></clipPath>
+ <clipPath id="head"><path d="M139 48h63c15 0 24 10 24 24v56c0 13-12 24-24 24h-63z"/></clipPath>
+</defs>
+<!-- Radiant hometown halo -->
+<circle cx="142" cy="119" r="103" stroke="#DDBDFF" stroke-opacity=".13"/>
+<circle cx="142" cy="119" r="86" stroke="#8FEAFF" stroke-opacity=".13" stroke-dasharray="3 8"/>
+<path d="M44 39v14M37 46h14M256 63v11M250.5 68.5h11M240 180v10M235 185h10" stroke="#A3F3FD" stroke-width="2" stroke-linecap="round" opacity=".62"/>
+<!-- Lower structural frame of the original industrial building -->
+<path d="M43 156h20v50H43zM94 155h20v51H94zM138 154h20v52h-20z" fill="#4C3970" fill-opacity=".52" stroke="url(#frame)" stroke-width="2.2"/>
+<path d="M37 207h136" stroke="#A5BDF5" stroke-width="5" stroke-linecap="round" opacity=".72"/>
+<path d="M45 172l19 31m0-29-19 29m49-40 19 40m1-40-20 40m45-39 19 40m-1-40-18 40" stroke="#AEE4F7" stroke-opacity=".36" stroke-width="1.4"/>
+<!-- Glass body and latticework -->
+<path d="M34 74 126 54 164 68V153l-130 21z" fill="url(#glass)" stroke="url(#frame)" stroke-width="4" stroke-linejoin="round"/>
+<g clip-path="url(#body)" stroke="#B9F5FF" stroke-opacity=".56" stroke-width="1.7">
+ <path d="M56 52v134M82 52v134M108 52v134M135 52v134M160 52v134M18 94h160M18 121h160M18 147h160M18 172h160"/>
+ <path d="M34 74 164 153M34 121l130-53M34 172 164 98" stroke-opacity=".19"/>
+</g>
+<!-- Elephant head shaped like Hamm's iconic glazed lookout -->
+<path d="M139 48h63c15 0 24 10 24 24v56c0 13-12 24-24 24h-63z" fill="url(#glass)" stroke="url(#frame)" stroke-width="4" stroke-linejoin="round"/>
+<g clip-path="url(#head)" stroke="#D0F8FF" stroke-opacity=".5" stroke-width="1.8">
+ <path d="M154 42v119M179 42v119M202 42v119M139 73h95M139 98h95M139 124h95M139 148h95"/>
+</g>
+<path d="M142 84c-11-1-18 6-18 20s8 20 18 18" fill="#FF9CD5" fill-opacity=".25" stroke="#F5ACD9" stroke-opacity=".76" stroke-width="3"/>
+<path d="M180 94h7" stroke="#F2FCFF" stroke-width="4" stroke-linecap="round"/>
+<!-- Elephant tusks -->
+<path d="M157 127c-8 21-21 32-38 33" stroke="#FAFCFF" stroke-width="11" stroke-linecap="round"/>
+<path d="M217 122c5 18 16 28 30 32" stroke="#FAFCFF" stroke-width="11" stroke-linecap="round"/>
+<!-- Glowing trunk; stylized glass shaft -->
+<path d="M208 139c0 21 4 43-8 58-6 8-15 7-20 1" stroke="url(#trunk)" stroke-width="17" stroke-linecap="round"/>
+<path d="M208 139c0 21 4 43-8 58-6 8-15 7-20 1" stroke="#B6FEFF" stroke-width="1.8" stroke-dasharray="6 8" opacity=".7" stroke-linecap="round"/>
+<path d="M40 217h166" stroke="url(#frame)" stroke-width="2" stroke-linecap="round" opacity=".47"/>
+</svg>
