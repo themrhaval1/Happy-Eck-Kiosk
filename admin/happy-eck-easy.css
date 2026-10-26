@@ -1,0 +1,190 @@
+/* HAPPY ECK | simple, friendly and understandable admin, October 2026
+   A style layer. Authentication and source statistics stay intact. */
+:root{
+ --happy-admin-ink:#302b3a;
+ --happy-admin-muted:#716877;
+ --happy-admin-cream:#fcf8f3;
+ --happy-admin-yellow:#ffe4a2;
+ --happy-admin-violet:#63558e;
+ --happy-admin-border:#ece3e9;
+}
+html,body{background:var(--happy-admin-cream);color:var(--happy-admin-ink)}
+.page-shell{
+ background:
+ radial-gradient(ellipse at 94% 0%,#fff1d8 0%,transparent 38%),
+ linear-gradient(150deg,#fffcf9,#faf5f7 60%,#f6f5fb);
+}
+.topbar{
+ background:linear-gradient(112deg,#352741,#3c3049 84%)!important;
+ border-bottom:1px solid #fff2e82b!important;
+ box-shadow:0 8px 24px #27153019
+}
+.brand img{background:white;border:2px solid #ffe0a1;border-radius:12px}
+.brand small{color:#ffe7bb!important}
+.private-tag{border-color:#ffe3b449;color:#fff4e2}
+.private-tag svg{color:#ffe08c}
+main{width:min(1140px,calc(100% - 40px))}
+.login-intro{
+ background:radial-gradient(ellipse at 100% 12%,#e89db440,transparent 52%),linear-gradient(125deg,#3b2b45,#524160)!important;
+ border:1px solid #57405e;box-shadow:0 17px 50px #291b4020
+}
+.login-intro h1{letter-spacing:-.06em;color:#fff;font-size:clamp(41px,5.2vw,68px)}
+.login-intro h1 em{color:#ffe0a0}
+.login-intro .eyebrow{color:#ffe7b9}
+.login-intro>p{color:#f2e5ef}
+.privacy-bullet{color:#fff3db}
+.login-card{background:white;border:1px solid #f0e2e8;border-radius:22px;box-shadow:0 23px 55px #36284616}
+.login-card h2{color:#33293e;font-size:clamp(27px,3vw,33px)}
+.login-icon{background:#fff2d8;color:#a36b39}
+#login-form label{color:#51405a}
+#login-form input,#reset-form input{background:#fffdfc;border:1px solid #eadde7;color:#332c3a}
+#login-form input:focus,#reset-form input:focus{border-color:#b787b7;box-shadow:0 0 0 4px #f0d8ee}
+.primary-btn{background:linear-gradient(120deg,#ffe2a2,#ffc77f);color:#342b3a;box-shadow:0 8px 19px #e6af7925}
+.primary-btn:hover{background:linear-gradient(120deg,#ffebc0,#ffd69d)}
+.login-card .logout-btn{color:#7d507f}
+.login-card .login-note{color:#8d7b90}
+.dashboard-view{padding:29px 0 65px}
+.dashboard-heading{
+ background:linear-gradient(115deg,#3a2b47,#55445f)!important;
+ border:1px solid #6d5874!important;border-radius:21px;
+ min-height:0;padding:27px clamp(22px,3.5vw,41px);margin-bottom:22px;
+ box-shadow:0 17px 39px #281a4121
+}
+.dashboard-heading::after{background:radial-gradient(circle,#f4c8ab29,transparent 64%)}
+.dashboard-heading h1{
+ font:850 clamp(30px,3.7vw,44px)/1.16 Inter,system-ui,"Segoe UI",sans-serif;
+ letter-spacing:-.055em;color:#fff
+}
+.dashboard-heading .eyebrow{color:#ffe2a1}
+.dashboard-heading p{max-width:670px;color:#fff0f1;font-size:14px;line-height:1.65}
+.dashboard-heading .logout-btn{color:#fff;border:1px solid #fff9;background:#ffffff13;min-height:42px}
+.dashboard-heading .logout-btn:hover{background:#ffffff22;color:#fff}
+.admin-period{
+ border:1px solid #efdfd9;background:#fff;border-radius:19px;
+ box-shadow:0 9px 25px #392a3f09;
+ padding:22px clamp(16px,2.6vw,27px);
+ margin-bottom:15px;
+}
+.admin-period-head{display:flex;gap:13px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+.admin-period-head h2{
+ color:#352b41;font:850 clamp(20px,2.5vw,26px)/1.2 Inter,system-ui,sans-serif;
+ letter-spacing:-.04em;margin:0 0 6px
+}
+.admin-period-head p{font-size:12px;color:#796a7a;line-height:1.6;margin:0}
+.admin-period-buttons{
+ display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-top:17px
+}
+.admin-period-buttons button{
+ appearance:none;border:1px solid #e9dfe7;
+ background:#faf7fa;color:#5f5265;border-radius:10px;
+ font-size:13px;font-weight:800;min-height:45px;padding:11px 18px;
+}
+.admin-period-buttons button[aria-pressed="true"]{
+ background:#443451;border-color:#443451;color:#fff;
+ box-shadow:0 6px 14px #42314d25
+}
+.admin-period-buttons button:hover:not([aria-pressed="true"]){background:#fff0da;border-color:#efd1a7}
+.admin-period-buttons button:focus-visible,.admin-more summary:focus-visible{outline:3px solid #deb27c;outline-offset:2px}
+.admin-simple-note{font-size:12px;color:#776878;margin:14px 0 0;line-height:1.6}
+#refresh{
+ background:linear-gradient(117deg,#ffe2a2,#ffcc90)!important;
+ border:1px solid #efd09b!important;color:#3f3246!important;
+ font-weight:900;border-radius:10px;min-height:43px;box-shadow:none!important
+}
+#refresh:hover{background:#ffecc5!important;color:#302538!important}
+.admin-more{margin:0 0 17px;border-radius:13px;border:1px solid #eadfe5;background:#fff}
+.admin-more>summary{
+ display:flex;align-items:center;gap:11px;min-height:45px;
+ padding:11px 16px;cursor:pointer;color:#6e6072;
+ font-size:12px;font-weight:800;list-style:none;
+}
+.admin-more>summary::-webkit-details-marker{display:none}
+.admin-more>summary::before{content:"+";display:grid;place-items:center;width:21px;height:21px;background:#f4eaf2;color:#6a4c6b;border-radius:6px;font-size:17px;font-weight:600}
+.admin-more[open]>summary::before{content:"−"}
+.admin-more .dashboard-controls{margin:0;padding:0 16px 17px;gap:10px}
+.admin-more:not([open]) .dashboard-controls{display:none!important}
+.admin-more .time-controls{border:0;box-shadow:none;padding:0;margin:0;flex:1 1 320px;gap:9px}
+.admin-more .time-controls>label{color:#5d5065}
+.admin-more .time-controls>select{background:#fcf9fb;border-color:#e7dce6;color:#3a3040}
+.admin-more #export-csv{border-radius:10px;color:#695b72;border:1px solid #e4d8e2;box-shadow:none;font-size:12px}
+.admin-more #export-csv:hover{background:#fff6e8;color:#4a3b52}
+.dashboard-status{font-size:12px;color:#81748a;margin-bottom:10px}
+#time-note{margin:12px 2px 9px}
+#dashboard-status:not(:empty){padding:9px 12px;background:#faf8fb;border:1px solid #eee6ef;border-radius:10px}
+.stat-grid{gap:14px}
+.stat-card{
+ border:1px solid #efe5eb;background:#fff;box-shadow:0 10px 29px #2c213913;
+ border-radius:18px;padding:24px
+}
+.stat-card:before{height:4px;background:#ffcc88}
+.stat-card:nth-child(2)::before{background:#ee9cb2}
+.stat-card:nth-child(3)::before{background:#8cdde4}
+.stat-icon{background:#fff0d4;color:#8f603e;border-radius:12px;width:45px;height:45px}
+.stat-card:nth-child(2) .stat-icon{background:#fff0f5;color:#b4648b}
+.stat-card:nth-child(3) .stat-icon{background:#e9f9fb;color:#369da7}
+.stat-card>span{color:#706379;font-weight:800;font-size:13px}
+.stat-card>strong{font-variant-numeric:tabular-nums;font-size:clamp(39px,4.7vw,59px);color:#35293f}
+.stat-card>small{color:#827786;font-size:12px;line-height:1.55}
+#time-summary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+#time-summary[hidden]{display:none!important}
+#time-summary .stat-card:nth-child(3){display:none}
+#time-summary .stat-card>strong{font-size:clamp(39px,4.7vw,59px);color:#35293f}
+.dashboard-grid{gap:14px;margin-top:20px}
+.chart-card,.rank-card{
+ border:1px solid #efe4eb;border-radius:18px;background:#fff;
+ box-shadow:0 10px 29px #2c213913;padding:24px
+}
+.card-head h2{font:820 clamp(20px,2.4vw,25px)/1.2 Inter,system-ui,sans-serif;color:#3c3145}
+.eyebrow.small{color:#9a6b8b!important;letter-spacing:.13em}
+.subtle{color:#816f83;background:#faf4f8;border-color:#f1e6f0}
+.daily-chart{border-color:#f0e6ef;background:repeating-linear-gradient(to top,transparent 0,transparent 49px,#d6bbd029 50px)}
+.chart-bar{background:linear-gradient(180deg,#f2b38e,#da879f);border-radius:8px 8px 0 0}
+.chart-label{color:#8d8090}
+.rank-title>span{color:#514657;font-size:13px}
+.rank-title strong{color:#493a50;font-size:13px}
+.rank-progress{height:9px;background:#f6edf1}
+.rank-progress span{background:linear-gradient(90deg,#f4b17a,#dd92ad)}
+.rank-list .empty{color:#8b8190}
+.admin-help{margin-top:20px;border:1px solid #e8dde8;border-radius:13px;background:#fff;font-size:12px;color:#655966}
+.admin-help>summary{cursor:pointer;padding:14px 17px;font-weight:800}
+.admin-help>p{padding:0 17px 15px;margin:0;line-height:1.7;color:#72667a}
+footer{background:#32273d;color:#e0d4e1}
+footer a{color:#ffe4ad}
+@media(max-width:880px){
+ .dashboard-grid{grid-template-columns:1fr}
+ .dashboard-grid .span-all{grid-column:auto}
+}
+@media(max-width:620px){
+ main{width:calc(100% - 28px)}
+ .topbar{min-height:68px}
+ .dashboard-view{padding:18px 0 42px}
+ .dashboard-heading{gap:13px;padding:22px 21px;border-radius:16px}
+ .dashboard-heading h1{font-size:clamp(30px,8vw,38px)}
+ .dashboard-heading p{font-size:12px}
+ .admin-period{padding:18px 15px;border-radius:15px}
+ .admin-period-head{flex-direction:column}
+ .admin-period-head h2{font-size:22px}
+ .admin-period-buttons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:13px}
+ .admin-period-buttons button{min-width:0;padding:10px 5px;font-size:12px;min-height:44px}
+ .admin-simple-note{font-size:11px}
+ #refresh{width:100%;justify-content:center}
+ .admin-more .dashboard-controls{display:flex;flex-direction:column;align-items:stretch}
+ .admin-more .time-controls{width:100%;flex:1 1 auto;align-items:stretch;flex-direction:column}
+ .admin-more .time-controls>select{width:100%;min-width:0}
+ .stat-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .stat-card{padding:16px 14px}
+ .stat-card>strong{font-size:35px}
+ .stat-card>span{font-size:11px}
+ .stat-card>small{font-size:10px}
+ .stat-card:last-child{grid-column:1/-1}
+ #time-summary .stat-card:last-child{grid-column:auto}
+ .chart-card,.rank-card{padding:19px}
+ .admin-help{font-size:11px}
+}
+@media(max-width:370px){
+ .admin-period-buttons button{font-size:11px}
+ .stat-card>strong{font-size:29px}
+}
+@media(prefers-reduced-motion:reduce){
+ .admin-period-buttons button{transition:none}
+}

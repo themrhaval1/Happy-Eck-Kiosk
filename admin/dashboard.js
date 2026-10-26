@@ -34,7 +34,7 @@ function render(){
  el("chart-period").textContent=days+" Tage";
  const grouped=(records)=>{const o=new Map();for(const r of records)o.set(r.event_key,(o.get(r.event_key)||0)+Number(r.total||0));return [...o].sort((a,b)=>b[1]-a[1]);};
  renderRanks("top-clicks",grouped(clicks));renderRanks("top-pages",grouped(pages));renderChart(pages);
- el("dashboard-status").textContent="Letzte Aktualisierung: "+new Date().toLocaleString("de-DE")+" · Zeitraum: "+days+" Tage";
+ el("dashboard-status").textContent="Zuletzt aktualisiert: "+new Date().toLocaleTimeString("de-DE",{hour:"2-digit",minute:"2-digit",timeZone:"Europe/Berlin"})+" Uhr · Auswertung: "+days+" Tage";
 }
 function renderRanks(id,items){
  const parent=el(id);parent.replaceChildren();
@@ -169,7 +169,7 @@ function renderTime(){
  const dailyMode=preset==="30d"||preset==="90d";
  el("daily-summary").hidden=!dailyMode;el("daily-details").hidden=!dailyMode;
  el("time-summary").hidden=dailyMode;el("time-chart-section").hidden=dailyMode;
- if(dailyMode){days=preset==="90d"?90:30;render();el("time-note").textContent="Tagesstatistik der letzten "+days+" Tage · Für Minuten oder Stunden oben einen kürzeren Zeitraum auswählen.";return;}
+ if(dailyMode){days=preset==="90d"?90:30;render();el("time-note").textContent="Das sind die Zahlen der letzten "+days+" Tage.";return;}
  const durations={"15m":900000,"60m":3600000,"6h":21600000,"24h":86400000,"7d":604800000};
  if(preset==="custom"){
   const a=localInputToDate(el("time-from").value),b=localInputToDate(el("time-to").value);
@@ -199,7 +199,7 @@ function renderTime(){
  const label=document.createElement("span");label.className="chart-label";label.textContent=(i===0||i===entries.length-1||i%Math.max(1,Math.ceil(entries.length/6))===0)?berlinTime.format(new Date(t)).split(", ").pop():"";
  wrap.append(bar,label);chart.append(wrap);}
  el("time-chart-title").textContent=hourly?"Aufrufe pro Stunde":"Aufrufe pro Minute";
- el("time-note").textContent=(selected.length?"":"Noch keine minutengenauen Daten in diesem Zeitraum. Die bisherigen Aufrufe findest du unter „Letzte 30 Tage“. · ")+"Zeitraum: "+berlinTime.format(new Date(start))+" bis "+berlinTime.format(new Date(end))+" · Uhrzeit Hamm.";
+ el("time-note").textContent=(selected.length?"":"Hier liegen noch keine genauen Zeitdaten vor. Wähle sonst „30 Tage“. · ")+"Von "+berlinTime.format(new Date(start))+" bis "+berlinTime.format(new Date(end))+" (Hamm).";
 }
 
 // Aktualisiere die Zahlen jede Minute, solange das Dashboard geöffnet ist.

@@ -1,0 +1,216 @@
+/* HAPPY ECK / BRAND HOME · Warm, cheerful, local: not a generic neon template.
+   Loaded after the former theme; homepage only, keeping current links, photos, gallery and Hamm landmark. */
+.page-home{
+ --happy-yellow:#ffe47d;--happy-rose:#f58dab;--happy-cyan:#7cdbed;
+ --happy-ink:#292038;--happy-cream:#fffaf1;--happy-lavender:#f7efff;
+ --happy-shadow:0 18px 42px rgba(50,31,58,.09);
+}
+.page-home header{
+ background:rgba(35,23,49,.96)!important;
+ border-bottom:1px solid rgba(255,230,194,.17)!important;
+ box-shadow:0 9px 24px rgba(22,12,30,.11);
+}
+.page-home .brand img{
+ border:2px solid rgba(255,228,125,.83);
+ box-shadow:0 0 0 4px rgba(255,228,125,.11),0 8px 19px rgba(11,6,23,.29);
+}
+.page-home .brand span{letter-spacing:.045em}
+.page-home .brand small{color:#ffe4ad!important}
+.page-home .nav .nav-cta{
+ background:linear-gradient(115deg,#ffe58b,#ffb56e)!important;
+ border:1px solid rgba(255,244,192,.83)!important;
+ color:#2f2140!important;border-radius:13px;
+ box-shadow:0 9px 21px rgba(245,157,95,.19)
+}
+.page-home .nav .nav-cta:hover{
+ background:linear-gradient(115deg,#fff1ae,#ffca92)!important;
+ color:#2f2140!important;transform:translateY(-1px)
+}
+.page-home .hero{
+ background:
+ radial-gradient(ellipse at 83% 14%,rgba(255,216,133,.26),transparent 37%),
+ radial-gradient(ellipse at 14% 95%,rgba(116,225,235,.15),transparent 43%),
+ linear-gradient(122deg,#261a37 0%,#402a52 57%,#33284d 100%)!important;
+}
+.page-home .hero::after{
+ background:linear-gradient(165deg,rgba(255,231,178,.09),transparent 33%,rgba(12,8,35,.2))!important;
+}
+.page-home .eyebrow{
+ color:#fff0b7!important;
+ background:rgba(255,228,125,.09);
+ border:1px solid rgba(255,228,125,.32);
+}
+.page-home .eyebrow-dot{background:#ffdf82;box-shadow:0 0 0 5px #ffdd8530}
+.page-home .hero h1{font-weight:950;letter-spacing:-.077em;color:#fff!important}
+.page-home .hero h1 span{
+ color:#ffe28b!important;
+ text-shadow:0 6px 35px rgba(13,5,31,.54),0 0 18px rgba(255,220,132,.08)
+}
+.page-home .hero-tagline{color:#fff4dc!important}
+.page-home .hero-description{color:#f3e4ef!important}
+.page-home .hero-actions .hero-online-btn{
+ background:linear-gradient(115deg,#ffe17a,#ffc482)!important;
+ color:#302039!important;
+ border:1px solid rgba(255,244,199,.79)!important;
+ box-shadow:0 13px 28px rgba(253,189,111,.22)!important;
+}
+.page-home .hero-actions .directions-trigger{
+ background:rgba(255,255,255,.08)!important;
+ color:white!important;border:1px solid rgba(255,233,210,.48)!important
+}
+.page-home .hero-inner .hero-kiosk-photo{
+ opacity:.81;transform:rotate(2deg);
+ border:2px solid rgba(255,229,158,.59);
+ box-shadow:0 18px 42px rgba(10,4,31,.4),0 0 29px rgba(250,192,108,.21)
+}
+.page-home .hero-inner .hero-kiosk-photo::after{
+ background:linear-gradient(100deg,rgba(41,18,55,.41),rgba(48,21,44,.07) 80%)
+}
+.page-home .hero-panel{
+ background:linear-gradient(145deg,rgba(255,229,152,.66),rgba(255,183,195,.32),rgba(144,222,238,.23))!important;
+ border-radius:26px;box-shadow:0 25px 59px rgba(13,8,35,.24)!important
+}
+.page-home .hero-panel-inner{
+ background:linear-gradient(143deg,rgba(72,43,86,.91),rgba(37,34,68,.9))!important
+}
+.page-home .hero-panel-eyebrow{color:#ffe39a!important}
+.page-home .hero-panel-eyebrow::before{background:#ffdf89}
+.page-home .hero-panel-symbol img{border-color:rgba(255,234,171,.25)}
+.page-home .hamm-signature{
+ background:linear-gradient(105deg,#342344,#43334e 50%,#264052)!important;
+ border-top:1px solid rgba(255,220,148,.19);
+ border-bottom:1px solid rgba(255,220,148,.26)
+}
+.page-home .hamm-signature-kicker,.page-home .hamm-since span{color:#ffe39b}
+.page-home .hamm-signature-copy>strong{color:#fff!important}
+.page-home .hamm-signature-art{
+ background:linear-gradient(137deg,rgba(255,231,171,.12),rgba(255,196,218,.09));
+ border-color:rgba(255,225,163,.25)
+}
+.page-home .hamm-since{border-color:rgba(255,226,175,.34)}
+/* Bright neighborhood identity */
+.page-home .intro-section{
+ background:linear-gradient(142deg,#fffdf7,#fdf3ef 67%,#f8f0ff)!important;
+ padding-block:82px
+}
+.page-home .intro-section .kicker,
+.page-home .shop-gallery .kicker{color:#a34f86!important}
+.page-home .intro-section .section-title,
+.page-home .shop-gallery .section-title{color:#33263f!important}
+.page-home .intro-copy .section-title span{color:#c35d86!important}
+.page-home .intro-detail{border-left-color:rgba(93,59,87,.19)}
+.page-home .intro-detail>p{color:#53465b!important;font-size:16px}
+.page-home .intro-tags span{
+ color:#593657;background:white;
+ border:1px solid rgba(188,135,161,.25);
+ box-shadow:0 5px 18px rgba(86,51,67,.05)
+}
+.page-home .intro-tags span::before{background:#ef9a73;box-shadow:0 0 0 3px #ef9a731c}
+.page-home .section .kicker::before{background:linear-gradient(90deg,#f7b574,#ec8ca5)}
+.page-home .service-section{
+ background:linear-gradient(140deg,#fff3dd,#f7eff6 60%,#eef9fb)!important;
+ padding-block:82px 92px;
+}
+.page-home .service-section .section-title{color:#33273f!important}
+.page-home .service-section .kicker{color:#9c5379!important}
+.page-home .service-section .section-lead{color:#685667!important}
+.page-home .service-card{
+ min-height:295px;
+ background:linear-gradient(150deg,#fff,#fffbfa)!important;
+ border:1px solid #efdeea!important;
+ color:#30223d!important;border-radius:23px;
+ box-shadow:var(--happy-shadow)!important;
+}
+.page-home .service-card::before{
+ background:linear-gradient(90deg,#ffca7f,#e89bc6,#89ddea)
+}
+.page-home .service-card::after{color:#ba80ab}
+.page-home .service-card:hover{
+ border-color:#d6abc9!important;
+ box-shadow:0 21px 41px rgba(69,45,65,.15)!important
+}
+.page-home .service-card:nth-child(1) .service-icon{
+ background:linear-gradient(130deg,#fff0cf,#ffe4c4)!important;color:#995e4d!important;
+ border:1px solid #f6dab1
+}
+.page-home .service-card:nth-child(2) .service-icon{
+ background:linear-gradient(130deg,#f8e7ff,#f1dafa)!important;color:#93558e!important;
+ border:1px solid #edcaef
+}
+.page-home .service-card:nth-child(3) .service-icon{
+ background:linear-gradient(130deg,#dff9fc,#ceeff5)!important;color:#33859a!important;
+ border:1px solid #c2e7f1
+}
+.page-home .service-card h3{color:#32253f!important}
+.page-home .service-card p{color:#685b70!important}
+.page-home .service-card strong{color:#9b477b!important}
+.page-home .visit-section{
+ background:linear-gradient(117deg,#34263c,#2a3550)!important
+}
+.page-home .visit-grid{
+ background:linear-gradient(135deg,rgba(255,238,209,.11),rgba(250,219,249,.08));
+ border:1px solid rgba(255,232,206,.24)
+}
+.page-home .visit-grid .kicker{color:#ffe19e!important}
+.page-home .visit-grid .section-title{color:#fff!important}
+.page-home .visit-grid address{color:#f2e7ef!important}
+.page-home .visit-actions .btn:first-child{
+ background:linear-gradient(120deg,#ffe3a0,#ffba85)!important;
+ color:#392340!important;border-color:rgba(255,238,186,.64)!important
+}
+.page-home .visit-actions .btn.ghost-dark{
+ background:rgba(255,255,255,.11)!important;color:white!important
+}
+.page-home .shop-gallery{
+ background:linear-gradient(150deg,#fef9f4,#f9f0fb)!important;
+ padding-block:75px 85px
+}
+.page-home .gallery-intro,.page-home .gallery-notice{color:#766879!important}
+.page-home .shop-gallery .gallery-tile{
+ border:1px solid #e4d5e3!important;
+ box-shadow:0 12px 29px rgba(83,45,77,.12)!important;
+ background:#eee4f1!important
+}
+.page-home .gallery-magnify{
+ background:rgba(51,30,61,.8)!important;color:#fff!important
+}
+.page-home footer{background:linear-gradient(180deg,#2e223b,#181526)!important}
+.page-home footer .footer-page-title{color:#ffe3a0!important}
+.page-home .footer-page-grid a:hover{
+ background:rgba(255,211,139,.13)!important;
+ border-color:rgba(255,220,159,.49)!important
+}
+.page-home .mobile-order-cta{
+ background:linear-gradient(114deg,#ffc979,#ef9aa2,#aa86ed)!important;
+ border:1px solid rgba(255,229,173,.85)!important;
+ color:#27203c!important;
+}
+.page-home .mobile-order-cta strong,.page-home .mobile-order-cta small{color:#27203c!important}
+.page-home .mobile-order-arrow{background:rgba(48,26,64,.12);color:#34243c}
+@media(max-width:850px){
+ .page-home .intro-section{padding-block:64px}
+ .page-home .service-section{padding-block:65px}
+}
+@media(max-width:650px){
+ .page-home .nav.open{background:#2d213e!important}
+ .page-home .nav.open .nav-cta{
+  color:#312339!important;background:linear-gradient(110deg,#ffe396,#ffc989)!important
+ }
+ .page-home .hero-layout{padding-block:45px 32px}
+ .page-home .hero h1{font-size:clamp(47px,11vw,64px)}
+ .page-home .hero-inner .hero-kiosk-photo{opacity:.75}
+ .page-home .intro-section{padding-block:47px}
+ .page-home .intro-detail>p{font-size:13px}
+ .page-home .service-section{padding-block:52px 60px}
+ .page-home .service-card{min-height:0;border-radius:17px;padding:18px}
+ .page-home .service-card p{display:block!important;color:#655767!important}
+ .page-home .shop-gallery{padding-block:54px 64px}
+ .page-home .shop-gallery-grid{
+  display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  grid-auto-flow:row!important;grid-auto-columns:auto!important;
+  overflow-x:visible!important;scroll-snap-type:none!important;gap:10px!important
+ }
+}
+@media(prefers-reduced-motion:reduce){
+ .page-home .service-card:hover{transform:none}
+}
