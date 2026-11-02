@@ -33,6 +33,20 @@
  }
  select.addEventListener("change",updateLabels);
  document.addEventListener("happy-eck:logout",updateLabels);
+
+ const freshness=document.getElementById("admin-freshness");
+ if(freshness){
+  const clock=new Intl.DateTimeFormat("de-DE",{hour:"2-digit",minute:"2-digit",timeZone:"Europe/Berlin"});
+  document.addEventListener("happy-eck:stats",()=>{
+   freshness.textContent="Daten geladen · "+clock.format(new Date())+" Uhr";
+   freshness.dataset.loaded="true";
+  });
+  document.addEventListener("happy-eck:logout",()=>{
+   freshness.textContent="Statistik wird nach der Anmeldung geladen";
+   freshness.dataset.loaded="false";
+  });
+ }
+
  // The existing dashboard updates its own numbers; we only simplify presentation.
  updateLabels();
 })();
