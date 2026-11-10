@@ -192,3 +192,150 @@ body.happy-site:before{
 @media(prefers-reduced-motion:reduce){
  .happy-site :is(.card,.panel,.tile,.btn,.jb-btn,.hc-btn){transition:none!important;transform:none!important}
 }
+
+
+/* ---- WINTER NIGHTS / CHRISTMAS CITY EDITION 02 ---- */
+:root{
+ --winter-glow-red:#ea5b66;--winter-glow-gold:#f3cd88;--winter-glow-green:#2c9f80;
+}
+body.happy-site{overflow-x:hidden}
+.happy-site :is(.hero,.sub-hero,.jb-hero,.hc-hero){
+ min-height:min(450px,90vh);
+ background:
+   radial-gradient(circle at 79% 23%,rgba(245,198,116,.13),transparent 17%),
+   radial-gradient(circle at 72% 40%,rgba(190,56,72,.35),transparent 37%),
+   radial-gradient(circle at 18% 82%,rgba(33,129,107,.27),transparent 40%),
+   linear-gradient(135deg,#101522,#26303f 49%,#102128)!important;
+}
+.happy-site .hero:after,
+.happy-site :is(.sub-hero,.jb-hero,.hc-hero):after{
+ content:"";position:absolute;inset:auto 0 0;height:140px;pointer-events:none;
+ background:
+ linear-gradient(transparent,rgba(6,11,18,.41)),
+ repeating-linear-gradient(90deg,transparent 0 20px,rgba(4,13,23,.17) 20px 42px,transparent 42px 79px);
+ opacity:.4;z-index:-1
+}
+/* Delicate overhead festive bulbs in every public page's navigation */
+.happy-site :is(header,.topbar){position:relative}
+.happy-site :is(header,.topbar)::after{
+ content:"";position:absolute;left:0;right:0;bottom:-7px;height:10px;
+ pointer-events:none;opacity:.9;
+ background:
+ radial-gradient(circle at 12px 4px,#f7c877 0 3px,transparent 4px),
+ radial-gradient(circle at 44px 4px,#61c5ac 0 3px,transparent 4px),
+ radial-gradient(circle at 76px 4px,#e47282 0 3px,transparent 4px),
+ radial-gradient(circle at 108px 4px,#b5d7e5 0 3px,transparent 4px);
+ background-size:128px 10px;
+ filter:drop-shadow(0 0 4px rgba(246,205,136,.48))
+}
+/* Modern cinematic typography with clear contrast */
+.happy-site :is(.hero h1,.sub-hero h1,.jb-hero h1,.hc-hero h1){
+ font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif!important;
+ font-size:clamp(38px,5.6vw,84px);
+ line-height:1.07!important;font-weight:950!important;
+ letter-spacing:-.055em!important
+}
+.happy-site :is(.section-title,.jb-title,.hc-section-title){
+ color:#fff9ee!important;
+ text-shadow:0 4px 18px rgba(0,0,0,.24);
+ font-weight:900!important
+}
+.happy-site :is(.section-head,.section-top) .kicker{
+ color:#f5d299!important;letter-spacing:.17em!important
+}
+.happy-site :is(.section-head,.section-top):before{
+ content:"✦  HAPPY ECK  ·  WINTER EDITION  ✦";
+ display:block;width:max-content;max-width:100%;margin:0 auto 18px;
+ font-size:10px;font-weight:900;letter-spacing:.14em;
+ padding:8px 16px;border-radius:999px;
+ border:1px solid rgba(237,201,139,.4);
+ background:rgba(235,191,117,.095);color:#f0d49f;
+ text-align:center;
+}
+/* Real storefront photo stays real; only the frame gets a holiday accent */
+.happy-site.page-home .hero-kiosk-photo{
+ border-radius:22px!important;overflow:hidden;
+ border:2px solid rgba(240,201,135,.72)!important;
+ box-shadow:0 0 0 6px rgba(238,202,139,.06),0 26px 66px rgba(0,0,0,.42),
+            0 0 42px rgba(164,55,72,.18)!important;
+ transform:rotate(-1deg);
+}
+.happy-site.page-home .hero-kiosk-photo img{filter:contrast(1.04) saturate(.96)}
+/* Bring visual interest to the homepage collections */
+.happy-site.page-home :is(.service-card,.assortment-card,.gallery-card,.feature-card,.order-card){
+ border:1px solid rgba(242,199,130,.42)!important;
+ border-radius:21px!important;
+ box-shadow:0 15px 39px rgba(0,0,0,.25)!important;
+ overflow:hidden;
+}
+.happy-site.page-home :is(.service-card,.assortment-card,.gallery-card,.feature-card,.order-card):nth-child(3n+1){
+ border-top:3px solid #bc4858!important;
+}
+.happy-site.page-home :is(.service-card,.assortment-card,.gallery-card,.feature-card,.order-card):nth-child(3n+2){
+ border-top:3px solid #d6a962!important;
+}
+.happy-site.page-home :is(.service-card,.assortment-card,.gallery-card,.feature-card,.order-card):nth-child(3n){
+ border-top:3px solid #2a9277!important;
+}
+.happy-site.page-home :is(.service-card,.assortment-card,.gallery-card,.feature-card,.order-card):hover{
+ box-shadow:0 21px 45px rgba(0,0,0,.36),0 0 26px rgba(237,191,132,.08)!important
+}
+/* CTA surfaces: amber light and calm motion instead of neon overload */
+.happy-site :is(.nav-cta,.highlight,.primary,.btn-primary,.order-btn,.action){
+ position:relative
+}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){
+ .happy-site :is(.nav-cta,.highlight,.primary,.btn-primary,.order-btn,.action):hover{
+  filter:brightness(1.09);box-shadow:0 13px 33px rgba(239,201,132,.21)!important
+ }
+}
+/* Add snow through an ultra-lightweight single fixed visual layer.
+   Not over content and no costly particle scripts. */
+.happy-site main{position:relative}
+.happy-site main::after{
+ content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+ background-image:
+ radial-gradient(circle,rgba(255,255,255,.7) 0 1px,transparent 1.6px),
+ radial-gradient(circle,rgba(255,255,255,.49) 0 1px,transparent 1.8px);
+ background-size:210px 245px,310px 285px;
+ background-position:33px 37px,132px 133px;
+ opacity:.22
+}
+.happy-site main > *{position:relative;z-index:1}
+/* Fuller winter surfaces on info, form, and brand sections */
+.happy-site :is(.card,.panel,.detail-card,.jb-form-card,.hc-form-card,.hc-card,.jb-perk){
+ border-top:3px solid rgba(222,164,95,.74)!important
+}
+.happy-site :is(.jb-form-card,.hc-form-card) :is(label,legend){
+ color:#1d2831!important;font-weight:750
+}
+.happy-site :is(.jb-form-card,.hc-form-card) :is(input,textarea,select){
+ min-height:44px!important
+}
+.happy-site.page-credit :is(.search-wrap,.filters){position:relative;z-index:2}
+.happy-site.page-credit .filter.active{
+ box-shadow:0 0 0 2px rgba(233,190,128,.24),0 8px 23px rgba(0,0,0,.2)!important
+}
+.happy-site.page-order :is(.card-wolt,.card-lieferando,.card-whatsapp){
+ border-top:4px solid #dfad70!important
+}
+.happy-site :is(footer,.footer){
+ background:
+ radial-gradient(ellipse at 15% 0,rgba(180,56,75,.17),transparent 43%),
+ linear-gradient(145deg,#0e141f,#1b2530)!important;
+ border-top:2px solid rgba(230,184,112,.43)!important
+}
+.happy-site footer .footer-top{border-color:rgba(238,203,137,.2)!important}
+.happy-site :is(.hero-description,.hero-tagline,.section-lead,.section-head p){
+ line-height:1.68
+}
+@media(max-width:750px){
+ .happy-site :is(header,.topbar)::after{opacity:.67}
+ .happy-site :is(.hero,.sub-hero,.jb-hero,.hc-hero){min-height:unset}
+ .happy-site :is(.section-head,.section-top):before{font-size:9px;letter-spacing:.075em;padding:7px 10px}
+ .happy-site.page-home .hero-kiosk-photo{transform:none;box-shadow:0 15px 38px rgba(0,0,0,.36)!important}
+ .happy-site main::after{opacity:.14}
+}
+@media(prefers-reduced-motion:reduce){
+ .happy-site *{scroll-behavior:auto!important}
+}
