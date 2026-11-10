@@ -1,0 +1,194 @@
+/* Happy Eck | Winter Nights 2026
+   GTA-IV-inspired city-at-night atmosphere, original design, understated holiday mood.
+   Design-only layer. No forms, checkout, directions or other functional code modified. */
+:root{
+  --winter-night:#10141d;--winter-deep:#151b27;--winter-street:#202a36;
+  --winter-cream:#fbf7ef;--winter-paper:#fffaf2;--winter-red:#b9394a;
+  --winter-green:#135b4d;--winter-gold:#edc886;--winter-ice:#a9d7df;
+  --winter-white:#f7f8f9;--winter-ink:#202733;
+  --he-plum:#202a36;--he-plum-dark:#121824;--he-gold:#edc886;
+  --he-ink:#202733;--he-cream:#fbf7ef;--he-line:#d8dce0;
+  --he-purple:#a45062;--he-rose:#cf6973;--he-cyan:#8cc6cc;
+}
+html{scroll-behavior:smooth}
+body.happy-site{
+  background:
+    radial-gradient(ellipse 55% 42% at 90% 2%,rgba(105,39,59,.26),transparent 70%),
+    radial-gradient(ellipse 42% 40% at 0 34%,rgba(22,98,86,.17),transparent 75%),
+    linear-gradient(160deg,#10141c,#1a2130 52%,#131822)!important;
+  background-attachment:fixed!important;
+  color:#f0f2f3!important;
+}
+body.happy-site:not(.page-home){
+  background:
+    radial-gradient(ellipse at 87% 3%,rgba(116,35,55,.25),transparent 39%),
+    radial-gradient(ellipse at 0 50%,rgba(22,98,87,.17),transparent 38%),
+    linear-gradient(160deg,#10151f,#1b2330 58%,#111721)!important;
+  background-attachment:fixed!important;
+}
+body.happy-site:before{
+ content:"";position:fixed;inset:0 0 auto;z-index:1000;pointer-events:none;
+ height:4px;background:linear-gradient(90deg,#a52c44 0 24%,#e9c07b 24% 48%,#146c57 48% 73%,#a8d4db 73% 100%);
+ box-shadow:0 2px 17px rgba(231,192,132,.17)
+}
+.happy-site :is(header,.topbar){
+ background:rgba(14,20,29,.97)!important;
+ border-bottom:1px solid rgba(238,202,147,.25)!important;
+ box-shadow:0 9px 26px rgba(0,0,0,.3)!important;
+ color:#fff!important;
+}
+.happy-site :is(header .brand,.topbar .brand,header .brand-name){color:#fff!important}
+.happy-site :is(header .nav a,.topbar .return,.page-gls .back){color:#f4f0e7!important}
+.happy-site :is(header .nav a:hover,.topbar .return:hover){color:#edc886!important}
+.happy-site :is(header .nav .nav-cta,header .nav .highlight){
+ background:linear-gradient(125deg,#f5d99d,#cfa566)!important;
+ border-color:#edc886!important;color:#161d26!important;
+ box-shadow:0 6px 20px rgba(233,188,113,.19)!important
+}
+.happy-site :is(.hero,.sub-hero,.jb-hero,.hc-hero){
+ position:relative;isolation:isolate;overflow:hidden;
+ background:
+  radial-gradient(ellipse at 83% 17%,rgba(179,58,77,.30),transparent 47%),
+  radial-gradient(ellipse at 6% 87%,rgba(17,105,90,.28),transparent 48%),
+  linear-gradient(130deg,#131b29 4%,#202939 60%,#14232a 100%)!important;
+ color:#fff!important;border-bottom:1px solid rgba(240,201,137,.18)!important
+}
+.happy-site :is(.hero,.sub-hero,.jb-hero,.hc-hero)::before{
+ content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.22;
+ background-image:
+  radial-gradient(circle,#fff 1px,transparent 1.6px),
+  radial-gradient(circle,#e4c38a 1px,transparent 1.7px),
+  linear-gradient(0deg,transparent 93%,rgba(255,255,255,.13) 94%,transparent 96%);
+ background-size:130px 150px,190px 210px,100% 90px;
+ background-position:9px 16px,60px 90px,0 0
+}
+.happy-site :is(.hero h1,.sub-hero h1,.jb-hero h1,.hc-hero h1){
+ color:#fff!important;letter-spacing:-.045em!important;
+ text-shadow:0 5px 22px rgba(0,0,0,.32)
+}
+.happy-site :is(.hero h1 span,.jb-hero h1 em,.hc-hero h1 em){
+ color:#f0cb8d!important
+}
+.happy-site :is(.hero p,.hero .lead,.jb-lead,.hc-hero-lead,.sub-hero p){
+ color:#ebedf0!important
+}
+.happy-site :is(.eyebrow,.kicker,.jb-eyebrow,.jb-kicker,.hc-label){
+ color:#ebc889!important
+}
+.happy-site .hero :is(.eyebrow,.kicker,.jb-eyebrow,.hc-label){
+ letter-spacing:.12em!important
+}
+.happy-site :is(.section-title,.jb-title,.hc-section-title){letter-spacing:-.04em}
+.happy-site :is(.section-head,.section-top) > :is(h2,h3,p),
+.happy-site .section-head :is(.section-title,p),
+.happy-site .section-top :is(h2,p),
+.happy-site :is(.tools h2,.tools .count),
+.happy-site.page-credit main.wrap > h2{
+ color:#f6f4ef!important
+}
+.happy-site :is(.section-head,.section-top) > p{color:#d7dde2!important}
+.happy-site :is(.section,.jb-section,.hc-section,.platforms,.page-section,.details-section){
+ background:transparent!important
+}
+.happy-site :is(.section.alt,.jb-section.alt,.hc-section.alt){
+ background:rgba(255,255,255,.025)!important
+}
+.happy-site :is(.card,.panel,.detail-card,.jb-perk,.jb-form-card,.hc-card,.hc-form-card,.hc-address-panel,.review-panel,.page-card,.hours,.tile,.product-card){
+ background:linear-gradient(150deg,#fffdfa,#f3f1ed)!important;
+ color:#202733!important;
+ border:1px solid rgba(237,200,134,.3)!important;
+ border-radius:19px!important;
+ box-shadow:0 14px 45px rgba(0,0,0,.23),inset 0 1px 0 rgba(255,255,255,.8)!important
+}
+.happy-site :is(.card,.panel,.detail-card,.jb-perk,.jb-form-card,.hc-card,.hc-form-card,.hc-address-panel,.review-panel,.page-card,.tile,.product-card) :is(h2,h3,h4,strong,p,small,label){
+ color:#26303b
+}
+.happy-site :is(.card,.panel,.detail-card,.jb-perk,.jb-form-card,.hc-card,.hc-form-card,.hc-address-panel,.review-panel,.page-card,.tile,.product-card) :is(p,small){color:#46515e}
+.happy-site :is(.card,.panel,.detail-card,.jb-perk,.hc-card,.tile,.product-card){
+ transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease
+}
+@media(hover:hover){
+ .happy-site :is(.card,.panel,.detail-card,.jb-perk,.hc-card,.tile,.product-card):hover{
+  transform:translateY(-3px);border-color:rgba(192,65,84,.43)!important;
+  box-shadow:0 19px 52px rgba(0,0,0,.29)!important
+ }
+}
+.happy-site :is(.btn,.jb-btn,.hc-btn,.review-submit,.page-actions a){
+ border-radius:12px!important;font-weight:800!important;
+ box-shadow:0 8px 22px rgba(0,0,0,.12);
+ transition:transform .2s ease,box-shadow .2s ease,filter .2s ease
+}
+.happy-site :is(.btn,.jb-btn,.hc-btn,.review-submit,.page-actions a):hover{
+ filter:brightness(1.07);transform:translateY(-2px)
+}
+.happy-site :is(.btn.primary,.btn-primary,.jb-submit,.hc-submit,.review-submit,.page-actions .btn){
+ background:linear-gradient(120deg,#ba4355,#8e2d44)!important;
+ border-color:#cf6a78!important;color:white!important
+}
+.happy-site :is(.btn.ghost,.btn.ghost-dark,.jb-btn.ghost,.hc-btn-outline){
+ color:#fff!important;background:rgba(255,255,255,.095)!important;
+ border-color:rgba(244,217,163,.5)!important
+}
+.happy-site :is(input,textarea,select){
+ border-radius:11px;max-width:100%
+}
+.happy-site :is(.jb-form-card,.hc-form-card,.panel,.card) :is(input,textarea,select){
+ color:#202733!important;background:#fff!important;border:1px solid #b5bec7!important
+}
+.happy-site :is(input,textarea,select):focus-visible,
+.happy-site :is(a,button,summary):focus-visible{
+ outline:3px solid #ebc889!important;outline-offset:3px
+}
+.happy-site :is(footer,.footer){
+ background:linear-gradient(145deg,#101721,#19232c)!important;
+ color:#e4e7e7!important;border-top:1px solid rgba(237,200,134,.3)!important
+}
+.happy-site footer :is(p,small){color:#d7dddf!important}
+.happy-site footer a{color:#edc886!important}
+.happy-site footer :is(h2,h3,h4,strong){color:#fff!important}
+.happy-site .progress{background:linear-gradient(90deg,#b7384b,#edc886,#177663)!important}
+/* Homepage: retain all real photographs, galleries and navigation */
+.happy-site.page-home :is(.section,.page-section){color:#f6f6f5}
+.happy-site.page-home :is(.section-head h2,.section-head p){color:#f5f4f0!important}
+.happy-site.page-home #bewertungen{background:transparent!important}
+.happy-site.page-home #bewertungen .section-head p{color:#f1e6d9!important}
+.happy-site.page-home #bewertungen a.btn{
+ background:linear-gradient(120deg,#b63e54,#772b41)!important;
+ color:#fff!important;border:1px solid #dd9aa0!important;
+ box-shadow:0 12px 35px rgba(121,27,48,.3)!important;
+ font-size:clamp(14px,2vw,17px)!important
+}
+/* Gift-card page: readable brand logos, calm filters */
+.happy-site.page-credit .tools h2{color:#faf3e8!important}
+.happy-site.page-credit .count{background:#f0c987!important;color:#24303b!important}
+.happy-site.page-credit .filter{color:#25303d!important;border-color:#d6dce0!important}
+.happy-site.page-credit .filter.active{
+ background:#a93e53!important;color:white!important;border-color:#a93e53!important
+}
+.happy-site.page-credit .grid :is(.card,.brand-card,.item){
+ background:#fffefa!important;color:#23303b!important;
+ border-color:#d6dce0!important
+}
+/* Ordering: preserve platform colours and make the call-to-action readable */
+.happy-site.page-order .platforms{padding-bottom:60px}
+.happy-site.page-order :is(.cards,.section-top) :is(h2,p){color:inherit}
+.happy-site.page-order .card :is(p,h3,small,strong){color:#27303b}
+.happy-site.page-order .card :is(.action,.order-btn,.cta){font-weight:850}
+/* Hours and directions pages: visible information on darker canvas */
+.happy-site.page-hours :is(.details-grid,.page-section) > :is(h2,h3,p){color:#f8f5ed!important}
+.happy-site.page-gls main :is(.label,.main-grid > h2){color:#e9c68c!important}
+.happy-site.page-confirmation .card{color:#25303b!important}
+.happy-site.page-confirmation :is(h1,p){color:#25303b!important}
+/* Small festive glint across the UI; no distracting snowfall over forms */
+.happy-site :is(.brand,.brand-name){letter-spacing:.015em}
+.happy-site :is(.brand img,.brand-logo){border:1px solid rgba(233,202,145,.42)!important}
+@media(max-width:700px){
+ body.happy-site{background-attachment:scroll!important}
+ .happy-site :is(.hero,.sub-hero,.jb-hero,.hc-hero){padding-top:max(48px,env(safe-area-inset-top))!important}
+ .happy-site :is(.card,.panel,.jb-form-card,.hc-form-card){border-radius:16px!important}
+ .happy-site :is(.section-head,.section-top){padding-inline:4px}
+ .happy-site #bewertungen a.btn{max-width:100%;white-space:normal}
+}
+@media(prefers-reduced-motion:reduce){
+ .happy-site :is(.card,.panel,.tile,.btn,.jb-btn,.hc-btn){transition:none!important;transform:none!important}
+}
