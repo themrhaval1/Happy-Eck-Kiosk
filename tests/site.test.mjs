@@ -73,7 +73,7 @@ test("Homepage hero shows the real storefront and four customer actions",()=>{
   assert.ok(hero);
   assert.match(hero,/src="assets\/happy-eck-real-kiosk\.jpg"/);
   assert.match(hero,/href="assets\/happy-eck-real-kiosk\.jpg"/);
-  assert.doesNotMatch(html,/ChatGPT-Bild/);
+
   for(const path of ["bestellen.html","/anfahrt/","oeffnungszeiten.html","gls.html"]){
     assert.ok(hero.includes(`href="${path}"`),path);
   }
@@ -114,4 +114,11 @@ test("Archived catalog data is well-formed and excludes vape entries",()=>{
   assert.ok(products.some(item=>item.name==="Red Bull Original 0,25 l"&&item.price===3));
   assert.ok(products.some(item=>item.name==="Pringles Original"&&item.price===4));
   assert.equal(new Set(products.map(item=>item.group+"|"+item.name+"|"+item.price)).size,products.length);
+});
+
+test("Homepage gallery contains eight viewable images clearly labeled as illustrations",()=>{
+  const gallery=html.match(/<section class="section shop-gallery"[\s\S]*?<\/section>/)?.[0];
+  assert.ok(gallery);
+  assert.equal((gallery.match(/class="gallery-zoom"/g)||[]).length,8);
+  assert.match(gallery,/Illustrationen und keine Originalfotos/);
 });

@@ -59,7 +59,7 @@ header{background:var(--paper);border-bottom:1px solid var(--line)}
 .section-title{font-size:clamp(1.9rem,4vw,3.35rem);letter-spacing:-.055em;margin:7px 0 9px}
 .kicker{color:var(--teal)}
 .section p,.assortment-grid span{color:var(--muted)}
-.service-section,.intro-section{background:var(--white)}
+.service-section,.intro-section,.shop-gallery{background:var(--white)}
 .service-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
 .service-card{display:flex;flex-direction:column;align-items:flex-start;gap:9px;padding:20px;min-width:0;border:1px solid var(--line);border-radius:12px;text-decoration:none;background:var(--paper)}
 .service-card:hover{border-color:#88a495;background:#eff2e8}
@@ -80,6 +80,11 @@ header{background:var(--paper);border-bottom:1px solid var(--line)}
 address{font-style:normal;color:var(--muted)}
 .visit-actions{justify-content:flex-end}
 .app-map-logo{width:21px;height:21px;object-fit:contain}
+.shop-gallery-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.gallery-zoom{display:block;width:100%;height:100%;padding:0;position:relative;overflow:hidden;border:0;border-radius:8px;background:var(--line);cursor:zoom-in}
+.gallery-zoom img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+.gallery-magnify{position:absolute;bottom:6px;right:6px;padding:4px 6px;background:#132621ec;color:white;border-radius:4px;font-size:.72rem;font-weight:700}
+.gallery-notice{font-size:.85rem;margin-top:12px}
 #bewertungen .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
 #bewertungen .section-head{margin:0}
 #bewertungen .btn{background:var(--teal);color:white;font-size:.9rem;padding:10px 15px;border-radius:8px}
@@ -103,13 +108,19 @@ dialog::backdrop{background:#10201dd9}
 .directions-head h2{margin:7px 0;font-size:1.45rem}
 .directions-description,.directions-footnote{color:var(--muted)}
 .directions-eyebrow{font-size:.72rem;font-weight:800;color:var(--teal)}
-.directions-close{position:absolute;right:12px;top:12px;z-index:1;border:1px solid var(--line);border-radius:7px;background:var(--white);width:38px;height:38px;cursor:pointer;font-size:1.35rem}
+.directions-close,.gallery-close{position:absolute;right:12px;top:12px;z-index:1;border:1px solid var(--line);border-radius:7px;background:var(--white);width:38px;height:38px;cursor:pointer;font-size:1.35rem}
 .directions-options{display:grid;gap:8px;padding:0 18px}
 .directions-option{display:grid;grid-template-columns:37px 1fr auto;align-items:center;gap:8px;border:1px solid var(--line);border-radius:7px;padding:8px;text-decoration:none}
 .directions-option:hover{background:var(--paper)}
 .directions-option small{display:block;color:var(--muted)}
 .directions-symbol{display:grid;place-items:center}
 .directions-footnote{font-size:.85rem;padding:12px 18px 16px}
+.gallery-dialog{width:min(940px,calc(100% - 24px))}
+.gallery-dialog-inner{position:relative}
+.gallery-full-stage{display:grid;place-items:center;background:var(--dark)}
+.gallery-full-stage img{display:block;max-height:72vh;object-fit:contain}
+.gallery-controls{display:flex;align-items:center;justify-content:center;gap:13px;padding:7px}
+.gallery-controls button{min-width:44px;min-height:37px;border:1px solid var(--line);border-radius:6px;background:var(--paper);cursor:pointer}
 @media(max-width:820px){
   .top{min-height:66px;flex-wrap:wrap;gap:8px}
   .nav{flex-wrap:wrap;padding:8px 0 12px}
@@ -120,7 +131,7 @@ dialog::backdrop{background:#10201dd9}
   .kiosk-hero-grid,.intro-layout,.visit-grid{grid-template-columns:1fr;gap:16px}
   .kiosk-hero h1{font-size:clamp(3rem,10vw,5rem);margin:13px 0 15px}
   .kiosk-storefront>img{aspect-ratio:1.8}
-  .assortment-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .assortment-grid,.shop-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .visit-actions{justify-content:flex-start;margin-top:0}
 }
 @media(max-width:560px){
