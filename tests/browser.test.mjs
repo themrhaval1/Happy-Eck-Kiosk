@@ -66,12 +66,10 @@ for(const [engineName,engine] of Object.entries({chromium,firefox,webkit})){
         assert.equal(await page.locator("#directions-dialog a").count(),2);
         await page.keyboard.press("Escape");
         assert.equal(await page.locator("#directions-dialog").isVisible(),false);
-        await page.locator(".gallery-zoom").first().click();
-        assert.equal(await page.locator("#gallery-dialog").isVisible(),true);
-        await page.keyboard.press("ArrowRight");
-        assert.equal(await page.locator("#gallery-count").innerText(),"2 / 8");
-        await page.keyboard.press("Escape");
-        assert.equal(await page.locator("#gallery-dialog").isVisible(),false);
+        const photo=page.locator(".kiosk-storefront > img");
+        assert.ok(await photo.evaluate(img=>img.complete && img.naturalWidth>0));
+        const photoLink=page.getByRole("link",{name:"Kioskfoto in einem neuen Tab öffnen"});
+        assert.equal(await photoLink.getAttribute("href"),"assets/happy-eck-real-kiosk.jpg");
         assert.deepEqual(errors,[],engineName+" runtime errors after interactions");
         await page.close();
       }

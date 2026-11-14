@@ -16,7 +16,7 @@ test("Homepage includes essential information, sections and subpage links",()=>{
   for(const item of ["Dein Kiosk.","Dein Eck.","Caldenhofer Weg 207","59063 Hamm","0176 61020308","happyeck10@gmail.com"]){
     assert.ok(html.includes(item),item);
   }
-  for(const id of ["main","ueber-uns","sortiment","services","galerie","bewertungen","anfahrt"]){
+  for(const id of ["main","ueber-uns","sortiment","services","bewertungen","anfahrt"]){
     assert.ok(html.includes(`id="${id}"`),`Missing #${id}`);
   }
   for(const page of ["gls","guthaben","bestellen","oeffnungszeiten","jobs","kontakt"]){
@@ -72,6 +72,8 @@ test("Homepage hero shows the real storefront and four customer actions",()=>{
   const hero=html.match(/<section class="hero kiosk-hero"[\s\S]*?<\/section>/)?.[0];
   assert.ok(hero);
   assert.match(hero,/src="assets\/happy-eck-real-kiosk\.jpg"/);
+  assert.match(hero,/href="assets\/happy-eck-real-kiosk\.jpg"/);
+  assert.doesNotMatch(html,/ChatGPT-Bild/);
   for(const path of ["bestellen.html","/anfahrt/","oeffnungszeiten.html","gls.html"]){
     assert.ok(hero.includes(`href="${path}"`),path);
   }
@@ -100,7 +102,7 @@ test("Invalid hours are rejected",()=>{
   assert.throws(()=>getOpeningStatus(1,24,0),RangeError);
 });
 test("External design files are populated",()=>{
-  for(const path of ["assets/home-shop.css","assets/gallery-viewer.js"]){
+  for(const path of ["assets/home-shop.css"]){
     assert.ok(read(path).length>1000,path);
   }
 });
