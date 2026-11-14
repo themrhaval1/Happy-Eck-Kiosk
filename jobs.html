@@ -41,27 +41,29 @@
 <meta name="twitter:card" content="summary">
 <link rel="stylesheet" href="/assets/shop-colors.css">
 <link rel="stylesheet" href="/assets/shop-subpages.css">
+<style>
+.shop-subpage .jobs-compact.wrap{width:min(700px,calc(100% - 36px));padding-block:clamp(24px,5vw,55px)}
+.jobs-compact h1{margin:0 0 10px;font-size:clamp(2rem,5vw,3rem);line-height:1.08;letter-spacing:-.045em}
+.jobs-compact > p{margin:0 0 18px;color:var(--muted)}
+.jobs-compact .jb-form-card{padding:clamp(14px,3.8vw,24px)}
+.jobs-compact .apply-form{gap:14px}
+.jobs-compact .jobs-required{margin:0 0 12px;font-size:.83rem;color:var(--muted)}
+.jobs-compact .jobs-contact{margin:16px 0 0;font-size:.9rem;overflow-wrap:anywhere}
+.jobs-compact .jobs-contact a{color:var(--teal);text-decoration:underline;text-underline-offset:3px}
+.jobs-privacy{margin-top:14px;font-size:.85rem;color:var(--muted)}
+.jobs-privacy h2{font-size:1rem;color:var(--ink);margin:0 0 3px}
+.jobs-privacy p{margin:0}
+</style>
 </head><body class="site-page page-jobs happy-site shop-subpage shop-jobs"><a class="skip" href="#main">Zum Inhalt springen</a><div class="progress" aria-hidden="true"></div><header class="shop-header"><div class="shop-nav-wrap">
   <a class="shop-brand" href="/" aria-label="Happy Eck Kiosk Startseite"><img src="/assets/logo.jpg" alt="" width="42" height="42"><span>HAPPY ECK<small>KIOSK IN HAMM</small></span></a>
   <button class="shop-menu" type="button" aria-expanded="false" aria-controls="shop-main-nav">Menü</button>
   <nav class="shop-nav" id="shop-main-nav" aria-label="Hauptnavigation"><a href="/">Startseite</a><a href="/bestellen.html">Bestellen</a><a href="/gls.html">GLS Paketshop</a><a href="/guthaben.html">Guthaben</a><a href="/oeffnungszeiten.html">Öffnungszeiten</a><a href="/kontakt.html">Kontakt</a><a href="/jobs.html" aria-current="page">Jobs</a></nav></div></header><main id="main">
-<section class="jb-hero" aria-labelledby="jb-title"><div class="wrap jb-hero-grid"><div>
-<span class="jb-eyebrow">Jobs & Karriere · Happy Eck Kiosk</span>
-<h1 id="jb-title">Dein nächster Schritt.<br><em>Bei Happy Eck.</em></h1>
-<p class="jb-lead">Du arbeitest gerne mit Menschen, bist engagiert und zuverlässig? Dann freuen wir uns darauf, dich kennenzulernen.</p>
-<div class="jb-actions"><a class="jb-btn" href="#bewerbung">Jetzt bewerben ↗</a><a class="jb-btn ghost" href="kontakt.html">Noch Fragen? ↗</a></div>
-</div><aside class="jb-hero-aside"><small>ARBEITEN BEI HAPPY ECK</small><h2>Mitten in Hamm.<br>Mitten im Alltag.</h2><p>Happy Eck Kiosk<br>Caldenhofer Weg 207<br>59063 Hamm</p></aside>
-</div></section>
-<section class="jb-section alt" aria-labelledby="jb-about"><div class="wrap"><span class="jb-kicker">DEINE MÖGLICHKEITEN</span><h2 class="jb-title" id="jb-about">Werde Teil unseres Teams.</h2><p class="jb-intro">Ob Minijob, Teilzeit oder Vollzeit – du kannst uns dein Interesse mitteilen. Wir prüfen jede Bewerbung und melden uns, wenn es eine passende Möglichkeit gibt. Die Auswahl einer Beschäftigungsart ist keine Zusage für eine freie Stelle.</p>
-<div class="jb-perks">
-<div class="jb-perk"><b aria-hidden="true">✦</b><h3>Kundenkontakt</h3><p>Du magst den persönlichen Austausch und gehst freundlich auf Menschen zu.</p></div>
-<div class="jb-perk"><b aria-hidden="true">✓</b><h3>Zuverlässigkeit</h3><p>Ein sorgfältiger und verantwortungsvoller Umgang ist dir wichtig.</p></div>
-<div class="jb-perk"><b aria-hidden="true">↗</b><h3>Einfach bewerben</h3><p>Schick uns deine Angaben und deinen Lebenslauf über das Bewerbungsformular.</p></div>
-</div></div></section>
-<section class="jb-section" id="bewerbung" aria-labelledby="jb-form-title"><div class="wrap"><span class="jb-kicker">ONLINE-BEWERBUNG</span><h2 class="jb-title" id="jb-form-title">Bewirb dich bei uns.</h2><p class="jb-intro">Ein paar Angaben genügen. Nach erfolgreicher Übermittlung ist eine Bestätigungsseite vorgesehen; der E-Mail-Dienst muss vor dem Livebetrieb noch aktiviert und getestet werden.</p>
-<div class="jb-apply-layout"><div class="jb-form-card">
-<div class="jb-form-head"><span class="jb-step">01</span><div><strong>Deine Bewerbung</strong><small>Bitte fülle die Pflichtfelder vollständig aus.</small></div></div>
-<form action="https://formsubmit.co/happyeck10@gmail.com" method="POST" enctype="multipart/form-data" class="apply-form" id="apply-form">
+<section class="jobs-compact wrap" id="bewerbung" aria-labelledby="jb-title">
+  <h1 id="jb-title">Jobs bei Happy Eck</h1>
+  <p>Interesse an einem Minijob, Teilzeit oder Vollzeit? Schick uns deine Bewerbung. Wir melden uns, wenn eine passende Stelle frei ist.</p>
+  <div class="jb-form-card">
+    <p class="jobs-required">* Pflichtfelder</p>
+    <form action="https://formsubmit.co/happyeck10@gmail.com" method="POST" enctype="multipart/form-data" class="apply-form" id="apply-form">
 <input type="hidden" name="_subject" value="Neue Bewerbung | Happy Eck Kiosk">
 <input type="hidden" name="_template" value="table">
 <input type="hidden" name="_next" value="https://happyeck.de/bewerbung-erfolg.html">
@@ -72,15 +74,17 @@
 <div class="jb-field"><label for="app-email">E-Mail-Adresse *</label><input id="app-email" name="email" type="email" autocomplete="email" placeholder="name@beispiel.de" required maxlength="200"></div>
 <div class="jb-field"><label for="app-phone">Telefonnummer *</label><input id="app-phone" name="Telefonnummer" type="tel" autocomplete="tel" placeholder="z. B. 0176 12345678" required maxlength="35"></div>
 <div class="jb-field wide"><label for="app-role">Gewünschte Beschäftigung *</label><select id="app-role" name="Beschaeftigung" required><option value="">Bitte wählen</option><option>Minijob</option><option>Teilzeit</option><option>Vollzeit</option></select></div>
-<div class="jb-field wide"><label for="app-cv">Lebenslauf hochladen *</label><input id="app-cv" name="attachment" type="file" accept=".pdf,.doc,.docx" required aria-describedby="cv-help"><small class="jb-help" id="cv-help">PDF, DOC oder DOCX · maximal 10 MB. Bitte keine Ausweiskopien oder Gesundheitsdaten hochladen.</small></div>
+<div class="jb-field wide"><label for="app-cv">Lebenslauf *</label><input id="app-cv" name="attachment" type="file" accept=".pdf,.doc,.docx" required aria-describedby="cv-help"><small class="jb-help" id="cv-help">PDF, DOC oder DOCX · maximal 10 MB. Bitte keine Ausweiskopien oder Gesundheitsdaten hochladen.</small></div>
 <div class="jb-field wide"><label class="jb-consent"><input type="checkbox" required> <span>Ich habe die <a href="#bewerbung-datenschutz">Datenschutzhinweise</a> gelesen. Meine Angaben werden zur Bearbeitung meiner Bewerbung übermittelt. *</span></label></div>
-<div class="jb-field wide"><button class="jb-submit" type="submit">Bewerbung senden ↗</button><p class="jb-submit-note">Nach erfolgreichem Versand erhältst du eine automatische Eingangsbestätigung, sofern der Formulardienst aktiviert ist. Prüfe auch deinen Spam-Ordner.</p></div>
-</form></div>
-<aside class="jb-info-panel"><span class="jb-kicker">WIR SIND FÜR DICH DA</span><h3>Fragen zur Bewerbung?</h3><p>Du kannst uns auch direkt kontaktieren. Wir helfen dir gerne weiter.</p><p><strong>Happy Eck Kiosk</strong><br>Caldenhofer Weg 207<br>59063 Hamm</p><p><a href="tel:+4917661020308">0176 61020308</a><br><a href="mailto:happyeck10@gmail.com">happyeck10@gmail.com</a></p><hr>
-<span class="jb-kicker">DEINE DATEN SIND WICHTIG</span><h3 id="bewerbung-datenschutz">Datenschutz</h3>
-<p>Wir verwenden deine Bewerbungsdaten zur Bearbeitung deiner Bewerbung und zur Kontaktaufnahme. Das Formular wird über den externen Dienst FormSubmit übertragen. Bitte beachte auch dessen Datenschutzhinweise. Deine Angaben werden nicht öffentlich angezeigt. Wenn du Fragen oder einen Löschwunsch hast, schreibe uns eine E-Mail.</p>
-<div class="jb-social"><a href="https://www.instagram.com/happy.eck.kiosk/" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Instagram</title><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg> Instagram</a><a href="https://www.tiktok.com/@happy.eck" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>TikTok</title><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg> TikTok</a></div></aside>
-</div></div></section>
+<div class="jb-field wide"><button class="jb-submit" type="submit">Bewerbung senden</button></div>
+</form>
+  </div>
+  <p class="jobs-contact">Fragen oder Probleme beim Absenden? <a href="tel:+4917661020308">0176 61020308</a> · <a href="mailto:happyeck10@gmail.com">happyeck10@gmail.com</a></p>
+  <div class="jobs-privacy" id="bewerbung-datenschutz" tabindex="-1">
+    <h2>Datenschutz zur Bewerbung</h2>
+    <p>Wir verwenden deine Bewerbungsdaten zur Bearbeitung deiner Bewerbung und zur Kontaktaufnahme. Das Formular wird über den externen Dienst FormSubmit übertragen. Bitte beachte auch dessen Datenschutzhinweise. Deine Angaben werden nicht öffentlich angezeigt. Wenn du Fragen oder einen Löschwunsch hast, schreibe uns eine E-Mail.</p>
+  </div>
+</section>
 </main><footer><div class="wrap"><div class="footer-top"><a class="brand" href="index.html">HAPPY ECK <small>DEIN KIOSK. DEIN ECK.</small></a><p>© 2026 Happy Eck Kiosk · Hamm</p></div>
 <details><summary>Impressum</summary>
         <h3>Impressum</h3><p>Angaben gemäß § 5 DDG</p>
