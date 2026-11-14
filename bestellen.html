@@ -20,35 +20,35 @@
 <style>
 *,*::before,*::after{box-sizing:border-box}
 body.shop-subpage{margin:0;min-height:100svh;display:flex;flex-direction:column}
-.shop-subpage .order-compact.wrap{width:min(700px,calc(100% - 36px));flex:1;padding-block:clamp(24px,5vw,55px)}
-.order-compact h1{margin:0 0 10px;font-size:clamp(2rem,5vw,3rem);line-height:1.08;letter-spacing:-.045em}
-.order-lead{margin:0 0 16px;color:var(--muted)}
-.order-list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
-.order-link{display:grid;grid-template-columns:112px minmax(0,1fr) auto;align-items:center;gap:10px 15px;min-height:80px;padding:12px 15px;color:var(--ink);text-decoration:none;background:var(--white);border:1px solid var(--line);border-radius:12px}
-.order-link:hover{background:#eaf0e8;border-color:var(--teal)}
-.order-link strong,.order-link small{display:block}
-.order-link small{color:var(--muted);font-size:.86rem}
-.order-action{border-radius:8px;background:#e4ede4;color:var(--teal);padding:6px 10px;font-size:.84rem;font-weight:750}
-.order-direct .order-action{background:var(--warm);color:var(--ink)}
-.order-note{color:var(--muted);font-size:.86rem;margin:14px 0 0}
+.shop-subpage .order-showcase.wrap{width:min(1050px,calc(100% - 36px));flex:1;padding-block:clamp(28px,5vw,62px)}
+.order-heading{margin-bottom:clamp(18px,3vw,30px)}
+.order-heading p{margin:0;color:var(--muted)}
+.order-heading .order-eyebrow{color:var(--teal);font-size:.72rem;font-weight:800;letter-spacing:.14em}
+.order-heading h1{margin:6px 0 8px;font-size:clamp(2.25rem,6vw,4rem);line-height:1.04;letter-spacing:-.055em}
+.order-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.order-card{--tint:#edf4ef;--edge:#8bb0a1;display:flex;flex-direction:column;min-width:0;padding:15px;background:var(--white);border:1px solid var(--line);border-radius:15px;box-shadow:0 4px 14px #1724210a}
+.order-wolt{--tint:#e7f8fc;--edge:#63c9e1}
+.order-lieferando{--tint:#fff2e8;--edge:#ffa761}
+.order-whatsapp{--tint:#e8f6eb;--edge:#78bf8d}
+.order-logo{display:grid;place-items:center;height:100px;padding:12px;background:var(--tint);border-radius:10px}
+.order-logo img{display:block;width:100%;max-width:180px;height:56px;object-fit:contain}
+.order-whatsapp .order-logo img{max-width:53px}
+.order-card-copy{flex:1;padding:14px 2px}
+.order-card h2{margin:0 0 4px;font-size:1.25rem;line-height:1.2;letter-spacing:-.02em}
+.order-card p{margin:0;color:var(--muted);font-size:.9rem}
+.order-action{display:flex;justify-content:space-between;align-items:center;gap:6px;min-height:44px;padding:8px 11px;border:1px solid var(--edge);border-radius:8px;background:var(--tint);color:var(--ink);font-size:.9rem;font-weight:750;text-decoration:none}
+.order-action:hover{background:var(--ink);border-color:var(--ink);color:var(--white)}
 .shop-order .footer{padding:16px 18px;text-align:center;font-size:.83rem}
 .shop-order .skip{position:absolute;top:8px;left:8px;z-index:20;padding:8px 12px;background:var(--white);color:var(--ink);transform:translateY(-150%)}
 .shop-order .skip:focus{transform:none}
-
-.order-logo{display:grid;place-items:center;min-width:0;height:54px;border-radius:9px;padding:8px}
-.order-logo img{display:block;width:100%;height:100%;object-fit:contain;min-height:0}
-.order-logo-wolt{background:#e5f7fc}
-.order-logo-lieferando{background:#fff0e5}
-.order-logo-whatsapp{background:#e5f5eb}
-.order-logo-whatsapp img{width:38px}
-.order-copy{overflow-wrap:anywhere}
-.order-action{white-space:nowrap}
-@media(max-width:560px){
-  .order-link{grid-template-columns:92px minmax(0,1fr);gap:5px 12px}
-  .order-logo{grid-row:span 2}
-  .order-action{justify-self:start;padding:3px 8px}
+@media(max-width:700px){
+  .order-grid{grid-template-columns:1fr;gap:10px}
+  .order-card{display:grid;grid-template-columns:minmax(0,104px) minmax(0,1fr);align-items:start;gap:8px 12px;padding:12px}
+  .order-logo{height:72px;padding:8px}
+  .order-logo img{height:44px}
+  .order-card-copy{padding:0}
+  .order-action{grid-column:1/-1}
 }
-
 </style>
 </head>
 <body class="happy-site page-order shop-subpage shop-order">
@@ -57,21 +57,29 @@ body.shop-subpage{margin:0;min-height:100svh;display:flex;flex-direction:column}
   <a class="shop-brand" href="/" aria-label="Happy Eck Kiosk Startseite"><img src="/assets/logo.jpg" alt="" width="42" height="42"><span>HAPPY ECK<small>KIOSK IN HAMM</small></span></a>
   <button class="shop-menu" type="button" aria-expanded="false" aria-controls="shop-main-nav">Menü</button>
   <nav class="shop-nav" id="shop-main-nav" aria-label="Hauptnavigation"><a href="/">Startseite</a><a href="/bestellen.html" aria-current="page">Bestellen</a><a href="/gls.html">GLS Paketshop</a><a href="/guthaben.html">Guthaben</a><a href="/oeffnungszeiten.html">Öffnungszeiten</a><a href="/kontakt.html">Kontakt</a><a href="/jobs.html">Jobs</a></nav></div></header>
-<main class="order-compact wrap" id="bestellwege">
-  <h1>Online bestellen</h1>
-  <p class="order-lead">Getränke und Snacks von Happy Eck in Hamm.</p>
-  <ul class="order-list" aria-label="Bestellmöglichkeiten">
-    <li><a class="order-link" href="https://wolt.com/en/deu/hamm/venue/happy-eck-kiosk-1" target="_blank" rel="noopener noreferrer">
-      <span class="order-logo order-logo-wolt"><img src="assets/wolt-order-logo.png" alt="" width="250" height="92"></span><span class="order-copy"><strong>Wolt</strong><small>Sortiment und Lieferkosten bei Wolt ansehen</small></span><span class="order-action">Wolt öffnen <span aria-hidden="true">↗</span></span>
-    </a></li>
-    <li><a class="order-link" href="https://www.lieferando.de/speisekarte/happy-eck-kiosk-59063-hamm" target="_blank" rel="noopener noreferrer">
-      <span class="order-logo order-logo-lieferando"><img src="assets/lieferando-order-logo.png" alt="" width="360" height="111"></span><span class="order-copy"><strong>Lieferando</strong><small>Sortiment und Lieferkosten bei Lieferando ansehen</small></span><span class="order-action">Lieferando öffnen <span aria-hidden="true">↗</span></span>
-    </a></li>
-    <li><a class="order-link order-direct" href="https://wa.me/4917661020308?text=Hallo%20Happy%20Eck%2C%20ich%20m%C3%B6chte%20gerne%20per%20WhatsApp%20bestellen." target="_blank" rel="noopener noreferrer">
-      <span class="order-logo order-logo-whatsapp"><img src="assets/whatsapp-brand.svg" alt="" width="66" height="66"></span><span class="order-copy"><strong>WhatsApp</strong><small>Schick uns deine Bestellung und deine Postleitzahl</small></span><span class="order-action">Anfrage schreiben <span aria-hidden="true">↗</span></span>
-    </a></li>
+<main class="order-showcase wrap" id="bestellwege">
+  <div class="order-heading">
+    <p class="order-eyebrow">HAPPY ECK KIOSK · HAMM</p>
+    <h1>Online bestellen</h1>
+    <p>Getränke und Snacks zu dir nach Hause. Wähle, wie du bestellen möchtest.</p>
+  </div>
+  <ul class="order-grid" aria-label="Bestellmöglichkeiten">
+    <li class="order-card order-wolt">
+      <div class="order-logo"><img src="assets/wolt-order-logo.png" alt="" width="250" height="92"></div>
+      <div class="order-card-copy"><h2>Wolt</h2><p>Sortiment, Liefergebiet und Gebühren in der Wolt-App ansehen.</p></div>
+      <a class="order-action" href="https://wolt.com/en/deu/hamm/venue/happy-eck-kiosk-1" target="_blank" rel="noopener noreferrer">Bei Wolt bestellen<span aria-hidden="true">↗</span></a>
+    </li>
+    <li class="order-card order-lieferando">
+      <div class="order-logo"><img src="assets/lieferando-order-logo.png" alt="" width="360" height="111"></div>
+      <div class="order-card-copy"><h2>Lieferando</h2><p>Sortiment, Liefergebiet und Gebühren bei Lieferando ansehen.</p></div>
+      <a class="order-action" href="https://www.lieferando.de/speisekarte/happy-eck-kiosk-59063-hamm" target="_blank" rel="noopener noreferrer">Bei Lieferando bestellen<span aria-hidden="true">↗</span></a>
+    </li>
+    <li class="order-card order-whatsapp">
+      <div class="order-logo"><img src="assets/whatsapp-brand.svg" alt="" width="66" height="66"></div>
+      <div class="order-card-copy"><h2>WhatsApp</h2><p>Schick uns deine Wunschprodukte und deine Postleitzahl. Wir bestätigen Preis und Lieferung im Chat.</p></div>
+      <a class="order-action" href="https://wa.me/4917661020308?text=Hallo%20Happy%20Eck%2C%20ich%20m%C3%B6chte%20gerne%20per%20WhatsApp%20bestellen." target="_blank" rel="noopener noreferrer">Bestellung anfragen<span aria-hidden="true">↗</span></a>
+    </li>
   </ul>
-  <p class="order-note">Bei WhatsApp bestätigen wir dir Liefergebühr, Mindestbestellwert und Bestellung persönlich.</p>
 </main>
 <footer class="footer">© 2026 Happy Eck Kiosk · Caldenhofer Weg 207, 59063 Hamm</footer>
 <script src="/assets/shop-navigation.js" defer></script>
