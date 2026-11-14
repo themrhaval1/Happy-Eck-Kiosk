@@ -129,3 +129,21 @@ test("Homepage hours match the published kiosk hours, not the GLS hours",()=>{
   assert.ok(details);
   assert.equal(summary,details);
 });
+
+test("Every customer page uses the shared shop palette",()=>{
+  for(const page of pages){
+    const source=read(page);
+    assert.match(source,/href="\/assets\/shop-colors\.css"/,page);
+    assert.doesNotMatch(source,/winter-nights-2026\.css/,page);
+    if(page!=="index.html")assert.match(source,/href="\/assets\/shop-subpages\.css"/,page);
+  }
+});
+
+test("Main subpages expose a consistent accessible menu",()=>{
+  for(const page of ["bestellen.html","guthaben.html","gls.html","kontakt.html","jobs.html","oeffnungszeiten.html"]){
+    const source=read(page);
+    assert.match(source,/aria-controls="shop-main-nav"/,page);
+    assert.ok(source.includes(`href="/${page}" aria-current="page"`),page);
+    assert.match(source,/src="\/assets\/shop-navigation\.js"/,page);
+  }
+});

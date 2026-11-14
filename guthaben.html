@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#211033">
+<meta name="theme-color" content="#f7f6f1">
 <meta name="description" content="Gutscheine und Prepaid-Guthaben beim Happy Eck Kiosk in Hamm: Entdecke verfügbare Anbieter und informiere dich vor deinem Besuch.">
 <title>Gutscheine & Prepaid-Guthaben in Hamm | Happy Eck</title>
 <style>
@@ -18,12 +18,14 @@ main.wrap{padding:31px 0 75px}.tools{display:flex;align-items:center;gap:16px;ju
 <meta property="og:description" content="Gutscheine und Prepaid-Guthaben beim Happy Eck Kiosk in Hamm: Entdecke verfügbare Anbieter und informiere dich vor deinem Besuch.">
 <meta property="og:url" content="https://happyeck.de/guthaben.html">
 <meta name="twitter:card" content="summary">
-<link rel="stylesheet" href="assets/vice-city-theme.css?v=1">
-<link rel="stylesheet" href="assets/happy-eck-unified.css?v=1">
-<link rel="stylesheet" href="assets/winter-nights-2026.css?v=2">
+<link rel="stylesheet" href="/assets/shop-colors.css">
+<link rel="stylesheet" href="/assets/shop-subpages.css">
 </head>
-<body class="happy-site page-credit">
-<header><div class="wrap"><a class="brand" href="index.html" aria-label="Happy Eck Startseite"><img class="brand-logo" src="assets/logo.jpg" width="42" height="42" alt=""><span class="brand-name">HAPPY ECK<small>DEIN KIOSK IN HAMM</small></span></a><nav class="nav" aria-label="Hauptnavigation"><a href="index.html">Startseite</a><a href="index.html#services">Service</a><a href="gls.html">GLS Paketshop</a><a class="highlight" href="bestellen.html">Online bestellen ↗</a></nav></div></header>
+<body class="happy-site page-credit shop-subpage shop-credit">
+<header class="shop-header"><div class="shop-nav-wrap">
+  <a class="shop-brand" href="/" aria-label="Happy Eck Kiosk Startseite"><img src="/assets/logo.jpg" alt="" width="42" height="42"><span>HAPPY ECK<small>KIOSK IN HAMM</small></span></a>
+  <button class="shop-menu" type="button" aria-expanded="false" aria-controls="shop-main-nav">Menü</button>
+  <nav class="shop-nav" id="shop-main-nav" aria-label="Hauptnavigation"><a href="/">Startseite</a><a href="/bestellen.html">Bestellen</a><a href="/gls.html">GLS Paketshop</a><a href="/guthaben.html" aria-current="page">Guthaben</a><a href="/oeffnungszeiten.html">Öffnungszeiten</a><a href="/kontakt.html">Kontakt</a><a href="/jobs.html">Jobs</a></nav></div></header>
 <section class="hero"><div class="wrap"><div class="eyebrow">HAPPY ECK · GUTHABEN-SERVICE</div><h1>Guthaben & <span>Gutscheine</span></h1><p>Deine Lieblingsmarken an einem Ort. Entdecke alle 69 Guthaben- und Gutscheinanbieter – genau wie bei uns im Kiosk.</p><div class="trust"><span>✓ 69 Anbieter</span><span>✓ Handy, Gaming & Shopping</span><span>✓ Im Kiosk erhältlich – Verfügbarkeit anfragen</span></div></div></section>
 <main class="wrap"><div class="tools"><h2>Anbieter entdecken <span class="count" id="count">69</span></h2><label class="search-wrap"><span class="mag" aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Anbieter suchen …" aria-label="Anbieter suchen" autocomplete="off"></label></div><div class="filters" id="filters" aria-label="Anbieter filtern"></div><div id="results" class="grid" aria-live="polite"></div><div class="footer-info">Die Abbildungen orientieren sich an den Produktlogos aus dem Happy-Eck-Händlerportal. Die tatsächliche Verfügbarkeit und Guthabenwerte erfährst du direkt bei uns im Kiosk. <a href="kontakt.html">Kontakt aufnehmen →</a></div></main><footer><div class="wrap"><div>© 2026 Happy Eck Kiosk · Caldenhofer Weg 207 · 59063 Hamm</div><a href="index.html">← Zur Startseite</a></div></footer>
 <script>
@@ -37,4 +39,5 @@ filters.replaceChildren(...categories.map(c=>{let b=document.createElement('butt
 count.textContent=shown.length.toString();results.replaceChildren(...shown.map(x=>{const i=spriteMap[x.n],card=document.createElement('article'),image=document.createElement('div'),sprite=document.createElement('div'),name=document.createElement('div');card.className='card';image.className='card-image';sprite.className='sprite';sprite.style.backgroundPosition=(-(i%6)*150)+'px '+(-Math.floor(i/6)*75)+'px';sprite.setAttribute('role','img');sprite.setAttribute('aria-label',x.n+' Anbieterlogo');name.className='card-name';name.textContent=x.n;image.append(sprite);card.append(image,name);return card}));if(!shown.length){let msg=document.createElement('p');msg.className='empty';msg.textContent='Keine Anbieter gefunden. Bitte versuche einen anderen Suchbegriff.';results.append(msg)}}
 search.addEventListener('input',render);render();
 </script><script defer src="assets/analytics.js"></script>
+<script src="/assets/shop-navigation.js" defer></script>
 </body></html>
