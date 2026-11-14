@@ -68,8 +68,13 @@ test("Links opening a new tab are protected",()=>{
   }
 });
 
-test("Only one mobile order shortcut exists",()=>{
-  assert.equal((html.match(/class="mobile-order-cta"/g)||[]).length,1);
+test("Homepage hero shows the real storefront and four customer actions",()=>{
+  const hero=html.match(/<section class="hero kiosk-hero"[\s\S]*?<\/section>/)?.[0];
+  assert.ok(hero);
+  assert.match(hero,/src="assets\/happy-eck-real-kiosk\.jpg"/);
+  for(const path of ["bestellen.html","/anfahrt/","oeffnungszeiten.html","gls.html"]){
+    assert.ok(hero.includes(`href="${path}"`),path);
+  }
 });
 
 test("Hours: weekday opens 08:30 and closes at midnight",()=>{
@@ -95,7 +100,7 @@ test("Invalid hours are rejected",()=>{
   assert.throws(()=>getOpeningStatus(1,24,0),RangeError);
 });
 test("External design files are populated",()=>{
-  for(const path of ["assets/home-simple.css","assets/winter-nights-2026.css","assets/luxury.js"]){
+  for(const path of ["assets/home-shop.css","assets/gallery-viewer.js"]){
     assert.ok(read(path).length>1000,path);
   }
 });
