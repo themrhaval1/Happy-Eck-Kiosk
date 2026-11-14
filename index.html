@@ -52,7 +52,7 @@
 <p class="hero-tagline">Dein Eck für gute Laune.</p>
 <p class="hero-description">Getränke, Snacks, GLS-Pakete und Guthaben – direkt am Caldenhofer Weg in Hamm. Oder bestell bequem online.</p>
 <div class="hero-actions">
-<button class="btn directions-trigger" type="button" id="open-directions" aria-haspopup="dialog" aria-controls="directions-dialog">Anfahrt ansehen ↗</button>
+<a class="btn directions-trigger" href="/anfahrt/" id="open-directions">Anfahrt ansehen ↗</a>
 <a class="btn hero-online-btn" href="bestellen.html">Online bestellen ↗</a>
 </div></div><aside class="hero-panel" aria-label="Happy Eck Standort"><div class="hero-panel-inner"><span class="hero-panel-eyebrow">HAPPY ECK · HAMM</span><div class="hero-panel-symbol" aria-hidden="true"><img src="assets/logo.jpg" alt="" width="150" height="150"></div><strong>Schön, dass du da bist.</strong><p>Caldenhofer Weg 207<br>59063 Hamm</p></div></aside></div></section>
 <section class="hamm-signature" aria-label="Happy Eck und unsere Heimatstadt Hamm">
@@ -83,7 +83,7 @@
 <div style="background:#f5f2fa;border-radius:18px;padding:24px;max-width:850px;margin:20px auto">
 <h3 style="margin:0 0 12px">Zigaretten-Lieferservice in Hamm</h3>
 <p>Zigaretten kannst du bei Happy Eck Kiosk über Wolt oder direkt telefonisch bestellen. Über Lieferando bieten wir keine Zigarettenlieferung an. Verkauf und Lieferung nur ab 18 Jahren mit Altersprüfung. Verfügbarkeit und Liefergebiet bitte bei der Bestellung erfragen.</p>
-<div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:20px"><a class="btn" href="https://wolt.com/de/deu/hamm/venue/happy-eck-kiosk-1" target="_blank" rel="noopener noreferrer">Bei Wolt bestellen ↗</a><a class="btn ghost-dark" href="tel:+4917661020308" style="color:#000 !important">Jetzt anrufen: 0176 61020308</a></div>
+<div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:20px"><a class="btn" href="https://wolt.com/de/deu/hamm/venue/happy-eck-kiosk-1" target="_blank" rel="noopener noreferrer">Bei Wolt bestellen ↗</a><a class="btn" href="tel:+4917661020308" style="color:#000;background:#f4d9a3">Jetzt anrufen: 0176 61020308</a></div>
 </div></div></section>
 <section class="section service-section" id="services" aria-labelledby="service-title">
 <div class="wrap">
@@ -160,6 +160,6 @@
 <script src="assets/luxury.js" defer></script>
 <script src="assets/gallery-viewer.js?v=1" defer></script>
 
-<script>(function(){const dialog=document.getElementById("directions-dialog");const open=document.getElementById("open-directions");const close=document.getElementById("close-directions");if(!dialog||!open||!close)return;open.addEventListener("click",()=>dialog.showModal());close.addEventListener("click",()=>dialog.close());dialog.addEventListener("click",event=>{if(event.target===dialog)dialog.close()});})();</script>
+<script>(function(){const dialog=document.getElementById("directions-dialog");const open=document.getElementById("open-directions");const close=document.getElementById("close-directions");if(!dialog||!open||!close||typeof dialog.showModal!=="function")return;open.setAttribute("aria-haspopup","dialog");open.setAttribute("aria-controls","directions-dialog");open.addEventListener("click",event=>{if(event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;dialog.showModal();event.preventDefault()});close.addEventListener("click",()=>dialog.close());dialog.addEventListener("click",event=>{if(event.target===dialog)dialog.close()});})();</script>
 <script defer src="assets/analytics.js"></script>
 </body></html>

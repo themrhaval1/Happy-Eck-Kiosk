@@ -6,60 +6,70 @@ import {fileURLToPath} from "node:url";
 import {getOpeningStatus,getBerlinOpeningStatus} from "../assets/opening-hours.mjs";
 
 const root=join(dirname(fileURLToPath(import.meta.url)),"..");
-const html=readFileSync(join(root,"index.html"),"utf8");
-const js=readFileSync(join(root,"assets/site.js"),"utf8");
-const css=readFileSync(join(root,"assets/site.css"),"utf8");
+const read=(path)=>readFileSync(join(root,path),"utf8");
+const html=read("index.html");
+const pages=["index.html","bestellen.html","guthaben.html","gls.html","kontakt.html",
+  "kontakt-erfolg.html","jobs.html","bewerbung-erfolg.html","oeffnungszeiten.html","anfahrt/index.html"];
 const matchAll=(text,regex)=>[...text.matchAll(regex)].map(m=>m[1]);
 
-test("HTML includes essential kiosk information and all business areas",()=>{
+test("Homepage includes essential information, sections and subpage links",()=>{
   for(const item of ["Dein Kiosk.","Dein Eck.","Caldenhofer Weg 207","59063 Hamm","0176 61020308","happyeck10@gmail.com"]){
     assert.ok(html.includes(item),item);
   }
-  for(const id of ["main","angebot","sortiment","galerie","paketshop","oeffnungszeiten","bewertungen","jobs","kontakt","fragen","anfahrt"]){
+  for(const id of ["main","ueber-uns","sortiment","services","galerie","bewertungen","anfahrt"]){
     assert.ok(html.includes(`id="${id}"`),`Missing #${id}`);
   }
+  for(const page of ["gls","guthaben","bestellen","oeffnungszeiten","jobs","kontakt"]){
+    assert.ok(html.includes(`href="${page}.html"`),`Missing link to ${page}`);
+  }
+  assert.match(html,/href="\/anfahrt\/" id="open-directions"/);
+  assert.match(html,/href="tel:\+4917661020308" style="color:#000;background:#f4d9a3"/);
 });
 
-test("All internal anchors resolve to exactly one ID",()=>{
-  const ids=matchAll(html,/\bid="([^"]+)"/g);
-  assert.equal(ids.length,new Set(ids).size,"Duplicate HTML IDs");
-  for(const hash of matchAll(html,/href="#([^"]+)"/g)){
-    assert.ok(ids.includes(hash),`Broken anchor #${hash}`);
+test("Internal pages, anchors and resources resolve",()=>{
+  const site="https://happyeck.de";
+  for(const page of pages){
+    const source=read(page);
+    const ids=matchAll(source,/\bid="([^"]+)"/g);
+    assert.equal(ids.length,new Set(ids).size,`${page} has duplicate IDs`);
+    for(const value of matchAll(source,/\b(?:src|href|poster)="([^"]+)"/g)){
+      const url=new URL(value,`${site}/${page}`);
+      if(url.origin!==site)continue;
+      let path=decodeURIComponent(url.pathname.slice(1));
+      if(!path||path.endsWith("/"))path+="index.html";
+      assert.ok(existsSync(join(root,path)),`${page} links to missing resource ${value}`);
+      if(url.hash&&path.endsWith(".html")){
+        const id=decodeURIComponent(url.hash.slice(1));
+        assert.ok(matchAll(read(path),/\bid="([^"]+)"/g).includes(id),`${page} has a broken link to ${value}`);
+      }
+    }
   }
 });
 
-test("Local style, image and script resources are present",()=>{
-  const resources=[
-    ...matchAll(html,/\bsrc="(assets\/[^"]+)"/g),
-    ...matchAll(html,/\bhref="(assets\/[^"]+)"/g)
-  ];
-  assert.ok(resources.length>=12);
-  for(const name of resources){
-    assert.ok(existsSync(join(root,decodeURIComponent(name))),`Missing ${name}`);
+test("The contact and job forms point to their respective success pages",()=>{
+  for(const [page,success] of [["kontakt","kontakt"],["jobs","bewerbung"]]){
+    const source=read(page+".html");
+    const forms=matchAll(source,/<form\b([^>]*)>/g);
+    assert.equal(forms.length,1);
+    assert.match(forms[0],/method="POST"/);
+    assert.match(forms[0],/action="https:\/\/formsubmit\.co\//);
+    assert.ok(source.includes(`name="_next" value="https://happyeck.de/${success}-erfolg.html"`));
   }
-});
-
-test("Required forms exist and do not transmit during tests",()=>{
-  const forms=matchAll(html,/<form\b([^>]*)>/g);
-  assert.equal(forms.length,2);
-  for(const form of forms){
-    assert.match(form,/method="POST"/);
-    assert.match(form,/action="https:\/\/formsubmit\.co\//);
-  }
-  assert.match(html,/id="job-cv"[^>]*accept="[^"]*\.pdf/);
-  assert.match(js,/10485760/,"The 10 MB upload limit is enforced in the browser");
-  assert.match(html,/name="Geburtsdatum"/);
+  const jobs=read("jobs.html");
+  assert.match(jobs,/id="app-cv"[^>]*accept="[^"]*\.pdf/);
+  assert.match(jobs,/name="Geburtsdatum"/);
 });
 
 test("Links opening a new tab are protected",()=>{
-  for(const match of html.matchAll(/<a\b[^>]*target="_blank"[^>]*>/g)){
-    assert.match(match[0],/rel="[^"]*noopener/,`Missing noopener: ${match[0].slice(0,140)}`);
+  for(const page of pages){
+    for(const match of read(page).matchAll(/<a\b[^>]*target="_blank"[^>]*>/g)){
+      assert.match(match[0],/rel="[^"]*noopener/,`${page}: missing noopener: ${match[0].slice(0,140)}`);
+    }
   }
 });
 
-test("Only one mobile action bar exists",()=>{
-  assert.equal((html.match(/class="mobile-action-bar"/g)||[]).length,1);
-  assert.equal((html.match(/class="mobile-bottom-nav"/g)||[]).length,0);
+test("Only one mobile order shortcut exists",()=>{
+  assert.equal((html.match(/class="mobile-order-cta"/g)||[]).length,1);
 });
 
 test("Hours: weekday opens 08:30 and closes at midnight",()=>{
@@ -85,18 +95,16 @@ test("Invalid hours are rejected",()=>{
   assert.throws(()=>getOpeningStatus(1,24,0),RangeError);
 });
 test("External design files are populated",()=>{
-  assert.ok(css.length>10000);
-  assert.ok(js.length>1000);
+  for(const path of ["assets/home-simple.css","assets/winter-nights-2026.css","assets/luxury.js"]){
+    assert.ok(read(path).length>1000,path);
+  }
 });
 
-test("Catalog data is present, accurately priced and excludes vape advertising",()=>{
+test("Archived catalog data is well-formed and excludes vape entries",()=>{
   const products=JSON.parse(readFileSync(join(root,"assets/products.json"),"utf8")).items;
   assert.equal(products.length,414);
   assert.equal(products.filter(item=>item.group==="Vapes").length,0);
   assert.ok(products.some(item=>item.name==="Red Bull Original 0,25 l"&&item.price===3));
   assert.ok(products.some(item=>item.name==="Pringles Original"&&item.price===4));
   assert.equal(new Set(products.map(item=>item.group+"|"+item.name+"|"+item.price)).size,products.length);
-  assert.ok(html.includes('id="catalog-search"'));
-  assert.ok(html.includes('id="catalog-grid"'));
-  assert.ok(html.includes('src="assets/catalog.js"'));
 });

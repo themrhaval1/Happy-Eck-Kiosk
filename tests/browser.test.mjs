@@ -31,25 +31,48 @@ for(const [engineName,engine] of Object.entries({chromium,firefox,webkit})){
       for(const viewport of [{width:1440,height:900},{width:390,height:844},{width:768,height:1024}]){
         const page=await browser.newPage({viewport});
         const errors=[];
+        page.on("response",response=>{
+          if(new URL(response.url()).origin===origin&&response.status()>=400)
+            errors.push(response.status()+" "+response.url());
+        });
         page.on("pageerror",error=>errors.push(error.message));
         // Prevent all real contacts with third-party hosts in browser tests.
         await page.route("**/*",route=>{
           const url=new URL(route.request().url());
           return url.origin===origin?route.continue():route.abort();
         });
-        await page.goto(origin,{waitUntil:"networkidle"});
+        const response=await page.goto(origin,{waitUntil:"load"});
+        assert.equal(response.status(),200);
         const heading=await page.locator("h1").innerText();
         assert.match(heading,/Dein Kiosk\./);
         assert.match(heading,/Dein Eck\./);
-        await page.waitForFunction(()=>document.getElementById("kiosk-live")?.dataset.status!=="loading");
         const dims=await page.evaluate(()=>({scroll:document.documentElement.scrollWidth,viewport:innerWidth}));
         assert.ok(dims.scroll<=dims.viewport+3,engineName+" "+viewport.width+"px horizontal overflow: "+JSON.stringify(dims));
         assert.deepEqual(errors,[],engineName+" runtime errors");
-        const toggle=page.locator("#menu-toggle");
-        await toggle.click();
-        assert.equal(await page.locator("#site-menu").isVisible(),true);
+        const toggle=page.locator(".menu-btn");
+        const nav=page.locator("#nav-links");
+        if(await toggle.isVisible()){
+          await toggle.click();
+          assert.equal(await toggle.getAttribute("aria-expanded"),"true");
+          assert.equal(await nav.isVisible(),true);
+          await page.keyboard.press("Escape");
+          assert.equal(await toggle.getAttribute("aria-expanded"),"false");
+          assert.equal(await nav.isVisible(),false);
+        }else{
+          assert.equal(await nav.isVisible(),true);
+        }
+        await page.locator("#open-directions").click();
+        assert.equal(await page.locator("#directions-dialog").isVisible(),true);
+        assert.equal(await page.locator("#directions-dialog a").count(),2);
         await page.keyboard.press("Escape");
-        assert.equal(await page.locator("#site-menu").isVisible(),false);
+        assert.equal(await page.locator("#directions-dialog").isVisible(),false);
+        await page.locator(".gallery-zoom").first().click();
+        assert.equal(await page.locator("#gallery-dialog").isVisible(),true);
+        await page.keyboard.press("ArrowRight");
+        assert.equal(await page.locator("#gallery-count").innerText(),"2 / 8");
+        await page.keyboard.press("Escape");
+        assert.equal(await page.locator("#gallery-dialog").isVisible(),false);
+        assert.deepEqual(errors,[],engineName+" runtime errors after interactions");
         await page.close();
       }
     }finally{await browser.close();}
@@ -62,13 +85,12 @@ for(const [engineName,engine] of Object.entries({chromium,firefox,webkit})){
         const url=new URL(route.request().url());
         return url.origin===origin?route.continue():route.abort();
       });
-      await page.goto(origin,{waitUntil:"networkidle"});
-      await page.locator(".apply-panel summary").click();
-      const input=page.locator("#job-cv");
+      await page.goto(origin+"/jobs.html",{waitUntil:"load"});
+      const input=page.locator("#app-cv");
       await input.setInputFiles({name:"lebenslauf.pdf",mimeType:"application/pdf",buffer:Buffer.alloc(10*1024*1024+1)});
       const invalid=await input.evaluate(el=>el.validationMessage);
       assert.match(invalid,/10 MB/);
-      assert.equal(await page.locator("form").count(),2);
+      assert.equal(await page.locator("form").count(),1);
       await page.close();
     }finally{await browser.close();}
   });
