@@ -141,3 +141,13 @@ dialog::backdrop{background:#10201dd9}
   .service-card h3,.service-card p,.service-card strong{grid-column:2}
   .service-card strong{padding-top:2px}
 }
+
+/* Opening hours are visible in the same block as the storefront. */
+.kiosk-hero-info{min-width:0;display:grid;gap:12px}
+.kiosk-hours{padding:14px 16px;border:1px solid #9aaca07a;border-radius:12px;background:#203630}
+.kiosk-hours h2{font-size:1rem;color:#fff}
+.kiosk-hours dl{margin:6px 0 0}
+.kiosk-hours dl div{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2px 12px;border-bottom:1px solid #8cac9c55;padding:3px 0}
+.kiosk-hours dt,.kiosk-hours dd{font-size:.87rem;margin:0}
+.kiosk-hours dd{white-space:nowrap;font-variant-numeric:tabular-nums;color:#f4d9b5}
+.kiosk-hours p{font-size:.76rem;color:#dbe5db;margin:6px 0 0}

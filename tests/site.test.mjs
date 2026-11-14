@@ -122,3 +122,10 @@ test("Homepage gallery contains eight viewable images clearly labeled as illustr
   assert.equal((gallery.match(/class="gallery-zoom"/g)||[]).length,8);
   assert.match(gallery,/Illustrationen und keine Originalfotos/);
 });
+
+test("Homepage hours match the published kiosk hours, not the GLS hours",()=>{
+  const details=read("oeffnungszeiten.html").match(/<h3>Happy Eck Kiosk<\/h3>(<dl>.*?<\/dl>)/)?.[1];
+  const summary=html.match(/<aside class="kiosk-hours"[\s\S]*?(<dl>.*?<\/dl>)/)?.[1];
+  assert.ok(details);
+  assert.equal(summary,details);
+});
