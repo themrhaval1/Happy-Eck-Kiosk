@@ -24,7 +24,7 @@ body.shop-subpage{margin:0;min-height:100svh;display:flex;flex-direction:column}
 .order-compact h1{margin:0 0 10px;font-size:clamp(2rem,5vw,3rem);line-height:1.08;letter-spacing:-.045em}
 .order-lead{margin:0 0 16px;color:var(--muted)}
 .order-list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
-.order-link{display:flex;align-items:center;justify-content:space-between;gap:9px 16px;flex-wrap:wrap;min-height:64px;padding:12px 14px;color:var(--ink);text-decoration:none;background:var(--white);border:1px solid var(--line);border-radius:12px}
+.order-link{display:grid;grid-template-columns:112px minmax(0,1fr) auto;align-items:center;gap:10px 15px;min-height:80px;padding:12px 15px;color:var(--ink);text-decoration:none;background:var(--white);border:1px solid var(--line);border-radius:12px}
 .order-link:hover{background:#eaf0e8;border-color:var(--teal)}
 .order-link strong,.order-link small{display:block}
 .order-link small{color:var(--muted);font-size:.86rem}
@@ -34,7 +34,21 @@ body.shop-subpage{margin:0;min-height:100svh;display:flex;flex-direction:column}
 .shop-order .footer{padding:16px 18px;text-align:center;font-size:.83rem}
 .shop-order .skip{position:absolute;top:8px;left:8px;z-index:20;padding:8px 12px;background:var(--white);color:var(--ink);transform:translateY(-150%)}
 .shop-order .skip:focus{transform:none}
-@media(max-width:470px){.order-action{padding:5px 8px}}
+
+.order-logo{display:grid;place-items:center;min-width:0;height:54px;border-radius:9px;padding:8px}
+.order-logo img{display:block;width:100%;height:100%;object-fit:contain;min-height:0}
+.order-logo-wolt{background:#e5f7fc}
+.order-logo-lieferando{background:#fff0e5}
+.order-logo-whatsapp{background:#e5f5eb}
+.order-logo-whatsapp img{width:38px}
+.order-copy{overflow-wrap:anywhere}
+.order-action{white-space:nowrap}
+@media(max-width:560px){
+  .order-link{grid-template-columns:92px minmax(0,1fr);gap:5px 12px}
+  .order-logo{grid-row:span 2}
+  .order-action{justify-self:start;padding:3px 8px}
+}
+
 </style>
 </head>
 <body class="happy-site page-order shop-subpage shop-order">
@@ -48,13 +62,13 @@ body.shop-subpage{margin:0;min-height:100svh;display:flex;flex-direction:column}
   <p class="order-lead">Getränke und Snacks von Happy Eck in Hamm.</p>
   <ul class="order-list" aria-label="Bestellmöglichkeiten">
     <li><a class="order-link" href="https://wolt.com/en/deu/hamm/venue/happy-eck-kiosk-1" target="_blank" rel="noopener noreferrer">
-      <span><strong>Wolt</strong><small>Sortiment und Lieferkosten bei Wolt ansehen</small></span><span class="order-action">Wolt öffnen <span aria-hidden="true">↗</span></span>
+      <span class="order-logo order-logo-wolt"><img src="assets/wolt-order-logo.png" alt="" width="250" height="92"></span><span class="order-copy"><strong>Wolt</strong><small>Sortiment und Lieferkosten bei Wolt ansehen</small></span><span class="order-action">Wolt öffnen <span aria-hidden="true">↗</span></span>
     </a></li>
     <li><a class="order-link" href="https://www.lieferando.de/speisekarte/happy-eck-kiosk-59063-hamm" target="_blank" rel="noopener noreferrer">
-      <span><strong>Lieferando</strong><small>Sortiment und Lieferkosten bei Lieferando ansehen</small></span><span class="order-action">Lieferando öffnen <span aria-hidden="true">↗</span></span>
+      <span class="order-logo order-logo-lieferando"><img src="assets/lieferando-order-logo.png" alt="" width="360" height="111"></span><span class="order-copy"><strong>Lieferando</strong><small>Sortiment und Lieferkosten bei Lieferando ansehen</small></span><span class="order-action">Lieferando öffnen <span aria-hidden="true">↗</span></span>
     </a></li>
     <li><a class="order-link order-direct" href="https://wa.me/4917661020308?text=Hallo%20Happy%20Eck%2C%20ich%20m%C3%B6chte%20gerne%20per%20WhatsApp%20bestellen." target="_blank" rel="noopener noreferrer">
-      <span><strong>WhatsApp</strong><small>Schick uns deine Bestellung und deine Postleitzahl</small></span><span class="order-action">Anfrage schreiben <span aria-hidden="true">↗</span></span>
+      <span class="order-logo order-logo-whatsapp"><img src="assets/whatsapp-brand.svg" alt="" width="66" height="66"></span><span class="order-copy"><strong>WhatsApp</strong><small>Schick uns deine Bestellung und deine Postleitzahl</small></span><span class="order-action">Anfrage schreiben <span aria-hidden="true">↗</span></span>
     </a></li>
   </ul>
   <p class="order-note">Bei WhatsApp bestätigen wir dir Liefergebühr, Mindestbestellwert und Bestellung persönlich.</p>
