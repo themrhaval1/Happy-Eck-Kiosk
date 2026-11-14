@@ -23,7 +23,7 @@ test("Homepage includes essential information, sections and subpage links",()=>{
     assert.ok(html.includes(`href="${page}.html"`),`Missing link to ${page}`);
   }
   assert.match(html,/href="\/anfahrt\/" id="open-directions"/);
-  assert.match(html,/href="tel:\+4917661020308" style="color:#000;background:#f4d9a3"/);
+  assert.match(html,/href="tel:\+4917661020308" style="color:#000!important;background:#f4d9a3!important"/);
 });
 
 test("Internal pages, anchors and resources resolve",()=>{
